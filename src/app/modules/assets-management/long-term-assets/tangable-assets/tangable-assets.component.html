@@ -1,0 +1,1951 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Header -->
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
+            <div
+                class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12"
+            >
+                <!-- Avatar and name -->
+                <div class="flex flex-auto items-center min-w-0">
+                    <div class="flex flex-col min-w-0 ml-4">
+                        <ng-container *transloco="let t">
+                            <div
+                                class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                            >
+                                Long Term Assets - Tangable
+                            </div>
+                        </ng-container>
+                        <div class="flex items-center">
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_solid:bell'"
+                            ></mat-icon>
+                            <div
+                                class="ml-1.5 leading-6 truncate text-secondary"
+                            >
+                                You have 7 new messages and 15 new activities
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
+                    <button mat-flat-button [color]="'primary'">
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:cog-8-tooth'"
+                        ></mat-icon>
+                        <span class="ml-2">Settings</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
+        <div class="w-full max-w-screen-xl mx-auto">
+            <!-- Tabs -->
+            <mat-tab-group
+                class="sm:px-2"
+                mat-stretch-tabs="false"
+                [animationDuration]="'0'"
+            >
+                <!-- Home -->
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="inline-flex items-center space-x-2">
+                            <span class="">All</span>
+                            <span
+                                class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100"
+                                >28</span
+                            >
+                        </span>
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Real Estate Properties
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button
+                                                mat-menu-item
+                                                routerLink="/assets-management/current-detail"
+                                            >
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        10 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Vehicles
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        14 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From last month:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-lime-500"
+                                    >
+                                        4 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-lime-600 dark:text-lime-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Closed today:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        13 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Furniture and Fixtures
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        7 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From last month:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            2
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-lime-500"
+                                    >
+                                        4 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-lime-600 dark:text-lime-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Closed today:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Real Estate Properties
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        10 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Vehicles
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        14 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From last month:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-lime-500"
+                                    >
+                                        4 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-lime-600 dark:text-lime-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Closed today:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Accounts receivable
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="
+                                                Accounts_receivable
+                                            "
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu
+                                            #Accounts_receivable="matMenu"
+                                        >
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"
+                                    >
+                                        12 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-amber-600 dark:text-amber-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Furniture and Fixtures
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="
+                                                Accounts_receivable
+                                            "
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu
+                                            #Accounts_receivable="matMenu"
+                                        >
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-teal-400"
+                                    >
+                                        10 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-teal-600 dark:text-teal-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Features -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Accounts receivable
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="featuresMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
+                                    >
+                                        38
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-green-600 dark:text-green-500"
+                                    >
+                                        Proposals
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Implemented:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            16
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center items-center p-6 shadow rounded-2xl overflow-hidden h-56 w-[270px] cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out"
+                            >
+                                <mat-icon
+                                    class="icon-size-12 text-hint"
+                                    [svgIcon]="'heroicons_outline:plus'"
+                                ></mat-icon>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+
+                <!--   Real Estate Properties   -->
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="inline-flex items-center space-x-2">
+                            <span class=""> Real Estate Properties </span>
+                            <span
+                                class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100"
+                                >3</span
+                            >
+                        </span>
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Real Estate Properties
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        10 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Real Estate Properties
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        14 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From last month:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-lime-500"
+                                    >
+                                        4 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-lime-600 dark:text-lime-500"
+                                    >
+                                        From Real Estate Properties
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Evaluation :
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-col justify-center items-center p-6 shadow rounded-2xl overflow-hidden h-56 w-[270px] cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out"
+                            >
+                                <mat-icon
+                                    class="icon-size-12 text-hint"
+                                    [svgIcon]="'heroicons_outline:plus'"
+                                ></mat-icon>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <!-- Vehicles -->
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="inline-flex items-center space-x-2">
+                            <span class="">Vehicles</span>
+                            <span
+                                class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100"
+                                >5</span
+                            >
+                        </span>
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Vehicles
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        10 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        From Vehicles
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Vehicles
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        14 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Asset Weighting
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From last month:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-lime-500"
+                                    >
+                                        4 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-lime-600 dark:text-lime-500"
+                                    >
+                                        From Vehicles
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Evaluation :
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Vehicles
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="
+                                                Accounts_receivable
+                                            "
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu
+                                            #Accounts_receivable="matMenu"
+                                        >
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"
+                                    >
+                                        12 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-amber-600 dark:text-amber-500"
+                                    >
+                                        From Vehicles
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Vehicles
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="
+                                                Accounts_receivable
+                                            "
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu
+                                            #Accounts_receivable="matMenu"
+                                        >
+                                            <button mat-menu-item>
+                                                View Details
+                                            </button>
+                                            <button mat-menu-item>
+                                                Manage
+                                            </button>
+                                            <button mat-menu-item>other</button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-teal-400"
+                                    >
+                                        10 %
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-teal-600 dark:text-teal-500"
+                                    >
+                                        From Vehicles
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Process Completed
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            7
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col justify-center items-center p-6 shadow rounded-2xl overflow-hidden h-56 w-[270px] cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out"
+                            >
+                                <mat-icon
+                                    class="icon-size-12 text-hint"
+                                    [svgIcon]="'heroicons_outline:plus'"
+                                ></mat-icon>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <!--  Accounts receivable  -->
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="inline-flex items-center space-x-2">
+                            <span class=""> Accounts receivable </span>
+                            <span
+                                class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100"
+                                >12</span
+                            >
+                        </span>
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Summary
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        10
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        Due Tasks
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Completed:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Overdue
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #overdueMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        14
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Tasks
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From yesterday:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Issues
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"
+                                    >
+                                        24
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-amber-600 dark:text-amber-500"
+                                    >
+                                        Open
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Closed today:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            19
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Features -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Features
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="featuresMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #featuresMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
+                                    >
+                                        38
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-green-600 dark:text-green-500"
+                                    >
+                                        Proposals
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Implemented:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            16
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Features -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Oil and Gas
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="featuresMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #featuresMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
+                                    >
+                                        18%
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-green-600 dark:text-green-500"
+                                    >
+                                        FromOil and Gas
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Evaluation :
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            12
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+
+                <!-- Team -->
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="inline-flex items-center space-x-2">
+                            <span class="">Marketable securities</span>
+                            <span
+                                class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100"
+                                >9</span
+                            >
+                        </span>
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <!-- Summary -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Furniture and Fixtures
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="summaryMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #summaryMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                                    >
+                                        10
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-blue-600 dark:text-blue-500"
+                                    >
+                                        FromFurniture and Fixtures
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Completed:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            13
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Overdue -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Overdue
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="overdueMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #overdueMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                                    >
+                                        14
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-red-600 dark:text-red-500"
+                                    >
+                                        Tasks
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            From yesterday:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            9
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Issues -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Issues
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="issuesMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #issuesMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-amber-500"
+                                    >
+                                        24
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-amber-600 dark:text-amber-500"
+                                    >
+                                        Open
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Closed today:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            19
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Features -->
+                            <div
+                                class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                            >
+                                <div class="flex items-start justify-between">
+                                    <div
+                                        class="text-lg font-medium tracking-tight leading-6 truncate"
+                                    >
+                                        Features
+                                    </div>
+                                    <div class="ml-2 -mt-2 -mr-3">
+                                        <button
+                                            mat-icon-button
+                                            [matMenuTriggerFor]="featuresMenu"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_mini:ellipsis-vertical'
+                                                "
+                                            ></mat-icon>
+                                        </button>
+                                        <mat-menu #featuresMenu="matMenu">
+                                            <button mat-menu-item>
+                                                Yesterday
+                                            </button>
+                                            <button mat-menu-item>
+                                                2 days ago
+                                            </button>
+                                            <button mat-menu-item>
+                                                3 days ago
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-center mt-2">
+                                    <div
+                                        class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
+                                    >
+                                        38
+                                    </div>
+                                    <div
+                                        class="text-lg font-medium text-green-600 dark:text-green-500"
+                                    >
+                                        Proposals
+                                    </div>
+                                    <div
+                                        class="flex items-baseline justify-center w-full mt-5 text-secondary"
+                                    >
+                                        <div
+                                            class="text-md font-medium truncate"
+                                        >
+                                            Implemented:
+                                        </div>
+                                        <div
+                                            class="ml-1.5 text-lg font-semibold"
+                                        >
+                                            16
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
