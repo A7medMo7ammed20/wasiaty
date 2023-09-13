@@ -34,14 +34,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         id: 'tangableAssets',
                         title: 'Tangable Assets',
                         type: 'basic',
-                        link: '/assets-management/tangable-assets',
+                        link: '/assets-management/long-term/tangible-assets',
                         
                     },
                     {
                         id: 'intangableAssets',
                         title: 'Intangable Assets',
                         type: 'basic',
-                        link: '/assets-management/intangable-assets',
+                        link: '/assets-management/long-term/intangible-assets',
                       
                     },
                 ],

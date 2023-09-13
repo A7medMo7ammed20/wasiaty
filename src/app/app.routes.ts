@@ -52,17 +52,7 @@ export const appRoutes: Route[] = [
         ]
     },
 
-    // Landing routes
-    {
-        path: '',
-        component: LayoutComponent,
-        data: {
-            layout: 'empty'
-        },
-        children: [
-            {path: 'home', loadChildren: () => import('app/modules/landing/home/home.routes')},
-        ]
-    },
+   
 
     // Admin routes
     {
@@ -76,7 +66,8 @@ export const appRoutes: Route[] = [
         children: [
             {path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboards/assets-dashboard/assets-dashboard.routes')},
             
-           
+            {path: 'assets-management', loadChildren: () => import('app/modules/assets-management/assets-management.routes')},
+
         ]
     }
 ];
