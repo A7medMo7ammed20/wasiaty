@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './current-detail.component.html',
+  styleUrls: ['./current-detail.component.scss']
 })
 export class CurrentDetailComponent {
 

@@ -1,0 +1,72 @@
+<div class="flex flex-col flex-auto p-6 md:p-8">
+
+    <!-- Close button -->
+    <div class="flex items-center justify-end">
+        <a
+            mat-icon-button
+           (click)="closeDrawer()"
+            >
+            <mat-icon [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+        </a>
+    </div>
+
+    <!-- Preview -->
+    <div class="mt-8 aspect-[9/6]">
+        <div class="flex items-center justify-center h-full border rounded-lg bg-gray-50 dark:bg-card">
+        
+                <mat-icon
+                    class="icon-size-24 text-hint"
+                    [svgIcon]="'heroicons_outline:folder'"></mat-icon>
+          
+         
+        </div>
+    </div>
+
+    <!-- Name & Type -->
+
+
+    <!-- Information -->
+    <div class="text-lg font-medium mt-8">Information</div>
+    <div class="flex flex-col mt-4 border-t border-b divide-y font-medium">
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">Created By</div>
+            <div>Item CreatedBy</div>
+        </div>
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">Created At</div>
+            <div>Item CreatedAt</div>
+        </div>
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">Modified At</div>
+            <div>Item ModifiedAt</div>
+        </div>
+        <div class="flex items-center justify-between py-3">
+            <div class="text-secondary">item</div>
+            <div>Item Size</div>
+        </div>
+        <ng-container>
+            <div class="flex items-center justify-between py-3">
+                <div class="text-secondary">Contents</div>
+                <div>Item Contents</div>
+            </div>
+        </ng-container>
+    </div>
+
+    <!-- Description -->
+    <div class="flex items-center justify-between mt-8">
+        <div class="text-lg font-medium">Description</div>
+        <button mat-icon-button>
+            <mat-icon
+                class="icon-size-5"
+                [svgIcon]="'heroicons_solid:pencil'"></mat-icon>
+        </button>
+    </div>
+   
+
+    <!-- Actions -->
+    
+
+</div>
+
+
+

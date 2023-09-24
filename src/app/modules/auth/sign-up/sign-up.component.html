@@ -2,10 +2,9 @@
     class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0"
 >
     <div
-        class="md:flex md:items-center md:justify-end w-full sm:w-auto md:h-full md:w-1/2 py-8 px-4 sm:p-6 md:p-16 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none bg-card"
+        class="md:flex md:items-center md:justify-start w-full sm:w-auto md:h-full md:w-1/2 py-8 px-4 sm:p-12 md:p-16 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none sm:bg-card"
     >
-        <!-- Main -->
-        <div class="flex-auto p-6 sm:p-10">
+        <div class="w-full max-w-[27rem] sm:w-[27rem] mx-auto sm:mx-0">
             <!-- Logo -->
             <div class="w-12">
                 <img src="assets/images/logo/logo.svg" />
@@ -18,12 +17,19 @@
                 Sign up
             </div>
             <div class="flex items-baseline mt-0.5 font-medium">
-                <div>have an account?</div>
+                <div>Do have an account?</div>
                 <a
                     class="ml-1 text-primary-500 hover:underline"
                     [routerLink]="['/sign-in']"
-                    >Sign in
+                    >Sign In
                 </a>
+                <!-- <a
+                    class="ml-1 text-primary-500 hover:underline"
+                    (click)="dialogVerfication()"                              >
+
+                    >Sign In
+                </a> -->
+                
             </div>
 
             <!-- Alert -->
@@ -34,7 +40,7 @@
                 [type]="'info'"
             >
                 You are browsing <strong>Alwsia</strong>. Click on the "Sign in"
-                button to access .
+                button to access.
             </fuse-alert>
 
             <!-- Alert -->
@@ -49,17 +55,21 @@
                 {{ alert.message }}
             </fuse-alert>
 
+            <!-- Sign in form -->
             <div class="max-w-3xl mt-2">
                 <form
-                    class="p-4 bg-card shadow rounded overflow-hidden"
+                
+                class="p-4 bg-card shadow rounded overflow-hidden"
                     [formGroup]="verticalStepperForm"
                 >
+                
                     <mat-vertical-stepper [linear]="true" #verticalStepper>
                         <mat-step
                             [formGroupName]="'step1'"
                             [stepControl]="verticalStepperForm.get('step1')"
                             #verticalStepperStep1
                         >
+                        
                             <ng-template matStepLabel
                                 >Basic information</ng-template
                             >
@@ -68,8 +78,9 @@
                                 your preferences
                             </p>
                             <div class="flex flex-col gt-xs:flex-row">
-                                <mat-form-field class="flex-auto">
+                                <mat-form-field class="flex-auto ">
                                     <input 
+                                    
                                         matInput
                                         [formControlName]="'firstName'"
                                         [placeholder]="'First name'"
@@ -116,7 +127,7 @@
                                 </mat-form-field>
                             </div>
                             <div class="flex flex-col gt-xs:flex-row">
-                               
+                            
                             </div>
                             <div class="flex justify-end">
                                 <button
@@ -170,11 +181,11 @@
                                     <mat-icon
                                         class="icon-size-5"
                                         matPrefix
-                                        [svgIcon]="'heroicons_solid:envelope'"
+                                        [svgIcon]="'heroicons_solid:phone'"
                                     ></mat-icon>
                                 </mat-form-field>
                             </div>
-                           
+                        
                             
                             <div class="flex justify-end">
                                 <button
@@ -208,30 +219,33 @@
                             [stepControl]="verticalStepperForm.get('step3')"
                         >
                             <ng-template matStepLabel
-                                >Notifications</ng-template
+                                >Verification</ng-template
                             >
                             <p class="my-6 font-medium">
-                                We'll always let you know about important
-                                changes, but you pick what else you want to hear
-                                about.
+                            
                             </p>
-                            <div class="flex flex-col gt-sm:flex-row">
-                                <div class="flex flex-col">
-                                    <mat-form-field class="flex-auto">
-                                        <input
-                                            [hidden]="!insertcode" 
-                                            matInput
-                                            [formControlName]="'code'"
-                                            [placeholder]="'Insert code'"
-                                            required
-                                        />
-                                       
-                                    </mat-form-field> 
-                                    <!-- <mat-form-field  >
-                                        <mat-label [hidden]="true" >OTP Verification Completed</mat-label>
-                                        <input matInput [hidden]="true " type="text" readonly placeholder=" OTP Verification Completed " >
-                                      </mat-form-field> -->
-                                </div>
+                            <div class="flex flex-col gt-xs:flex-row"  >
+                                <mat-form-field class="flex-auto" *ngIf="insertcode" >
+                                    <input
+                                    matInput
+                                    [formControlName]="'code'"
+                                    [placeholder]="'Insert code'"
+                                    required
+                                    />
+                                </mat-form-field> 
+                                <mat-form-field class="flex-auto rounded-none"  *ngIf="!insertcode" readonly disabled>
+                                    <input
+                                    matInput
+                                    readonly
+                                    [placeholder]="'OTP Verification Completed'"
+                                    required
+                                    /> 
+                                    <mat-icon
+                                    class="icon-size-5"
+                                    matPrefix
+                                    [svgIcon]="'heroicons_solid:check-circle'"
+                                ></mat-icon> 
+                                </mat-form-field> 
                             </div>
                             <div class="flex justify-end mt-8">
                                 <button
@@ -249,22 +263,22 @@
                                     mat-flat-button
                                     [color]="'primary'"
                                     type="button"
-                                    (click)="checkCode()"
+                                    (click)="insertcode=!insertcode"
                                     
                                 >
-                                    check
+                                    Next
                                 </button>
-                                <button
+                                <button 
                                 [hidden]="insertcode" 
                                     class="px-8"
                                     mat-flat-button
                                     [color]="'primary'"
                                     type="button"
                                     matStepperNext
-                                    
-                                >
-                                    Next
+                                    (click)="dialogVerfication()" >
+                                Verify ID & Face
                                 </button>
+                                
                             </div>
                         </mat-step>
 
@@ -301,7 +315,6 @@
             </div>
         </div>
     </div>
-
     <div
         class="relative hidden md:flex flex-auto items-center justify-center w-1/2 h-full p-16 lg:px-28 overflow-hidden bg-gray-800 dark:border-l"
     >
@@ -365,9 +378,7 @@
                 <div>our community</div>
             </div>
             <div class="mt-6 text-lg tracking-tight leading-6 text-gray-400">
-                Fuse helps developers to build organized and well coded
-                dashboards full of beautiful and rich modules. Join us and start
-                building your application today.
+                
             </div>
             <div class="flex items-center mt-8">
                 <div class="flex flex-0 items-center -space-x-1.5">

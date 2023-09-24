@@ -8,7 +8,6 @@ export default [
         component: AssetsManagementComponent,
     
         children : [
-            
                 {path: 'long-term', loadChildren: () => import('app/modules/assets-management/long-term-assets/long-term-assets.routes')},
                 {path: 'current-assets', loadChildren: () => import('app/modules/assets-management/current-assets/current-assets.routes')},
              

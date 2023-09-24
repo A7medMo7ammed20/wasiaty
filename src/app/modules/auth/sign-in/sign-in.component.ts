@@ -76,7 +76,7 @@ export class AuthSignInComponent implements OnInit
         }
 
         // Disable the form
-        this.signInForm.disable();
+        // this.signInForm.disab    le();
 
         // Hide the alert
         this.showAlert = false;
@@ -99,10 +99,10 @@ export class AuthSignInComponent implements OnInit
                 (response) =>
                 {
                     // Re-enable the form
-                    this.signInForm.enable();
+                    // this.signInForm.enable();
 
                     // Reset the form
-                    this.signInNgForm.resetForm();
+                    // this.signInNgForm.resetForm();
 
                     // Set the alert
                     this.alert = {

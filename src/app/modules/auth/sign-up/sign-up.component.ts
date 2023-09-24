@@ -8,13 +8,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink ,ActivatedRoute } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
-import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { AuthService } from 'app/core/auth/auth.service';
+import { AuthVerificationComponent } from '../verification/verification.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -46,6 +49,8 @@ export class AuthSignUpComponent implements OnInit
         private _authService: AuthService,
         private _formBuilder: UntypedFormBuilder,
         private _router: Router,
+        private _matDialog: MatDialog,
+        private _activatedRoute: ActivatedRoute,
     )
     {
     }
@@ -80,10 +85,6 @@ export class AuthSignUpComponent implements OnInit
             }),
         });
        
-    }
-
-    checkCode(){
-        this.insertcode=!this.insertcode
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -133,5 +134,19 @@ export class AuthSignUpComponent implements OnInit
                     this.showAlert = true;
                 },
             );
+    }
+    dialogVerfication()
+    {
+       let dialogRef = this._matDialog.open(AuthVerificationComponent)
+    //     .afterClosed()
+    //     .subscribe(() =>
+    //     {
+    //         // Go up twice because card routes are set up like this; "card/CARD_ID"
+    //         // this._router.navigate(['./../..'], {relativeTo: this._activatedRoute});
+    //     });
+    dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+
+      });
     }
 }

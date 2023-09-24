@@ -34,7 +34,6 @@ export class AssetsManagementComponent {
     // @ Lifecycle hooks
     // -----------------------------------------------------------------------------------------------------
 
-    
     /**
      * On init
      */

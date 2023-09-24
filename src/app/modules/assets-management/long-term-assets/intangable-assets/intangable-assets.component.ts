@@ -18,7 +18,6 @@ import { NgApexchartsModule } from 'ng-apexcharts';
   imports   : [CommonModule ,TranslocoModule, RouterOutlet, RouterModule, MatIconModule, MatButtonModule, MatRippleModule, MatMenuModule, MatTabsModule, MatButtonToggleModule, NgApexchartsModule, NgFor, NgIf, MatTableModule, NgClass, CurrencyPipe],
 
   templateUrl: './intangable-assets.component.html',
-  styleUrls: ['./intangable-assets.component.scss']
 })
 export class IntangableAssetsComponent {
 
