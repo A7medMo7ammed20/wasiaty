@@ -64,10 +64,16 @@ export const appRoutes: Route[] = [
             initialData: initialDataResolver
         },
         children: [
-            {path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboards/assets-dashboard/assets-dashboard.routes')},
-            
-            {path: 'assets-management', loadChildren: () => import('app/modules/assets-management/assets-management.routes')},
+            { path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboards/assets-dashboard/assets-dashboard.routes') },
 
+            { path: 'assets-management', loadChildren: () => import('app/modules/assets-management/assets-management.routes') },
+
+            {
+                path: 'document-managment', children: [
+                    { path: 'file-manager', loadChildren: () => import('app/modules/document-managment/file-manager/file-manager.routes') },
+                ]
+            },
+            { path: 'settings', loadChildren: () => import('app/modules/settings/settings.routes') },
         ]
     }
 ];
