@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
 import { items as itemsData } from 'app/mock-api/apps/file-manager/data';
 import { cloneDeep } from 'lodash-es';
@@ -87,5 +88,33 @@ export class FileManagerMockApi
                     },
                 ];
             });
+
+            // -----------------------------------------------------------------------------------------------------
+        // @ Contact - POST
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+        .onPost('api/apps/file-manager/item')
+        .reply(() =>
+        {
+            // Generate a new contact
+            const newContact = {
+                id          : FuseMockApiUtils.guid(),
+                folderId      : null,
+                name        : 'New Contact',
+                createdBy      : '',
+                createdAt: '',
+                modifiedAt    : null,
+                size     : null,
+                type       : ['folder'],
+                description       : null,
+                contents        : '',
+            };
+
+            // Unshift the new contact
+            this._items.unshift(newContact);
+
+            // Return the response
+            return [200, newContact];
+        });
     }
 }

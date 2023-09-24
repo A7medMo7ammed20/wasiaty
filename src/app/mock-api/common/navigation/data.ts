@@ -48,6 +48,22 @@ export const defaultNavigation: FuseNavigationItem[] = [
             },
         ],
     },
+    {
+        id:'document-managment.file-manager',
+        title: 'Doucument Management',
+        type : 'basic',
+        icon : 'heroicons_outline:folder',
+        link : '/document-managment/file-manager',
+
+    },
+    // {
+    //     id: 'settings',
+    //     title: 'Settings',
+    //     type: 'basic',
+    //     icon: 'feather:settings',
+    //     link: '/settings',
+    // },
+    
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {

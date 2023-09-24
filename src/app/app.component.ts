@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { firebaseConfig } from './core/firebase';
-import { initializeApp } from "firebase/app";
 
 @Component({
     selector   : 'app-root',
@@ -10,7 +8,7 @@ import { initializeApp } from "firebase/app";
     standalone : true,
     imports    : [RouterOutlet],
 })
-export class AppComponent implements OnInit
+export class AppComponent
 {
     /**
      * Constructor
@@ -18,9 +16,4 @@ export class AppComponent implements OnInit
     constructor()
     {
     }
-    ngOnInit(): void {
-        initializeApp(firebaseConfig);
-    }
-
-
 }
