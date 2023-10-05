@@ -14,7 +14,7 @@ import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { AuthService } from 'app/core/auth/auth.service';
-import { AuthVerificationComponent } from '../verification/verification.component';
+import { AuthVerificationComponent } from 'app/modules/auth/sign-up/verification/verification.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -26,7 +26,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations,
     standalone   : true,
-    imports: [RouterLink, NgIf, FuseAlertComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCheckboxModule, MatProgressSpinnerModule, MatIconModule, FormsModule, ReactiveFormsModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatButtonModule, MatCheckboxModule, MatIconModule],
+    imports: [RouterLink, NgIf, FuseAlertComponent, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCheckboxModule, MatProgressSpinnerModule, MatStepperModule, MatSelectModule, MatOptionModule],
    
 })
 export class AuthSignUpComponent implements OnInit
@@ -135,6 +135,7 @@ export class AuthSignUpComponent implements OnInit
                 },
             );
     }
+    
     dialogVerfication()
     {
        let dialogRef = this._matDialog.open(AuthVerificationComponent)

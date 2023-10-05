@@ -7,15 +7,13 @@
         <!-- Drawer -->
         <mat-drawer
             class="w-full sm:w-100 dark:bg-gray-900"
-            [mode]="'push'"
+            [mode]="drawerMode"
             [opened]="false"
             [position]="'end'"
             [disableClose]="true"
             #matDrawer>
             <router-outlet></router-outlet>
         </mat-drawer>
-
-        
 
         <mat-drawer-content class="flex flex-col bg-gray-100 dark:bg-transparent">
 
@@ -70,7 +68,7 @@
                             mat-flat-button
                             [color]="'primary'"
                             (click)="$event.preventDefault()"
-                            
+
                             (click)="createFile()"
                             >
                             <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>

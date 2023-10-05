@@ -67,6 +67,7 @@ export class AssetsDashboardComponent implements OnInit, OnDestroy
            {
                // Store the data
                this.data = data;
+               console.log(" data  from  constractore" , data)
 
                // Prepare the chart data
                this._prepareChartData();

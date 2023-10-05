@@ -1,0 +1,24 @@
+<mat-dialog-content>
+  <form  #memberForm="ngForm">
+    <!-- <mat-form-field>
+      <input matInput placeholder="Avatar" name="avatar" [(ngModel)]="newMember.avatar" >
+    </mat-form-field> -->
+
+    <mat-form-field class="w-full">
+      <input matInput placeholder="Name" name="name" [(ngModel)]="newMember.name" required>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" >
+      <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="newMember.email" required>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" >
+      <input matInput placeholder="Role" name="role" [(ngModel)]="newMember.role" required>
+    </mat-form-field>
+
+    <div mat-dialog-actions class="w-full" >
+      <button mat-button (click)="addMember()" type="button">Add</button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

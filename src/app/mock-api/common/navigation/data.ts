@@ -9,6 +9,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:squares-2x2',
         link: '/dashboard',
     },
+
     {
         id: 'AssetsManagment',
         title: 'Assets Managment',
@@ -35,35 +36,76 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         title: 'Tangable Assets',
                         type: 'basic',
                         link: '/assets-management/long-term/tangible-assets',
-                        
+
                     },
                     {
                         id: 'intangableAssets',
                         title: 'Intangable Assets',
                         type: 'basic',
                         link: '/assets-management/long-term/intangible-assets',
-                      
+
                     },
                 ],
             },
         ],
     },
     {
-        id:'document-managment.file-manager',
+        id:'DocumentManagment.FileManager',
         title: 'Doucument Management',
         type : 'basic',
         icon : 'heroicons_outline:folder',
         link : '/document-managment/file-manager',
 
+
     },
-    // {
-    //     id: 'settings',
-    //     title: 'Settings',
-    //     type: 'basic',
-    //     icon: 'feather:settings',
-    //     link: '/settings',
-    // },
-    
+
+    {
+        id:'FamilyTree',
+        title: 'Family Tree',
+        type : 'collapsable',
+        icon : 'family_restroom',
+        children: [
+            {
+                id: 'FamilyMembers',
+                title: 'Family members',
+                type: 'basic',
+                link: '/family-tree/family-members',
+
+            },
+            {
+                id: 'RelationshipsFamily',
+                title: 'Relationships Family',
+                type: 'basic',
+                link: '/family-tree/relationships-family',
+
+            },
+        ]
+
+    },
+    {
+        id: 'BequestManagement',
+        title: 'Bequest Management',
+        type: 'basic',
+        icon: 'heroicons_outline:squares-2x2',
+        link: '/bequest-management',
+    },
+
+    {
+        id: 'DebtManagement',
+        title: 'Debt Management',
+        type: 'basic',
+        icon: 'heroicons_outline:squares-2x2',
+        link: '/debt-management',
+    },
+
+    {
+        id: 'AssetEvaluation',
+        title: 'Asset Evaluation',
+        type: 'basic',
+        icon: 'heroicons_outline:squares-2x2',
+        link: '/asset-evaluation',
+    },
+
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {

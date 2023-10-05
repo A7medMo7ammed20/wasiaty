@@ -120,6 +120,7 @@ export class FileManagerListComponent implements OnInit, OnDestroy
         this._changeDetectorRef.markForCheck();
     }
 
+    
     /**
      * Track by function for ngFor loops
      *

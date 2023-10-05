@@ -1,0 +1,100 @@
+<div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full mt-8 max-w-screen-xl mx-auto p-6 md:p-8"
+>
+    <!--  Debt Type Distribution -->
+
+    <div
+        class="sm:col-span-2 flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden"
+    >
+        <div class="flex items-start justify-between m-6 mb-0">
+            <div class="text-lg font-medium tracking-tight leading-6 truncate">
+                Debt Type Distribution
+            </div>
+            <div class="ml-2">
+                <button
+                    class="h-6 min-h-6 px-2 rounded-full bg-hover"
+                    mat-button
+                    [matMenuTriggerFor]="conversionMenu"
+                >
+                    <span class="font-medium text-sm text-secondary"
+                        >30 days</span
+                    >
+                </button>
+                <mat-menu #conversionMenu="matMenu">
+                    <button mat-menu-item>30 days</button>
+                    <button mat-menu-item>3 months</button>
+                    <button mat-menu-item>9 months</button>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="flex flex-col flex-auto h-auto">
+            <apx-chart
+                [series]="DebtTypeDistribution.series"
+                [chart]="DebtTypeDistribution.chart"
+                [dataLabels]="DebtTypeDistribution.dataLabels"
+                [stroke]="DebtTypeDistribution.stroke"
+                [colors]="DebtTypeDistribution.colors"
+                [plotOptions]="DebtTypeDistribution.plotOptions"
+                [yaxis]="DebtTypeDistribution.yaxis"
+                [xaxis]="DebtTypeDistribution.xaxis"
+                [tooltip]="DebtTypeDistribution.tooltip"
+            ></apx-chart>
+        </div>
+    </div>
+    <!-- Total Debt Overview -->
+
+    <div
+        class="sm:col-span-2 lg:col-span-1 flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden"
+    >
+        <div class="flex items-start justify-between m-6 mb-0">
+            <div class="text-lg font-medium tracking-tight leading-6 truncate">
+                Total Debt Overview
+            </div>
+            <div class="ml-2">
+                <button
+                    class="h-6 min-h-6 px-2 rounded-full bg-hover"
+                    mat-button
+                    [matMenuTriggerFor]="conversionMenu"
+                >
+                    <span class="font-medium text-sm text-secondary"
+                        >30 days</span
+                    >
+                </button>
+                <mat-menu #conversionMenu="matMenu">
+                    <button mat-menu-item>30 days</button>
+                    <button mat-menu-item>3 months</button>
+                    <button mat-menu-item>9 months</button>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row lg:items-center mx-6 mt-3">
+            <div class="text-7xl font-bold tracking-tighter leading-tight">
+                {{ data.TotalDebt.amount | number : "1.0-0" }}
+            </div>
+            <div class="flex lg:flex-col lg:ml-3">
+                <mat-icon
+                    class="icon-size-5 text-red-500"
+                    [svgIcon]="'heroicons_mini:arrow-trending-down'"
+                ></mat-icon>
+                <div
+                    class="flex items-center ml-1 lg:ml-0 lg:mt-0.5 text-md leading-none whitespace-nowrap text-secondary"
+                >
+                    <span class="font-medium text-red-500">2%</span>
+                    <span class="ml-1">below target</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col flex-auto h-auto">
+            <apx-chart
+                class="flex-auto w-full h-full"
+                [chart]="chartTotalDebt.chart"
+                [colors]="chartTotalDebt.colors"
+                [series]="chartTotalDebt.series"
+                [stroke]="chartTotalDebt.stroke"
+                [tooltip]="chartTotalDebt.tooltip"
+                [xaxis]="chartTotalDebt.xaxis"
+                [yaxis]="chartTotalDebt.yaxis"
+            ></apx-chart>
+        </div>
+    </div>
+</div>

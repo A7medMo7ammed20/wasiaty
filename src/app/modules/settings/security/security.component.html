@@ -58,8 +58,22 @@
                 </mat-form-field>
             </div>
         </div>
-
-        <!-- Divider -->
+        <br>
+       
+        <div class="flex items-center justify-end">
+            <button
+                mat-stroked-button
+                type="button">
+                Cancel
+            </button>
+            <button
+                class="ml-4"
+                mat-flat-button
+                type="button"
+                [color]="'primary'">Save
+            </button>
+        </div>
+       
         <div class="my-10 border-t"></div>
 
         <!-- Section -->
@@ -85,12 +99,163 @@
                     #twoStepToggle>
                 </mat-slide-toggle>
             </div>
+            <!-- Limiting User Actions: User Action Restrictions -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="userRestrictions.toggle()">
+                    <div class="leading-6 font-medium">Limiting User Actions: User Action Restrictions</div>
+                    
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'userRestrictions'"
+                    #userRestrictions>
+                </mat-slide-toggle>
+            </div>
+            <!-- Real-time Notifications for Account Activity Monitoring: -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="accountActivityNotifications.toggle()">
+                    <div class="leading-6 font-medium">Real-time Notifications for Account Activity Monitoring:</div>
+                    <div class="text-md text-secondary">
+                        Enable Account Activity Notifications
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'accountActivityNotifications'"
+                    #accountActivityNotifications>
+                </mat-slide-toggle>
+            </div>
+                    <!--  Set Session Timeout -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="setSessionTimeout.toggle()">
+                    <div class="leading-6 font-medium">
+                        Ensuring Active Session Security with Session Timeout:
+                    </div>
+                    <div class="text-md text-secondary">
+                        Set Session Timeout
+                    </div>
+                </div>
+                <button
+                mat-stroked-button
+                type="button">
+                Set Timeout
+            </button>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'setSessionTimeout'"
+                    #setSessionTimeout>
+                </mat-slide-toggle>
+            </div>
+            <!-- Device Recognition -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="deviceRecognition.toggle()">
+                    <div class="leading-6 font-medium">
+                        Enhancing Security with Device Recognition Technology:
+                    </div>
+                    <div class="text-md text-secondary">
+                        Enable Device Recognition
+                    </div>
+                </div>
+                <div class=" ">
+                    <mat-form-field
+                        class="fuse-mat-dense w-32"
+                        [subscriptSizing]="'dynamic'">
+                        <mat-select
+                            [panelClass]="'w-72 min-w-72 max-w-72 h-auto max-h-none'"
+                            [value]="'face'"
+                            disableOptionCentering
+                            #roleSelect="matSelect"
+                            >
+                            <mat-select-trigger class="text-md">
+                                <span>Type:</span>
+                                <span class="ml-1 font-medium">{{roleSelect.value | titlecase}}</span>
+                            </mat-select-trigger>
+                            <ng-container *ngFor="let role of roles">
+                                <mat-option
+                                    class="h-auto py-4 leading-none"
+                                    [value]="role.value">
+                                    <div class="font-medium">{{role.label}}</div>
+                                    <div class="mt-1.5 text-sm whitespace-normal leading-normal text-secondary">{{role.description}}</div>
+                                </mat-option>
+                            </ng-container>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'deviceRecognition'"
+                    #deviceRecognition>
+                </mat-slide-toggle>
+            </div>
+            <!-- Enable Digital Certificate Security -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="digitalCertificateSecurity.toggle()">
+                    <div class="leading-6 font-medium">Securing Data Transmission with Digital Certificates:</div>
+                    <div class="text-md text-secondary">
+                        Enable Digital Certificate Security
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'digitalCertificateSecurity'"
+                    #digitalCertificateSecurity>
+                </mat-slide-toggle>
+            </div>
+            <!-- Fraud Detection -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="fraudDetection.toggle()">
+                    <div class="leading-6 font-medium">Proactive Detection of Fraudulent Activities in Real Time:</div>
+                    <div class="text-md text-secondary">
+                        Enable Real-time Fraud Detection
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'fraudDetection'"
+                    #fraudDetection>
+                </mat-slide-toggle>
+            </div>
+            <!-- Fraud Detection -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)=" userSecurityEducation.toggle()">
+                    <div class="leading-6 font-medium">Empowering Users through Security Awareness and Education:</div>
+                    <div class="text-md text-secondary">
+                        User Security Education
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'userSecurityEducation'"
+                    #userSecurityEducation>
+                </mat-slide-toggle>
+            </div>
             <!-- Ask to change password -->
             <div class="sm:col-span-4 flex items-center justify-between">
                 <div
                     class="flex-auto cursor-pointer"
                     (click)="askPasswordChangeToggle.toggle()">
-                    <div class="leading-6 font-medium">Ask to change password on every 6 months</div>
+                    <div class="leading-6 font-medium">Ask to change password on every 2 months</div>
                     <div class="text-md text-secondary">
                         A simple but an effective way to be protected against data leaks and password theft.
                     </div>
@@ -100,6 +265,151 @@
                     [color]="'primary'"
                     [formControlName]="'askPasswordChange'"
                     #askPasswordChangeToggle>
+                </mat-slide-toggle>
+            </div>
+            
+            
+            
+            
+            <!-- <h2>Premium </h2> -->
+            <!-- <div class=" border-t-8"></div> -->
+            <!-- <div class="my-10 border-t"></div> -->
+            
+            <div class="w-full text-xl">Premium</div>
+                <!-- Enable Seamless User Interactions -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="seamlessUserInteractions.toggle()">
+                    <div class="leading-6 font-medium">Ensuring Seamless and Secure User Interactions:</div>
+                    <div class="text-md text-secondary">
+                        Enable Seamless User Interactions
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'seamlessUserInteractions'"
+                    #seamlessUserInteractions>
+                </mat-slide-toggle>
+            </div>
+                <!-- Identity Verification Process: -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="completeIdentityVerification.toggle()">
+                    <div class="leading-6 font-medium">Identity Verification Process:</div>
+                    <div class="text-md text-secondary">
+                        Complete Identity Verification
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'completeIdentityVerification'"
+                    #completeIdentityVerification>
+                </mat-slide-toggle>
+            </div>
+                <!-- Zero-trust Security: -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="zeroTrustSecurity.toggle()">
+                    <div class="leading-6 font-medium">Zero-trust Security:</div>
+                    <div class="text-md text-secondary">
+                        Enable Zero-trust Security
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'zeroTrustSecurity'"
+                    #zeroTrustSecurity>
+                </mat-slide-toggle>
+            </div>
+                <!--  Enable MFA-->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="enableMFA.toggle()">
+                    <div class="leading-6 font-medium">Multi-Factor Authentication (MFA)::</div>
+                    <div class="text-md text-secondary">
+                        Enable MFA
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'enableMFA'"
+                    #enableMFA>
+                </mat-slide-toggle>
+            </div>
+                <!--    Secure Device Binding: -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="secureDeviceBinding.toggle()">
+                    <div class="leading-6 font-medium">Device Binding:</div>
+                    <div class="text-md text-secondary">
+                        Secure Device Binding
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'secureDeviceBinding'"
+                    #secureDeviceBinding>
+                </mat-slide-toggle>
+            </div>
+                <!--       Enable Remote Account Locking/Wiping -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="remoteAccount.toggle()">
+                    <div class="leading-6 font-medium">Remote Account Locking/Wiping:</div>
+                    <div class="text-md text-secondary">
+                        Enable Remote Account Locking/Wiping
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'remoteAccount'"
+                    #remoteAccount>
+                </mat-slide-toggle>
+            </div>
+                <!-- Set Time-based Access Restrictions -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="setTimebasedAccessRestrictions.toggle()">
+                    <div class="leading-6 font-medium">Time-based Access Controls:</div>
+                    <div class="text-md text-secondary">
+                        Set Time-based Access Restrictions
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'setTimebasedAccessRestrictions'"
+                    #setTimebasedAccessRestrictions>
+                </mat-slide-toggle>
+            </div>
+                <!--  Implement Account Lockout Policies -->
+            <div class="sm:col-span-4 flex items-center justify-between">
+                <div
+                    class="flex-auto cursor-pointer"
+                    (click)="implementAccountLockout.toggle()">
+                    <div class="leading-6 font-medium">Account Lockout Policies:</div>
+                    <div class="text-md text-secondary">
+                        Implement Account Lockout Policies
+                    </div>
+                </div>
+                <mat-slide-toggle
+                    class="ml-4"
+                    [color]="'primary'"
+                    [formControlName]="'implementAccountLockout'"
+                    #implementAccountLockout>
                 </mat-slide-toggle>
             </div>
         </div>
@@ -118,7 +428,7 @@
                 class="ml-4"
                 mat-flat-button
                 type="button"
-                [color]="'primary'">Save
+                [color]="'primary'">Sava Change
             </button>
         </div>
     </form>

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { FuseMockApiService } from '@fuse/lib/mock-api/mock-api.service';
-import { items as itemsData } from 'app/mock-api/apps/file-manager/data';
+import { items as itemsData , items as contactsData  } from 'app/mock-api/apps/file-manager/data';
 import { cloneDeep } from 'lodash-es';
 
 @Injectable({providedIn: 'root'})
 export class FileManagerMockApi
 {
     private _items: any[] = itemsData;
+    private _contacts: any[] = contactsData;
+
 
     /**
      * Constructor
@@ -85,6 +87,24 @@ export class FileManagerMockApi
                         folders,
                         files,
                         path,
+                    },
+                ];
+            });
+
+        // -----------------------------------------------------------------------------------------------------
+        // @ Contacts - GET
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+            .onGet('api/apps/file-manager/files')
+            .reply(() =>
+            {
+               
+                // Clone the items
+                let items = cloneDeep(this._contacts);
+                return [
+                    200,
+                    {
+                        items
                     },
                 ];
             });

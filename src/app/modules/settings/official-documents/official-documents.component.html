@@ -28,10 +28,17 @@
             </div>
             <div class="mt-4 sm:mt-0 ">
                 <!-- Upload button -->
-                <button mat-flat-button [color]="'primary'">
+                <!-- <button mat-flat-button [color]="'primary'" for="uploadFi" >
                     <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
                     <span class="ml-2 mr-1">Upload file</span>
-                </button>
+                </button> -->
+                <label for="uploadFi" class="bg-primary p-2 font-bold rounded text-white  " >
+                    <!-- <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon> -->
+                    <!-- <mat-icon class="pt-4 text-white ">add</mat-icon> -->
+                    <span class="ml-2 mr-1">Upload file</span>
+                </label>
+                <input type="file" (change)="uploadFile($event)" hidden id="uploadFi" [placeholder]="'Upload file'">
+                <!-- <button (click)="openDialog()">Add File</button> -->
             </div>
         </div>
         <ng-container>
@@ -44,18 +51,32 @@
                             <div>
                                 <div class="font-medium">Files</div>
                                 <div
-                                    class="flex flex-wrap -m-2 mt-2">
+                                    class="flex flex-wrap -m-2 mt-1">
+                                   
+                                    
                                     <ng-container >
                                         <a
-                                            class="flex flex-col w-40 h-40 m-2 p-4 shadow rounded-2xl cursor-pointer bg-card"
+                                            class="flex flex-col w-40 h-40 m-1  shadow rounded-2xl cursor-pointer bg-card" *ngFor="let file of files"
                                            >
-                                            <div class="aspect-[9/6]">
-                                                <div class="flex items-center justify-center h-full">
+                                           <div class="flex flex-row-reverse ">
+                                               <button mat-icon-button [matMenuTriggerFor]="fileMenu" >
+                                                   <mat-icon class="icon-size-5" [svgIcon]="'heroicons_mini:ellipsis-vertical'" ></mat-icon>
+                                                   
+                                               </button>
+                                               <mat-menu #fileMenu="matMenu">
+                                                   <button mat-menu-item >Share</button>
+                                               <button mat-menu-item >View</button>
+                                               
+                                           </mat-menu>
+                                       </div>
+                                            <div class="  ">
+                                                
+
+                                                <div class="flex items-center justify-center h-full" style="margin-bottom:-2rem ;">
                                                     <!-- Icons -->
                                                     <div class="relative">
-                                                        <mat-icon
-                                                            class="icon-size-14 text-hint opacity-50"
-                                                            [svgIcon]="'heroicons_solid:document'"></mat-icon>
+                                                        <mat-icon matListItemIcon class="icon-size-14 text-hint opacity-50">description</mat-icon>
+                                                        
                                                         <!-- <div
                                                             class="absolute left-0 bottom-0 px-1.5 rounded text-sm font-semibold leading-5 text-white"
                                                             [class.bg-red-600]="file.type === 'PDF'"
@@ -67,79 +88,12 @@
                                                         </div> -->
                                                     </div>
                                                 </div>
+                                              
                                             </div>
                                             <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
-                                                <div
-                                                    class="truncate"
-                                                  >file name</div>
+                                                <div matListItemTitle>{{file.name}}</div>
                                                 <ng-container >
-                                                    <div class="text-secondary truncate">file.contents</div>
-                                                </ng-container>
-                                            </div>
-                                        </a>
-                                    </ng-container>
-                                    <ng-container >
-                                        <a
-                                            class="flex flex-col w-40 h-40 m-2 p-4 shadow rounded-2xl cursor-pointer bg-card"
-                                           >
-                                            <div class="aspect-[9/6]">
-                                                <div class="flex items-center justify-center h-full">
-                                                    <!-- Icons -->
-                                                    <div class="relative">
-                                                        <mat-icon
-                                                            class="icon-size-14 text-hint opacity-50"
-                                                            [svgIcon]="'heroicons_solid:document'"></mat-icon>
-                                                        <!-- <div
-                                                            class="absolute left-0 bottom-0 px-1.5 rounded text-sm font-semibold leading-5 text-white"
-                                                            [class.bg-red-600]="file.type === 'PDF'"
-                                                            [class.bg-blue-600]="file.type === 'DOC'"
-                                                            [class.bg-green-600]="file.type === 'XLS'"
-                                                            [class.bg-gray-600]="file.type === 'TXT'"
-                                                            [class.bg-amber-600]="file.type === 'JPG'">
-                                                            {{file.type.toUpperCase()}}
-                                                        </div> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
-                                                <div
-                                                    class="truncate"
-                                                  >file name</div>
-                                                <ng-container >
-                                                    <div class="text-secondary truncate">file contents</div>
-                                                </ng-container>
-                                            </div>
-                                        </a>
-                                    </ng-container>
-                                    <ng-container >
-                                        <a
-                                            class="flex flex-col w-40 h-40 m-2 p-4 shadow rounded-2xl cursor-pointer bg-card"
-                                           >
-                                            <div class="aspect-[9/6]">
-                                                <div class="flex items-center justify-center h-full">
-                                                    <!-- Icons -->
-                                                    <div class="relative">
-                                                        <mat-icon
-                                                            class="icon-size-14 text-hint opacity-50"
-                                                            [svgIcon]="'heroicons_solid:document'"></mat-icon>
-                                                        <!-- <div
-                                                            class="absolute left-0 bottom-0 px-1.5 rounded text-sm font-semibold leading-5 text-white"
-                                                            [class.bg-red-600]="file.type === 'PDF'"
-                                                            [class.bg-blue-600]="file.type === 'DOC'"
-                                                            [class.bg-green-600]="file.type === 'XLS'"
-                                                            [class.bg-gray-600]="file.type === 'TXT'"
-                                                            [class.bg-amber-600]="file.type === 'JPG'">
-                                                            {{file.type.toUpperCase()}}
-                                                        </div> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
-                                                <div
-                                                    class="truncate"
-                                                  >file name</div>
-                                                <ng-container >
-                                                    <div class="text-secondary truncate">file.contents</div>
+                                                    <div matListItemLine>{{file.updated | date}}</div>
                                                 </ng-container>
                                             </div>
                                         </a>
@@ -151,3 +105,16 @@
                 </ng-container>
     </div>
 </div>
+
+
+<ng-template #fileDialog>
+    <h2 mat-dialog-title>Upload File</h2>
+    <mat-dialog-content>
+      <input type="file" (change)="uploadFile($event)">
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="closeDialog()">Cancel</button>
+      
+    </mat-dialog-actions>
+  </ng-template>
+

@@ -21,6 +21,10 @@ import { FinanceMockApi } from 'app/mock-api/dashboards/finance/api';
 import { ProjectMockApi } from 'app/mock-api/dashboards/project/api';
 import { ActivitiesMockApi } from 'app/mock-api/pages/activities/api';
 import { IconsMockApi } from 'app/mock-api/ui/icons/api';
+import { BequestManagementMockApi } from './bequest-management/api';
+import { DebtManagementMockApi } from './debt-management/api';
+import { FamilyTreeMockApi } from './famliy-tree/api';
+import { FamilyMembersMockApi } from './family-members/api';
 
 export const mockApiServices = [
     AcademyMockApi,
@@ -46,4 +50,8 @@ export const mockApiServices = [
     ShortcutsMockApi,
     TasksMockApi,
     UserMockApi,
+    BequestManagementMockApi,
+    DebtManagementMockApi,
+    FamilyTreeMockApi,
+    FamilyMembersMockApi
 ];

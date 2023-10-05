@@ -8,7 +8,6 @@ import { LayoutComponent } from 'app/layout/layout.component';
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
-
     // Redirect empty path to '/empty'
     { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
 
@@ -26,18 +25,41 @@ export const appRoutes: Route[] = [
         canActivateChild: [NoAuthGuard],
         component: LayoutComponent,
         data: {
-            layout: 'empty'
+            layout: 'empty',
         },
         children: [
-            { path: 'confirmation-required', loadChildren: () => import('app/modules/auth/confirmation-required/confirmation-required.routes') },
-            { path: 'forgot-password', loadChildren: () => import('app/modules/auth/forgot-password/forgot-password.routes') },
-            { path: 'reset-password', loadChildren: () => import('app/modules/auth/reset-password/reset-password.routes') },
-            { path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.routes') },
-            { path: 'sign-up', loadChildren: () => import('app/modules/auth/sign-up/sign-up.routes') },
-            { path: 'verification', loadChildren: () => import('app/modules/auth/verification/verification.routes') },
-            { path: 'complete-vdentity-verification', loadChildren: () => import('app/modules/auth/complete-vdentity-verification/complete-vdentity-verification.routes') },
-            { path: 'face-verification', loadChildren: () => import('app/modules/auth/face-verification/face-verification.routes') }
-        ]
+            {
+                path: 'confirmation-required',
+                loadChildren: () =>
+                    import(
+                        'app/modules/auth/confirmation-required/confirmation-required.routes'
+                    ),
+            },
+            {
+                path: 'forgot-password',
+                loadChildren: () =>
+                    import(
+                        'app/modules/auth/forgot-password/forgot-password.routes'
+                    ),
+            },
+            {
+                path: 'reset-password',
+                loadChildren: () =>
+                    import(
+                        'app/modules/auth/reset-password/reset-password.routes'
+                    ),
+            },
+            {
+                path: 'sign-in',
+                loadChildren: () =>
+                    import('app/modules/auth/sign-in/sign-in.routes'),
+            },
+            {
+                path: 'sign-up',
+                loadChildren: () =>
+                    import('app/modules/auth/sign-up/sign-up.routes'),
+            },
+        ],
     },
 
     // Auth routes for authenticated users
@@ -47,36 +69,82 @@ export const appRoutes: Route[] = [
         canActivateChild: [AuthGuard],
         component: LayoutComponent,
         data: {
-            layout: 'empty'
+            layout: 'empty',
         },
         children: [
-            { path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.routes') },
-            { path: 'unlock-session', loadChildren: () => import('app/modules/auth/unlock-session/unlock-session.routes') }
-        ]
+            {
+                path: 'sign-out',
+                loadChildren: () =>
+                    import('app/modules/auth/sign-out/sign-out.routes'),
+            },
+            {
+                path: 'unlock-session',
+                loadChildren: () =>
+                    import(
+                        'app/modules/auth/unlock-session/unlock-session.routes'
+                    ),
+            },
+        ],
     },
 
-
-
-    // Admin routes
+    // modules routes
     {
         path: '',
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         component: LayoutComponent,
         resolve: {
-            initialData: initialDataResolver
+            initialData: initialDataResolver,
         },
         children: [
-            { path: 'dashboard', loadChildren: () => import('app/modules/admin/dashboards/assets-dashboard/assets-dashboard.routes') },
+            {
+                path: 'dashboard',
+                loadChildren: () =>
+                    import(
+                        'app/modules/admin/dashboards/assets-dashboard/assets-dashboard.routes'
+                    ),
+            },
 
             { path: 'assets-management', loadChildren: () => import('app/modules/assets-management/assets-management.routes') },
+            // { path: 'indebtedness', loadChildren: () => import('app/modules/indebtedness/indebtedness.routes') },
+            { path: 'family-tree', loadChildren: () => import('app/modules/family-tree/family-tree.routes') },
 
             {
-                path: 'document-managment', children: [
-                    { path: 'file-manager', loadChildren: () => import('app/modules/document-managment/file-manager/file-manager.routes') },
-                ]
+                path: 'document-managment',
+                children: [
+                    {
+                        path: 'file-manager',
+                        loadChildren: () =>
+                            import(
+                                'app/modules/document-managment/file-manager/file-manager.routes'
+                            ),
+                    },
+                ],
             },
-            { path: 'settings', loadChildren: () => import('app/modules/settings/settings.routes') },
-        ]
-    }
+            {
+                path: 'family-tree',
+                loadChildren: () =>
+                    import('app/modules/family-tree/family-tree.routes'),
+            },
+            {
+                path: 'settings',
+                loadChildren: () =>
+                    import('app/modules/settings/settings.routes'),
+            },
+            {
+                path: 'bequest-management',
+                loadChildren: () =>
+                    import(
+                        'app/modules/bequest-managment/bequest-management.routes'
+                    ),
+            },
+            {
+                path: 'debt-management',
+                loadChildren: () =>
+                    import(
+                        'app/modules/debt-management/debt-management.routes'
+                    ),
+            },
+        ],
+    },
 ];

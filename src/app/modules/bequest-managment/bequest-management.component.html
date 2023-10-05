@@ -1,0 +1,97 @@
+<div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
+    <mat-drawer-container
+        class="flex-auto h-full dark:bg-transparent"
+        (backdropClick)="onBackdropClicked()"
+    >
+        <!-- Drawer -->
+        <mat-drawer
+            class="w-full sm:w-128 dark:bg-gray-900"
+            [mode]="drawerMode"
+            [opened]="false"
+            [position]="'end'"
+            [disableClose]="true"
+            #matDrawer
+        >
+            <router-outlet></router-outlet>
+        </mat-drawer>
+
+        <mat-drawer-content class="flex flex-col">
+            <!-- Main -->
+            <div class="flex flex-col flex-auto">
+                <!-- Header -->
+                <div class="bg-card">
+                    <div
+                        class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8"
+                    >
+                        <div
+                            class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12"
+                        >
+                            <!-- Avatar and name -->
+                            <div class="flex flex-auto items-center min-w-0">
+                                <div class="flex flex-col min-w-0 ml-4">
+                                    <ng-container *transloco="let t">
+                                        <div
+                                            class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                        >
+                                            Bequest Management
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <!-- Actions -->
+                            <div
+                                class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3"
+                            >
+                                <button
+                                    mat-flat-button
+                                    [color]="'primary'"
+                                    (click)="createBequest('bequest')"
+                                >
+                                    <mat-icon
+                                        class="icon-size-5"
+                                        [svgIcon]="'heroicons_outline:plus'"
+                                    ></mat-icon>
+                                    <span class="ml-2">Add Bequest</span>
+                                </button>
+                                <button
+                                    class="hidden sm:inline-flex ml-3"
+                                    mat-flat-button
+                                    [matMenuTriggerFor]="moreMenu"
+                                    [color]="'primary'"
+                                >
+                                    <mat-icon
+                                        class="icon-size-5"
+                                        [svgIcon]="
+                                            'heroicons_solid:arrow-up-tray'
+                                        "
+                                    ></mat-icon>
+                                    <span class="ml-2">Export</span>
+                                </button>
+                                <mat-menu #moreMenu="matMenu">
+                                    <button mat-menu-item>
+                                        <mat-icon
+                                            [svgIcon]="
+                                                'heroicons_outline:document-text'
+                                            "
+                                        ></mat-icon>
+                                        <span>as PDF</span>
+                                    </button>
+                                    <button mat-menu-item>
+                                        <mat-icon
+                                            [svgIcon]="
+                                                'heroicons_outline:document-text'
+                                            "
+                                        ></mat-icon>
+                                        <span>as XLS</span>
+                                    </button>
+                                </mat-menu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <BequestChart></BequestChart>
+                <bequest-table></bequest-table>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

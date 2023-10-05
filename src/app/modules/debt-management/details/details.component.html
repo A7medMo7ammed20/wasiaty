@@ -1,0 +1,156 @@
+<div class="flex flex-auto">
+    <form
+        class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto"
+        [formGroup]="DebtForm"
+    >
+        <!-- Header -->
+        <div class="flex items-center justify-between -mt-3 -ml-4">
+            <!-- create -->
+            <button class="pr-4 pl-3.5" mat-button>
+                <!-- label create Debt -->
+                <div class="flex items-center justify-center">
+                    <span class="ml-2 font-semibold">Create Debt</span>
+                </div>
+            </button>
+            <div class="flex items-center">
+                <!-- More menu -->
+                <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+                    <mat-icon
+                        [svgIcon]="'heroicons_outline:ellipsis-vertical'"
+                    ></mat-icon>
+                </button>
+                <mat-menu #moreMenu="matMenu">
+                    <button mat-menu-item (click)="deleteDebt()">
+                        <mat-icon
+                            [svgIcon]="'heroicons_outline:trash'"
+                        ></mat-icon>
+                        <span>Delete</span>
+                    </button>
+                </mat-menu>
+
+                <!-- Close button -->
+                <a mat-icon-button [routerLink]="['../']">
+                    <mat-icon [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+                </a>
+            </div>
+        </div>
+
+        <mat-divider class="mt-6 mb-8"></mat-divider>
+
+        <!-- creditor -->
+        <div>
+            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                <mat-label>Creditor</mat-label>
+                <input
+                    matInput
+                    [formControlName]="'creditor'"
+                    [spellcheck]="false"
+                    cdkTextareaAutosize
+                    #titleField
+                />
+            </mat-form-field>
+        </div>
+        <!-- debtor -->
+        <div>
+            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                <mat-label>Debtor</mat-label>
+                <input
+                    matInput
+                    [formControlName]="'debtor'"
+                    [spellcheck]="false"
+                    cdkTextareaAutosize
+                />
+            </mat-form-field>
+        </div>
+
+        <!-- repaymentMethod -->
+        <div>
+            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                <mat-label> Repayment Method</mat-label>
+                <input
+                    matInput
+                    [formControlName]="'repaymentMethod'"
+                    [spellcheck]="false"
+                    cdkTextareaAutosize
+                />
+            </mat-form-field>
+        </div>
+
+        <!-- Due date -->
+        <div class="flex flex-wrap items-center mt-8">
+            <!-- Due date -->
+            <div class="ml-6">
+                <div class="font-medium">Due date</div>
+                <div
+                    class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                    [ngClass]="{
+                        'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700':
+                            !debt.dueDate,
+                        'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500':
+                            debt.dueDate && !isOverdue(),
+                        'text-red-800 bg-red-200 dark:text-red-100 dark:bg-red-500':
+                            debt.dueDate && isOverdue()
+                    }"
+                    (click)="dueDatePicker.open()"
+                >
+                    <mat-icon
+                        class="icon-size-5 text-current"
+                        [svgIcon]="'heroicons_solid:calendar'"
+                    ></mat-icon>
+                    <span class="ml-2 text-md font-medium">
+                        <ng-container *ngIf="debt.dueDate">{{
+                            debt.dueDate | date : "longDate"
+                        }}</ng-container>
+                        <ng-container *ngIf="!debt.dueDate"
+                            >Not set</ng-container
+                        >
+                    </span>
+                    <mat-form-field
+                        class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                        [subscriptSizing]="'dynamic'"
+                    >
+                        <input
+                            matInput
+                            [formControlName]="'dueDate'"
+                            [matDatepicker]="dueDatePicker"
+                        />
+                        <mat-datepicker #dueDatePicker>
+                            <mat-datepicker-actions>
+                                <button
+                                    mat-button
+                                    (click)="
+                                        DebtForm.get('dueDate').setValue(null)
+                                    "
+                                    matDatepickerCancel
+                                >
+                                    Clear
+                                </button>
+                                <button
+                                    class=""
+                                    mat-flat-button
+                                    [color]="'primary'"
+                                    matDatepickerApply
+                                >
+                                    Select
+                                </button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <!-- description -->
+        <div class="mt-8">
+            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                <mat-label>Description</mat-label>
+                <textarea
+                    matInput
+                    [formControlName]="'description'"
+                    [spellcheck]="false"
+                    cdkTextareaAutosize
+                ></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
