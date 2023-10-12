@@ -20,21 +20,60 @@
                             <!-- Avatar and name -->
                             <div class="flex flex-auto items-center min-w-0">
                                 <div class="flex flex-col min-w-0 ml-4">
-                                    <ng-container>
-                                        <div class="text-3xl font-semibold tracking-tight leading-8">
-                                            Family Member</div>
-
+                                    <ng-container >
+                                        <div
+                                            class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                                        >
+                                        Family Members
+                                        </div>
                                     </ng-container>
-
                                 </div>
                             </div>
                             <!-- Actions -->
                             <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
 
-                                <button mat-flat-button [color]="'primary'" (click)="createFamilyMember('family')">
-                                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:plus'"></mat-icon>
-                                    <span class="ml-2">Add</span>
+                                <button mat-flat-button
+                                [color]="'primary'"
+                                (click)="createFamilyMember('family')"
+                                >
+                                <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_outline:plus'"
+                            ></mat-icon>
+                                    <span class="ml-2">Add Member</span>
                                 </button>
+                                <button
+                                    class="hidden sm:inline-flex ml-3"
+                                    mat-flat-button
+                                    [matMenuTriggerFor]="moreMenu"
+                                    [color]="'primary'"
+                                >
+                                    <mat-icon
+                                        class="icon-size-5"
+                                        [svgIcon]="
+                                            'heroicons_solid:arrow-up-tray'
+                                        "
+                                    ></mat-icon>
+                                    <span class="ml-2">Export</span>
+                                </button>
+                                <mat-menu #moreMenu="matMenu">
+                                    <button mat-menu-item>
+                                        <mat-icon
+                                            [svgIcon]="
+                                                'heroicons_outline:document-text'
+                                            "
+                                        ></mat-icon>
+                                        <span>as PDF</span>
+                                    </button>
+                                    <button mat-menu-item>
+                                        <mat-icon
+                                            [svgIcon]="
+                                                'heroicons_outline:document-text'
+                                            "
+                                        ></mat-icon>
+                                        <span>as XLS</span>
+                                    </button>
+                                </mat-menu>
                             </div>
                         </div>
                         <!-- Project selector -->

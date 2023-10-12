@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import {TitleCasePipe , NgFor , NgIf} from '@angular/common';
+import {TitleCasePipe , NgFor , NgIf, DatePipe} from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -17,6 +17,8 @@ import { FamiliesMembers, Family } from '../../family-tree.types';
 // import {FamilyTreeService} from '../family-tree.service' ;
 import { FormsModule } from '@angular/forms';
 import { FamilyTreeService } from 'app/modules/family-tree/family-tree.service';
+import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
+// import { FamilyTreeService } from '../../family-tree.service';
 
 
 
@@ -29,9 +31,23 @@ import { FamilyTreeService } from 'app/modules/family-tree/family-tree.service';
 
   encapsulation  : ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatTableModule,TitleCasePipe, NgFor , NgIf,MatSidenavModule, FormsModule,
-    MatInputModule, MatTooltipModule, MatIconModule, RouterOutlet, MatFormFieldModule,
-    MatButtonModule, MatSelectModule,MatPaginatorModule],
+  imports: [
+    MatTableModule,
+    TitleCasePipe,
+    NgFor ,
+    NgIf,MatSidenavModule,
+    FormsModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatIconModule,
+    RouterOutlet,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    FuseFindByKeyPipe,
+    DatePipe,
+],
 
   // standalone     : true,
   // imports: [MatTableModule, MatPaginatorModule, MatIconModule],
@@ -41,18 +57,14 @@ export class TableComponent implements OnInit {
   displayedColumns: string[] = [
     'firstName',
     'lastName',
-    'age' ,
     'dateBirth' ,
-    'placeBirth',
-    'gender',
-    'dateDeath' ,
-    'placeDeath' ,
     'maritalStatus' ,
-    'description' ];
+    'gender',
+     ];
 
   gender = 'before';
   roles: any[];
-  data:any[];
+  data:any;
 //   @ViewChild('matDrawer', { static: true }) matDrawer: MatDrawer;
 
 
@@ -62,7 +74,7 @@ export class TableComponent implements OnInit {
   dataSource = new MatTableDataSource<Family>;
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.data.paginator = this.paginator;
   }
   constructor(
     private _matDialog:MatDialog ,
@@ -81,13 +93,13 @@ export class TableComponent implements OnInit {
         // Create the form
         this._familyTreeServeice.getFamilyMembers()
         .pipe(takeUntil(this._unsubscribeAll))
-        .subscribe((data:FamiliesMembers[]) => {
+        .subscribe((data) => {
             // Store the data
 
             this.dataSource= new MatTableDataSource<FamiliesMembers>(data);
             this.dataSource.paginator= this.paginator
-            // this.data = data;
-            console.log('data Source',this.dataSource);
+            this.data = data;
+            // console.log('data Source',this.data.);
         });
 
         this.roles = [
@@ -112,24 +124,23 @@ export class TableComponent implements OnInit {
         this._changeDetectorRef.markForCheck();
     }
     // Add a relationship
-    createMember(type:'member'):void
-    {
-        console.log('Members');
 
+
+    clickedRows(row: FamiliesMembers): any {
         // Create the task
-        this._familyTreeServeice.createMember(type).subscribe((newFamilyMembers) => {
-            // Go to the new task
-            this._router.navigate(['./', newFamilyMembers.id], {
-                relativeTo: this._activatedRoute,
-            });
 
-            // Mark for check
-            this._changeDetectorRef.markForCheck();
+        // Go to the new task
+        this._router.navigate(['./', row.id], {
+            relativeTo: this._activatedRoute,
         });
+
+        // Mark for check
+        this._changeDetectorRef.markForCheck();
     }
-    showDetails(id:any)
-    {
-        this._router.navigate(['family', id])
+    ngOnDestroy(): void {
+        // Unsubscribe from all subscriptions
+        this._unsubscribeAll.next(null);
+        this._unsubscribeAll.complete();
     }
 
     /**

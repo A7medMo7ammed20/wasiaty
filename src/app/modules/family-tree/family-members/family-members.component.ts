@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import {MatDrawer, MatSidenavModule} from '@angular/material/sidenav';
 import { FamilyTreeService } from '../family-tree.service';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 export interface PeriodicElement {
     // position:number
@@ -51,7 +53,8 @@ export interface PeriodicElement {
     RouterOutlet,
     MatFormFieldModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
 
 ],
 
@@ -77,7 +80,9 @@ export class FamilyMemberComponent {
     private _familyTreeServeice:FamilyTreeService ,
     private _router: Router ,
     private _activatedRoute : ActivatedRoute ,
-    private _changeDetectorRef: ChangeDetectorRef
+    private _changeDetectorRef: ChangeDetectorRef,
+
+
 
 
   ) { }
@@ -138,6 +143,8 @@ export class FamilyMemberComponent {
             this._changeDetectorRef.markForCheck();
         });
     }
+
+
 
 }
 

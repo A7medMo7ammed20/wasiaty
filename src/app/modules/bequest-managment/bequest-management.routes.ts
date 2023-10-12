@@ -62,6 +62,7 @@ const canDeactivateBequestsDetails = (
         nextRoute = nextRoute.firstChild;
     }
 
+    debugger;
     // If the next state doesn't contain '/bequests'
     // it means we are navigating away from the
     // tasks app
@@ -75,7 +76,7 @@ const canDeactivateBequestsDetails = (
         // Just navigate
         return true;
     }
-    console.log('found Error in drawer ')
+    console.log('found Error in drawer ');
 
     // Otherwise, close the drawer first, and then navigate
     return component.closeDrawer().then(() => true);

@@ -12,7 +12,7 @@ import {
     ViewContainerRef,
     ViewEncapsulation
     } from '@angular/core';
-import {FormBuilder , FormGroup  ,Validators  , FormsModule,ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup} from '@angular/forms'
+import {FormBuilder , FormGroup  ,Validators  , FormsModule,ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, NgModel} from '@angular/forms'
 import { MatDialogRef } from '@angular/material/dialog';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
@@ -41,7 +41,8 @@ import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
 import { FamiliesMembers } from '../../family-tree.types';
 import { FamilyTreeService } from '../../family-tree.service';
 import {ThemePalette} from '@angular/material/core';
-import {MatRadioModule} from '@angular/material/radio';
+import {MatRadioModule } from '@angular/material/radio';
+import { MatRadioGroup } from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @Component({
@@ -75,7 +76,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   styleUrls: ['./detail-member.component.scss']
 })
 export class DetailMemberComponent implements OnInit {
-
+    @ViewChild('titleField') private _titleField: ElementRef;
     color: ThemePalette = 'accent';
     isChecked = false;
     disabled = false;
@@ -84,7 +85,10 @@ export class DetailMemberComponent implements OnInit {
     familyMemberForm: UntypedFormGroup;
     familyMembers: FamiliesMembers[];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
+age:number ;
 
+labelGender: 'Female' | 'Male' = 'Male';
+labelmaritalStatus :'Single' | 'Married' |'Divorced' = 'Single' ;
     constructor(
 
     //   private _formBuilder:FormBuilder,
@@ -125,8 +129,8 @@ export class DetailMemberComponent implements OnInit {
 
 
         });
-
-        this._familyTreeService.familiesMembers$
+        // Get The Family Members
+        this._familyTreeService.getFamilyMembers()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((familyMembers: FamiliesMembers[]) =>
             {
@@ -136,11 +140,23 @@ export class DetailMemberComponent implements OnInit {
                 this._changeDetectorRef.markForCheck();
             });
 
-        this._familyTreeService.familyMembers$
+            // Get The Family Member
+
+            this._familyTreeService.familyMembers$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((familyMember: FamiliesMembers) =>
             {
+                // Open the drawer in case it is closed
+
+                this._familyMemberComponent.matDrawer.open();
+                // Get the Debt
+                console.log("ssssssssssss",familyMember)
+
                 this.familyMember = familyMember;
+                  // Patch values to the form from the Debt
+
+                  this.familyMemberForm.patchValue(familyMember, { emitEvent: false });
+
 
                 // Mark for check
                 this._changeDetectorRef.markForCheck();
@@ -166,22 +182,95 @@ export class DetailMemberComponent implements OnInit {
          // Mark for check
          this._changeDetectorRef.markForCheck();
      });
+
+       // Listen for NavigationEnd event to focus on the title field
+
+       this._router.events
+       .pipe(
+           takeUntil(this._unsubscribeAll),
+           filter((event) => event instanceof NavigationEnd)
+       )
+       .subscribe(() => {
+           // Focus on the title field
+           this._titleField.nativeElement.focus();
+       });
+       this.calculateAge()
     }
+
+    ngAfterViewInit(): void {
+        // Listen for matDrawer opened change
+        this._familyMemberComponent.matDrawer.openedChange
+            .pipe(
+                takeUntil(this._unsubscribeAll),
+                filter((opened) => opened)
+            )
+            .subscribe(() => {
+                // Focus on the title element
+                this._titleField.nativeElement.focus();
+            });
+    }
+    calculateAge() {
+
+        const today = new Date();
+        const birthDate = new Date(this.familyMember.dateBirth);
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+
+        this.age = age;
+      }
+    /**
+     * On destroy
+     */
+    ngOnDestroy(): void {
+        // Unsubscribe from all subscriptions
+        this._unsubscribeAll.next(null);
+        this._unsubscribeAll.complete();
+    }
+
      /**
      * Check if the Family Members is overdue or not
      */
-     isOverdue(): boolean
-     {
-         return DateTime.fromISO(this.familyMember.dateBirth.toString()).startOf('day') < DateTime.now().startOf('day');
-     }
-     isOverDeath(): boolean
-     {
-         return DateTime.fromISO(this.familyMember.dateDeath.toString()).startOf('day') < DateTime.now().startOf('day');
-     }
+    // Check Date
+     checkDate(): boolean {
+        return (
+            DateTime.fromISO(this.familyMember.dateBirth.toString())
+            .startOf('day') <
+            DateTime.now().startOf('day')
+        );
+    }
+    deleteMember(): void {
+        // Open the confirmation dialog
+        const confirmation = this._fuseConfirmationService.open({
+            title: 'Delete Member',
+            message:
+                'Are you sure you want to delete this Debt? This action cannot be undone!',
+            actions: {
+                confirm: {
+                    label: 'Delete',
+                },
+            },
+        });
+    }
+    // Check Date Brith
+    //  checkDate(): boolean {
+    //     return (
+    //         DateTime.fromISO(this.familyMember.dateDeath.toString())
+    //         .startOf('day') <
+    //         DateTime.now().startOf('day')
+    //     );
+    // }
+
     closeDrawer(): Promise<MatDrawerToggleResult>
     {
         return this._familyMemberComponent.matDrawer.close();
     }
+
+
     }
 
 

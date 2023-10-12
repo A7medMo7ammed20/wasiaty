@@ -10,11 +10,9 @@ export interface Family
     fullName?: string;
     father?: string;
     mother?: string;
-    childrenMale?: string;
-    childrenFemale?: string;
-    spouse?: string;
-    grandpa?: string;
-    uncle?: string;
+    childrenMale?: string[];
+    childrenFemale?: string[];
+
 }
 export interface FamiliesMembers {
     id: string;

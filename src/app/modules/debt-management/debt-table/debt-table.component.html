@@ -24,7 +24,7 @@
                                         'bg-blue-500': bequest.id === 1,
                                         'bg-red-500': bequest.id === 2,
                                         'bg-green-500': bequest.id === 3,
-                                       
+
                                     }"
                                 ></span>
                                 <span class="ml-3 leading-4">{{
@@ -88,7 +88,8 @@
                         class="hover:cursor-pointer hover:!bg-black"
                         mat-row
                         (click)="clickedRows(row)"
-                        *matRowDef="let row; columns: data.Details.columns"
+                        *matRowDef="let row;
+                        columns: data.Details.columns"
                     ></tr>
                 </table>
                 <!-- <mat-paginator

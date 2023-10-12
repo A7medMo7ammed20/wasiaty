@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import { familys as familyData } from 'app/mock-api/famliy-tree/data';
+import { familiesMembers as familyMembersData } from 'app/mock-api/family-members/data';
 import { assign, cloneDeep } from 'lodash-es';
 import { from, map } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
-export class FamilyTreeMockApi
-{
+@Injectable({ providedIn: 'root' })
+export class FamilyTreeMockApi {
     private _families: any[] = familyData;
-
+    private _familymembers: any[] = familyMembersData;
 
     /**
      * Constructor
      */
-    constructor(private _fuseMockApiService: FuseMockApiService)
-    {
+    constructor(private _fuseMockApiService: FuseMockApiService) {
         // Register Mock API handlers
         this.registerHandlers();
     }
@@ -26,8 +25,7 @@ export class FamilyTreeMockApi
     /**
      * Register Mock API handlers
      */
-    registerHandlers(): void
-    {
+    registerHandlers(): void {
         // -----------------------------------------------------------------------------------------------------
         // @ Data - GET
         // -----------------------------------------------------------------------------------------------------
@@ -40,61 +38,56 @@ export class FamilyTreeMockApi
             .reply(() => [200, cloneDeep(this._families)]);
 
         // -----------------------------------------------------------------------------------------------------
+        // @ familys - GET
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+            .onGet('api/family-tree/familys-members')
+            .reply(() => [200, cloneDeep(this._familymembers)]);
+
+        // -----------------------------------------------------------------------------------------------------
         // @ family - POST
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
-        .onPost('api/family-tree/family')
+            .onPost('api/family-tree/family')
 
-        .reply(({request}) =>
-        {
+            .reply(({ request }) => {
+                // Generate a new family
+                const newfamily = {
+                    id: FuseMockApiUtils.guid(),
+                    name: request.body.type,
+                    executor: '',
+                    description: '',
+                    completed: false,
+                    dueDate: null,
+                    Beneficiaries: 1,
+                };
+                // Unshift the new family
+                this._families.unshift(newfamily);
 
-            // Generate a new family
-            const newfamily = {
-                id       : FuseMockApiUtils.guid(),
-                name     : request.body.type,
-                executor    : '',
-                description    : '',
-                completed: false,
-                dueDate  : null,
-                Beneficiaries : 1,
-            };
-            // Unshift the new family
-            this._families.unshift(newfamily);
-
-
-
-            return [
-                200,
-                newfamily,
-            ];
-        });
-
-
+                return [200, newfamily];
+            });
 
         this._fuseMockApiService
-        .onDelete('api/family-tree/family')
-        .reply(({request}) =>
-        {
-            // Get the id
-            const id = request.params.get('id');
+            .onDelete('api/family-tree/family')
+            .reply(({ request }) => {
+                // Get the id
+                const id = request.params.get('id');
 
-            // Find the family and delete it
-            const index = this._families.findIndex(item => item.id === id);
-            this._families.splice(index, 1);
+                // Find the family and delete it
+                const index = this._families.findIndex(
+                    (item) => item.id === id
+                );
+                this._families.splice(index, 1);
 
-            return [
-                200,
-                true,
-            ];
-        });
-           // -----------------------------------------------------------------------------------------------------
+                return [200, true];
+            });
+        // -----------------------------------------------------------------------------------------------------
         // @ family - PATCH
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onPatch('api/family-tree/family')
-            .reply(({request}) =>
-            {
-                // Get the id and family
+            .reply(({ request }) => {
+                // Get the id and familyapi/family-tree/familys-members
                 const id = request.body.id;
                 const family = cloneDeep(request.body.family);
 
@@ -102,10 +95,8 @@ export class FamilyTreeMockApi
                 let updatedfamily = null;
 
                 // Find the family and update it
-                this._families.forEach((item, index, familys) =>
-                {
-                    if ( item.id === id )
-                    {
+                this._families.forEach((item, index, familys) => {
+                    if (item.id === id) {
                         // Update the family
                         familys[index] = assign({}, familys[index], family);
 
@@ -114,13 +105,7 @@ export class FamilyTreeMockApi
                     }
                 });
 
-                return [
-                    200,
-                    updatedfamily,
-                ];
+                return [200, updatedfamily];
             });
-
-
-
     }
 }

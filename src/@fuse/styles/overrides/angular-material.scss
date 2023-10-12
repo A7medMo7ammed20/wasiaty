@@ -1355,3 +1355,12 @@ textarea.mat-mdc-input-element {
         color: var(--fuse-bg-default) !important;
     }
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*  @ Table  Hover
+/* -------------------------------------------------------------------------- */
+
+.mat-mdc-table .mdc-data-table__row:not(.mdc-data-table__row--selected):hover{
+background-color: rgb(240, 240, 240) !important;
+}

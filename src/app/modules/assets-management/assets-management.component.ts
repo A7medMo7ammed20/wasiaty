@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
-import { AssetsManagementService } from './assets-management.service';
+import { WealthManagementService } from './wealth-management.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -10,7 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
   imports: [CommonModule ,RouterOutlet],
   templateUrl: './assets-management.component.html',
   styleUrls: ['./assets-management.component.scss'],
-     
+
 })
 export class AssetsManagementComponent {
 
@@ -22,7 +22,7 @@ export class AssetsManagementComponent {
      * Constructor
      */
     constructor(
-      private _assetsManagementServicee: AssetsManagementService,
+      private _wealthManagementService: WealthManagementService,
       private _router: Router,
   )
   {
@@ -40,16 +40,6 @@ export class AssetsManagementComponent {
     ngOnInit(): void
     {
         // Get the data
-        this._assetsManagementServicee.data$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((data) =>
-            {
-                // Store the data
-                this.data = data;
-
-                // Prepare the chart data
-                this._prepareChartData();
-            });
 
         // Attach SVG fill fixer to all ApexCharts
         window['Apex'] = {
@@ -82,7 +72,7 @@ export class AssetsManagementComponent {
         {
             // Current URL
             const currentURL = this._router.url;
-    
+
             // 1. Find all elements with 'fill' attribute within the element
             // 2. Filter out the ones that doesn't have cross reference so we only left with the ones that use the 'url(#id)' syntax
             // 3. Insert the 'currentURL' at the front of the 'fill' attribute value
@@ -116,11 +106,11 @@ export class AssetsManagementComponent {
       private _prepareChartData(): void
       {
           // Github issues
-        
-  
-      
-   
-  
-      
+
+
+
+
+
+
       }
 }

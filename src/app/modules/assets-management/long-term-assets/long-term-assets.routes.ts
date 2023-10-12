@@ -1,30 +1,38 @@
 import { inject } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
+import {
+    ActivatedRouteSnapshot,
+    RouterStateSnapshot,
+    Routes,
+} from '@angular/router';
 import { LongTermAssetsComponent } from './long-term-assets.component';
-import { TangableAssetsComponent } from './tangable-assets/tangable-assets.component';
+import { TangableWealthComponent } from './tangable-assets/tangible-wealthes.component';
 import { IntangableAssetsComponent } from './intangable-assets/intangable-assets.component';
-
+import { RealStatePropertiesComponent } from './tangable-assets/real-state-properties/real-state-properties.component';
 
 export default [
     {
-        path     : '',
+        path: '',
 
         component: LongTermAssetsComponent,
         children: [
             {
-                path     : 'tangible-assets',
-                pathMatch: 'full',
-                component: TangableAssetsComponent,
-             
+                path: 'tangible-assets',
+
+                loadChildren: () =>
+                    import(
+                        'app/modules/assets-management/long-term-assets/tangable-assets/tangible-wealthes.routes'
+                    ),
             },
             {
-                path     : 'intangible-assets',
+                path: 'intangible-assets',
                 pathMatch: 'full',
                 component: IntangableAssetsComponent,
-             
             },
-        
+            {
+                path: 'real-state-properties',
+                pathMatch: '',
+                component: IntangableAssetsComponent,
+            },
         ],
     },
-   
 ] as Routes;

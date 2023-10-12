@@ -12,14 +12,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
 
     {
         id: 'AssetsManagment',
-        title: 'Assets Managment',
+        title: 'Wealth Managment',
         type: 'collapsable',
         icon: 'heroicons_outline:square-3-stack-3d',
         link: '/',
         children: [
             {
                 id: 'currentAssets',
-                title: 'Current Assets',
+                title: 'Current Wealth',
                 type: 'basic',
                 link: '/assets-management/current-assets',
                 exactMatch: true,
@@ -27,20 +27,20 @@ export const defaultNavigation: FuseNavigationItem[] = [
 
             {
                 id: 'longtermAssets',
-                title: 'Long-Term Assets',
+                title: 'Long-Term Wealth',
                 type: 'collapsable',
                 link: '/assets-management/long-term',
                 children: [
                     {
                         id: 'tangableAssets',
-                        title: 'Tangable Assets',
+                        title: 'Tangable Wealth',
                         type: 'basic',
                         link: '/assets-management/long-term/tangible-assets',
 
                     },
                     {
                         id: 'intangableAssets',
-                        title: 'Intangable Assets',
+                        title: 'Intangable Wealth',
                         type: 'basic',
                         link: '/assets-management/long-term/intangible-assets',
 
