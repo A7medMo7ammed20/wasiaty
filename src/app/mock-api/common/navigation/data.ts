@@ -36,51 +36,44 @@ export const defaultNavigation: FuseNavigationItem[] = [
                         title: 'Tangable Wealth',
                         type: 'basic',
                         link: '/assets-management/long-term/tangible-assets',
-
                     },
                     {
                         id: 'intangableAssets',
                         title: 'Intangable Wealth',
                         type: 'basic',
                         link: '/assets-management/long-term/intangible-assets',
-
                     },
                 ],
             },
         ],
     },
     {
-        id:'DocumentManagment.FileManager',
+        id: 'DocumentManagment.FileManager',
         title: 'Doucument Management',
-        type : 'basic',
-        icon : 'heroicons_outline:folder',
-        link : '/document-managment/file-manager',
-
-
+        type: 'basic',
+        icon: 'heroicons_outline:folder',
+        link: '/document-managment/file-manager',
     },
 
     {
-        id:'FamilyTree',
+        id: 'FamilyTree',
         title: 'Family Tree',
-        type : 'collapsable',
-        icon : 'family_restroom',
+        type: 'collapsable',
+        icon: 'mat_outline:family_restroom',
         children: [
             {
                 id: 'FamilyMembers',
                 title: 'Family members',
                 type: 'basic',
                 link: '/family-tree/family-members',
-
             },
             {
                 id: 'RelationshipsFamily',
                 title: 'Relationships Family',
                 type: 'basic',
                 link: '/family-tree/relationships-family',
-
             },
-        ]
-
+        ],
     },
     {
         id: 'BequestManagement',
@@ -99,13 +92,12 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
 
     {
-        id: 'AssetEvaluation',
-        title: 'Asset Evaluation',
+        id: 'WealthEvaluation',
+        title: 'Wealth Evaluation',
         type: 'basic',
         icon: 'heroicons_outline:squares-2x2',
-        link: '/asset-evaluation',
+        link: '/wealth-evaluation',
     },
-
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {

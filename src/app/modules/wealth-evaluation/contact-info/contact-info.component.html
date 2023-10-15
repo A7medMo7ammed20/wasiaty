@@ -1,0 +1,199 @@
+<div class="flex flex-col flex-auto h-full bg-card dark:bg-default">
+    <!-- Header -->
+    <div
+        class="flex flex-0 items-center h-18 px-4 border-b bg-gray-50 dark:bg-transparent"
+    >
+        <button mat-icon-button (click)="drawer.close()">
+            <mat-icon [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+        </button>
+        <div class="ml-2 text-lg font-medium">Wealth info</div>
+    </div>
+
+    <div class="overflow-y-auto">
+        <!-- Contact avatar & info -->
+
+        <form
+            class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto"
+        >
+            <!-- Header -->
+
+            <mat-divider class="mt-6 mb-8"></mat-divider>
+
+            <!-- first Name and Last Name -->
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <mat-form-field
+                        class="w-full"
+                        [subscriptSizing]="'dynamic'"
+                    >
+                        <mat-label>First Name</mat-label>
+                        <input
+                            matInput
+                            [formControlName]="'firstName'"
+                            [spellcheck]="false"
+                            #titleField
+                        />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field
+                        class="w-full"
+                        [subscriptSizing]="'dynamic'"
+                    >
+                        <mat-label>Last Name</mat-label>
+                        <input
+                            matInput
+                            [formControlName]="'lastName'"
+                            [spellcheck]="false"
+                            #titleField
+                        />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <!-- Card the Brith -->
+
+            <mat-card class="result mt-4">
+                <mat-card-content class="grid grid-cols-2">
+                    <div class="flex flex-wrap items-center">
+                        <!-- Date Birth -->
+                        <div class="">
+                            <div class="font-medium">Date Birth</div>
+
+                            <mat-icon
+                                class="icon-size-5 text-current"
+                                [svgIcon]="'heroicons_solid:calendar'"
+                            ></mat-icon>
+
+                            <mat-form-field
+                                class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                                [subscriptSizing]="'dynamic'"
+                            >
+                                <input
+                                    matInput
+                                    [formControlName]="'dateBirth'"
+                                />
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="age">
+                        <mat-form-field
+                            class="w-full"
+                            [subscriptSizing]="'dynamic'"
+                        >
+                            <mat-label>Age</mat-label>
+                            <input
+                                [hidden]="true"
+                                matInput
+                                [spellcheck]="false"
+                                #titleField
+                            />
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+                <div class="p-4">
+                    <mat-form-field
+                        class="w-full"
+                        [subscriptSizing]="'dynamic'"
+                    >
+                        <mat-label>place Brith</mat-label>
+                        <input matInput [spellcheck]="false" #titleField />
+                    </mat-form-field>
+                </div>
+            </mat-card>
+            <!-- Card the Death -->
+            <mat-card class="result mt-4">
+                <mat-card-content class="grid grid-cols-2">
+                    <div class="flex flex-wrap items-center">
+                        <!-- Date Death -->
+                        <div class="" [hidden]="">
+                            <div class="font-medium">Date Death</div>
+
+                            <mat-icon
+                                class="icon-size-5 text-current"
+                                [svgIcon]="'heroicons_solid:calendar'"
+                            ></mat-icon>
+
+                            <mat-form-field
+                                class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                                [subscriptSizing]="'dynamic'"
+                            >
+                                <input matInput />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <section class="example-section">
+                        <div class="font-medium mb-4">Date Death</div>
+                        <mat-checkbox>Hide required marker</mat-checkbox>
+                    </section>
+                </mat-card-content>
+                <div class="p-4">
+                    <mat-form-field
+                        class="w-full"
+                        [subscriptSizing]="'dynamic'"
+                    >
+                        <mat-label>place Death</mat-label>
+                        <input matInput [spellcheck]="false" #titleField />
+                    </mat-form-field>
+                </div>
+            </mat-card>
+
+            <div>
+                <!-- <mat-form-field
+                class="w-full "
+                [subscriptSizing]="'dynamic'"
+                > -->
+                <section class="example-section pt-4">
+                    <label class="example-margin">Marital Status:</label>
+                    <mat-radio-group
+                        [formControlName]="'maritalStatus'"
+                        value="labelmaritalStatus"
+                    >
+                        <mat-radio-button class="example-margin" value="Single"
+                            >Single</mat-radio-button
+                        >
+                        <mat-radio-button class="example-margin" value="Married"
+                            >Married</mat-radio-button
+                        >
+                        <mat-radio-button
+                            class="example-margin"
+                            value="Divorced"
+                            >Divorced</mat-radio-button
+                        >
+                    </mat-radio-group>
+                </section>
+                <section class="example-section pt-4">
+                    <label class="example-margin">Gender:</label>
+                    <mat-radio-group
+                        [formControlName]="'gender'"
+                        value="labelGender"
+                    >
+                        <mat-radio-button class="example-margin" value="Male"
+                            >Male</mat-radio-button
+                        >
+                        <mat-radio-button class="example-margin" value="Female"
+                            >Female</mat-radio-button
+                        >
+                    </mat-radio-group>
+                </section>
+
+                <!-- </mat-form-field> -->
+            </div>
+
+            <!-- description -->
+            <div class="mt-8">
+                <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                    <mat-label>Description</mat-label>
+                    <textarea
+                        matInput
+                        [formControlName]="'description'"
+                        [spellcheck]="false"
+                        cdkTextareaAutosize
+                    ></textarea>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>

@@ -189,7 +189,7 @@ export class DebtChartComponent implements OnInit, OnDestroy {
                     },
                 },
             },
-            colors: ['#38BDF8', '#34D399', '#FB7185'],
+            colors: ['#34D399'],
             dataLabels: {
                 enabled: true,
                 textAnchor: 'start',

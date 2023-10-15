@@ -17,16 +17,18 @@ import { RouterOutlet, RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
 import { NgApexchartsModule } from 'ng-apexcharts';
 // import { WealthManagementService } from '../../../wealth-management.service';
-import { WealthManagementService } from 'app/modules/assets-management/wealth-management.service';
+// import { WealthManagementService } from 'app/modules/assets-management/wealth-management.service';
 import { takeUntil, Subject, Observable } from 'rxjs';
 // import { TangableWealthes, VMTangableWealthes } from '../../../wealth-management.types';
-import {
-    TangibleWealthes,
-    VMTangableWealthes,
-} from 'app/modules/assets-management/wealth-management.types';
+// import { TangibleWealthes, VMTangableWealthes } from 'app/modules/assets-management/wealth-management.types';
 import { forEach } from 'lodash';
+import { TangibleWealthService } from '../tangible-wealth.service';
+import {
+    CommercialRealEstate,
+    VMTangableWealthes,
+} from 'app/modules/assets-management/long-term-assets/tangable-assets/tangible-wealthes.types';
 @Component({
-    selector: 'app-mixed-use-properties',
+    selector: 'app-commercial-real-estate',
     standalone: true,
 
     imports: [
@@ -48,21 +50,21 @@ import { forEach } from 'lodash';
         CurrencyPipe,
     ],
 
-    templateUrl: './mixed-use-properties.component.html',
+    templateUrl: './commercial-real-estate.component.html',
 })
-export class MixedUsePropertiesComponent implements OnInit {
-    Tangables$: Observable<TangibleWealthes[]>;
+export class CommercialRealEstateComponent implements OnInit {
+    Tangables$: Observable<CommercialRealEstate[]>;
     realstate: VMTangableWealthes[];
     vehicles: VMTangableWealthes[];
     accountsReceivable: VMTangableWealthes[];
     marketableSecurities: VMTangableWealthes[];
     private _unsubscribeAll: Subject<any> = new Subject<any>();
     tangableCount: number = 0;
-    tangables: TangibleWealthes[];
+    tangables: CommercialRealEstate[];
     average: VMTangableWealthes[];
 
     constructor(
-        private _wealthManagmentService: WealthManagementService,
+        private _wealthManagmentService: TangibleWealthService,
         private _changeDetectorRef: ChangeDetectorRef
     ) {}
     ngOnInit(): void {
@@ -70,7 +72,7 @@ export class MixedUsePropertiesComponent implements OnInit {
         this._wealthManagmentService
             .getTangableWealth()
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((tangable: TangibleWealthes[]) => {
+            .subscribe((tangable: CommercialRealEstate[]) => {
                 this.tangableCount = tangable.length;
                 let test = tangable;
                 this.tangables = tangable;

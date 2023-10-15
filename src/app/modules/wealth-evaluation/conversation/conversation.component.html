@@ -1,0 +1,601 @@
+<div class="flex flex-col flex-auto overflow-y-auto dark:bg-default">
+    <ng-container *ngIf="Evaluation; else selectEvaluationOrStartNew">
+        <mat-drawer-container class="flex-auto h-full" [hasBackdrop]="false">
+            <!-- Drawer -->
+            <mat-drawer
+                class="w-full sm:w-100 lg:border-l lg:shadow-none dark:bg-gray-900"
+                [autoFocus]="false"
+                [mode]="drawerMode"
+                [position]="'end'"
+                [(opened)]="drawerOpened"
+                #drawer
+            >
+                <!-- Contact info -->
+                <Evaluation-contact-info
+                    [drawer]="drawer"
+                    [Evaluation]="Evaluation"
+                ></Evaluation-contact-info>
+            </mat-drawer>
+
+            <!-- Drawer content -->
+            <mat-drawer-content class="flex flex-col overflow-hidden">
+                <!-- Header -->
+                <div
+                    class="flex flex-0 items-center h-18 px-4 md:px-6 border-b bg-gray-50 dark:bg-transparent"
+                >
+                    <!-- Back button -->
+                    <a
+                        class="lg:hidden md:-ml-2"
+                        mat-icon-button
+                        [routerLink]="['./']"
+                        (click)="resetEvaluation()"
+                    >
+                        <mat-icon
+                            [svgIcon]="'heroicons_outline:arrow-long-left'"
+                        ></mat-icon>
+                    </a>
+
+                    <!-- Contact info -->
+                    <div
+                        class="flex items-center ml-2 lg:ml-0 mr-2 cursor-pointer"
+                        (click)="openContactInfo()"
+                    >
+                        <div
+                            class="ml-4 text-lg font-medium leading-5 truncate"
+                        >
+                            {{ Evaluation.contact.name }}
+                        </div>
+                    </div>
+
+                    <button
+                        class="ml-auto"
+                        mat-icon-button
+                        [matMenuTriggerFor]="conversationHeaderMenu"
+                    >
+                        <mat-icon
+                            [svgIcon]="'heroicons_outline:ellipsis-vertical'"
+                        ></mat-icon>
+                        <mat-menu #conversationHeaderMenu>
+                            <button mat-menu-item (click)="openContactInfo()">
+                                <mat-icon
+                                    [svgIcon]="'heroicons_outline:user-circle'"
+                                ></mat-icon>
+                                Wealth Info
+                            </button>
+
+                            <button
+                                mat-menu-item
+                                (click)="toggleMuteNotifications()"
+                            >
+                                <ng-container *ngIf="!Evaluation.muted">
+                                    <mat-icon
+                                        [svgIcon]="
+                                            'heroicons_outline:speaker-x-mark'
+                                        "
+                                    ></mat-icon>
+                                    Mute notifications
+                                </ng-container>
+                                <ng-container *ngIf="Evaluation.muted">
+                                    <mat-icon
+                                        [svgIcon]="
+                                            'heroicons_outline:volume-up'
+                                        "
+                                    ></mat-icon>
+                                    Unmute notifications
+                                </ng-container>
+                            </button>
+
+                            <button mat-menu-item>
+                                <mat-icon
+                                    [svgIcon]="'heroicons_outline:trash'"
+                                ></mat-icon>
+                                Delete Evaluation
+                            </button>
+                        </mat-menu>
+                    </button>
+                </div>
+
+                <!-- Conversation -->
+                <div class="flex overflow-y-auto flex-col-reverse bg-card">
+                    <!-- Main -->
+                    <div class="p-6 sm:p-10 text-left overflow-auto">
+                        <!-- Invoice -->
+
+                        <div class="grid grid-cols-12 gap-x-1">
+                            <!-- Columns -->
+                            <div
+                                class="col-span-8 font-medium text-md text-secondary"
+                            >
+                                SERVICE
+                            </div>
+                            <div
+                                class="font-medium text-md text-right text-secondary"
+                            >
+                                RATE
+                            </div>
+                            <div
+                                class="font-medium text-md text-right text-secondary"
+                            >
+                                QTY
+                            </div>
+                            <div
+                                class="col-span-2 font-medium text-md text-right text-secondary"
+                            >
+                                TOTAL
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-4 border-b"></div>
+
+                            <!-- Item -->
+                            <div class="col-span-8">
+                                <div class="text-lg font-medium">
+                                    Prototype & Design
+                                </div>
+                                <div class="mt-2 text-md text-secondary">
+                                    Prototyping of the application's general
+                                    workflow and the detailed design of its 72
+                                    screens as a working prototype.
+                                </div>
+                            </div>
+                            <div class="self-center text-right">$75.00</div>
+                            <div class="self-center text-right">240</div>
+                            <div class="col-span-2 self-center text-right">
+                                $18,000.00
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-4 border-b"></div>
+
+                            <!-- Item -->
+                            <div class="col-span-8">
+                                <div class="text-lg font-medium">
+                                    Development
+                                </div>
+                                <div class="mt-2 text-md text-secondary">
+                                    The web and mobile development of the
+                                    application using appropriate tools and
+                                    registering it to major application stores.
+                                </div>
+                            </div>
+                            <div class="self-center text-right">$60.50</div>
+                            <div class="self-center text-right">350</div>
+                            <div class="col-span-2 self-center text-right">
+                                $21,175.00
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-4 border-b"></div>
+
+                            <!-- Item -->
+                            <div class="col-span-8">
+                                <div class="text-lg font-medium">Testing</div>
+                                <div class="mt-2 text-md text-secondary">
+                                    Extensive testing of the application using
+                                    various mobile and desktop devices with
+                                    different operating systems.
+                                </div>
+                            </div>
+                            <div class="self-center text-right">$25.00</div>
+                            <div class="self-center text-right">50</div>
+                            <div class="col-span-2 self-center text-right">
+                                $1,250.00
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-4 border-b"></div>
+
+                            <!-- Item -->
+                            <div class="col-span-8">
+                                <div class="text-lg font-medium">
+                                    Documentation & Training
+                                </div>
+                                <div class="mt-2 text-md text-secondary">
+                                    Development of the detailed documentation,
+                                    preparing guides and instructional videos
+                                    and extensive training of 2 people.
+                                </div>
+                            </div>
+                            <div class="self-center text-right">$26.50</div>
+                            <div class="self-center text-right">260</div>
+                            <div class="col-span-2 self-center text-right">
+                                $6,890.00
+                            </div>
+
+                            <!-- Spacer -->
+                            <div class="col-span-12 mt-16"></div>
+
+                            <!-- Subtotal -->
+                            <div
+                                class="col-span-10 self-center font-medium tracking-tight text-secondary"
+                            >
+                                SUBTOTAL
+                            </div>
+                            <div class="col-span-2 text-right text-lg">
+                                $47,315.00
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-3 border-b"></div>
+
+                            <!-- Tax -->
+                            <div
+                                class="col-span-10 self-center font-medium tracking-tight text-secondary"
+                            >
+                                TAX
+                            </div>
+                            <div class="col-span-2 text-right text-lg">
+                                $2,365.75
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-3 border-b"></div>
+
+                            <!-- Discount -->
+                            <div
+                                class="col-span-10 self-center font-medium tracking-tight text-secondary"
+                            >
+                                DISCOUNT
+                            </div>
+                            <div class="col-span-2 text-right text-lg">
+                                $180.75
+                            </div>
+
+                            <!-- Divider -->
+                            <div class="col-span-12 my-3 border-b"></div>
+
+                            <!-- Total -->
+                            <div
+                                class="col-span-10 self-center text-2xl font-medium tracking-tight text-secondary"
+                            >
+                                TOTAL
+                            </div>
+                            <div
+                                class="col-span-2 text-right text-2xl font-medium"
+                            >
+                                $49,000.00
+                            </div>
+                        </div>
+
+                        <div class="mt-16">
+                            <div class="font-medium">
+                                Please pay within 15 days. Thank you for your
+                                business.
+                            </div>
+                            <div class="flex items-start mt-4">
+                                <img
+                                    class="flex-0 w-10 mt-2"
+                                    src="assets/images/logo/logo.svg"
+                                />
+                                <div class="ml-6 text-sm text-secondary">
+                                    In condimentum malesuada efficitur. Mauris
+                                    volutpat placerat auctor. Ut ac congue
+                                    dolor. Quisque scelerisque lacus sed feugiat
+                                    fermentum. Cras aliquet facilisis
+                                    pellentesque. Nunc hendrerit quam at leo
+                                    commodo, a suscipit tellus dapibus. Etiam at
+                                    felis volutpat est mollis lacinia. Mauris
+                                    placerat sem sit amet velit mollis, in
+                                    porttitor ex finibus. Proin eu nibh id
+                                    libero tincidunt lacinia et eget.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </ng-container>
+
+    <!-- Select Evaluation or start new template -->
+
+    <ng-template #selectEvaluationOrStartNew>
+        <!-- Select Evaluation or start new -->
+        <div class="grid grid-cols-1 gap-8 w-full mt-8 px-6">
+            <!-- Previous statement -->
+            <div
+                class="relative flex flex-col flex-auto p-6 pr-3 pb-3 bg-card rounded-2xl shadow overflow-hidden"
+            >
+                <div class="absolute bottom-0 right-0 w-24 h-24 -m-6">
+                    <mat-icon
+                        class="icon-size-24 opacity-25 text-green-500 dark:text-green-400"
+                        [svgIcon]="'heroicons_outline:check-circle'"
+                    ></mat-icon>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex flex-col">
+                        <div
+                            class="text-lg font-medium tracking-tight leading-6 truncate"
+                        >
+                            Previous Statement
+                        </div>
+                        <div class="text-green-600 font-medium text-sm">
+                            Evaluated on {{ data.previousStatement.date }}
+                        </div>
+                    </div>
+                    <div class="ml-auto -mt-2">
+                        <button
+                            mat-icon-button
+                            [matMenuTriggerFor]="previousStatementMenu"
+                        >
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_mini:ellipsis-vertical'"
+                            ></mat-icon>
+                        </button>
+                        <mat-menu #previousStatementMenu="matMenu">
+                            <button mat-menu-item>
+                                <span class="flex items-center">
+                                    <mat-icon
+                                        class="icon-size-5 mr-3"
+                                        [svgIcon]="
+                                            'heroicons_solid:credit-card'
+                                        "
+                                    ></mat-icon>
+                                    <span>View statement</span>
+                                </span>
+                            </button>
+                            <button mat-menu-item>
+                                <span class="flex items-center">
+                                    <mat-icon
+                                        class="icon-size-5 mr-3"
+                                        [svgIcon]="'heroicons_solid:banknotes'"
+                                    ></mat-icon>
+                                    <span>Spending breakdown</span>
+                                </span>
+                            </button>
+                            <button mat-menu-item>
+                                <span class="flex items-center">
+                                    <mat-icon
+                                        class="icon-size-5 mr-3"
+                                        [svgIcon]="
+                                            'heroicons_solid:receipt-percent'
+                                        "
+                                    ></mat-icon>
+                                    <span>Tax breakdown</span>
+                                </span>
+                            </button>
+                            <mat-divider class="my-2"></mat-divider>
+                            <button mat-menu-item>
+                                <span class="flex items-center">
+                                    <mat-icon
+                                        class="icon-size-5 mr-3"
+                                        [svgIcon]="'heroicons_solid:printer'"
+                                    ></mat-icon>
+                                    <span>Print statement</span>
+                                </span>
+                            </button>
+                            <button mat-menu-item>
+                                <span class="flex items-center">
+                                    <mat-icon
+                                        class="icon-size-5 mr-3"
+                                        [svgIcon]="'heroicons_solid:envelope'"
+                                    ></mat-icon>
+                                    <span>Email statement</span>
+                                </span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="flex flex-row flex-wrap mt-4 -mx-6">
+                    <div class="flex flex-col mx-6 my-3">
+                        <div
+                            class="text-sm font-medium leading-none text-secondary"
+                        >
+                            All Predicted Amount
+                        </div>
+                        <div class="mt-2 font-medium text-3xl leading-none">
+                            {{
+                                data.previousStatement.limit | currency : "USD"
+                            }}
+                        </div>
+                    </div>
+                    <div class="flex flex-col mx-6 my-3">
+                        <div
+                            class="text-sm font-medium leading-none text-secondary"
+                        >
+                            Minimum
+                        </div>
+                        <div class="mt-2 font-medium text-3xl leading-none">
+                            {{
+                                data.previousStatement.spent | currency : "USD"
+                            }}
+                        </div>
+                    </div>
+                    <div class="flex flex-col mx-6 my-3">
+                        <div
+                            class="text-sm font-medium leading-none text-secondary"
+                        >
+                            Maximum
+                        </div>
+                        <div class="mt-2 font-medium text-3xl leading-none">
+                            {{
+                                data.previousStatement.minimum
+                                    | currency : "USD"
+                            }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Evaluation table -->
+            <div
+                class="col-span-1 flex flex-col flex-auto bg-card shadow rounded-2xl overflow-hidden"
+            >
+                <div class="p-6">
+                    <div
+                        class="mr-4 text-lg font-medium tracking-tight leading-6 truncate"
+                    >
+                        Recent Evaluation
+                    </div>
+                    <div class="text-secondary font-medium">
+                        1 pending, 4 completed
+                    </div>
+                </div>
+                <div class="overflow-x-auto mx-6">
+                    <table
+                        class="w-full bg-transparent"
+                        mat-table
+                        matSort
+                        [dataSource]="recentTransactionsDataSource"
+                        [trackBy]="trackByFn"
+                        #recentTransactionsTable
+                    >
+                        <!-- Evaluation ID -->
+                        <ng-container matColumnDef="transactionId">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Evaluation ID
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span
+                                    class="pr-6 font-medium text-sm text-secondary whitespace-nowrap"
+                                >
+                                    {{ transaction.transactionId }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Date -->
+                        <ng-container matColumnDef="date">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Date
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span class="pr-6 whitespace-nowrap">
+                                    {{ transaction.date | date : "MMM dd, y" }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Name -->
+                        <ng-container matColumnDef="name">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Name
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span class="pr-6 whitespace-nowrap">
+                                    {{ transaction.name }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Amount -->
+
+                        <ng-container matColumnDef="amount">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Amount
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span
+                                    class="pr-6 font-medium whitespace-nowrap"
+                                >
+                                    {{ transaction.amount | currency : "USD" }}
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Status -->
+                        <ng-container matColumnDef="status">
+                            <th
+                                mat-header-cell
+                                mat-sort-header
+                                *matHeaderCellDef
+                            >
+                                Status
+                            </th>
+                            <td mat-cell *matCellDef="let transaction">
+                                <span
+                                    class="inline-flex items-center font-bold text-xs px-2.5 py-0.5 rounded-full tracking-wide uppercase"
+                                    [ngClass]="{
+                                        'bg-red-200 text-red-800 dark:bg-red-600 dark:text-red-50':
+                                            transaction.status === 'pending',
+                                        'bg-green-200 text-green-800 dark:bg-green-600 dark:text-green-50':
+                                            transaction.status === 'completed'
+                                    }"
+                                >
+                                    <span
+                                        class="leading-relaxed whitespace-nowrap"
+                                        >{{ transaction.status }}</span
+                                    >
+                                </span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Footer -->
+                        <ng-container matColumnDef="recentOrdersTableFooter">
+                            <td
+                                class="py-6 px-0 border-0"
+                                mat-footer-cell
+                                *matFooterCellDef
+                                colspan="6"
+                            >
+                                <button mat-stroked-button>
+                                    See all Evaluation
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr
+                            mat-header-row
+                            *matHeaderRowDef="recentTransactionsTableColumns"
+                        ></tr>
+                        <tr
+                            class="order-row h-16"
+                            mat-row
+                            *matRowDef="
+                                let row;
+                                columns: recentTransactionsTableColumns
+                            "
+                        ></tr>
+                        <tr
+                            class="h-16 border-0"
+                            mat-footer-row
+                            *matFooterRowDef="['recentOrdersTableFooter']"
+                        ></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Speech bubble tail SVG -->
+    <!-- @formatter:off -->
+    <ng-template #speechBubbleExtension>
+        <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+            >
+                <path
+                    d="M1.01522827,0.516204834 C-8.83532715,54.3062744 61.7609863,70.5215302 64.8009949,64.3061218 C68.8074951,54.8859711 30.1663208,52.9997559 37.5036011,0.516204834 L1.01522827,0.516204834 Z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                ></path>
+            </g>
+        </svg>
+    </ng-template>
+    <!-- @formatter:on -->
+</div>

@@ -93,7 +93,6 @@ export class TableComponent implements OnInit {
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data: Family[]) => {
                 // Store the data
-                debugger;
 
                 this.family = data;
 
@@ -105,7 +104,6 @@ export class TableComponent implements OnInit {
             .getFamilyMembers()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((dataFamilyMembers: FamiliesMembers[]) => {
-                debugger;
                 this.members = dataFamilyMembers;
                 this.familyMembers = new MatTableDataSource<FamiliesMembers>(
                     dataFamilyMembers
@@ -215,7 +213,6 @@ export class TableComponent implements OnInit {
             }
 
             if (updated.childrenMale) {
-                debugger;
                 updated.childrenMale.forEach((male, index) => {
                     const childMember = members.find((member) => {
                         if (member.id === male.toString()) {

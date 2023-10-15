@@ -1,5 +1,5 @@
 import { AcademyMockApi } from 'app/mock-api/apps/academy/api';
-import { ChatMockApi } from 'app/mock-api/apps/chat/api';
+import { WealthEvaluationMockApi } from 'app/mock-api/wealth-evaluation/api';
 import { ContactsMockApi } from 'app/mock-api/apps/contacts/api';
 import { ECommerceInventoryMockApi } from 'app/mock-api/apps/ecommerce/inventory/api';
 import { FileManagerMockApi } from 'app/mock-api/apps/file-manager/api';
@@ -26,13 +26,14 @@ import { DebtManagementMockApi } from './debt-management/api';
 import { FamilyTreeMockApi } from './famliy-tree/api';
 import { FamilyMembersMockApi } from './family-members/api';
 import { TangibleWealthMockApi } from './wealth-management/tangible-wealth/api';
+import { CommercialRealEstateMockApi } from './wealth-management/commercial-real-estate/api';
 
 export const mockApiServices = [
     AcademyMockApi,
     ActivitiesMockApi,
     AnalyticsMockApi,
     AuthMockApi,
-    ChatMockApi,
+    WealthEvaluationMockApi,
     ContactsMockApi,
     CryptoMockApi,
     ECommerceInventoryMockApi,
@@ -55,5 +56,6 @@ export const mockApiServices = [
     DebtManagementMockApi,
     FamilyTreeMockApi,
     FamilyMembersMockApi,
-    TangibleWealthMockApi
+    TangibleWealthMockApi,
+    CommercialRealEstateMockApi,
 ];

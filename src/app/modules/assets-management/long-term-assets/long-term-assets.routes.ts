@@ -5,9 +5,9 @@ import {
     Routes,
 } from '@angular/router';
 import { LongTermAssetsComponent } from './long-term-assets.component';
-import { TangableWealthComponent } from './tangable-assets/tangible-wealthes.component';
+// import { TangableWealthComponent } from './tangable-assets/tangible-wealthes.component';
 import { IntangableAssetsComponent } from './intangable-assets/intangable-assets.component';
-import { RealStatePropertiesComponent } from './tangable-assets/real-state-properties/real-state-properties.component';
+import { CommercialRealEstateComponent } from './tangable-assets/commercial-real-estate/commercial-real-estate.component';
 
 export default [
     {

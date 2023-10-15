@@ -13,14 +13,15 @@ import {
     tap,
     throwError,
 } from 'rxjs';
-import { TangibleWealthes, WealthType } from './wealth-management.types';
+// import {  WealthType } from '../../wealth-management.types';
+import { CommercialRealEstate, WealthType } from './tangible-wealthes.types';
 
 @Injectable({ providedIn: 'root' })
-export class WealthManagementService {
+export class TangibleWealthService {
     // Private
     //    private _tangibleWealthes :BehaviorSubject<TangableWealthes[] | null > = new BehaviorSubject(null);
     //    private _tangableWealth :BehaviorSubject<TangableWealthes | null > = new BehaviorSubject(null);
-    private _tangibleWealthes: BehaviorSubject<TangibleWealthes[] | null> =
+    private _tangibleWealthes: BehaviorSubject<CommercialRealEstate[] | null> =
         new BehaviorSubject(null);
     private _tangibleTypes: BehaviorSubject<WealthType[] | null> =
         new BehaviorSubject(null);
@@ -29,17 +30,18 @@ export class WealthManagementService {
      * Constructor
      */
     constructor(private _httpClient: HttpClient) {}
-    get tangableWealthes$(): Observable<TangibleWealthes[]> {
+    get tangableWealthes$(): Observable<CommercialRealEstate[]> {
         return this._tangibleWealthes.asObservable();
     }
 
     getTangableWealth(): Observable<any> {
         return this._httpClient
-            .get<TangibleWealthes[]>('api/wealth-managements/all')
+            .get<CommercialRealEstate[]>(
+                'api/wealth-managements/commercial-real-estate/all'
+            )
             .pipe(
                 tap((tangable) => {
-                    //
-                    // console.log('test' , tangable) ;
+                    console.log('test commercial', tangable);
 
                     this._tangibleWealthes.next(tangable);
                 })
@@ -54,7 +56,9 @@ export class WealthManagementService {
 
     getTangibleTypes(): Observable<any> {
         return this._httpClient
-            .get<WealthType[]>('api/wealth-managements/tangible-types')
+            .get<WealthType[]>(
+                'api/wealth-managements/commercial-real-estate/tangible-types'
+            )
             .pipe(
                 tap((tangableType) => {
                     //

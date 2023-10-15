@@ -105,9 +105,19 @@ export const appRoutes: Route[] = [
                     ),
             },
 
-            { path: 'assets-management', loadChildren: () => import('app/modules/assets-management/assets-management.routes') },
+            {
+                path: 'assets-management',
+                loadChildren: () =>
+                    import(
+                        'app/modules/assets-management/assets-management.routes'
+                    ),
+            },
             // { path: 'indebtedness', loadChildren: () => import('app/modules/indebtedness/indebtedness.routes') },
-            { path: 'family-tree', loadChildren: () => import('app/modules/family-tree/family-tree.routes') },
+            {
+                path: 'family-tree',
+                loadChildren: () =>
+                    import('app/modules/family-tree/family-tree.routes'),
+            },
 
             {
                 path: 'document-managment',
@@ -144,6 +154,11 @@ export const appRoutes: Route[] = [
                     import(
                         'app/modules/debt-management/debt-management.routes'
                     ),
+            },
+            {
+                path: 'wealth-evaluation',
+                loadChildren: () =>
+                    import('app/modules/wealth-evaluation/evaluation.routes'),
             },
         ],
     },

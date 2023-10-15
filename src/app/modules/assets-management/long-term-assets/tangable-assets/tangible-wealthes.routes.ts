@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { AssetsManagementComponent } from 'app/modules/assets-management/assets-management.component';
-import { TangableWealthComponent } from './tangible-wealthes.component';
-import { RealStatePropertiesComponent } from './real-state-properties/real-state-properties.component';
+// import { TangableWealthComponent } from './tangible-wealthes.component';
+import { CommercialRealEstateComponent } from './commercial-real-estate/commercial-real-estate.component';
 import { TangableWealthListComponent } from './list/tangible-wealthes-list.component';
 
 export default [
     {
         path: '',
-        component: TangableWealthComponent,
+        component: TangableWealthListComponent,
 
         children: [
             {
@@ -15,14 +15,14 @@ export default [
                 component: TangableWealthListComponent,
             },
             {
-                path: 'real-estate',
+                path: 'commercial-real-estate',
                 pathMatch: 'full',
-                component: RealStatePropertiesComponent,
+                component: CommercialRealEstateComponent,
             },
             {
                 path: 'mixed-use-properties',
                 pathMatch: 'full',
-                component: RealStatePropertiesComponent,
+                component: CommercialRealEstateComponent,
             },
         ],
     },

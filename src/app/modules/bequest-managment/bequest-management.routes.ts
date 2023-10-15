@@ -62,7 +62,6 @@ const canDeactivateBequestsDetails = (
         nextRoute = nextRoute.firstChild;
     }
 
-    debugger;
     // If the next state doesn't contain '/bequests'
     // it means we are navigating away from the
     // tasks app
