@@ -1,0 +1,113 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <mat-drawer-container
+        class="flex-auto h-full dark:bg-transparent"
+        (backdropClick)="onBackdropClicked()"
+    >
+        <!-- Drawer -->
+        <mat-drawer
+            class="w-full sm:w-128 dark:bg-gray-900"
+            [mode]="drawerMode"
+            [opened]="false"
+            [position]="'end'"
+            [disableClose]="true"
+            #matDrawer
+        >
+            <router-outlet></router-outlet>
+        </mat-drawer>
+        <mat-drawer-content class="flex flex-col">
+            <div class="flex flex-col flex-auto">
+                <div class="bg-card">
+                    <div
+                        class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8"
+                    >
+                        <div
+                            class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12"
+                        >
+                            <!-- Avatar and name -->
+                            <div class="flex flex-auto items-center min-w-0">
+                                <div class="flex flex-col min-w-0 ml-4">
+                                    <ng-container>
+                                        <div
+                                            class="text-3xl font-semibold tracking-tight leading-8"
+                                        >
+                                            Relationships Family
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <!-- Actions -->
+                            <div
+                                class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3"
+                            >
+                                <button
+                                    mat-flat-button
+                                    [color]="'primary'"
+                                    (click)="createRelationship('relationship')"
+                                >
+                                    <mat-icon
+                                        class="icon-size-5"
+                                        [svgIcon]="'heroicons_solid:plus'"
+                                    ></mat-icon>
+                                    <span class="ml-2">Add</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Type selector -->
+                        <div
+                            class="relative flex self-start pt-2 pb-1 pl-5 pr-4 cursor-pointer overflow-hidden rounded-t-xl border border-b-0 bg-default"
+                            matRipple
+                            [matMenuTriggerFor]="projectsMenu"
+                        >
+                            <div class="flex items-center">
+                                <div class="overflow-hidden">
+                                    <div class="font-medium leading-6 truncate">
+                                        <span class="font-bold"> Show as: </span
+                                        >{{ selectType }}
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-center pl-2"
+                                >
+                                    <mat-icon
+                                        class="icon-size-5"
+                                        [svgIcon]="
+                                            'heroicons_mini:chevron-down'
+                                        "
+                                    ></mat-icon>
+                                </div>
+                            </div>
+                            <mat-menu
+                                #projectsMenu="matMenu"
+                                [xPosition]="'before'"
+                            >
+                                <button
+                                    mat-menu-item
+                                    (click)="selectType = 'Table'"
+                                >
+                                    Table
+                                </button>
+                                <button
+                                    mat-menu-item
+                                    (click)="selectType = 'Tree'"
+                                >
+                                    Tree
+                                </button>
+                            </mat-menu>
+                        </div>
+                        <!-- Project selector -->
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col flex-auto p-6">
+                <!-- Items list -->
+
+                <ng-container *ngIf="selectType == 'Table'">
+                    <app-table></app-table>
+                </ng-container>
+                <ng-container *ngIf="selectType == 'Tree'">
+                    <family-tree></family-tree>
+                </ng-container>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

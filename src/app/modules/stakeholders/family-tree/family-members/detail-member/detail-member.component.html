@@ -1,0 +1,215 @@
+<div class="flex flex-auto">
+    <form class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto" [formGroup]="familyMemberForm">
+        <!-- Header -->
+        <div class="flex items-center justify-between -mt-3 -ml-4">
+            <!-- create -->
+            <button class="pr-4 pl-3.5" mat-button>
+                <!-- label create Debt -->
+                <div class="flex items-center justify-center">
+                    <span class="ml-2 font-semibold">Add Member</span>
+                </div>
+            </button>
+            <div class="flex items-center">
+                <!-- More menu -->
+                <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+                    <mat-icon
+                    [svgIcon]="'heroicons_outline:ellipsis-vertical'"
+
+                    >
+
+                    </mat-icon>
+                </button>
+                <mat-menu #moreMenu="matMenu" >
+                    <button mat-menu-item (click)="deleteMember()"  >
+                        <mat-icon
+                        [svgIcon]="'heroicons_outline:trash'"
+                        ></mat-icon>
+                        <span>Delete</span>
+
+                    </button>
+                </mat-menu>
+
+                <!-- Close button -->
+                <a mat-icon-button [routerLink]="['../']">
+                    <mat-icon [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+                </a>
+            </div>
+        </div>
+
+        <mat-divider class="mt-6 mb-8"></mat-divider>
+
+        <!-- first Name and Last Name -->
+
+        <div class="grid grid-cols-2 gap-3">
+            <div>
+                <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [formControlName]="'firstName'" [spellcheck]="false" #titleField>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [formControlName]="'lastName'" [spellcheck]="false" #titleField>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <!-- Card the Brith -->
+
+        <mat-card class="result mt-4">
+            <mat-card-content class="grid grid-cols-2">
+                <div class="flex flex-wrap items-center ">
+                    <!-- Date Birth -->
+                    <div class="">
+                        <div class="font-medium"> Date Birth</div>
+                        <div class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                            [ngClass]="{
+                                'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700':
+                                    !familyMember?.dateBirth,
+                                'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500':
+                                    familyMember?.dateBirth && !checkDate(),
+                                'text-red-800 bg-red-200 dark:text-red-100 dark:bg-red-500':
+                                    familyMember?.dateBirth && checkDate()
+                            }"
+                            (click)="dueDatePicker.open()"
+                            >
+                            <mat-icon class="icon-size-5 text-current"
+                                [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
+                            <span class="ml-2 text-md font-medium">
+                                <ng-container *ngIf="familyMember?.dateBirth">{{
+                                    familyMember.dateBirth | date : "longDate"
+                                    }}</ng-container>
+                                <ng-container *ngIf="!familyMember?.dateBirth">Not set</ng-container>
+                            </span>
+                            <mat-form-field
+                                class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                                [subscriptSizing]="'dynamic'">
+                                <input matInput [formControlName]="'dateBirth'" [matDatepicker]="dueDatePicker" />
+                                <mat-datepicker #dueDatePicker>
+                                    <mat-datepicker-actions>
+                                        <button mat-button (click)="
+                                            familyMemberForm.get('dueDate').setValue(null)
+                                            " matDatepickerCancel>
+                                            Clear
+                                        </button>
+                                        <button class="" mat-flat-button [color]="'primary'" matDatepickerApply>
+                                            Select
+                                        </button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="age">
+                    <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                        <mat-label   >Age</mat-label>
+                        <input [hidden]="true" matInput [formControlName]="'age'" [spellcheck]="false" #titleField> {{age}}
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <div class="p-4">
+                <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                    <mat-label>place Brith</mat-label>
+                    <input matInput [formControlName]="'placeBirth'" [spellcheck]="false" #titleField>
+                </mat-form-field>
+            </div>
+        </mat-card>
+        <!-- Card the Death -->
+        <mat-card class="result mt-4 ">
+            <mat-card-content class="grid grid-cols-2">
+                <div class="flex flex-wrap items-center ">
+                    <!-- Date Death -->
+                    <div class="" [hidden]="">
+                        <div class="font-medium"> Date Death</div>
+                        <div class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                            [ngClass]="{
+                            'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700':
+                                !familyMember?.dateDeath,
+                            'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500':
+                                familyMember?.dateDeath && !checkDate(),
+                            'text-red-800 bg-red-200 dark:text-red-100 dark:bg-red-500':
+                                familyMember?.dateDeath && checkDate()
+                        }" (click)="deathDatePicker.open()">
+                            <mat-icon class="icon-size-5 text-current"
+                                [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
+                            <span class="ml-2 text-md font-medium">
+                                <ng-container *ngIf="familyMember?.dateDeath">{{
+                                    familyMember.dateDeath | date : "longDate"
+                                    }}</ng-container>
+                                <ng-container *ngIf="!familyMember?.dateDeath">Not set</ng-container>
+                            </span>
+                            <mat-form-field
+                                class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                                [subscriptSizing]="'dynamic'">
+                                <input matInput [formControlName]="'dateDeath'" [matDatepicker]="deathDatePicker" />
+                                <mat-datepicker #deathDatePicker>
+                                    <mat-datepicker-actions>
+                                        <button mat-button (click)="
+                                        familyMemberForm.get('dueDate').setValue(null)
+                                        " matDatepickerCancel>
+                                            Clear
+                                        </button>
+                                        <button class="" mat-flat-button [color]="'primary'" matDatepickerApply>
+                                            Select
+                                        </button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <section class="example-section">
+                    <div class="font-medium mb-4"> Date Death</div>
+                    <mat-checkbox>Hide required marker</mat-checkbox>
+                </section>
+            </mat-card-content>
+            <div class="p-4">
+                <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                    <mat-label>place Death</mat-label>
+                    <input matInput [formControlName]="'placeDeath'" [spellcheck]="false" #titleField>
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+        <div>
+            <!-- <mat-form-field
+            class="w-full "
+            [subscriptSizing]="'dynamic'"
+            > -->
+            <section class="example-section pt-4" >
+                <label class="example-margin">Marital Status:</label>
+                <mat-radio-group [formControlName]="'maritalStatus'" value="labelmaritalStatus" >
+                  <mat-radio-button class="example-margin" value="Single">Single</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="Married">Married</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="Divorced">Divorced</mat-radio-button>
+                </mat-radio-group>
+              </section>
+            <section class="example-section pt-4" >
+                <label class="example-margin">Gender:</label>
+                <mat-radio-group [formControlName]="'gender'" value="labelGender" >
+                  <mat-radio-button class="example-margin" value="Male">Male</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+            <!-- </mat-form-field> -->
+        </div>
+
+        <!-- description -->
+        <div class="mt-8">
+            <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                <mat-label>Description</mat-label>
+                <textarea
+                    matInput
+                    [formControlName]="'description'"
+                    [spellcheck]="false"
+                    cdkTextareaAutosize
+                ></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+</div>

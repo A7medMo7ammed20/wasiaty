@@ -1,0 +1,19 @@
+.demo-table {
+    width: 100%;
+  }
+
+  .mat-mdc-row .mat-mdc-cell {
+    // border-bottom: 1px solid transparent;
+    // border-top: 1px solid transparent;
+    cursor: pointer;
+    border:none ;
+}
+
+// .mat-mdc-row:hover .mat-mdc-cell {
+//     background-color: whitesmoke;
+//     border-color: currentColor;
+// }
+
+.demo-row-is-clicked {
+      font-weight: bold !important;
+  }

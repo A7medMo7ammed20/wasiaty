@@ -1,0 +1,165 @@
+<div class="flex flex-auto">
+    <form
+        class="flex flex-col flex-auto p-6 pt-10 sm:p-8 sm:pt-10 overflow-y-auto"
+        [formGroup]="relationshipForm"
+    >
+        <!-- Header -->
+        <div class="flex items-center justify-between -mt-3 -ml-4">
+            <div class="flex items-center">
+                <!-- More menu -->
+                <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+                    <mat-icon
+                        [svgIcon]="'heroicons_outline:ellipsis-vertical'"
+                    ></mat-icon>
+                </button>
+                <mat-menu #moreMenu="matMenu">
+                    <button mat-menu-item >
+                        <mat-icon
+                            [svgIcon]="'heroicons_outline:trash'"
+                        ></mat-icon>
+                        <span>Delete</span>
+                    </button>
+                </mat-menu>
+
+                <!-- Close button -->
+                <a mat-icon-button [routerLink]="['../']">
+                    <mat-icon [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+                </a>
+            </div>
+        </div>
+
+        <mat-divider class="mt-6 mb-8"></mat-divider>
+
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>Full Name</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'fullName'"
+
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- father -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>Father</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'father'"
+
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- Mother -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>Mother</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'mother'"
+
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- childrenMale -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>ChildrenMale</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'childrenMale'"
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- childrenFemale -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>ChildrenFemale</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'childrenFemale'"
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- spouse -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>Spouse</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'spouse'"
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- uncle -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>Uncle</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'uncle'"
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+        <!-- Grandpa -->
+        <div class="mt-8">
+            <mat-form-field
+                class="w-full"
+                [subscriptSizing]="'dynamic'">
+                <mat-label>Grandpa</mat-label>
+                <mat-icon
+                    matPrefix
+                    class="hidden sm:flex icon-size-5"
+                    [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                <input
+                    matInput
+                    [formControlName]="'grandpa'"
+                    [spellcheck]="false">
+            </mat-form-field>
+        </div>
+
+    </form>
+</div>

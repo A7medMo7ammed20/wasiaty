@@ -1,0 +1,13 @@
+<div class="mt-8">
+    <mat-form-field class="w-1/2" [subscriptSizing]="'dynamic'">
+        <mat-label>Search By name</mat-label>
+        <mat-icon
+            matPrefix
+            class="hidden sm:flex icon-size-5"
+            [svgIcon]="'heroicons_solid:user-circle'"
+        ></mat-icon>
+        <input matInput [spellcheck]="false" (input)="filterChart($event)" />
+    </mat-form-field>
+</div>
+
+<div #chartContainer id="chartContainer"></div>

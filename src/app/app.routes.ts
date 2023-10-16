@@ -114,9 +114,9 @@ export const appRoutes: Route[] = [
             },
             // { path: 'indebtedness', loadChildren: () => import('app/modules/indebtedness/indebtedness.routes') },
             {
-                path: 'family-tree',
+                path: 'stakeholders',
                 loadChildren: () =>
-                    import('app/modules/family-tree/family-tree.routes'),
+                    import('app/modules/stakeholders/stakeholders.routes'),
             },
 
             {
@@ -131,11 +131,7 @@ export const appRoutes: Route[] = [
                     },
                 ],
             },
-            {
-                path: 'family-tree',
-                loadChildren: () =>
-                    import('app/modules/family-tree/family-tree.routes'),
-            },
+
             {
                 path: 'settings',
                 loadChildren: () =>

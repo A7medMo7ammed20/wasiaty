@@ -56,22 +56,42 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
 
     {
-        id: 'FamilyTree',
-        title: 'Family Tree',
+        id: 'Stakeholders',
+        title: 'Stakeholders',
         type: 'collapsable',
         icon: 'mat_outline:family_restroom',
         children: [
             {
-                id: 'FamilyMembers',
-                title: 'Family members',
+                id: 'Individual',
+                title: 'Individual',
                 type: 'basic',
-                link: '/family-tree/family-members',
+                link: '/stakeholders/individual',
             },
             {
-                id: 'RelationshipsFamily',
-                title: 'Relationships Family',
+                id: 'beneficiaries',
+                title: 'Beneficiaries',
                 type: 'basic',
-                link: '/family-tree/relationships-family',
+                link: '/stakeholders/beneficiaries',
+            },
+            {
+                id: 'family_tree',
+                title: 'Family Tree',
+                type: 'collapsable',
+
+                children: [
+                    {
+                        id: 'FamilyMembers',
+                        title: 'Family members',
+                        type: 'basic',
+                        link: '/stakeholders/family-tree/family-members',
+                    },
+                    {
+                        id: 'RelationshipsFamily',
+                        title: 'Relationships Family',
+                        type: 'basic',
+                        link: '/stakeholders/family-tree/relationships-family',
+                    },
+                ],
             },
         ],
     },
