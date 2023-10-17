@@ -21,6 +21,13 @@ export default [
                         'app/modules/stakeholders/individual/individual.routes'
                     ),
             },
+            {
+                path: 'beneficiaries',
+                loadChildren: () =>
+                    import(
+                        'app/modules/stakeholders/beneficiaries/beneficiaries.routes'
+                    ),
+            },
         ],
     },
 ] as Routes;

@@ -36,19 +36,18 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
-import { IndividualService } from 'app/modules/stakeholders/individual/individual.service';
+import { BeneficiariesService } from 'app/modules/stakeholders/beneficiaries/beneficiaries.service';
 import {
     Individual,
     Country,
     Tag,
 } from 'app/modules/stakeholders/stakeholders.types';
-import { TableComponent } from 'app/modules/stakeholders/individual/table/table.component';
-import { IndividualComponent } from 'app/modules/stakeholders/individual/individual.component';
+import { BeneficiariesComponent } from 'app/modules/stakeholders/beneficiaries/beneficiaries.component';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
 
 @Component({
-    selector: 'individual-detail',
-    templateUrl: './individual-detail.component.html',
+    selector: 'beneficiaries-detail',
+    templateUrl: './beneficiaries-detail.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
@@ -74,7 +73,7 @@ import { debounceTime, Subject, takeUntil } from 'rxjs';
         DatePipe,
     ],
 })
-export class IndividualDetailComponent implements OnInit, OnDestroy {
+export class BeneficiariesDetailComponent implements OnInit, OnDestroy {
     @ViewChild('avatarFileInput') private _avatarFileInput: ElementRef;
     @ViewChild('tagsPanel') private _tagsPanel: TemplateRef<any>;
     @ViewChild('tagsPanelOrigin') private _tagsPanelOrigin: ElementRef;
@@ -96,8 +95,8 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
     constructor(
         private _activatedRoute: ActivatedRoute,
         private _changeDetectorRef: ChangeDetectorRef,
-        private _individualComponent: IndividualComponent,
-        private _individualService: IndividualService,
+        private _beneficiariesComponent: BeneficiariesComponent,
+        private _beneficiariesService: BeneficiariesService,
         private _formBuilder: UntypedFormBuilder,
         private _fuseConfirmationService: FuseConfirmationService,
         private _renderer2: Renderer2,
@@ -115,7 +114,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
      */
     ngOnInit(): void {
         // Open the drawer
-        this._individualComponent.matDrawer.open();
+        this._beneficiariesComponent.matDrawer.open();
 
         // Create the individual form
         this.individualForm = this._formBuilder.group({
@@ -133,7 +132,8 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
         });
 
         // Get the individuals
-        this._individualService.individuals$
+        this._beneficiariesService
+            .getIndividuals()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individuals: Individual[]) => {
                 this.individuals = individuals;
@@ -143,12 +143,13 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
             });
 
         // Get the individual
-        this._individualService.individual$
+        this._beneficiariesService.individual$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individual: Individual) => {
                 debugger;
+
                 // Open the drawer in case it is closed
-                this._individualComponent.matDrawer.open();
+                this._beneficiariesComponent.matDrawer.open();
 
                 // Get the individual
                 this.individual = individual;
@@ -236,7 +237,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
             });
 
         // Get the country telephone codes
-        this._individualService.countries$
+        this._beneficiariesService.countries$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((codes: Country[]) => {
                 this.countries = codes;
@@ -247,7 +248,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
 
         this.editMode = false;
         // Get the tags
-        this._individualService
+        this._beneficiariesService
             .getTags()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((tags: Tag[]) => {
@@ -281,7 +282,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
      * Close the drawer
      */
     closeDrawer(): Promise<MatDrawerToggleResult> {
-        return this._individualComponent.matDrawer.close();
+        return this._beneficiariesComponent.matDrawer.close();
     }
 
     /**
@@ -315,7 +316,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
         );
 
         // Update the individual on the server
-        this._individualService
+        this._beneficiariesService
             .updateIndividual(individual.id, individual)
             .subscribe(() => {
                 // Toggle the edit mode off
@@ -362,7 +363,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
                         : this.individuals[nextIndividualIndex].id;
 
                 // Delete the individual
-                this._individualService
+                this._beneficiariesService
                     .deleteIndividual(id)
                     .subscribe((isDeleted) => {
                         // Return if the individual wasn't deleted...
@@ -413,7 +414,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
         }
 
         // Upload the avatar
-        this._individualService
+        this._beneficiariesService
             .uploadAvatar(this.individual.id, file)
             .subscribe();
     }
@@ -584,7 +585,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
         };
 
         // Create tag on the server
-        this._individualService.createTag(tag).subscribe((response) => {
+        this._beneficiariesService.createTag(tag).subscribe((response) => {
             // Add the tag to the individual
             this.addTagToIndividual(response);
         });
@@ -601,7 +602,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
         tag.title = event.target.value;
 
         // Update the tag on the server
-        this._individualService
+        this._beneficiariesService
             .updateTag(tag.id, tag)
             .pipe(debounceTime(300))
             .subscribe();
@@ -617,7 +618,7 @@ export class IndividualDetailComponent implements OnInit, OnDestroy {
      */
     deleteTag(tag: Tag): void {
         // Delete the tag from the server
-        this._individualService.deleteTag(tag.id).subscribe();
+        this._beneficiariesService.deleteTag(tag.id).subscribe();
 
         // Mark for check
         this._changeDetectorRef.markForCheck();

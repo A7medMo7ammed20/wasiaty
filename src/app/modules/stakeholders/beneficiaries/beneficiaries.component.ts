@@ -18,11 +18,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { IndividualDetailComponent } from './individual-detail/individual-detail.component';
+import { BeneficiariesDetailComponent } from './beneficiaries-detail/beneficiaries-detail.component';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
-import { IndividualService } from './individual.service';
+import { BeneficiariesService } from './beneficiaries.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher/media-watcher.service';
@@ -41,13 +41,13 @@ export interface PeriodicElement {
 }
 
 @Component({
-    selector: 'app-individual',
+    selector: 'app-beneficiaries',
     standalone: true,
 
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './individual.component.html',
-    styleUrls: ['./individual.component.scss'],
+    templateUrl: './beneficiaries.component.html',
+    styleUrls: ['./beneficiaries.component.scss'],
 
     imports: [
         MatTableModule,
@@ -69,7 +69,7 @@ export interface PeriodicElement {
         MatMenuModule,
     ],
 })
-export class IndividualComponent {
+export class BeneficiariesComponent {
     displayedColumns: string[] = [
         'fullName',
         'mother',
@@ -99,7 +99,7 @@ export class IndividualComponent {
     }
 
     constructor(
-        private _individualService: IndividualService,
+        private _beneficiariesService: BeneficiariesService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
         private _changeDetectorRef: ChangeDetectorRef,
@@ -109,8 +109,8 @@ export class IndividualComponent {
 
     ngOnInit(): void {
         debugger;
-        this.individual$ = this._individualService.individuals$;
-        this._individualService.individuals$
+        this.individual$ = this._beneficiariesService.individuals$;
+        this._beneficiariesService.individuals$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individuals: Individual[]) => {
                 // Update the counts
@@ -121,7 +121,7 @@ export class IndividualComponent {
             });
 
         // Get the contact
-        this._individualService.individual$
+        this._beneficiariesService.individual$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((contact: Individual) => {
                 // Update the selected contact
@@ -132,7 +132,7 @@ export class IndividualComponent {
             });
 
         // Get the countries
-        this._individualService.countries$
+        this._beneficiariesService.countries$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((countries: Country[]) => {
                 // Update the countries
@@ -201,16 +201,18 @@ export class IndividualComponent {
         // Mark for check
         this._changeDetectorRef.markForCheck();
     }
-    createFamilyMember(): void {
+    createBeneficiaries(): void {
         // Create the task
-        this._individualService.createIndividual().subscribe((newFamily) => {
-            // Go to the new task
-            this._router.navigate(['./', newFamily.id], {
-                relativeTo: this._activatedRoute,
-            });
+        this._beneficiariesService
+            .createIndividual()
+            .subscribe((individual) => {
+                // Go to the new task
+                this._router.navigate(['./', individual.id], {
+                    relativeTo: this._activatedRoute,
+                });
 
-            // Mark for check
-            this._changeDetectorRef.markForCheck();
-        });
+                // Mark for check
+                this._changeDetectorRef.markForCheck();
+            });
     }
 }

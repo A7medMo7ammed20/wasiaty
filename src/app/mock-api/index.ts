@@ -27,6 +27,7 @@ import { FamilyTreeMockApi } from './famliy-tree/api';
 import { FamilyMembersMockApi } from './family-members/api';
 import { TangibleWealthMockApi } from './wealth-management/tangible-wealth/api';
 import { CommercialRealEstateMockApi } from './wealth-management/commercial-real-estate/api';
+import { BeneficiariesMockApi } from './beneficiaries/api';
 
 export const mockApiServices = [
     AcademyMockApi,
@@ -58,4 +59,5 @@ export const mockApiServices = [
     FamilyMembersMockApi,
     TangibleWealthMockApi,
     CommercialRealEstateMockApi,
+    BeneficiariesMockApi,
 ];

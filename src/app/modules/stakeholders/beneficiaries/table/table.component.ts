@@ -23,10 +23,9 @@ import { Subject, takeUntil } from 'rxjs';
 import { FamiliesMembers, Family, Individual } from '../../stakeholders.types';
 // import {FamilyTreeService} from '../family-tree.service' ;
 import { FormsModule } from '@angular/forms';
-import { IndividualService } from 'app/modules/stakeholders/individual/individual.service';
 import { FamilyTreeService } from 'app/modules/stakeholders/family-tree/family-tree.service';
+import { BeneficiariesService } from 'app/modules/stakeholders/beneficiaries/beneficiaries.service';
 import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
-import { individuals } from 'app/mock-api/individual/data';
 // import { FamilyTreeService } from '../../family-tree.service';
 
 @Component({
@@ -84,7 +83,7 @@ export class TableComponent implements OnInit {
     }
     constructor(
         private _matDialog: MatDialog,
-        private _individualService: IndividualService,
+        private _beneficiariesService: BeneficiariesService,
         private _familyTreeServeice: FamilyTreeService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
@@ -104,20 +103,16 @@ export class TableComponent implements OnInit {
                 this.data = data;
                 // console.log('data Source',this.data.);
             });
-
-        // Create the form
-        this._individualService
+        this._beneficiariesService
             .getIndividuals()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individuals) => {
-                debugger;
                 this.dataSources = new MatTableDataSource<Individual>(
                     individuals
                 );
                 // Store the data
                 this.data = individuals;
                 this.dataSources.paginator = this.paginator;
-                // console.log('data Source',this.data.);
             });
 
         this.roles = [

@@ -18,7 +18,7 @@ import {
 } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class IndividualService {
+export class BeneficiariesService {
     // Private
     private _individual: BehaviorSubject<Individual | null> =
         new BehaviorSubject(null);
