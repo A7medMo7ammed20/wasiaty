@@ -103,7 +103,7 @@ export class TableComponent implements OnInit {
         this._familyTreeServeice
             .getFamilyMembers()
             .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((dataFamilyMembers: FamiliesMembers[]) => {
+            .subscribe((dataFamilyMembers:FamiliesMembers[]) => {
                 this.members = dataFamilyMembers;
                 this.familyMembers = new MatTableDataSource<FamiliesMembers>(
                     dataFamilyMembers

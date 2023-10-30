@@ -28,11 +28,11 @@ export default [
                 pathMatch: 'full',
                 component: IntangableAssetsComponent,
             },
-            {
-                path: 'real-state-properties',
-                pathMatch: '',
-                component: IntangableAssetsComponent,
-            },
+            // {
+            //     path: 'real-state-properties',
+            //     pathMatch: '',
+            //     component: IntangableAssetsComponent,
+            // },
         ],
     },
 ] as Routes;

@@ -108,7 +108,7 @@ export class BeneficiariesComponent {
     ) {}
 
     ngOnInit(): void {
-        debugger;
+
         this.individual$ = this._beneficiariesService.individuals$;
         this._beneficiariesService.individuals$
             .pipe(takeUntil(this._unsubscribeAll))

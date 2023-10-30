@@ -146,7 +146,7 @@ export class BeneficiariesDetailComponent implements OnInit, OnDestroy {
         this._beneficiariesService.individual$
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individual: Individual) => {
-                debugger;
+
 
                 // Open the drawer in case it is closed
                 this._beneficiariesComponent.matDrawer.open();

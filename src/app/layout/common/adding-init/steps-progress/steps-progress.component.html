@@ -1,0 +1,71 @@
+<!-- Progress bar -->
+<div
+    class="flex flex-col overflow-hidden justify-start w-full transition-opacity delay-700 ease-in-out duration-700"
+>
+    <ng-container *ngIf="getStart; else noStart">
+        <div class="flex gap-2">
+            <ng-container
+                *ngFor="let _ of [].constructor(loopCount); let i = index"
+            >
+                <div class="w-full bg-gray-300 h-1 mb-4 dark:bg-primary-500">
+                    <div
+                        class="bg-primary-300 h-1 dark:bg-primary-500"
+                        style="width: 0%"
+                    ></div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="w-full flex">
+            <button
+                class="mb-1 text-base bg-primary-600 px-4 py-2 mx-9 rounded-md w-fit ms-auto me-9 font-medium text-white"
+                (click)="getNext()"
+            >
+                Get Started
+            </button>
+        </div>
+    </ng-container>
+    <ng-template #noStart>
+        <div class="flex gap-2">
+            <ng-container
+                *ngFor="let _ of [].constructor(loopCount); let i = index"
+            >
+                <ng-container *ngIf="componentProgress === i; else noProgress">
+                    <div
+                        class="w-full bg-gray-200 h-1 mb-4 dark:bg-primary-500"
+                    >
+                        <div
+                            class="bg-primary-300 h-1 dark:bg-primary-500"
+                            [style.width.%]="progress"
+                        ></div>
+                    </div>
+                </ng-container>
+                <ng-template #noProgress>
+                    <div
+                        class="w-full bg-gray-200 h-1 mb-4 dark:bg-primary-500"
+                    >
+                        <div
+                            class="bg-primary-300 h-1 dark:bg-primary-500"
+                            style="width: 0%"
+                        ></div>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </div>
+
+        <div class="w-full flex justify-between">
+            <button
+                class="mb-1 text-base px-4 underline py-2 mx-9 rounded-md w-fit me-9 font-medium text-gray-700"
+                (click)="getBack()"
+            >
+                Back
+            </button>
+            <button
+                class="mb-1 text-base bg-gray-800 px-4 py-2 mx-9 rounded-md w-fit ms-auto me-9 font-medium text-white"
+                (click)="getNext()"
+            >
+                Next
+            </button>
+        </div>
+    </ng-template>
+</div>

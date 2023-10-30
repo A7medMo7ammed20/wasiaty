@@ -5,37 +5,29 @@ import { Router, RouterOutlet } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'app-family-tree',
-  standalone: true,
-  imports: [CommonModule ,RouterOutlet],
-  templateUrl: './family-tree.component.html',
-  styleUrls: ['./family-tree.component.scss'],
-
+    selector: 'app-family-tree',
+    standalone: true,
+    imports: [CommonModule, RouterOutlet],
+    templateUrl: './family-tree.component.html',
+    styleUrls: ['./family-tree.component.scss'],
 })
 export class FamilyTreeComponent {
+    data: any;
 
-
-  data: any;
-
-  private _unsubscribeAll: Subject<any> = new Subject<any>();
+    private _unsubscribeAll: Subject<any> = new Subject<any>();
     /**
      * Constructor
      */
     constructor(
-    //   private _assetsManagementServicee: AssetsManagementService,
-      private _router: Router,
-  )
-  {
-  }
+        //   private _assetsManagementServicee: AssetsManagementService,
+        private _router: Router
+    ) {}
+
     /**
      * On init
      */
-    ngOnInit(): void
-    {
-
-    }
-    ngOnDestroy(): void
-    {
+    ngOnInit(): void {}
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
     }
 }

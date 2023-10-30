@@ -59,7 +59,7 @@ const canDeactivateIndividualsDetails = (
 ) => {
     // Get the next route
     let nextRoute: ActivatedRouteSnapshot = nextState.root;
-    debugger;
+
     while (nextRoute.firstChild) {
         nextRoute = nextRoute.firstChild;
     }

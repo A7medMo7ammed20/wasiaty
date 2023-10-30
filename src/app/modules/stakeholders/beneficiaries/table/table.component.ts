@@ -98,8 +98,8 @@ export class TableComponent implements OnInit {
             .subscribe((data) => {
                 // Store the data
 
-                this.dataSource = new MatTableDataSource<FamiliesMembers>(data);
-                this.dataSource.paginator = this.paginator;
+                // this.dataSource = new MatTableDataSource<FamiliesMembers>(data);
+                // this.dataSource.paginator = this.paginator;
                 this.data = data;
                 // console.log('data Source',this.data.);
             });
@@ -107,7 +107,8 @@ export class TableComponent implements OnInit {
             .getIndividuals()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individuals) => {
-                this.dataSources = new MatTableDataSource<Individual>(
+                this.dataSources = new MatTableDataSource<Individual>
+                (
                     individuals
                 );
                 // Store the data

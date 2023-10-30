@@ -14,6 +14,9 @@ export interface TangibleWealthes
     method?: string;
     status?: string;
     counter:number
+    child:TangibleWealthes[] | null;
+
+    wealthTypeRoute:string,
 
 }
 export interface VMTangableWealthes extends TangibleWealthes

@@ -139,7 +139,7 @@ export class BeneficiariesService {
                     .post<Individual>('api/individuals/individual', {})
                     .pipe(
                         map((newIndividual) => {
-                            debugger;
+
                             // Update the individuals with the new individual
                             console.log(individuals);
                             this._individuals.next([

@@ -110,7 +110,7 @@ export class TableComponent implements OnInit {
             .getIndividuals()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((individuals) => {
-                debugger;
+
                 this.dataSources = new MatTableDataSource<Individual>(
                     individuals
                 );

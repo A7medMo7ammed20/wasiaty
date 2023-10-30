@@ -115,7 +115,8 @@ export class FamilyTreeComponent implements OnInit, OnChanges {
                 return 220 + 2;
             })
             .childrenMargin((d) => 50)
-            .onNodeClick((d) => console.log('ok'))
+            .onNodeClick((d) => this.createRelationship(d))
+
             .compactMarginBetween((d) => 35)
             .compactMarginPair((d) => 30)
             .neighbourMargin((a, b) => 20);

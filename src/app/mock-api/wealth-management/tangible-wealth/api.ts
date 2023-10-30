@@ -75,27 +75,29 @@ export class TangibleWealthMockApi
         // -----------------------------------------------------------------------------------------------------
         // @ tangableWealth - POST
         // -----------------------------------------------------------------------------------------------------
-        // this._fuseMockApiService
-        // .onPost('api/wealth-management/tangible-wealthes')
-        // .reply(({request}) =>
-        // {
-        //     // Generate a new tangableWealth
-        //     const newTangable:TangableWealthes = {
-        //         id              : FuseMockApiUtils.guid(),
-        //         wealthType      : '',
-        //         name            : '',
-        //         acquisitionValue: 0,
-        //         method          : '',
-        //         status          : '',
-        //         counter         : 0,
-        //     };
-        //     // Unshift the new tangible-wealthes
-        //     this.tangableData.unshift(newTangable);
-        //     return [
-        //         200,
-        //         newTangable,
-        //     ];
-        // });
+        this._fuseMockApiService
+        .onPost('api/wealth-management/tangible-wealthes')
+        .reply(({request}) =>
+        {
+            // Generate a new tangableWealth
+            const newTangable:any = {
+                id              : FuseMockApiUtils.guid(),
+                wealthType      : 0,
+                name            : '',
+                acquisitionValue: 0,
+                method          : '',
+                status          : '',
+                counter         : 0,
+                wealthTypeRoute: ''
+
+            };
+            // Unshift the new tangible-wealthes
+            this._tangables.unshift(newTangable);
+            return [
+                200,
+                newTangable,
+            ];
+        });
 
 
 

@@ -28,6 +28,10 @@ import { FamilyMembersMockApi } from './family-members/api';
 import { TangibleWealthMockApi } from './wealth-management/tangible-wealth/api';
 import { CommercialRealEstateMockApi } from './wealth-management/commercial-real-estate/api';
 import { BeneficiariesMockApi } from './beneficiaries/api';
+import {  EndowmentsMockApi } from './wealth-management/endowment/api';
+import { MixedUsePropertiesMockApi } from './wealth-management/mixed-use-properties/api';
+import { InsurancesMockApi } from './insurance/api';
+import { AddEndowmentsMockApi } from './wealth-management/endowment/addEndowment/api';
 
 export const mockApiServices = [
     AcademyMockApi,
@@ -60,4 +64,8 @@ export const mockApiServices = [
     TangibleWealthMockApi,
     CommercialRealEstateMockApi,
     BeneficiariesMockApi,
+    EndowmentsMockApi,
+    MixedUsePropertiesMockApi ,
+    InsurancesMockApi,
+    AddEndowmentsMockApi
 ];

@@ -4,6 +4,22 @@
 ></ng-container>
 
 <ng-template #templates>
+    <mat-drawer-container
+    class="flex-auto h-full dark:bg-transparent"
+    (backdropClick)="onBackdropClicked()"
+>
+    <!-- Drawer -->
+    <mat-drawer
+        class="w-full sm:w-128 dark:bg-gray-900"
+        [mode]="drawerMode"
+        [opened]="false"
+        [position]="'end'"
+        [disableClose]="true"
+        #matDrawer
+    >
+        <router-outlet></router-outlet>
+    </mat-drawer>
+    <mat-drawer-content class="flex flex-col">
     <div class="flex flex-col flex-auto min-w-0">
         <!-- Header -->
         <div class="bg-card">
@@ -41,7 +57,7 @@
         <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
             <div class="w-full max-w-screen-xl mx-auto">
                 <!-- Tabs -->
-                <mat-tab-group class="sm:px-2" mat-stretch-tabs="false" [animationDuration]="'1'">
+                <mat-tab-group class="sm:px-2" mat-stretch-tabs="false"  [selectedIndex]="2">
                     <!-- Home -->
                     <mat-tab >
                         <ng-template mat-tab-label>
@@ -170,7 +186,7 @@
                                                     </mat-menu>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col items-center mt-2" (click)="routeToType(tangable.typeRoute)">
+                                            <div class="flex flex-col items-center mt-2" (click)="routeToType(tangable.wealthTypeRoute)">
                                                 <div
                                                     class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
                                                     [ngClass]="{
@@ -216,7 +232,7 @@
                         </ng-template>
                     </mat-tab>
                     <!-- Vehicles -->
-                    <mat-tab>
+                    <mat-tab label="Tab 1">
                         <ng-template mat-tab-label>
                             <ng-container *ngIf="vehicles?.length">
                                 <span class="inline-flex items-center space-x-2">
@@ -297,7 +313,7 @@
                                     </ng-container>
 
                                 </ng-container>
-                                <div
+                                <div (click)="addVehicles()"
                                     class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
                                     <mat-icon class="icon-size-12 text-hint"
                                         [svgIcon]="'heroicons_outline:plus'"></mat-icon>
@@ -486,7 +502,8 @@
             </div>
         </div>
     </div>
-
+    </mat-drawer-content>
+    </mat-drawer-container>
 </ng-template>
 
 <ng-template #outlets>

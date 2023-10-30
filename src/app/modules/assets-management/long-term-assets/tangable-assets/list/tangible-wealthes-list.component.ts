@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, OnChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, OnChanges, ViewChild } from '@angular/core';
 import {
     CommonModule,
     CurrencyPipe,
@@ -24,7 +24,8 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { takeUntil, Subject, Observable } from 'rxjs';
 
-import { forEach } from 'lodash';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+
 import { TangibleWealthMockApi } from 'app/mock-api/wealth-management/tangible-wealth/api';
 import { WealthManagementService } from 'app/modules/assets-management/wealth-management.service';
 import {
@@ -53,12 +54,15 @@ import {
         MatTableModule,
         NgClass,
         CurrencyPipe,
+        MatSidenavModule
     ],
 
     templateUrl: './tangible-wealthes-list.component.html',
     styleUrls: ['./tangible-wealthes-list.component.scss'],
 })
 export class TangableWealthListComponent implements OnInit {
+    @ViewChild('matDrawer', { static: true }) matDrawer: MatDrawer;
+
     Tangables$: Observable<TangibleWealthes[]>;
     realstate: VMTangableWealthes[];
     vehicles: VMTangableWealthes[];
@@ -103,13 +107,19 @@ export class TangableWealthListComponent implements OnInit {
                 this.realstate.forEach((ver) => {
                     ver.avg = ver.acquisitionValue / this.realstate.length;
 
-                    if (ver) {
-                        let type = this.tangibleTypes.find(
-                            (type) => type.id == ver.wealthType
-                        );
+                    // if (ver) {
+                    //     let type = this.tangibleTypes.find(
+                    //         (type) => type.id == ver.wealthType
+                    //     );
+                    // if (ver) {
+                    //     let type = this.tangibleTypes.find(
+                    //         (type) => type.id == ver.wealthType
+                    //     );
 
-                        ver.typeRoute = type.wealthTypeRoute;
-                    }
+                    //     ver.typeRoute = type.wealthTypeRoute;
+                    // }
+                    //     ver.typeRoute = type.wealthTypeRoute;
+                    // }
                 });
                 ////////////////// vehicles
                 this.vehicles = this.tangables.filter(
@@ -199,6 +209,8 @@ export class TangableWealthListComponent implements OnInit {
         this._router.navigate(['./', type], {
             relativeTo: this._activatedRoute,
         });
+        debugger
+        console.log('type',type);
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
@@ -206,9 +218,26 @@ export class TangableWealthListComponent implements OnInit {
 
     changeOutlet(): void {
         this.outlet = false;
-        console.log(this.outlet);
     }
 
+
+    addVehicles()
+    {
+        // this._wealthManagmentService.addVehicles().subscribe((newVehicles)=>
+        // {
+        //     this._router.navigate(['./', newVehicles.id],{
+        //         return
+        //     })
+        // })
+
+    }
+    onBackdropClicked(): void {
+        // Go back to the list
+        this._router.navigate(['./'], { relativeTo: this._activatedRoute });
+
+        // Mark for check
+        this._changeDetectorRef.markForCheck();
+    }
     trackByFn(index: number, item: any): any {
         return item.id || index;
     }

@@ -24,6 +24,20 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link: '/assets-management/current-assets',
                 exactMatch: true,
             },
+            {
+                id: 'Insurances',
+                title: 'Insurances',
+                type: 'basic',
+                link: '/assets-management/insurances',
+                exactMatch: true,
+            },
+            {
+                id: 'Endowments',
+                title: 'Endowments',
+                type: 'basic',
+                link: '/assets-management/endowments',
+                exactMatch: true,
+            },
 
             {
                 id: 'longtermAssets',

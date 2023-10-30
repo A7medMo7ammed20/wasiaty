@@ -152,7 +152,7 @@ export class ConversationComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data) => {
                 // Store the data
-                debugger;
+
                 this.data = data;
 
                 // Store the table data

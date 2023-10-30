@@ -25,7 +25,7 @@ const individualResolver = (
     const individualsService = inject(BeneficiariesService);
     const router = inject(Router);
 
-    debugger;
+
     return individualsService.getIndividualById(route.paramMap.get('id')).pipe(
         // Error here means the requested individual is not available
         catchError((error) => {
@@ -60,7 +60,7 @@ const canDeactivateIndividualsDetails = (
 ) => {
     // Get the next route
     let nextRoute: ActivatedRouteSnapshot = nextState.root;
-    debugger;
+
     while (nextRoute.firstChild) {
         nextRoute = nextRoute.firstChild;
     }
