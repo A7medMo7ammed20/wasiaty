@@ -13,14 +13,10 @@ export class AppComponent {
     /**
      * Constructor
      */
-    constructor() {}
-
     /**
      * this constructor  to  define  animation when  routing
      */
-
     // constructor(private contexts: ChildrenOutletContexts) {}
-
     // getRouteAnimationData() {
     //     return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
     //         'animation'
