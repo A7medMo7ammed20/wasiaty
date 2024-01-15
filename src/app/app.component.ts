@@ -11,9 +11,6 @@ import { AppModule } from './modules/landing/deski/app.module';
 })
 export class AppComponent {
     /**
-     * Constructor
-     */
-    /**
      * this constructor  to  define  animation when  routing
      */
     // constructor(private contexts: ChildrenOutletContexts) {}
