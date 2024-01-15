@@ -1,0 +1,59 @@
+<div class="pricing-section-three-inner-page mb-200 md-mb-120">
+    <img
+        src="assets/images/deski/shape/124.svg"
+        alt=""
+        class="shapes shape-one"
+    />
+    <img
+        src="assets/images/deski/shape/125.svg"
+        alt=""
+        class="shapes shape-two"
+    />
+    <div class="container">
+        <div class="title-style-five text-center mb-50 md-mb-30">
+            <h6>Our Pricing</h6>
+            <div class="row">
+                <div class="col-lg-9 m-auto">
+                    <h2>Unbeatable prices, no contracts, simple & easy</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-table-area-three">
+            <div class="row justify-content-center">
+                <div
+                    *ngFor="let item of pricing_data"
+                    class="col-lg-4 col-md-6"
+                >
+                    <div class="pr-table-wrapper" [ngClass]="item.skew">
+                        <div class="pack-name font-slab" [ngClass]="item.class">
+                            <span>{{ item.title }}</span>
+                        </div>
+                        <div class="price font-slab">${{ item.price }}</div>
+                        <p class="user-condition">per user/month</p>
+                        <img
+                            src="assets/images/deski/shape/114.svg"
+                            alt=""
+                            class="line"
+                        />
+                        <ul
+                            *ngFor="let list of item.lists"
+                            [innerHTML]="list.list"
+                        ></ul>
+                        <a
+                            [routerLink]="['./']"
+                            class="subscribe-btn font-rubik"
+                            >Subscribe Now</a
+                        >
+                    </div>
+                    <!-- /.pr-table-wrapper -->
+                </div>
+            </div>
+        </div>
+        <!-- /.pricing-table-area-three -->
+    </div>
+    <!-- ./container -->
+    <!-- CounterArea  start-->
+    <app-counter-one [pricing]="true"></app-counter-one>
+    <!-- CounterArea  end-->
+</div>

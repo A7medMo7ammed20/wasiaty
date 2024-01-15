@@ -24,13 +24,13 @@ import { BequestManagementService } from '../bequest-management.service';
 })
 export class BequeqstChartComponent implements OnInit, OnDestroy
 {
-    
-    
-  
+
+
+
     chartNewVsReturning: ApexOptions;
-    
+
     chartTaskDistribution: ApexOptions = {};
-   
+
     data: any;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -53,10 +53,10 @@ export class BequeqstChartComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
-       
-       
+
+
            // Get the data
-           this._bequestService.data$
+           this._bequestService.bequests$
            .pipe(takeUntil(this._unsubscribeAll))
            .subscribe((data) =>
            {
@@ -147,9 +147,9 @@ export class BequeqstChartComponent implements OnInit, OnDestroy
      */
     private _prepareChartData(): void
     {
-        
 
-      
+
+
 
 
         // New vs. returning
@@ -272,5 +272,5 @@ export class BequeqstChartComponent implements OnInit, OnDestroy
     }
 
 
-   
+
 }

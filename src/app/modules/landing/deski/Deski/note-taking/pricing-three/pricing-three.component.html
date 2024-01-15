@@ -1,0 +1,64 @@
+<div class="pricing-section-six pt-200 md-pt-100" id="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-10  m-auto">
+        <div class="title-style-seven text-center">
+          <h2>Solo, Agency or Team? We’ve got you <span>covered.</span></h2>
+        </div> <!-- /.title-style-six -->
+      </div>
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs justify-content-center pricing-nav-four">
+      <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#month">Monthly</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#year">Yearly</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="pricing-table-area-six">
+    <div class="tab-content">
+      <div class="tab-pane active" id="month">
+        <div class="row justify-content-center">
+
+          <div *ngFor="let item of pricingMonthly" class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200"
+            [attr.data-aos-delay]="item.delay">
+            <div class="pr-table-wrapper" [ngClass]="item.active ? 'active' : ''">
+              <div class="pack-name" [style]="{background:item.bg_color}">{{item.pack_name}}</div>
+              <div class="price">${{item.price}}</div>
+              <div class="pack-details">{{item.pack_details}}</div>
+              <ul class="pr-feature">
+                <li *ngFor="let feature of item.feature">{{feature.text}}</li>
+              </ul>
+              <a [routerLink]="['./']" class="trial-button">Try it Free</a>
+              <div class="trial-text">No card required, cancel any time</div>
+            </div> <!-- /.pr-table-wrapper -->
+          </div>
+
+        </div>
+      </div>
+      <div class="tab-pane fade" id="year">
+        <div class="row justify-content-center">
+
+          <div *ngFor="let item of pricingYearly" class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200"
+            [attr.data-aos-delay]="item.delay">
+            <div class="pr-table-wrapper" [ngClass]="item.active ? 'active' : ''">
+              <div class="pack-name" [style]="{background:item.bg_color}">{{item.pack_name}}</div>
+              <div class="price">${{item.price}}</div>
+              <div class="pack-details">{{item.pack_details}}</div>
+              <ul class="pr-feature">
+                <li *ngFor="let feature of item.feature">{{feature.text}}</li>
+              </ul>
+              <a [routerLink]="['./']" class="trial-button">Try it Free</a>
+              <div class="trial-text">No card required, cancel any time</div>
+            </div> <!-- /.pr-table-wrapper -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.pricing-table-area-six -->
+</div>

@@ -1,0 +1,75 @@
+<div class="fancy-feature-twentyFour pt-120 md-pt-90" id="service">
+    <div class="container">
+        <div class="title-style-nine text-center">
+            <h6>Indutries Include</h6>
+            <h2>
+                Deski has the ability to serve Any
+                <span
+                    >Business Segment
+                    <img src="assets/images/deski/shape/194.svg" alt=""
+                /></span>
+            </h2>
+        </div>
+    </div>
+    <div class="bg-wrapper mt-100 md-mt-80">
+        <a
+            [routerLink]="['./']"
+            fragment="feedback"
+            class="click-scroll-button scroll-target d-flex justify-content-center"
+            ><img src="assets/images/deski/shape/200.svg" alt=""
+        /></a>
+        <div class="container">
+            <div class="row">
+                <div
+                    *ngFor="let item of featureData"
+                    class="col-lg-6 d-flex mb-35"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-style-twentyFour">
+                        <div class="d-flex align-items-start">
+                            <div
+                                class="icon d-flex align-items-center justify-content-center"
+                                [style]="{ background: item.color }"
+                            >
+                                <img [src]="item.icon" alt="" />
+                            </div>
+                            <div class="text">
+                                <h4>{{ item.title }}</h4>
+                                <p>{{ item.subtitle }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.block-style-twentyFour -->
+                </div>
+            </div>
+        </div>
+        <img
+            src="assets/images/deski/shape/195.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <img
+            src="assets/images/deski/shape/196.svg"
+            alt=""
+            class="shapes shape-two"
+        />
+        <img
+            src="assets/images/deski/shape/197.svg"
+            alt=""
+            class="shapes shape-three"
+        />
+        <img
+            src="assets/images/deski/shape/198.svg"
+            alt=""
+            class="shapes shape-four"
+        />
+        <img
+            src="assets/images/deski/shape/199.svg"
+            alt=""
+            class="shapes shape-five"
+        />
+    </div>
+    <!-- /.bg-wrapper -->
+</div>

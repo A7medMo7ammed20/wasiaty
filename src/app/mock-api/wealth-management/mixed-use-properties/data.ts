@@ -5,6 +5,7 @@ export const tangableWealth: TangibleWealthes[] = [
         //
         // Real Estate Properties
         id: '1',
+        parentId: '',
         wealthType: 1,
         name: "Residential Real Estate",
         acquisitionValue: 1500,
@@ -41,6 +42,7 @@ export const tangableWealth: TangibleWealthes[] = [
 
     {
         id: '4',
+        parentId: '',
         wealthType: 2,
         name: "Cars",
         acquisitionValue: 100,
@@ -54,6 +56,7 @@ export const tangableWealth: TangibleWealthes[] = [
     //Accounts receivable
     {
         id: '9',
+        parentId: '',
         wealthType: 3,
         name: "General Accounts Receivable",
         acquisitionValue: 100,
@@ -65,6 +68,7 @@ export const tangableWealth: TangibleWealthes[] = [
     },
     {
         id: '10',
+        parentId: '',
         wealthType: 3,
         name: "Trade Accounts Receivable",
         acquisitionValue: 100,
@@ -76,6 +80,7 @@ export const tangableWealth: TangibleWealthes[] = [
     },
 {
         id: '12',
+        parentId: '',
         wealthType: 3,
         name: "Accrued Accounts Receivable",
         acquisitionValue: 1400,
@@ -89,6 +94,7 @@ export const tangableWealth: TangibleWealthes[] = [
     // Marketable securities
     {
         id: '13',
+        parentId: '',
         wealthType: 4,
         name: "Certificates of Deposit ",
         acquisitionValue: 800,
@@ -101,6 +107,7 @@ export const tangableWealth: TangibleWealthes[] = [
     },
     {
         id: '14',
+        parentId: '',
         wealthType: 4,
         name: "Sukuk",
         acquisitionValue: 200,
@@ -113,6 +120,7 @@ export const tangableWealth: TangibleWealthes[] = [
     },
     {
         id: '15',
+        parentId: '',
         wealthType: 4,
         name: "Exchange-Traded Funds - ETFs",
         acquisitionValue: 700,
@@ -125,6 +133,7 @@ export const tangableWealth: TangibleWealthes[] = [
     },
     {
         id: '16',
+        parentId: '',
         wealthType: 4,
         name: "Stocks",
         acquisitionValue: 600,

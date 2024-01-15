@@ -149,36 +149,36 @@ export class EndowmentsDetailComponent   implements OnInit, OnDestroy {
         // this.getbeneficiaries()
 
         // Get endowments
-        // this._endowmentsService
-        // .endowment$
-        // .pipe(takeUntil(this._unsubscribeAll))
-        // .subscribe((data) => {
-        //     // Store the data
+        this._endowmentsService
+        .endowment$
+        .pipe(takeUntil(this._unsubscribeAll))
+        .subscribe((data) => {
+            // Store the data
 
-        //     this.data = data ;
-        //     // debugger;
-        //     this.beneficiaries.forEach(beneficiary=>{
-        //         if( data.beneficiaryId == beneficiary.id)
-        //         {
+            this.data = data ;
+             ;
+            this.beneficiaries.forEach(beneficiary=>{
+                if( data.beneficiaryId == beneficiary.id)
+                {
 
-        //             if(this.endowmentData){
-        //                 this.endowmentesData?.push({...data , beneficiaryName:beneficiary.name , wealthName:'' });
-        //             }else{
-        //                 this.endowmentesData=[{...data , beneficiaryName:beneficiary.name , wealthName:'' }];
-        //             }
-        //         }
+                    if(this.endowmentData){
+                        this.endowmentesData?.push({...data , beneficiaryName:beneficiary.name , wealthName:'' });
+                    }else{
+                        this.endowmentesData=[{...data , beneficiaryName:beneficiary.name , wealthName:'' }];
+                    }
+                }
 
-        //     });
-
-
+            });
 
 
-            // this.dataSource = new MatTableDataSource<Endowment>(this.endowmentData);
-            // this.dataSource.paginator = this.paginator;
-        // this.endowmentData
 
-            // console.log('data Source',this.dataSource);
-        // });
+
+        //     // this.dataSource = new MatTableDataSource<Endowment>(this.endowmentData);
+        //     // this.dataSource.paginator = this.paginator;
+        // // this.endowmentData
+
+        //     // console.log('data Source',this.dataSource);
+        });
 
 
 
@@ -237,6 +237,7 @@ export class EndowmentsDetailComponent   implements OnInit, OnDestroy {
         //     // Mark for check
         //     this._changeDetectorRef.markForCheck();
         // });
+
 
     }
 
@@ -301,22 +302,22 @@ export class EndowmentsDetailComponent   implements OnInit, OnDestroy {
             // If the confirm button pressed...
             if (result === 'confirmed') {
                 // Get the current Endowment's id
-                const id = this.endowmentData.id;
+                const id = this.endowment.id;
 
                 // Get the next/previous Endowment's id
-                const currentEndowmentIndex = this.endowmentesData.findIndex(
-                    (item) => item.id === id
-                );
-                const nextEndowmentIndex =
-                    currentEndowmentIndex +
-                    (currentEndowmentIndex === this.endowmentesData.length - 1
-                        ? -1
-                        : 1);
-                const nextEndowmentlId =
-                    this.endowmentesData.length === 1 &&
-                    this.endowmentesData[0].id === id
-                        ? null
-                        : this.endowmentesData[nextEndowmentIndex].id;
+                // const currentEndowmentIndex = this.endowmentesData.findIndex(
+                //     (item) => item.id === id
+                // );
+                // const nextEndowmentIndex =
+                //     currentEndowmentIndex +
+                //     (currentEndowmentIndex === this.endowmentesData.length - 1
+                //         ? -1
+                //         : 1);
+                // const nextEndowmentlId =
+                //     this.endowmentesData.length === 1 &&
+                //     this.endowmentesData[0].id === id
+                //         ? null
+                //         : this.endowmentesData[nextEndowmentIndex].id;
 
                 // Delete the Endowment
                 this._endowmentsService
@@ -328,24 +329,25 @@ export class EndowmentsDetailComponent   implements OnInit, OnDestroy {
                         }
 
                         // Navigate to the next Endowment if available
-                        if (nextEndowmentIndex) {
-                            this._router.navigate(['../', nextEndowmentIndex], {
-                                relativeTo: this._activatedRoute,
-                            });
-                        }
-                        // Otherwise, navigate to the parent
-                        else {
-                            this._router.navigate(['../'], {
-                                relativeTo: this._activatedRoute,
-                            });
-                        }
+                        // if (nextEndowmentIndex) {
+                        //     this._router.navigate(['../', nextEndowmentIndex], {
+                        //         relativeTo: this._activatedRoute,
+                        //     });
+                        // }
+                        // // Otherwise, navigate to the parent
+                        // else {
+                        //     this._router.navigate(['../'], {
+                        //         relativeTo: this._activatedRoute,
+                        //     });
+                        // }
 
                         // Toggle the edit mode off
                         this.toggleEditMode(false);
+                        this.closeDrawer()
+                        // Mark for check
+                        this._changeDetectorRef.markForCheck();
                     });
 
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
             }
         });
     }

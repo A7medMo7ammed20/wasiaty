@@ -12,16 +12,24 @@ import {
     tap,
     throwError,
 } from 'rxjs';
-import { Steps, Step } from './insurance.types';
-import { Individual } from 'app/modules/stakeholders/stakeholders.types';
+// import { Steps, Step } from './insurance.types';
+
+import { Steps, Step } from 'app/shared/types/step.types';
+import { InsuranceData } from './insurance.types';
+import { CheckboxItem } from 'app/shared/types/checkboxes/checkboxes.types';
 
 @Injectable({ providedIn: 'root' })
 export class InsurancesService {
     // Private
     private _step: BehaviorSubject<Steps | null> = new BehaviorSubject(null);
-    private _individuals: BehaviorSubject<Individual[] | null> = new BehaviorSubject(null);
-    // private _step: BehaviorSubject<Steps[] | null> = new BehaviorSubject(null);
 
+    private _insurances: BehaviorSubject<InsuranceData[] | null> =
+        new BehaviorSubject(null);
+    private _insurance: BehaviorSubject<InsuranceData | null> =
+        new BehaviorSubject(null);
+    // private _step: BehaviorSubject<Steps[] | null> = new BehaviorSubject(null);
+    private _checkboxesinsurances: BehaviorSubject<CheckboxItem [] | null> =
+    new BehaviorSubject(null);
     /**
      * Constructor
      */
@@ -30,23 +38,26 @@ export class InsurancesService {
     // -----------------------------------------------------------------------------------------------------
     // @ Accessors
     // -----------------------------------------------------------------------------------------------------
-
+    /**
+     * Getter for insurance
+     */
+    get insurance$(): Observable<InsuranceData> {
+        return this._insurance.asObservable();
+    }
+    get insurances$(): Observable<InsuranceData[]> {
+        return this._insurances.asObservable();
+    }
     /**
      * Getter for step
      */
     get step$(): Observable<Steps> {
         return this._step.asObservable();
     }
-    get individuals$(): Observable<Individual[]> {
-        return this._individuals.asObservable();
+
+    get checkboxesinsurances$(): Observable<CheckboxItem[]> {
+        return this._checkboxesinsurances.asObservable();
     }
 
-    /**
-     * Getter for step
-     */
-    // get step$(): Observable<Steps[]> {
-    //     return this._step.asObservable();
-    // }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
@@ -55,24 +66,131 @@ export class InsurancesService {
     /**
      * Get step
      */
-    getSteps(): Observable<Steps> {
-        return this._httpClient.get<Steps>('api/step/all').pipe(
-            tap((step) => {
-                this._step.next(step);
+
+    /**
+     * Get data
+     */
+    getInsurancesData(): Observable<InsuranceData[]> {
+        return this._httpClient.get('api/insurances/all').pipe(
+            tap((response: any) => {
+                //  ;
+                this._insurances.next(response);
             })
         );
     }
 
-    /**
-     * Get step
+    /*
+      //////////////  * insurances///////////
+    */
+
+    getInsuranceById(id: string): Observable<InsuranceData> {
+        return this._insurances.pipe(
+            take(1),
+            map((members) => {
+                // Find the bequest
+
+                const member = members.find((item) => item.id.toString() === id) || null;
+                console.log('idddddd', members, this._insurances);
+                // Update the Members
+                this._insurance.next(member);
+
+                // Return the Members
+                return member;
+            }),
+            switchMap((member) => {
+                if (!member) {
+                    return throwError(
+                        'Could not found Members with id of ' + id + '!'
+                    );
+                }
+
+                return of(member);
+            })
+        );
+    }
+
+ /**
+     * Update updateInsurance
+     *
+     * @param id
+     * @param updateInsurance
      */
-    getGetTypeInfo(): Observable<Steps> {
-        return this._httpClient.get<Steps>('api/step/getType').pipe(
+ updateInsurances(
+    id: string,
+    insurance: InsuranceData
+): Observable<InsuranceData> {
+    return this.insurances$.pipe(
+        take(1),
+        switchMap((insurances) =>
+            this._httpClient
+                .patch<InsuranceData>('api/insurance/update-insurance', {
+                    id,
+                    insurance,
+                })
+                .pipe(
+                    map((updateInsurance) => {
+                        // Find the index of the updated insurance
+                        const index = insurances.findIndex(
+                            (item) => item.id.toString() === id
+                        );
+
+                        // Update the insurance
+                        insurances[index] = updateInsurance;
+
+                        // Update the insurances
+                        this._insurances.next(insurances);
+
+                        // Return the updated insurance
+                        return updateInsurance;
+                    }),
+                    switchMap((updateInsurance) =>
+                        this.insurance$.pipe(
+                            take(1),
+                            filter((item) => item && item.id.toString() === id),
+                            tap(() => {
+                                // Update the bequest if it's selected
+                                this._insurance.next(
+                                    updateInsurance
+                                );
+
+                                // Return the updated bequest
+                                return updateInsurance;
+                            })
+                        )
+                    )
+                )
+        )
+    );
+}
+getSteps(): Observable<Steps> {
+
+    return this._httpClient.get<Steps>('api/step/all').pipe(
+        tap((step) => {
+            this._step.next(step);
+        })
+    );
+}
+
+/**
+ * Get step
+ */
+getGetTypeInfo(): Observable<Steps> {
+    return this._httpClient.get<Steps>('api/step/getType').pipe(
+        tap((step) => {
+            this._step.next(step);
+        })
+    );
+}
+
+getChoosePlace(): Observable<Steps> {
+    return this._httpClient
+        .get<Steps>('api/stepTwo-insurance/getType')
+        .pipe(
             tap((step) => {
                 this._step.next(step);
             })
         );
-    }
+}
     /**
      * Get step
      */
@@ -83,6 +201,19 @@ export class InsurancesService {
             })
         );
     }
+
+
+/**
+ * Get checkboxes
+ */
+getCheckboxes(): Observable<CheckboxItem[]> {
+    return this._httpClient.get<CheckboxItem[]>('api/insurance/create-name/checkboxes/all').pipe(
+        tap((checkboxes: any) => {
+            this._checkboxesinsurances.next(checkboxes);
+            console.log('checkboxes in seveice ', checkboxes);
+        })
+    );
+}
 
     /**
      * Search step with given query
@@ -233,5 +364,4 @@ export class InsurancesService {
             )
         );
     }
-
 }

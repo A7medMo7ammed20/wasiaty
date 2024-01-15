@@ -22,6 +22,13 @@ export default [
                     ),
             },
             {
+                path: 'wealth',
+                loadChildren: () =>
+                    import(
+                        'app/modules/assets-management/wealth/wealth.routes'
+                    ),
+            },
+            {
                 path: 'long-term',
                 loadChildren: () =>
                     import(

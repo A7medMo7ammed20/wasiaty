@@ -6,3 +6,13 @@ export interface User
     avatar?: string;
     status?: string;
 }
+
+export interface Users
+{
+    firstName: string;
+    lastName: string;
+    countryId: number;
+    email: string;
+    phoneNumber: string;
+
+}

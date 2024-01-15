@@ -1,0 +1,64 @@
+<div class="fancy-feature-four mt-20">
+    <div class="bg-wrapper">
+        <img
+            src="assets/images/deski/shape/18.svg"
+            alt=""
+            class="shapes shape-right"
+        />
+        <img
+            src="assets/images/deski/shape/19.svg"
+            alt=""
+            class="shapes shape-left"
+        />
+        <div class="container">
+            <div class="title-style-two text-center mb-100 md-mb-50">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-9 col-md-10 m-auto">
+                        <p>What we do</p>
+                        <h2>
+                            Use deski to drive growth at
+                            <span
+                                >your business.
+                                <img
+                                    src="assets/images/deski/shape/line-shape-2.svg"
+                                    alt=""
+                            /></span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-content">
+                <img
+                    src="assets/images/deski/shape/20.svg"
+                    alt=""
+                    class="shapes shape-one"
+                />
+                <img
+                    src="assets/images/deski/shape/21.svg"
+                    alt=""
+                    class="shapes shape-two"
+                />
+                <div class="row justify-content-center">
+                    <div
+                        *ngFor="let item of fancyFeatureData"
+                        class="col-lg-4 col-md-6 d-flex"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        [attr.data-aos-delay]="item.delay"
+                    >
+                        <div class="block-style-five">
+                            <div class="icon">
+                                <img [src]="item.icon" alt="" />
+                            </div>
+                            <h6 class="title">
+                                <span>{{ item.title }}</span>
+                            </h6>
+                            <p>{{ item.subtitle }}</p>
+                        </div>
+                        <!-- /.block-style-five -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div
+    class="fancy-feature-twentyTwo mt-200 pt-130 md-mt-80 sm-pt-100"
+    id="product"
+>
+    <div class="container">
+        <div class="title-style-ten mb-40 md-mb-20">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h2>The Product we work with.</h2>
+                </div>
+                <div class="col-lg-5">
+                    <p class="md-pt-20">
+                        Commonly used in the graphic, print& publishing
+                        industris for previewing visual mockups.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div
+                *ngFor="let item of featureData"
+                class="col-lg-4 col-md-6"
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                [attr.data-aos-delay]="item.delay"
+            >
+                <div class="block-style-twentyTwo">
+                    <a [routerLink]="['/service-details']">
+                        <div
+                            class="icon d-flex align-items-center justify-content-center"
+                            [style]="{ background: item.color }"
+                        >
+                            <img [src]="item.icon" alt="" />
+                        </div>
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.subtitle }}</p>
+                        <a [routerLink]="['./']" class="arrow-icon"
+                            ><img src="assets/images/deski/icon/135.svg" alt=""
+                        /></a>
+                    </a>
+                </div>
+                <!-- /.block-style-twentyTwo -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="hero-banner-seven lg-container">
+    <div class="container">
+        <div class="illustration-container">
+            <img src="assets/images/assets/ils_20.svg" alt="" />
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="hero-heading">
+                    <span>Capture</span> Idea & find it later.
+                </h1>
+                <p class="hero-sub-heading">
+                    Deski delivered blazing fast, striking soludtion
+                </p>
+                <form #subForm="ngForm" (submit)="getFormData(subForm.value)">
+                    <input
+                        ngModel
+                        type="email"
+                        name="email"
+                        placeholder="ihidago@ujufidnan.gov"
+                    />
+                    <button>Try free demo</button>
+                </form>
+                <p class="term-text">
+                    For teams & individuals — web, mobile, Mac, Windows
+                </p>
+                <div class="dropdown download-btn">
+                    <button
+                        class="dropdown-toggle"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Download
+                    </button>
+                    <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton"
+                    >
+                        <a
+                            class="dropdown-item d-flex align-items-center"
+                            [routerLink]="['./']"
+                        >
+                            <img src="assets/images/icon/103.svg" alt="" />
+                            <span>IOS & Android</span>
+                        </a>
+                        <a
+                            class="dropdown-item d-flex align-items-center"
+                            [routerLink]="['./']"
+                        >
+                            <img src="assets/images/icon/104.svg" alt="" />
+                            <span>Mac & Windows</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="partner-slider-two mt-130 md-mt-80">
+        <div class="container">
+            <p class="text-center">
+                Over <span>32K+</span> software businesses growing with Deski.
+            </p>
+            <div class="partnerSliderTwo">
+                <swiper
+                    [slidesPerView]="1"
+                    [spaceBetween]="30"
+                    [loop]="true"
+                    [autoplay]="{
+                        delay: 2500,
+                        disableOnInteraction: false
+                    }"
+                    [breakpoints]="{
+                        '0': {
+                            slidesPerView: 2
+                        },
+                        '576': {
+                            slidesPerView: 3
+                        },
+                        '768': {
+                            slidesPerView: 4
+                        },
+                        '992': {
+                            slidesPerView: 5
+                        }
+                    }"
+                >
+                    <ng-template
+                        *ngFor="let item of logoSliderData"
+                        swiperSlide
+                    >
+                        <div
+                            class="item d-flex align-items-center justify-content-between"
+                        >
+                            <img src="{{ item.img }}" alt="" />
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+    </div>
+    <!-- /.partner-slider-two -->
+</div>

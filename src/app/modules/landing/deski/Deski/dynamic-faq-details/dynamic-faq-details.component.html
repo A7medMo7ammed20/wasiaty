@@ -1,0 +1,124 @@
+<div class="main-page-wrapper overflow-hidden">
+    <!-- hero start -->
+    <app-header></app-header>
+    <!-- hero end -->
+
+    <!-- hero area start -->
+    <app-faq-hero-area></app-faq-hero-area>
+    <!-- hero area end -->
+
+    <!-- faq details area start -->
+    <div class="faqs-inner-page">
+        <img
+            src="assets/images/deski/shape/66.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <div class="shapes shape-two"></div>
+        <div class="shapes shape-three"></div>
+        <div class="shapes shape-four"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-11 m-auto">
+                    <div class="all-faqs">
+                        <div class="faqs-all-qus md-m0">
+                            <div class="article-preview">
+                                <div class="d-flex">
+                                    <img
+                                        [src]="item.img"
+                                        alt=""
+                                        class="avatar-img"
+                                    />
+                                    <div>
+                                        <h3 class="font-rubik">
+                                            {{ item.title }}
+                                        </h3>
+                                        <div
+                                            class="avatar-info"
+                                            [innerHTML]="item.info"
+                                        ></div>
+                                    </div>
+                                </div>
+
+                                <div class="article-details">
+                                    <p>
+                                        To activate 2FA you will need an
+                                        authenticator app installed on your
+                                        smartphone. This could be Google
+                                        Authenticator or Authy, both available
+                                        for iOs and Android.
+                                    </p>
+                                    <ul class="list-meta">
+                                        <li>
+                                            Go to ‘Account settings’ from your
+                                            Ticket Tailor dashboard.
+                                        </li>
+                                        <li>
+                                            Under the heading ‘Two-factor
+                                            authentication’ click the button
+                                            labelled ‘Activate 2FA’.
+                                        </li>
+                                        <li>
+                                            From your authenticator app on your
+                                            phone, add a new login and it will
+                                            ask you to scan the QR code shown
+                                            here. Scan the QR code.
+                                        </li>
+                                        <li>
+                                            The app will generate a code. Enter
+                                            that code in the box below and click
+                                            'Activate 2FA'.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        <b>Please note:</b> If you lose access
+                                        to your 2FA app you will need to contact
+                                        customer support to go through a
+                                        security questionnaire and have your
+                                        account unlocked.
+                                    </p>
+
+                                    <div class="reaction-wrapper">
+                                        <h4>Did this answer your question?</h4>
+                                        <div
+                                            class="d-flex align-items-center justify-content-center"
+                                        >
+                                            <button>
+                                                <img
+                                                    src="assets/images/deski/icon/happy.svg"
+                                                    alt=""
+                                                />
+                                            </button>
+                                            <button>
+                                                <img
+                                                    src="assets/images/deski/icon/sad.svg"
+                                                    alt=""
+                                                />
+                                            </button>
+                                            <button>
+                                                <img
+                                                    src="assets/images/deski/icon/surprised.svg"
+                                                    alt=""
+                                                />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- /.reaction-wrapper -->
+                                </div>
+                                <!-- /.article-details -->
+                            </div>
+                            <!-- /.article-preview -->
+                        </div>
+                        <!-- /.faqs-all-qus -->
+                    </div>
+                    <!-- /.all-faqs -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- faq details area end -->
+
+    <!-- footer start -->
+    <app-footer></app-footer>
+    <!-- footer end -->
+</div>

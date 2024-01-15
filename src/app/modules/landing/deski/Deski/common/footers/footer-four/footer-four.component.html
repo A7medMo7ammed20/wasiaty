@@ -1,0 +1,120 @@
+<footer class="theme-footer-two pt-150 md-pt-80">
+    <div class="top-footer">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div
+                    class="col-lg-2 col-12 footer-about-widget"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                >
+                    <a [routerLink]="['/customer-support']" class="logo">
+                        <img
+                            src="assets/images/deski/logo/deski_03.svg"
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <!-- /.about-widget -->
+                <div
+                    class="col-lg-2 col-md-3 col-sm-6 footer-list"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="50"
+                >
+                    <h5 class="footer-title">Products</h5>
+                    <ul>
+                        <li><a [routerLink]="['./']">Take the tour</a></li>
+                        <li><a [routerLink]="['./']">Live chat</a></li>
+                        <li><a [routerLink]="['./']">Self-service</a></li>
+                        <li><a [routerLink]="['./']">Social</a></li>
+                        <li><a [routerLink]="['./']">Mobile</a></li>
+                        <li><a [routerLink]="['./']">Collaboration</a></li>
+                        <li><a [routerLink]="['./']">deski Reviews</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div
+                    class="col-lg-2 col-md-3 col-sm-6 footer-list"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="100"
+                >
+                    <h5 class="footer-title">Services</h5>
+                    <ul>
+                        <li><a [routerLink]="['./']">Web Design</a></li>
+                        <li><a [routerLink]="['./']">Development</a></li>
+                        <li><a [routerLink]="['./']">Wordpress</a></li>
+                        <li><a [routerLink]="['./']">Online Marketing</a></li>
+                        <li><a [routerLink]="['./']">Content</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div
+                    class="col-lg-2 col-md-3 col-sm-6 footer-list"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="150"
+                >
+                    <h5 class="footer-title">About us</h5>
+                    <ul>
+                        <li><a [routerLink]="['./']">About us</a></li>
+                        <li><a [routerLink]="['./']">Work Portfolio</a></li>
+                        <li><a [routerLink]="['./']">Team</a></li>
+                        <li><a [routerLink]="['./']">Plan & Pricing</a></li>
+                        <li><a [routerLink]="['./']">News</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div
+                    class="col-lg-3 col-md-3 col-sm-6 address-list"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="200"
+                >
+                    <h5 class="footer-title">Address</h5>
+                    <ul class="info">
+                        <li>
+                            <a [routerLink]="['./']">companyinfo@mail.com</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['./']" class="mobile-num"
+                                >+761 412 3224</a
+                            >
+                        </li>
+                    </ul>
+                    <ul class="social-icon d-flex">
+                        <li *ngFor="let link of social_links">
+                            <a [routerLink]="['./']"><i [class]="link"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.top-footer -->
+
+    <div class="container">
+        <div class="bottom-footer-content">
+            <div
+                class="d-flex align-items-center justify-content-center"
+                data-aos="fade-up"
+                data-aos-duration="1200"
+                data-aos-anchor=".theme-footer-two"
+            >
+                <p>
+                    Copyright @{{ date }}
+                    <a
+                        href="https://themeforest.net/user/ib-themes/portfolio"
+                        target="_blank"
+                        >ib-themes</a
+                    >
+                    inc.
+                </p>
+            </div>
+        </div>
+        <!-- /.bottom-footer -->
+    </div>
+</footer>

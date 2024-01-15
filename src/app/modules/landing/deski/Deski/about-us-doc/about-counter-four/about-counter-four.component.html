@@ -1,0 +1,33 @@
+<div class="fancy-text-block-eighteen mt-170 md-mt-80">
+    <img
+        src="assets/images/deski/assets/ils_13.svg"
+        alt=""
+        class="illustration"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+    />
+
+    <div class="counter-info pt-90 pb-45 md-pt-60">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div
+                    *ngFor="let item of counterData"
+                    class="col-lg-4 col-sm-6"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="counter-box-two">
+                        <h2 class="number" [style]="{ color: item.color }">
+                            <span class="timer">{{ item.value }}</span
+                            >{{ item.text }}
+                        </h2>
+                        <em>{{ item.title }}</em>
+                        <p class="font-rubik" [innerHTML]="item.subtitle_2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.counter-info -->
+</div>

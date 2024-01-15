@@ -32,6 +32,9 @@ import {  EndowmentsMockApi } from './wealth-management/endowment/api';
 import { MixedUsePropertiesMockApi } from './wealth-management/mixed-use-properties/api';
 import { InsurancesMockApi } from './insurance/api';
 import { AddEndowmentsMockApi } from './wealth-management/endowment/addEndowment/api';
+import { checkboxesMockApi } from './checkboxes/api';
+import { TypeBequestMockApi } from './type-bequest/api';
+import { WealthsMockApi } from './wealth-management/wealth/api';
 
 export const mockApiServices = [
     AcademyMockApi,
@@ -67,5 +70,8 @@ export const mockApiServices = [
     EndowmentsMockApi,
     MixedUsePropertiesMockApi ,
     InsurancesMockApi,
-    AddEndowmentsMockApi
+    AddEndowmentsMockApi,
+    checkboxesMockApi,
+    TypeBequestMockApi,
+    WealthsMockApi
 ];

@@ -1,0 +1,42 @@
+<div class="faq-section-four bg-white">
+  <div class="container">
+    <div class="title-style-five text-center mb-80 md-mb-60">
+      <h6>FAQ</h6>
+      <h2><span>Question & Answer</span></h2>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-9 col-lg-10 m-auto" data-aos="fade-up" data-aos-duration="1200">
+        <div id="accordionExample" class="accordion-style-four">
+
+          <div *ngFor="let item of faqData" class="accordion-item">
+            <div class="accordion-header" [id]="item.headingNum">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#' + item.collapseNum"
+                  [attr.aria-expanded]="item.expanded ? 'true' : 'false'"
+                  [attr.aria-controls]="item.collapseNum">
+                  {{ item.btnText }}
+                </button>
+              </h5>
+            </div>
+            <div [id]="item.collapseNum" [class]="item.collapseClass" [attr.aria-labelledby]="item.headingNum"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p>
+                  {{ item.desc }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-60 md-mt-50" data-aos="fade-up" data-aos-duration="1200">
+      <h3 class="font-rubik pb-30">Don’t find your answer?</h3>
+      <a [routerLink]="['/contact-us-event']" class="theme-btn-five">Contact us</a>
+    </div>
+  </div> <!-- /.container -->
+</div>

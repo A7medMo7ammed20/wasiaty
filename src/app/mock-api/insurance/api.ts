@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
-import { steps as stepsData, typeInfo } from 'app/mock-api/insurance/data';
-import { Steps } from 'app/modules/assets-management/insurances/insurance.types';
+import {
+    stepTwo,
+    steps as stepsData,
+    typeInfo, insuranceData
+} from 'app/mock-api/insurance/data';
+import { InsuranceData } from 'app/modules/assets-management/insurances/insurance.types';
+import { Steps } from 'app/shared/types/step.types';
+// import { Steps } from 'app/modules/assets-management/insurances/insurance.types';
 import { assign, cloneDeep } from 'lodash-es';
 import { from, map } from 'rxjs';
 
@@ -10,6 +16,12 @@ export class InsurancesMockApi {
     // private _steps: Steps[] = stepsData;
     private _step: Steps = stepsData;
     private _typeInfo: Steps = typeInfo;
+    private _stepTwo: Steps = stepTwo;
+
+
+    // data insurance
+
+    private _insuranceData: InsuranceData[] = insuranceData;
 
     /**
      * Constructor
@@ -17,16 +29,82 @@ export class InsurancesMockApi {
     constructor(private _fuseMockApiService: FuseMockApiService) {
         // Register Mock API handlers
         this.registerHandlers();
+        this.registerHandlersStep();
     }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
-
-    /**
+ /**
      * Register Mock API handlers
      */
-    registerHandlers(): void {
+
+    registerHandlers():void
+    {
+        this._fuseMockApiService.onGet('api/insurances/all').reply(() => {
+            // Clone the steps
+            const insurances = cloneDeep(this._insuranceData);
+            // Sort the Tangibles by the name field by default
+            // insurances.sort((a, b) => a.name.localeCompare(b.name));
+
+            // Return the response
+            return [200, insurances];
+        });
+
+        this._fuseMockApiService
+        .onDelete('api/insurances/insurance')
+        .reply(({ request }) => {
+            // Get the id
+            const id = request.params.get('id');
+
+            // Find the individual and delete it
+            this._insuranceData.forEach((item, index) => {
+                if (item.id.toString() === id) {
+                    this._insuranceData.splice(index, 1);
+                }
+            });
+
+            // Return the response
+            return [200, true];
+        });
+
+         // -----------------------------------------------------------------------------------------------------
+        // @ insurance - PATCH
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+            .onPatch('api/insurance/update-insurance')
+            .reply(({ request }) => {
+                // Get the id and insurance
+                const id = request.body.id;
+                const insurance = cloneDeep(request.body.insurance);
+                console.log('insurance', request.body.insurance);
+
+                // Prepare the updated insurance
+                let updatedinsurance = null;
+
+                // Find the insurance and update it
+                this._insuranceData.forEach((item, index, insurances) => {
+                    if (item.id === id) {
+                        // Update the insurance
+                        insurances[index] = assign({}, insurances[index], insurance);
+
+                        // Store the updated insurance
+                        updatedinsurance = insurances[index];
+                    }
+                });
+
+                return [200, updatedinsurance];
+            });
+
+    }
+    // -----------------------------------------------------------------------------------------------------
+    // @ Public methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Register Mock API handlers Step
+     */
+    registerHandlersStep(): void {
         // -----------------------------------------------------------------------------------------------------
         // @ Contacts - GET
         // -----------------------------------------------------------------------------------------------------
@@ -206,6 +284,21 @@ export class InsurancesMockApi {
                         return [200, updatedContact];
                     })
                 );
+            });
+
+        // choosePlace
+
+        this._fuseMockApiService
+            .onGet('api/stepTwo-insurance/getType')
+            .reply(() => {
+                // Clone the steps
+                const typeInfo = cloneDeep(this._stepTwo);
+
+                // Sort the typeInfo by the name field by default
+                // typeInfo.sort((a, b) => a.title.localeCompare(b.title));
+
+                // Return the response
+                return [200, typeInfo];
             });
     }
 }

@@ -1,0 +1,38 @@
+<div class="pt-180 md-pt-110" data-aos="fade-up" id="feedback">
+  <div class="client-feedback-slider-eight lg-container ">
+    <div class="container">
+      <div class="main-content position-relative">
+        <div class="clientSliderSeven">
+
+          <swiper [slidesPerView]="1" [loop]="true" [effect]="'fade'" [fadeEffect]="{ crossFade: true }"
+            [autoplay]="{ delay: 15000}" [navigation]="{ nextEl: '.next_cs1', prevEl: '.prev_cs1' }">
+
+            <ng-template swiperSlide *ngFor="let item of slider_data">
+              <div class="item">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 col-md-7">
+                    <div class="feedback-wrapper">
+                      <div class="tag">{{item.tag}}</div>
+                      <p class="pe-xl-5">{{item.desc}}</p>
+                      <h4 class="name">{{item.name}}</h4>
+                      <div class="cr-position">{{item.position}}</div>
+                    </div> <!-- /.feedback-wrapper -->
+                  </div>
+                  <div class="col-lg-6 col-md-5">
+                    <div class="img-meta sm-mb-30"><img [src]="item.img" alt=""></div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+
+          </swiper>
+
+        </div>
+        <ul class="slider-arrow d-flex align-items-center justify-content-center mt-45">
+          <li class="prev_cs1 slick-arrow"><i class="flaticon-right-arrow-1"></i></li>
+          <li class="next_cs1 slick-arrow"><i class="flaticon-right-arrow-1"></i></li>
+        </ul>
+      </div> <!-- /.main-content -->
+    </div>
+  </div>
+</div>

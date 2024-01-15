@@ -2,19 +2,24 @@
 
     <fuse-card class="flex flex-col items-center max-w-80 w-full p-8 filter-info">
         <div class="flex items-center justify-center p-5 rounded-full bg-primary-100 dark:bg-gray-600">
-            <mat-icon
+            <!-- <mat-icon
             class="icon-size-16 text-primary-500 dark:text-primary-300"
-            [svgIcon]="'mat_solid:person_outline'"></mat-icon>
+            [svgIcon]="'mat_solid:person_outline'"></mat-icon> -->
+
+            <!-- <img  src="../../../../../assets/images/wasiaty/fund.png" alt="Selected Image" style="max-width: 100%;"> -->
+            <!-- <img [src]="selectedImage" alt="Selected Image" style="max-width: 100%;"> -->
+            <img [src]="selectedImage" alt="Selected Image" class="rounded-full max-w-full" style="max-width: 100%;">
+
         </div>
         <!-- <div class="text-2xl font-semibold leading-tight text-center mt-6">Support</div> -->
     <div class=" mt-5 mb-5">
         <span> • Is your whole face visible? </span> <br>
         <span>• Is it in focus?  </span>
-    
+
     </div>
     <!-- <div class=" mt-3"> • Is it in focus?    </div> -->
     <div class="h-13 mt-5">
-        <a
+        <a (click)="backToComplete()"
     class="px-6 "
     mat-button
         [color]="'disabled'">
@@ -25,7 +30,7 @@
     mat-flat-button
         [color]="'primary'"
         >
-        Complete 
+        Complete
     </a>
     </div>
     <div class="mt-8 text-md font-medium text-secondary">

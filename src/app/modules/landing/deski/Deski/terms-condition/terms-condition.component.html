@@ -1,0 +1,62 @@
+<div class="main-page-wrapper overflow-hidden">
+  <!-- header start -->
+  <app-header></app-header>
+  <!-- header end -->
+
+  <!-- terms condition area start -->
+  <div class="terms_and_policy">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#opt1">1. Website terms of use</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#opt2">2. Terms and conditions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#opt3">3. Privacy policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#opt4">4. Cookie policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#opt5">5. Third Party Links</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#opt6">6. GDPR</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-8">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div *ngFor="let item of terms_data" [id]="item.id"
+            class="tab-pane fade" [ngClass]="item.active ? 'active show' : ''">
+              <h2 class="font-gilroy-bold">{{item.title}}</h2>
+              <div class="update-date">{{item.date}}</div>
+              <h3>{{item.title_1}}</h3>
+              <p>{{item.text_1}}</p>
+              <ul *ngIf="item.id !== 'opt2'">
+                <li><a [routerLink]="['./']">{{item.list_1}}</a></li>
+                <li><a [routerLink]="['./']">{{item.list_2}}</a></li>
+              </ul>
+              <h3>{{item.title_2}}</h3>
+              <p>{{item.text_2}}</p>
+              <h3 *ngIf="item.id !== 'opt2'">{{item.title_3}}</h3>
+              <p *ngIf="item.id !== 'opt2'">{{item.text_3}}</p>
+            </div>
+
+          </div> <!-- /.tab-content -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- terms condition area end -->
+
+  <!-- footer start -->
+  <app-footer></app-footer>
+  <!-- footer end -->
+</div>

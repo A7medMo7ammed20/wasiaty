@@ -1,0 +1,32 @@
+<div class="pricing-section-nine lg-container pt-150 md-pt-110" id="pricing">
+  <div class="container">
+    <div class="title-style-eleven text-center mb-40 md-mb-20" data-aos="fade-up">
+      <div class="upper-title">PRICING</div>
+      <h2>Pick your plan or create</h2>
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div *ngFor="let item of pricingData" class="col-lg-4 col-sm-6" data-aos="fade-up"
+        [attr.data-aos-delay]="item.delay">
+        <div class="pr-table-wrapper mt-40">
+          <div class="pack-name">{{item.pack_name}}</div>
+          <div class="pack-details">{{item.info}}</div>
+          <div class="top-banner d-md-flex align-items-center">
+            <div class="price">${{item.price + '.00'}}</div>
+            <div>
+              <span>Per monthly</span>
+              <em>Biller yearly</em>
+            </div>
+          </div>
+          <a [routerLink]="['./']" class="trial-button tran3s">Start 30 days free trial</a>
+          <ul class="pr-feature">
+            <li *ngFor="let list of item.list_items" [innerHTML]="list.text"></li>
+          </ul>
+          <div class="trial-text">No card required, cancel any time</div>
+        </div> <!-- /.pr-table-wrapper -->
+      </div>
+
+    </div>
+  </div>
+</div>

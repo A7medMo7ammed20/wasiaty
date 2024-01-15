@@ -1,0 +1,74 @@
+<div class="main-page-wrapper overflow-hidden">
+  <!-- header start -->
+  <app-header-four></app-header-four>
+  <!-- header end -->
+
+  <!-- hero area start -->
+  <div class="fancy-hero-two">
+    <div class="bg-wrapper">
+      <div class="container">
+        <div class="page-title">Blog</div>
+        <div class="row">
+          <div class="col-xl-8 col-lg-10 m-auto">
+            <h1 class="heading md-p0">Check our company inside news</h1>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /.bg-wrapper -->
+  </div>
+  <!-- hero area end -->
+
+  <!-- blog start -->
+  <div class="blog-page-white-bg blog-v3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="feature-blog-three">
+
+            <div *ngFor="let blog of blogItems" class="post-meta">
+              <img *ngIf="blog.id !== 29" [src]="blog.img" alt="" class="image-meta">
+              <div class="post">
+                <div class="date">{{blog.date}}</div>
+                <h3>
+                  <a [routerLink]="['/blog-details/'+blog.id]" class="title">{{blog.title}}</a>
+                </h3>
+                <p>{{blog.desc}}</p>
+                <a [routerLink]="['/blog-details/'+blog.id]" class="read-more">
+                  <span>Continue Reading</span>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div> <!-- /.post-meta -->
+
+          </div>
+
+          <div class="page-pagination-one pt-15">
+            <ul class="d-flex align-items-center">
+              <li><a [routerLink]="['./']"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+              <li><a [routerLink]="['./']" class="active">1</a></li>
+              <li><a [routerLink]="['./']">2</a></li>
+              <li><a [routerLink]="['./']">3</a></li>
+              <li> &nbsp; ... &nbsp;</li>
+              <li><a [routerLink]="['./']">13</a></li>
+              <li><a [routerLink]="['./']"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+            </ul>
+          </div> <!-- /.page-pagination-one -->
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <!-- BlogSidebar start -->
+          <app-blog-sidebar [blog_v3]="true"></app-blog-sidebar>
+          <!-- BlogSidebar end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- blog end -->
+
+  <!-- short banner start -->
+  <app-short-banner-three [pricing]="true"></app-short-banner-three>
+  <!-- short banner end -->
+
+  <!-- footer start -->
+  <app-footer-four></app-footer-four>
+  <!-- footer end -->
+</div>

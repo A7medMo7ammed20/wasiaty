@@ -1,0 +1,41 @@
+<div class="app-screen-preview-two mt-200 md-mt-130">
+  <div class="container">
+    <div class="title-style-eleven text-center mb-120 md-mb-70">
+      <h2>App Screenshot</h2>
+    </div>
+  </div>
+
+  <div class="app-preview-slider-two">
+
+    <swiper
+      [slidesPerView]="1"
+      [spaceBetween]="25"
+      [centeredSlides]="true"
+      [loop]="true"
+      [autoplay]="{ delay: 5000, disableOnInteraction: false}"
+      [breakpoints]="{
+        '0': {
+          slidesPerView: 1
+        },
+        '768': {
+          slidesPerView: 3
+        },
+        '992': {
+          slidesPerView: 4
+        },
+        '1200': {
+          slidesPerView: 5
+        }
+      }"
+    >
+      <ng-template *ngFor="let item of appScreenData" swiperSlide>
+        <div class="item">
+          <div class="img-holder">
+            <img [src]="item.img" alt="">
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+
+  </div> <!-- /.app-preview-slider-two -->
+</div>

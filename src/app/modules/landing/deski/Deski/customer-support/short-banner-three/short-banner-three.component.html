@@ -1,0 +1,25 @@
+<div class="fancy-short-banner-three"
+[ngClass]="about ? 'mt-225 md-mt-150' : contact ? 'mt-200 md-mt-130'
+: pricing ? 'mt-200 md-mt-150' :feature_cs ? 'mt-250 md-mt-150' : 'mt-100 md-mt-40'">
+  <div class="container">
+    <div class="bg-wrapper">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="title-style-one">
+            <h6 class="font-rubik" style="color:#F96F60">Start your free trial.</h6>
+            <h2>New here? Start your free trial now.</h2>
+          </div> <!-- /.title-style-one -->
+        </div>
+        <div class="col-lg-6">
+          <div class="form-wrapper">
+            <form #subForm="ngForm" (submit)="getFormData(subForm.value)">
+              <input ngModel type="email" name="email" placeholder="Email address">
+              <button>Start trial</button>
+            </form>
+            <p class="font-rubik">Already a member? <a [routerLink]="['/login']">Sign in.</a></p>
+          </div> <!-- /.form-wrapper -->
+        </div>
+      </div>
+    </div> <!-- /.bg-wrapper -->
+  </div> <!-- /.container -->
+</div>

@@ -1,0 +1,25 @@
+<div class="theme-footer-nine lg-container">
+    <div class="container">
+        <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="logo text-center">
+                <a [routerLink]="['/']">
+                    <img src="assets/images/deski/logo/deski_06.svg" alt="" />
+                </a>
+            </div>
+            <ul
+                class="style-none footer-nav d-flex flex-wrap justify-content-center md-pt-10 md-pb-20"
+            >
+                <li><a [routerLink]="['./']">Home</a></li>
+                <li><a [routerLink]="['./']">Products</a></li>
+                <li><a [routerLink]="['./']">Services</a></li>
+                <li><a [routerLink]="['./']">About</a></li>
+                <li><a [routerLink]="['./']">Privacy Policy</a></li>
+            </ul>
+            <ul class="d-flex justify-content-center social-icon style-none">
+                <li *ngFor="let link of social_links">
+                    <a [routerLink]="['./']"><i [class]="link"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

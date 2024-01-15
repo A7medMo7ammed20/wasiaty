@@ -33,6 +33,15 @@ import {
     VMTangableWealthes,
     WealthType,
 } from 'app/modules/assets-management/wealth-management.types';
+import { TangibleWealthService } from '../tangible-wealth.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialog } from '@angular/material/dialog';
+import { TangableWealthDetailsComponent } from '../details/details.component';
+export interface DialogData {
+    animal: string;
+    name: string;
+  }
 @Component({
     selector: 'tangable-assets-ist',
     standalone: true,
@@ -54,14 +63,22 @@ import {
         MatTableModule,
         NgClass,
         CurrencyPipe,
-        MatSidenavModule
+        MatSidenavModule,
+        MatFormFieldModule,
+        MatSelectModule
     ],
 
     templateUrl: './tangible-wealthes-list.component.html',
     styleUrls: ['./tangible-wealthes-list.component.scss'],
 })
+
 export class TangableWealthListComponent implements OnInit {
+
     @ViewChild('matDrawer', { static: true }) matDrawer: MatDrawer;
+    drawerMode: 'side' | 'over';
+    isDrawerOpen: boolean = false;
+    animal: string;
+    name: string;
 
     Tangables$: Observable<TangibleWealthes[]>;
     realstate: VMTangableWealthes[];
@@ -78,10 +95,11 @@ export class TangableWealthListComponent implements OnInit {
     tangibleTypes$: Observable<WealthType[]>;
     tangibleTypes: WealthType[];
     constructor(
-        private _wealthManagmentService: WealthManagementService,
+        private _wealthManagmentService: TangibleWealthService,
         private _changeDetectorRef: ChangeDetectorRef,
         private _router: Router,
-        private _activatedRoute: ActivatedRoute
+        private _activatedRoute: ActivatedRoute ,
+        public dialog: MatDialog
     ) {}
     ngOnInit(): void {
         // Get Tangible Types
@@ -209,7 +227,7 @@ export class TangableWealthListComponent implements OnInit {
         this._router.navigate(['./', type], {
             relativeTo: this._activatedRoute,
         });
-        debugger
+
         console.log('type',type);
 
         // Mark for check
@@ -231,6 +249,31 @@ export class TangableWealthListComponent implements OnInit {
         // })
 
     }
+    // Add Tangable Wealth
+    addTangableWealth()
+    {
+        debugger
+
+        const dialogRef = this.dialog.open(TangableWealthDetailsComponent, {
+            data: {name: this.name, animal: this.animal},
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            this.animal = result;
+          });
+        }
+
+        // this._wealthManagmentService.addTangableWealth().subscribe((newAssetBranch) =>
+        // {
+
+        //     // Go to the new Item
+        //     this._router.navigate(['./', newAssetBranch.id], {relativeTo: this._activatedRoute});
+
+        //     // Mark for check
+        //     this._changeDetectorRef.markForCheck();
+        // });
+
     onBackdropClicked(): void {
         // Go back to the list
         this._router.navigate(['./'], { relativeTo: this._activatedRoute });
@@ -238,6 +281,8 @@ export class TangableWealthListComponent implements OnInit {
         // Mark for check
         this._changeDetectorRef.markForCheck();
     }
+
+
     trackByFn(index: number, item: any): any {
         return item.id || index;
     }

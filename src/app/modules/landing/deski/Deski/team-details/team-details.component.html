@@ -1,0 +1,82 @@
+<div class="main-page-wrapper overflow-hidden">
+    <app-header></app-header>
+    <!-- fancy hero start -->
+    <div class="fancy-hero-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-11 m-auto">
+                    <h2 class="font-rubik">Single Profile</h2>
+                </div>
+            </div>
+        </div>
+        <div class="bubble-one"></div>
+        <div class="bubble-two"></div>
+        <div class="bubble-three"></div>
+        <div class="bubble-four"></div>
+        <div class="bubble-five"></div>
+        <div class="bubble-six"></div>
+    </div>
+    <!-- fancy hero end -->
+
+    <!-- team details start -->
+    <div class="team-details mb-50 md-mb-10">
+        <div class="container position-relative">
+            <div class="main-bg d-lg-flex align-items-center">
+                <div class="img-meta">
+                    <img
+                        src="assets/images/deski/media/img_104.png"
+                        alt=""
+                        class="w-100"
+                    />
+                </div>
+                <div class="text-wrapper">
+                    <div class="name font-gilroy-bold">Jannatul Ferdaus</div>
+                    <div class="position">Senior Product Designer</div>
+                    <h6 class="font-gilroy-bold">ABOUT ME</h6>
+                    <p class="pb-45">
+                        Lorem ipsum dolor amet, consetre adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dole magna
+                        aliqua. Ut enim
+                    </p>
+                    <h6 class="font-gilroy-bold">Experties</h6>
+                    <p class="pb-45">
+                        Lorem ipsum dolor amet, consetre adipiscing elit, sed do
+                        eiusmod tempor incididunt
+                    </p>
+                    <h6 class="font-gilroy-bold">FOLLOW & CONTACT</h6>
+                    <ul class="social-icon d-flex pt-15">
+                        <li *ngFor="let link of social_links">
+                            <a [routerLink]="['./']"><i [class]="link"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.text-wrapper -->
+            </div>
+            <!-- /.main-bg -->
+
+            <div class="pager d-flex justify-content-between">
+                <a [routerLink]="['./']"
+                    ><i class="flaticon-right-arrow"></i
+                ></a>
+                <a [routerLink]="['./']"
+                    ><i class="flaticon-right-arrow"></i
+                ></a>
+            </div>
+        </div>
+        <img
+            src="assets/images/deski/shape/214.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <img
+            src="assets/images/deski/shape/215.svg"
+            alt=""
+            class="shapes shape-two"
+        />
+    </div>
+    <!-- team details end -->
+
+    <!-- footer start -->
+    <app-footer></app-footer>
+    <!-- footer end -->
+</div>

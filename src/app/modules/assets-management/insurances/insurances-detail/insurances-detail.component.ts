@@ -13,7 +13,8 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { AddingInitComponent } from 'app/layout/common/adding-init/adding-init.component';
 import { StepsProgressComponent } from 'app/layout/common/adding-init/steps-progress/steps-progress.component';
 import { StepsHeaderComponent } from 'app/layout/common/adding-init/steps-header/steps-header.component';
-import { RouteList, Steps } from '../insurance.types';
+import { Steps, RouteList } from 'app/shared/types/step.types';
+// import { RouteList, Steps } from '../insurance.types';
 
 @Component({
     selector: 'insurances-detail',
@@ -55,8 +56,15 @@ export class InsurancesDetailComponent implements OnInit, OnDestroy {
             progress: 30,
             currentStep: 1,
         },
+        
         {
             id: '3',
+            route: 'step-two',
+            progress: 100,
+            currentStep: 1,
+        },
+        {
+            id: '4',
             route: 'describe-price',
             progress: 60,
             currentStep: 1,
@@ -102,7 +110,7 @@ export class InsurancesDetailComponent implements OnInit, OnDestroy {
     // -----------------------------------------------------------------------------------------------------
 
     changeProgressNext(step) {
-        debugger;
+         ;
         let item = this.routeList.filter(
             (item) => item.id === step.toString()
         )[0];
@@ -120,7 +128,7 @@ export class InsurancesDetailComponent implements OnInit, OnDestroy {
         this.currentStepProgress++;
     }
     changeProgressBack(step) {
-        debugger;
+         ;
         let backStep = step <= 0 ? 0 : step - 1;
         let item = this.routeList.filter(
             (item) => item.id === step.toString()

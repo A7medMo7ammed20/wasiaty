@@ -1,0 +1,39 @@
+<div class="faq-section-five lg-container pt-200 mt-25 md-pt-80" id="faq">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 col-lg-6">
+        <div class="title-style-twelve">
+          <div class="upper-title">FAQ</div>
+          <h2>Any Questions find here.</h2>
+          <p class="pt-25 pb-40 md-pb-30">Find your answers here. if you don’t find it here, please contact us.</p>
+          <a [routerLink]="['/contact-us-management']" class="theme-btn-eight">Contact us</a>
+        </div>
+      </div>
+      <div class="col-lg-6 ms-auto">
+        <div id="accordionExample" class="accordion-style-five md-mt-60">
+
+          <div *ngFor="let item of faqData" class="accordion-item">
+            <div class="accordion-header" [id]="item.headingNum">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#' + item.collapseNum" [attr.aria-expanded]="item.expanded ? 'true' : 'false'"
+                  [attr.aria-controls]="item.collapseNum">
+                  {{item.btnText}}
+                </button>
+              </h5>
+            </div>
+            <div [id]="item.collapseNum" [class]="item.collapseClass" [attr.aria-labelledby]="item.headingNum"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p>
+                  {{item.desc}}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

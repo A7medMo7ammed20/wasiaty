@@ -1,0 +1,73 @@
+<div class="pricing-section-eight lg-container mt-150 md-mt-100" id="pricing">
+    <div class="container">
+        <div class="border-top pt-150 md-pt-100">
+            <div class="title-style-twelve text-center pb-120 md-pb-60">
+                <h2>
+                    <span
+                        >Get your plan<img
+                            src="assets/images/deski/shape/line-shape-13.svg"
+                            alt=""
+                    /></span>
+                </h2>
+                <p class="mt-40 md-mt-20">
+                    Get access to the largest library of legal forms and easily
+                    integrate deski into your apps
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-0 position-relative">
+            <div
+                class="col-lg-3 pr-list-wrapper d-none d-lg-block position-absolute"
+            >
+                <ul>
+                    <li>Send documents for eSigning</li>
+                    <li>Multiple User</li>
+                    <li>Refund</li>
+                    <li>Bulk invite to sign</li>
+                    <li>Live Chat</li>
+                    <li>Send invite via Link</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-9 pr-table-wrapper ms-auto">
+                <div class="row g-0">
+                    <div
+                        *ngFor="let item of pricingData"
+                        class="col-md-4 pr-column"
+                    >
+                        <div class="pr-header">
+                            <div class="plan">{{ item.title }}</div>
+                            <div class="price">${{ item.price }}</div>
+                            <div class="info">{{ item.info }}</div>
+                        </div>
+                        <!-- /.pr-header -->
+                        <div class="pr-body">
+                            <ul>
+                                <li *ngFor="let list of item.body_info">
+                                    <span class="pr-text d-lg-none">{{
+                                        list.text
+                                    }}</span>
+                                    <img
+                                        [src]="list.icon"
+                                        alt=""
+                                        class="m-auto"
+                                    />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pr-footer">
+                            <a [routerLink]="['./']" class="trial-button"
+                                >Sign up</a
+                            >
+                            <div class="trial-text">
+                                Get your 30 day free trial
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.pr-column -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

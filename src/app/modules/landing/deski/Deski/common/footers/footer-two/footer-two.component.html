@@ -1,0 +1,90 @@
+<footer class="theme-footer-four" [ngClass]="contact ? 'mt-200 md-mt-150' : ''">
+    <div class="top-footer">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-xl-4 col-lg-3 col-12 footer-about-widget">
+                    <div class="logo">
+                        <a [routerLink]="['/']">
+                            <img
+                                src="assets/images/deski/logo/deski_05.svg"
+                                alt=""
+                            />
+                        </a>
+                    </div>
+                    <ul class="font-rubik mt-10">
+                        <li>
+                            <a href="mailto:deskiinc@gmail.com"
+                                >deskiinc@gmail.com</a
+                            >
+                        </li>
+                        <li><a href="tel:+761 412 3224">+761 412 3224</a></li>
+                    </ul>
+                </div>
+                <!-- /.about-widget -->
+                <div class="col-lg-3 col-md-4 footer-list">
+                    <h5 class="footer-title font-slab">Links</h5>
+                    <ul>
+                        <li><a [routerLink]="['/']">Home</a></li>
+                        <li><a [routerLink]="['./']">Product</a></li>
+                        <li>
+                            <a [routerLink]="['/pricing-event']">Pricing</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/about-us-event']">About us</a>
+                        </li>
+                        <li><a [routerLink]="['./']">Features</a></li>
+                        <li><a [routerLink]="['/blog-v1']">Blog</a></li>
+                        <li><a [routerLink]="['./']">Help &amp; support</a></li>
+                        <li>
+                            <a [routerLink]="['/doc-fullwidth']" target="_blank"
+                                >API documentation</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div class="col-lg-3 col-md-4 footer-list">
+                    <h5 class="footer-title font-slab">Legal</h5>
+                    <ul>
+                        <li><a [routerLink]="['./']">Terms of use</a></li>
+                        <li>
+                            <a [routerLink]="['./']">Terms &amp; conditions</a>
+                        </li>
+                        <li><a [routerLink]="['./']">Privacy policy</a></li>
+                        <li><a [routerLink]="['./']">Cookie policy</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div class="col-xl-2 col-lg-3 col-md-4 footer-list">
+                    <h5 class="footer-title font-slab">Products</h5>
+                    <ul class="pr-5">
+                        <li><a [routerLink]="['./']">Take the tour</a></li>
+                        <li><a [routerLink]="['./']">Live chat</a></li>
+                        <li><a [routerLink]="['./']">Self-service</a></li>
+                        <li><a [routerLink]="['./']">Social</a></li>
+                        <li><a [routerLink]="['./']">Mobile</a></li>
+                        <li><a [routerLink]="['./']">deski Reviews</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+    <div class="container">
+        <div class="bottom-footer-content">
+            <p>
+                Copyright @{{ date }}
+                <a
+                    href="https://themeforest.net/user/ib-themes/portfolio"
+                    target="_blank"
+                    >ib-themes</a
+                >
+                inc.
+            </p>
+        </div>
+        <!-- /.bottom-footer -->
+    </div>
+</footer>

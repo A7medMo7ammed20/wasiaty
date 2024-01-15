@@ -2,12 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthUtils } from 'app/core/auth/auth.utils';
 import { UserService } from 'app/core/user/user.service';
-import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of, switchMap, throwError } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class AuthService
 {
     private _authenticated: boolean = false;
+    private authToken: string | null = null;
+    private selectedImageSource = new BehaviorSubject<string | null>(null);
+  selectedImage$ = this.selectedImageSource.asObservable();
 
     /**
      * Constructor
@@ -35,7 +38,17 @@ export class AuthService
     {
         return localStorage.getItem('accessToken') ?? '';
     }
+    //  Selected Image
+    setSelectedImage(image: string | null): void {
 
+        this.selectedImageSource.next(image);
+
+      }
+
+    getAuthToken(): string | null {
+       this.authToken= localStorage.getItem('accessToken') ?? '';
+        return this.authToken;
+      }
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
@@ -151,7 +164,11 @@ export class AuthService
      *
      * @param user
      */
-    signUp(user: { name: string; email: string; password: string; company: string }): Observable<any>
+    signUp(user: { nfirstName:string ,
+                                            lastName:string ,
+                                            email: string ,
+                                            phoneNumber:string ,
+                                            countryId:number}): Observable<any>
     {
         return this._httpClient.post('api/auth/sign-up', user);
     }

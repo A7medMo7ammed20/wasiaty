@@ -1,0 +1,43 @@
+<div class="fancy-feature-thirtySix lg-container pt-170 pb-110 md-pt-120 md-pb-60">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4" data-aos="fade-right" data-aos-duration="1200">
+        <div class="title-style-eleven md-mb-40 text-center text-lg-start">
+          <h2 class="text-white">Our latest Arrival.</h2>
+        </div>
+      </div>
+      <div class="col-xl-9 col-lg-8">
+        <div class="product_slider_one row">
+
+          <swiper [slidesPerView]="1" [loop]="true" [autoplay]="{ delay: 15000}"
+            [navigation]="{ nextEl: '.next_p1', prevEl: '.prev_p1' }"
+            [breakpoints]="{'0': {slidesPerView: 1},'768':{slidesPerView: 2},'992': {slidesPerView: 3} }">
+
+            <ng-template swiperSlide *ngFor="let item of products_slider">
+              <div class="item">
+                <div class="block-style-thirtySeven">
+                  <div class="img-meta d-flex align-items-center justify-content-center">
+                    <img [src]="item.img" alt="">
+                  </div>
+                  <h4 class="p-title mt-25"><a [routerLink]="['./']">{{item.title}}</a></h4>
+                  <div class="price mt-15 mb-15">${{item.price}}.00</div>
+                  <ul class="d-flex justify-content-center rating">
+                    <li *ngFor="let rating of item.ratings">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                    </li>
+                  </ul>
+                </div> <!-- /.block-style-thirtySeven -->
+              </div>
+            </ng-template>
+
+          </swiper>
+
+        </div>
+      </div>
+      <ul class="slider-arrows d-flex justify-content-center justify-content-lg-start style-none">
+        <li class="prev_p1 slick-arrow"><i class="flaticon-right-arrow"></i></li>
+        <li class="next_p1 slick-arrow"><i class="flaticon-right-arrow"></i></li>
+      </ul>
+    </div>
+  </div>
+</div>

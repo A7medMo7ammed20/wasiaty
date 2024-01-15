@@ -66,32 +66,7 @@ export class FileManagerDetailsComponent implements OnInit, OnDestroy
         })
 
   // Get the contacts
-  this._fileManagerService.contacts$
-  .pipe(takeUntil(this._unsubscribeAll))
-  .subscribe((contacts: Item[]) =>
-  {
-      this.contacts = contacts;
 
-      // Mark for check
-      this._changeDetectorRef.markForCheck();
-  });
-
-        // Get the item
-        this._fileManagerService.item$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((item: Item) =>
-            {
-                // Open the drawer in case it is closed
-                this._fileManagerListComponent.matDrawer.open();
-
-
-
-                // Get the item
-                this.item = item;
-
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
-            });
     }
 
     /**

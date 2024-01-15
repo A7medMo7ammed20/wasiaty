@@ -1,0 +1,17 @@
+<div class="counter-with-icon-one" [ngClass]="pricing ? 'pt-100 md-pt-60'
+: ser_page ? 'pt-120 md-pt-70' : feature_cs ? 'pt-70 pb-45' : 'pt-200 md-pt-80'">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <div *ngFor="let item of counterData" class="col-lg-4 col-6" data-aos="fade-up"
+      data-aos-duration="1200" [attr.data-aos-delay]="item.delay">
+      <div class="counter-box-three">
+        <div class="icon"><img [src]="item.icon" alt=""></div>
+        <h2 class="number"><span class="timer">{{item.value}}</span>{{item.text}}</h2>
+        <p class="font-rubik">{{ item.title }}</p>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>

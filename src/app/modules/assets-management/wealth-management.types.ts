@@ -8,6 +8,7 @@ const now = DateTime.now();
 export interface TangibleWealthes
 {
     id?: string;
+    parentId:string;
     wealthType?: number;
     name?: string;
     acquisitionValue?:number;
@@ -40,7 +41,10 @@ export interface WealthType
     wealthType?: string;
     wealthTypeRoute?: string;
 
+}
 
-
-
+export interface AssetBranch {
+    id?:string;
+    name?:string;
+    description?:string
 }

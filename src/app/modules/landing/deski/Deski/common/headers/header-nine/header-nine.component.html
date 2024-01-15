@@ -1,0 +1,103 @@
+<div
+    class="theme-main-menu sticky-menu theme-menu-six bg-none"
+    [ngClass]="headerSticky ? 'fixed' : ''"
+>
+    <div class="d-flex align-items-center">
+        <div class="logo order-lg-1">
+            <a [routerLink]="['/']">
+                <img src="assets/images/deski/logo/deski_06.svg" alt="" />
+            </a>
+        </div>
+
+        <div class="right-widget order-lg-3">
+            <ul class="d-flex align-items-center">
+                <li>
+                    <a
+                        [routerLink]="['/login']"
+                        class="signIn-action d-flex align-items-center"
+                    >
+                        <img src="assets/images/deski/icon/120.svg" alt="" />
+                        <span>login</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/register']" class="signup-btn"
+                        >Sign up</a
+                    >
+                </li>
+            </ul>
+        </div>
+
+        <nav
+            id="mega-menu-holder"
+            class="navbar navbar-expand-lg ms-lg-auto order-lg-2"
+        >
+            <div class="nav-container">
+                <button
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar"
+                    [ngClass]="
+                        menuActive ? 'navbar-toggler open' : 'navbar-toggler'
+                    "
+                    (click)="handleNavToggle()"
+                >
+                    <span></span>
+                </button>
+                <div class="navbar-collapse collapse" id="collapsibleNavbar">
+                    <div
+                        class="d-lg-flex justify-content-between align-items-center"
+                    >
+                        <ul
+                            class="navbar-nav main-side-nav font-gordita"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapsibleNavbar"
+                            id="one-page-nav"
+                        >
+                            <li class="nav-item dropdown position-static">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    [routerLink]="['./']"
+                                    data-bs-toggle="dropdown"
+                                    >Home</a
+                                >
+                                <div class="dropdown-menu">
+                                    <!-- nav menu start -->
+                                    <app-mega-menu></app-mega-menu>
+                                </div>
+                                <!-- /.dropdown-menu -->
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    [routerLink]="['./']"
+                                    fragment="feature"
+                                    class="nav-link"
+                                    (click)="handleNavToggle()"
+                                    >Features</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    [routerLink]="['./']"
+                                    fragment="service"
+                                    class="nav-link"
+                                    (click)="handleNavToggle()"
+                                    >Services</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    [routerLink]="['./']"
+                                    fragment="feedback"
+                                    class="nav-link"
+                                    (click)="handleNavToggle()"
+                                    >Feedback</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

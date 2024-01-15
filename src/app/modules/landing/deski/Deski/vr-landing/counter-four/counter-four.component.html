@@ -1,0 +1,21 @@
+<div class="fancy-feature-thirtyEight lg-container mt-75">
+  <div class="container">
+    <div class="top-border pt-70 md-pt-30">
+      <div class="row">
+
+
+        <div *ngFor="let item of counterData" class="col-lg-3 col-sm-6" data-aos="fade-up"
+          [attr.data-aos-delay]="item.delay">
+          <div class="counter-box-six text-center mt-40">
+            <div class="icon d-flex align-items-end justify-content-center">
+              <img [src]="item.icon" alt="">
+            </div>
+            <h2 class="number"><span class="timer">{{item.value}}</span>{{item.text}}</h2>
+            <p>{{item.title}}</p>
+          </div> <!-- /.counter-box-six -->
+        </div>
+
+      </div>
+    </div> <!-- /.top-border -->
+  </div> <!-- /.container -->
+</div>

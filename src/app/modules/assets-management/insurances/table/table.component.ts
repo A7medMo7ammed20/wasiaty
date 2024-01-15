@@ -27,10 +27,9 @@ import { FamilyTreeService } from 'app/modules/stakeholders/family-tree/family-t
 import { BeneficiariesService } from 'app/modules/stakeholders/beneficiaries/beneficiaries.service';
 import { FuseFindByKeyPipe } from '@fuse/pipes/find-by-key/find-by-key.pipe';
 import {
-    Family,
-    Individual,
-    FamiliesMembers,
-} from 'app/modules/stakeholders/stakeholders.types';
+  InsuranceData
+} from 'app/modules/assets-management/insurances/insurance.types';
+import { InsurancesService } from '../insurances.service';
 // import { FamilyTreeService } from '../../family-tree.service';
 
 @Component({
@@ -64,32 +63,33 @@ import {
     // imports: [MatTableModule, MatPaginatorModule, MatIconModule],
 })
 export class TableComponent implements OnInit {
-    displayedColumns: string[] = [
-        'name',
-        'emails',
-        'birthday',
-        'address',
-        'title',
+    displayedColumns: any[] = [
+        'companyName',
+        'insuranceType',
+        'premiumAmount',
+        'policyStartDate',
+        'statusInsurance',
+
     ];
 
     gender = 'before';
     roles: any[];
     data: any;
+    insuranceData :InsuranceData[]
     //   @ViewChild('matDrawer', { static: true }) matDrawer: MatDrawer;
 
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
-    dataSource = new MatTableDataSource<Family>();
-    dataSources = new MatTableDataSource<Individual>();
+    dataSource = new MatTableDataSource<InsuranceData>();
+    // dataSources = new MatTableDataSource<Individual>();
 
     ngAfterViewInit() {
         this.data.paginator = this.paginator;
     }
     constructor(
         private _matDialog: MatDialog,
-        private _beneficiariesService: BeneficiariesService,
-        private _familyTreeServeice: FamilyTreeService,
+       private _insuranceServeice: InsurancesService ,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
         private _changeDetectorRef: ChangeDetectorRef
@@ -97,29 +97,18 @@ export class TableComponent implements OnInit {
     // clickedRows = new Set<PeriodicElement>();
     ngOnInit(): void {
         // Create the form
-        debugger
-        this._familyTreeServeice
-            .getFamilyMembers()
+
+        this._insuranceServeice.getInsurancesData()
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((data) => {
                 // Store the data
-
-                this.dataSource = new MatTableDataSource<FamiliesMembers>(data);
-                this.dataSource.paginator = this.paginator;
                 this.data = data;
-                console.log('data Source',this.data);
+                this.insuranceData = data
+                this.dataSource = new MatTableDataSource<InsuranceData>(this.insuranceData);
+                this.dataSource.paginator = this.paginator;
+                console.log('data Source',this.insuranceData);
             });
-        this._beneficiariesService
-            .getIndividuals()
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((individuals) => {
-                this.dataSources = new MatTableDataSource<Individual>(
-                    individuals
-                );
-                // Store the data
-                this.data = individuals;
-                this.dataSources.paginator = this.paginator;
-            });
+
 
         this.roles = [
             {
@@ -142,13 +131,16 @@ export class TableComponent implements OnInit {
     }
     // Add a relationship
 
-    clickedRows(row: FamiliesMembers): any {
+    clickedRows(row: InsuranceData): any {
         // Create the task
 
         // Go to the new task
-        this._router.navigate(['./', row.id], {
-            relativeTo: this._activatedRoute,
-        });
+this._router.navigate(['./', row.id], {
+    relativeTo:this._activatedRoute
+})
+console.log('write id ' , row)
+
+
 
         // Mark for check
         this._changeDetectorRef.markForCheck();

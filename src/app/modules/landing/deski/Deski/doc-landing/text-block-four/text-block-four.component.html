@@ -1,0 +1,24 @@
+<div class="fancy-text-block-sixteen mt-200 md-mt-80">
+  <div class="container">
+
+    <swiper class="img-slick-slider" [slidesPerView]="1" [centeredSlides]="false" [scrollbar]="true"
+    [slidesPerGroupSkip]="1" [grabCursor]="true" [keyboard]="{ enabled: true }">
+      <ng-template swiperSlide *ngFor="let item of sliderData">
+        <div class="item"><img src="{{item.img}}" alt=""></div>
+      </ng-template>
+    </swiper>
+
+    <!-- <div class="img-slick-slider">
+    </div> -->
+
+    <div class="row justify-content-between">
+      <div *ngFor="let item of blockData" class="col-lg-3 col-md-4">
+        <div class="block-style-eleven mt-40">
+          <div class="num font-rubik">0{{item.id}}</div>
+          <div class="title">{{item.title}}</div>
+          <p class="font-rubik">{{item.subtitle}}</p>
+        </div> <!-- /.block-style-eleven -->
+      </div>
+    </div>
+  </div>
+</div>

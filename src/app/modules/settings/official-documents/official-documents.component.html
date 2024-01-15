@@ -6,7 +6,7 @@
             <!-- Title -->
 
             <!-- Actions -->
-           
+
             <div class="mt-4 sm:mt-0 ">
                 <!-- Upload button -->
                 <div class="">
@@ -21,7 +21,7 @@
                             matInput
                             [autocomplete]="'off'"
                             [placeholder]="'Search or start new chat'"
-                            
+
                             >
                     </mat-form-field>
                 </div>
@@ -44,7 +44,7 @@
         <ng-container>
                     <div class="p-6 md:p-8 space-y-8">
                         <!-- Folders -->
-                       
+
 
                         <!-- Files -->
                         <ng-container >
@@ -52,8 +52,8 @@
                                 <div class="font-medium">Files</div>
                                 <div
                                     class="flex flex-wrap -m-2 mt-1">
-                                   
-                                    
+
+
                                     <ng-container >
                                         <a
                                             class="flex flex-col w-40 h-40 m-1  shadow rounded-2xl cursor-pointer bg-card" *ngFor="let file of files"
@@ -61,22 +61,22 @@
                                            <div class="flex flex-row-reverse ">
                                                <button mat-icon-button [matMenuTriggerFor]="fileMenu" >
                                                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_mini:ellipsis-vertical'" ></mat-icon>
-                                                   
+
                                                </button>
                                                <mat-menu #fileMenu="matMenu">
                                                    <button mat-menu-item >Share</button>
                                                <button mat-menu-item >View</button>
-                                               
+
                                            </mat-menu>
                                        </div>
                                             <div class="  ">
-                                                
+
 
                                                 <div class="flex items-center justify-center h-full" style="margin-bottom:-2rem ;">
                                                     <!-- Icons -->
                                                     <div class="relative">
                                                         <mat-icon matListItemIcon class="icon-size-14 text-hint opacity-50">description</mat-icon>
-                                                        
+
                                                         <!-- <div
                                                             class="absolute left-0 bottom-0 px-1.5 rounded text-sm font-semibold leading-5 text-white"
                                                             [class.bg-red-600]="file.type === 'PDF'"
@@ -88,7 +88,7 @@
                                                         </div> -->
                                                     </div>
                                                 </div>
-                                              
+
                                             </div>
                                             <div class="flex flex-col flex-auto justify-center text-center text-sm font-medium">
                                                 <div matListItemTitle>{{file.name}}</div>
@@ -114,7 +114,7 @@
     </mat-dialog-content>
     <mat-dialog-actions>
       <button mat-button (click)="closeDialog()">Cancel</button>
-      
+
     </mat-dialog-actions>
   </ng-template>
 

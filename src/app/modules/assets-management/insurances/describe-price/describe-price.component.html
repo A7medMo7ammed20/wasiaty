@@ -1,24 +1,167 @@
-<div
-    [@fadeInOut]
-    class="max-w-screen-xl mx-auto px-6 sm:px-8 flex justify-center items-center"
->
+<div [@fadeInOut] class="max-w-screen-xl mx-auto px-6 sm:px-8 flex justify-center items-center">
     <div class="flex flex-col gap-4 max-w-2/3">
         <div class="flex flex-col gap-2">
             <h1 Class="text-4xl font-semibold">
-                Adding Premium and Coverage Amounts
+                Add Basic Insurance Information 
             </h1>
-            <p class="text-gray-500">
+            <!-- <p class="text-gray-500">
                 Incorporate Premium and Coverage Amounts into your wealth
                 portfolio for a complete financial view.
-            </p>
+            </p> -->
         </div>
 
         <div class="flex flex-col gap-3">
-            <div
-                class="border-b border-b-gray-300 flex justify-between items-center py-5"
-            >
-                <h4>Premium Amount</h4>
-                <div class="flex items-center gap-2">
+            <div class="border-b border-b-gray-300 flex justify-between items-center py-5">
+
+                <form class="space-y-3" [formGroup]="supportForm" #supportNgForm="ngForm">
+                    <div class="mb-6">
+                        <!-- <div class="text-2xl font-bold tracking-tight">Submit your request</div>
+                        <div class="text-secondary">Your request will be processed and our support staff will get back to you in 24 hours.</div> -->
+                    </div>
+                    <!-- Insured Name -->
+
+                    <mat-form-field class="w-full">
+                        <!-- <mat-label>Insured Name</mat-label> -->
+                        <input matInput placeholder="Insured Name" [formControlName]="'insuredName'" [required]="true">
+                        <mat-error *ngIf="supportForm.get('insuredName').hasError('required')">
+                            Required
+                        </mat-error>
+                    </mat-form-field>
+                    <!-- policy Number -->
+                    <mat-form-field class="w-full">
+                        <input type="email" matInput [formControlName]="'policyNumber'" placeholder="Policy Number">
+                        <!-- <mat-label>Email</mat-label> -->
+                        <mat-error *ngIf="supportForm.get('policyNumber').hasError('required')">
+                            Required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <div class="w-100 flex justify-between gap-4 ">
+
+                        <!-- coverage Amount -->
+                        <mat-form-field class="w-full">
+                            <!-- <mat-label>Cost</mat-label> -->
+                            <!-- <span matPrefix>$</span> -->
+                            <input placeholder="coverage Amount" matInput [formControlName]="'coverageAmount'">
+                            <mat-error *ngIf="supportForm.get('coverageAmount').hasError('required')">
+                                Required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <!-- premium Amount -->
+                        <mat-form-field class="w-full">
+                            <!-- <mat-label>Cost</mat-label> -->
+                            <!-- <span matPrefix>$</span> -->
+                            <input placeholder="Premium Amount" matInput [formControlName]="'premiumAmount'">
+                            <mat-error *ngIf="supportForm.get('premiumAmount').hasError('required')">
+                                Required
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+
+
+                    <!-- start Date -->
+                    <div class="flex justify-between">
+
+
+                    <div class="" [hidden]="">
+                        <div class="font-medium"> Start Date</div>
+                        <div class="text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700 relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                            (click)="deathDatePicker.open()">
+                            <mat-icon class="icon-size-5 text-current"
+                                [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
+                            <span class="ml-2 text-md font-medium">
+                                <ng-container *ngIf="insurancedata?.startDate">{{
+                                    insurancedata.startDate | date : "longDate"
+                                    }}</ng-container>
+                                <ng-container *ngIf="!insurancedata?.startDate">Not set</ng-container>
+                            </span>
+                            <mat-form-field
+                                class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                                [subscriptSizing]="'dynamic'">
+                                <input matInput [formControlName]="'startDate'" [matDatepicker]="deathDatePicker" />
+                                <mat-datepicker #deathDatePicker>
+                                    <mat-datepicker-actions>
+                                        <button mat-button (click)="
+                                        insurancedata.get('startDate').setValue(null)
+                                        " matDatepickerCancel>
+                                            Clear
+                                        </button>
+                                        <button class="" mat-flat-button [color]="'primary'" matDatepickerApply>
+                                            Select
+                                        </button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- end Date -->
+
+                    <div class="" [hidden]="">
+                        <div class="font-medium"> End Date</div>
+                        <div class="text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700 relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                            (click)="deathDatePicker.open()">
+                            <mat-icon class="icon-size-5 text-current"
+                                [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
+                            <span class="ml-2 text-md font-medium">
+                                <ng-container *ngIf="insurancedata?.endDate">{{
+                                    insurancedata.endDate | date : "longDate"
+                                    }}</ng-container>
+                                <ng-container *ngIf="!insurancedata?.endDate">Not set</ng-container>
+                            </span>
+                            <mat-form-field
+                                class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                                [subscriptSizing]="'dynamic'">
+                                <input matInput [formControlName]="'endDate'" [matDatepicker]="deathDatePicker" />
+                                <mat-datepicker #deathDatePicker>
+                                    <mat-datepicker-actions>
+                                        <button mat-button (click)="
+                                        insurancedata.get('endDate').setValue(null)
+                                        " matDatepickerCancel>
+                                            Clear
+                                        </button>
+                                        <button class="" mat-flat-button [color]="'primary'" matDatepickerApply>
+                                            Select
+                                        </button>
+                                    </mat-datepicker-actions>
+                                </mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-b border-b-gray-300 flex justify-between items-center py-1">
+
+
+                </div>
+                    <!-- Message -->
+                    <!-- <mat-form-field class="w-full">
+                        <textarea
+                            matInput
+                            [formControlName]="'message'"
+                            [required]="true"
+                            [rows]="5"
+                            cdkTextareaAutosize></textarea>
+                        <mat-label>Message</mat-label>
+                        <mat-error *ngIf="supportForm.get('message').hasError('required')">
+                            Required
+                        </mat-error>
+                    </mat-form-field> -->
+                    <!-- Actions -->
+                    <div class="flex items-center justify-start">
+                        <button mat-button [color]="'accent'" [disabled]="supportForm.pristine || supportForm.untouched"
+                            (click)="clearForm()">
+                            Clear
+                        </button>
+
+                    </div>
+                </form>
+                <!-- <h4>Premium Amount</h4> -->
+
+                <!-- <div class="flex items-center gap-2">
                     <button
                         (click)="DecremntPremium()"
                         class="btn rounded-[50%] w-6 h-6 border border-gray-500"
@@ -32,30 +175,9 @@
                     >
                         +
                     </button>
-                </div>
+                </div> -->
             </div>
-            <div
-                class="border-b border-b-gray-300 flex justify-between items-center py-5"
-            >
-                <h4>Coverage Amount</h4>
-                <div class="flex items-center gap-2">
-                    <button
-                        (click)="DecremntCoverage()"
-                        class="btn rounded-[50%] w-6 h-6 border border-gray-500"
-                    >
-                        -
-                    </button>
-                    <p>
-                        {{ Coverage | currency }}
-                    </p>
-                    <button
-                        (click)="IncremntCoverage()"
-                        class="btn rounded-[50%] w-6 h-6 border border-gray-500"
-                    >
-                        +
-                    </button>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

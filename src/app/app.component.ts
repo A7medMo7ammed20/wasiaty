@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ChildrenOutletContexts, RouterOutlet } from '@angular/router';
+import { AppModule } from './modules/landing/deski/app.module';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, AppModule],
 })
 export class AppComponent {
     /**

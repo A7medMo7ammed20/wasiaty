@@ -1,0 +1,133 @@
+<div class="main-page-wrapper overflow-hidden">
+
+  <!-- header start -->
+  <app-header></app-header>
+  <!-- header end -->
+
+  <!-- fancy hero start -->
+  <div class="fancy-hero-one">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 m-auto">
+          <h2 class="font-rubik">Get effective solution for your business</h2>
+        </div>
+        <div class="col-xl-9 m-auto">
+          <p class="font-rubik">With deski, get all kind of business solution to start your journey</p>
+          <a [routerLink]="['/contact-us-cs']" class="theme-btn-one btn-lg mt-50 md-mt-30">Contact US</a>
+        </div>
+      </div>
+    </div>
+    <div class="bubble-one"></div>
+    <div class="bubble-two"></div>
+    <div class="bubble-three"></div>
+    <div class="bubble-four"></div>
+    <div class="bubble-five"></div>
+    <div class="bubble-six"></div>
+  </div>
+  <!-- fancy hero end -->
+
+  <!-- fancy text block start -->
+  <div class="fancy-text-block-four pt-130 pb-120 md-pt-100 md-pb-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-7 col-lg-8">
+          <div class="title-style-one mb-40 md-mb-20">
+            <h2>For all kinds of Teams</h2>
+            <p class="font-rubik">Duis aute irure dolor in reprehenderit in voluptate velit io cillum dolore eu fugiat nulla pariatur non labrum.</p>
+          </div> <!-- /.title-style-one -->
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="row justify-content-center">
+
+          <div *ngFor="let item of text_block_data" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200">
+            <div class="block-style-three">
+              <div class="icon"><img [src]="item.icon" alt=""></div>
+              <h4>{{item.title}}</h4>
+              <p class="font-rubik">{{item.subtitle}} </p>
+            </div> <!-- /.block-style-three -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fancy text block end -->
+
+  <!-- fancy text block two start -->
+  <div class="fancy-text-block-five pt-130 pb-160 md-pt-100 md-pb-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 ms-auto">
+          <div class="title-style-one mb-50 md-mb-30">
+            <h2>For all kinds of Startup</h2>
+            <p class="font-rubik">Excepteur sint occaecat cupidat non proident, sunt in culpa qui officia deserunt mollit anim est laborum.</p>
+          </div> <!-- /.title-style-one -->
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="row justify-content-center">
+
+          <div *ngFor="let item of text_block_data_two" class="col-lg-4 col-md-6"
+          data-aos="fade-up" data-aos-duration="1200">
+            <div class="block-style-four">
+              <div class="icon"><img [src]="item.icon" alt=""></div>
+              <h4>{{item.title}}</h4>
+              <p class="font-rubik">{{item.subtitle}} </p>
+              <a [routerLink]="['./']"><i class="flaticon-right-arrow"></i></a>
+            </div> <!-- /.block-style-four -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fancy text block two end -->
+
+  <!-- feature blog start -->
+  <div class="feature-blog-two pt-150 pb-170 md-pt-100 md-pb-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 m-auto">
+          <div class="title-style-one text-center mb-50 md-mb-20">
+            <h6 class="font-rubik" style="color:#787CFF">Some success stories</h6>
+            <h2>Some well known companies get real benifits to work with deski.</h2>
+          </div> <!-- /.title-style-one -->
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+
+        <div *ngFor="let blog of blogItems" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" [attr.data-aos-delay]="blog.delay">
+          <div class="post-meta">
+            <img [src]="blog.img" alt="" class="image-meta">
+            <h3>
+              <a [routerLink]="['/blog-details/'+blog.id]" class="title">{{ blog.title }}</a>
+            </h3>
+            <a [routerLink]="['/blog-details/'+blog.id]" class="read-more d-flex justify-content-between align-items-center">
+              <span>{{ blog.tag }}</span>
+              <i class="flaticon-right-arrow"></i>
+            </a>
+          </div> <!-- /.post-meta -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- feature blog end -->
+
+  <!-- faq area start -->
+  <app-faq-area [sol_m]="true"></app-faq-area>
+  <!-- faq area end -->
+
+  <!-- fancy banner start -->
+  <app-fancy-banner></app-fancy-banner>
+  <!-- fancy banner end -->
+
+  <!-- footer start -->
+  <app-footer></app-footer>
+  <!-- footer end -->
+
+</div>

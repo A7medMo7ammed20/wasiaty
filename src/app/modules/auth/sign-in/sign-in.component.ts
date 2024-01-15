@@ -11,6 +11,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertComponent, FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import { RegisterServiceAPI } from 'app/mock-api/registeration/register.api';
 
 @Component({
     selector     : 'auth-sign-in',
@@ -39,6 +40,7 @@ export class AuthSignInComponent implements OnInit
         private _authService: AuthService,
         private _formBuilder: UntypedFormBuilder,
         private _router: Router,
+        private register:RegisterServiceAPI
     )
     {
     }
@@ -58,6 +60,10 @@ export class AuthSignInComponent implements OnInit
             password  : ['admin', Validators.required],
             rememberMe: [''],
         });
+        this.register.GetCountries('mock').subscribe((data)=>{
+            const dataentire=data ;
+            console.log(data);
+        })
     }
 
     // -----------------------------------------------------------------------------------------------------

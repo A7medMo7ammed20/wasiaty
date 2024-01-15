@@ -1,0 +1,77 @@
+<div class="client-feedback-slider-seven mt-250 md-mt-100" id="feedback">
+    <div class="inner-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <img
+                        src="assets/images/deski/icon/143.svg"
+                        alt=""
+                        class="m-auto"
+                    />
+                    <div class="title-style-eleven text-center mt-30">
+                        <h2>Check what’s our client say about us.</h2>
+                    </div>
+                    <!-- /.title-style-eleven -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-8 col-lg-10 m-auto">
+                    <div class="clientSliderFive mt-80 md-mt-50">
+                        <swiper
+                            [slidesPerView]="1"
+                            [loop]="true"
+                            [autoplay]="{ delay: 5000 }"
+                            [navigation]="{
+                                nextEl: '.next_f',
+                                prevEl: '.prev_f'
+                            }"
+                        >
+                            <ng-template
+                                swiperSlide
+                                *ngFor="let testimonial of testimonialData"
+                            >
+                                <div class="item">
+                                    <p>
+                                        {{ testimonial.desc }}
+                                    </p>
+                                    <h6 class="name">{{ testimonial.name }}</h6>
+                                    <span>{{ testimonial.title }}</span>
+                                </div>
+                            </ng-template>
+                        </swiper>
+
+                        <ul
+                            class="d-flex justify-content-center slider-arrow mt-40"
+                        >
+                            <li class="prev_f slick-arrow">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="next_f slick-arrow">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.clientSliderFive -->
+                    <img
+                        src="assets/images/deski/shape/156.svg"
+                        alt=""
+                        class="shapes shape-one"
+                    />
+                    <img
+                        src="assets/images/deski/shape/157.svg"
+                        alt=""
+                        class="shapes shape-two"
+                    />
+                    <img
+                        src="assets/images/deski/shape/158.svg"
+                        alt=""
+                        class="shapes shape-three"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.inner-container -->
+    <img src="assets/images/deski/shape/bg7.svg" alt="" class="bg-image" />
+</div>

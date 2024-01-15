@@ -17,6 +17,8 @@ export class FusePlatformService
             return;
         }
 
+
+        
         // Windows
         if ( navigator.userAgent.includes('Win') )
         {

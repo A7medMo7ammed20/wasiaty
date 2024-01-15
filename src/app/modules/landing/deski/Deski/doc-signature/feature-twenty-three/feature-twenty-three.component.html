@@ -1,0 +1,18 @@
+<div class="fancy-feature-twentySix lg-container pt-160 md-pt-100">
+  <div class="container">
+    <div class="row">
+
+      <div *ngFor="let item of featureData" class="col-md-6" [attr.data-aos]="item.fade">
+        <div class="block-style-twentySix text-center mb-40" [style]="{background:item.bg_color}">
+          <h6 [style]="{color:item.color}">{{item.title}}</h6>
+          <h4>{{item.subtitle}}</h4>
+          <a [routerLink]="['./']" class="try-btn" [style]="{borderColor:item.border_color,display:'inline-block'}">
+            Try it Free</a>
+          <img [src]="item.shape_1" alt="" class="shapes shape-one">
+          <img [src]="item.shape_2" alt="" class="shapes shape-two">
+        </div> <!-- /.block-style-twentySix -->
+      </div>
+
+    </div>
+  </div>
+</div>

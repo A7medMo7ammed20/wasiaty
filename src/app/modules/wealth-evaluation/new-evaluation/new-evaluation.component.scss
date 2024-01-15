@@ -1,0 +1,129 @@
+// .sidebar #leftside-navigation ul li a {
+//   @apply relative block no-underline w-full box-border text-base leading-6 outline-none transition ease-out duration-300; /* Apply Tailwind classes */
+//   padding: 14px 25px 14px 25px; /* Override specific padding */
+// }
+
+// // .sidebar #leftside-navigation ul li a:hover {
+// //   @apply bg-blue-800 text-white; /* Apply Tailwind classes for background color on hover */
+// // }
+
+// // .sidebar #leftside-navigation ul li a span {
+// //   @apply inline-block text-gray-400; /* Apply Tailwind classes for text color */
+// // }
+
+// .sidebar #leftside-navigation ul li a i {
+//   @apply absolute top-0 right-0 w-12 h-12 leading-relaxed text-center block; /* Apply Tailwind classes for positioning and size */
+//   touch-action:manipulation; /* Apply touch-action style directly */
+//   color: #aeb2b7; /* Set the text color */
+// }
+
+// // .sidebar #leftside-navigation ul li a i:hover {
+// //   @apply bg-yellow-300 text-black; /* Apply Tailwind classes for background color and text color on hover */
+// // }
+
+// .sidebar #leftside-navigation ul li a i .fa-angle-left,
+// .sidebar #leftside-navigation ul li a i .fa-angle-right {
+//   @apply pt-3; /* Apply Tailwind classes for padding top */
+// }
+
+// .sidebar #leftside-navigation ul ul {
+//   @apply hidden bg-opacity-20 bg-black; /* Apply Tailwind classes for hiding and background color */
+// }
+
+// // .sidebar #leftside-navigation ul ul li {
+// //   @apply border-b-black; /* Apply Tailwind class to remove bottom border */
+// // }
+// // .sidebar #leftside-navigation ul li {
+// //   @apply border-b border-gray-500; /* Apply Tailwind classes for bottom border and color */
+// // }
+
+
+
+
+
+
+
+
+
+
+// .sidebar #leftside-navigation ul li a {
+//   position: relative;
+//   display: block;
+//   text-decoration: none;
+//   width: 100%;
+//   padding: 14px 60px 14px 25px;
+//   box-sizing: border-box;
+//   font-size: 16px;
+//   line-height: 22px;
+//   outline: 0;
+//   transition: background-color 0.3s ease-out; /* Add transition for smooth background color change */
+// }
+
+// .sidebar #leftside-navigation ul li a:hover {
+//   background-color: #1a202c; /* Change the background color on hover */
+// }
+
+// .sidebar #leftside-navigation ul li a span {
+//   display: inline-block;
+//   color: #aeb2b7; /* Change the text color */
+// }
+
+// .sidebar #leftside-navigation ul li a i {
+//   top: 0;
+//   right: 0;
+//   width: 50px;
+//   height: 50px;
+//   line-height: 50px;
+//   text-align: center;
+//   display: block;
+//   position: absolute;
+//   touch-action: manipulation;
+//   color: #aeb2b7; /* Set the arrow color */
+//   // border: 1px solid #aeb2b7; /* Add a border around the arrow */
+//   // border-radius: 3px; /* Optional: Add border-radius for a slightly rounded look */
+// }
+
+// .sidebar #leftside-navigation ul li a i:hover {
+//   background-color: #f3ff09;
+//   color: #000;
+//   // border-color: #000; /* Change border color on hover */
+// }
+
+// .sidebar #leftside-navigation ul li a i .fa-angle-left,
+// .sidebar #leftside-navigation ul li a i .fa-angle-right {
+//   padding-top: 3px;
+// }
+
+// .sidebar #leftside-navigation ul ul {
+//   display: none;
+//   background-color: rgba(0, 0, 0, 0.2);
+// }
+
+// .sidebar #leftside-navigation ul ul li {
+//   border-bottom: none;
+// }
+
+
+
+// // Styling for the main component using Tailwind CSS classes
+
+// // Adjust styling as needed
+// div.accordion {
+//   @apply p-4; // Example padding
+// }
+
+// div.accordion-item {
+//   @apply mb-4; // Example margin-bottom
+// }
+
+// button.accordion-button {
+//   @apply bg-blue-500 text-white px-4 py-2 rounded; // Example button styling
+// }
+
+// span.accordion-arrow {
+//   @apply ml-2 cursor-pointer; // Example margin-left and cursor styling for the arrow
+// }
+
+// div.accordion-content {
+//   @apply ml-8; // Example margin-left for the child accordion content
+// }

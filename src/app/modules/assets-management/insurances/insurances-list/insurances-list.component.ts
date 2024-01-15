@@ -27,8 +27,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher/media-watcher.service';
 import { Country } from 'app/modules/stakeholders/stakeholders.types';
-import { Steps } from '../insurance.types';
-// import { Country, Steps } from '../stakeholders.types';
+import { Steps } from 'app/shared/types/step.types';
 
 export interface PeriodicElement {
     // position:number

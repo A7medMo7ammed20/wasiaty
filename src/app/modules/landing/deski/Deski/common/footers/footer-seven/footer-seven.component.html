@@ -1,0 +1,131 @@
+<footer
+    class="theme-footer-seven"
+    [ngClass]="dark_bg ? 'dark-bg pt-120 md-pt-100' : 'mt-60 md-mt-100'"
+>
+    <div class="lg-container">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-xl-3 col-lg-2 mb-20"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                >
+                    <div class="logo w-12">
+                        <a [routerLink]="['/']">
+                            <img
+                                *ngIf="!dark_bg; else second"
+                                src="assets/images/logo/logo-text.svg"
+                                alt=""
+                            />
+                            <ng-template #second>
+                                <img
+                                    src="assets/images/deski/logo/deski_08.svg"
+                                    alt=""
+                                />
+                            </ng-template>
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="col-lg-2 col-md-6 mb-40"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="100"
+                >
+                    <h5 class="title">Links</h5>
+                    <ul class="footer-list">
+                        <li><a [routerLink]="['./']">Home</a></li>
+                        <li><a [routerLink]="['./']">Pricing</a></li>
+                        <li><a [routerLink]="['./']">About us</a></li>
+                        <li><a [routerLink]="['./']">Careers</a></li>
+                        <li><a [routerLink]="['./']">Features</a></li>
+                        <li><a [routerLink]="['./']">Blog</a></li>
+                    </ul>
+                </div>
+                <div
+                    class="col-lg-3 col-md-6 mb-40"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="150"
+                >
+                    <h5 class="title">Legal</h5>
+                    <ul class="footer-list">
+                        <li><a [routerLink]="['./']">Terms of use</a></li>
+                        <li><a [routerLink]="['./']">Terms & conditions</a></li>
+                        <li><a [routerLink]="['./']">Privacy policy</a></li>
+                        <li><a [routerLink]="['./']">Cookie policy</a></li>
+                    </ul>
+                </div>
+                <div
+                    class="col-xl-4 col-lg-5 mb-40"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    data-aos-delay="200"
+                >
+                    <div class="newsletter">
+                        <h5 class="title">Newsletter</h5>
+                        <!-- <p>Join over 68,000 people getting our emails</p> -->
+                        <form
+                            #subForm="ngForm"
+                            (submit)="getFormData(subForm.value)"
+                        >
+                            <input
+                                ngModel
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email"
+                            />
+                            <button [ngClass]="black_btn ? 'dark-btn' : ''">
+                                Sign Up
+                            </button>
+                        </form>
+                        <div class="info">
+                            We only send interesting and relevant emails.
+                        </div>
+                    </div>
+                    <!-- /.newsletter -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="bottom-footer mb-5">
+                <div class="row">
+                    <div class="col-lg-4 order-lg-1 ">
+                        <ul
+                            class="d-flex justify-content-center justify-content-lg-start footer-nav"
+                        >
+                            <li>
+                                <a [routerLink]="['./']">Privacy & Terms.</a>
+                            </li>
+                            <li><a [routerLink]="['./']">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 order-lg-3 ">
+                        <ul
+                            class="d-flex justify-content-center justify-content-lg-end social-icon"
+                        >
+                            <li *ngFor="let link of social_links">
+                                <a [routerLink]="['./']"
+                                    ><i [class]="link" aria-hidden="true"></i
+                                ></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 order-lg-2 ">
+                        <p class="copyright text-center">
+                            Copyright @{{ date }}
+                            <a
+                                href="https://themeforest.net/user/ib-themes/portfolio"
+                                target="_blank"
+                                >ib-themes</a
+                            >
+                            inc.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.lg-container -->
+</footer>

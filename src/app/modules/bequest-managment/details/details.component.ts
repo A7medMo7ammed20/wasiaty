@@ -46,6 +46,7 @@ import { Bequest } from 'app/modules/bequest-managment/bequest-management.types'
 import { assign } from 'lodash-es';
 import { DateTime } from 'luxon';
 import { debounceTime, filter, Subject, takeUntil, tap } from 'rxjs';
+import { BequestsListComponent } from '../bequest-list/bequest-list.component';
 
 @Component({
     selector: 'bequest-details',
@@ -94,7 +95,7 @@ export class BequestDetailsComponent
         private _fuseConfirmationService: FuseConfirmationService,
         private _renderer2: Renderer2,
         private _router: Router,
-        private _bequestManagementComponent: BequestManagementComponent,
+        private _bequestManagementComponent: BequestsListComponent,
         private _bequestService: BequestManagementService,
         private _overlay: Overlay,
         private _viewContainerRef: ViewContainerRef
@@ -110,7 +111,7 @@ export class BequestDetailsComponent
     ngOnInit(): void {
         // Open the drawer
         this._bequestManagementComponent.matDrawer.open();
-
+console.log('sssdlkvsjdvlksdksjdov joi')
         // Create the bequest form
         this.bequestForm = this._formBuilder.group({
             id: [''],
@@ -183,15 +184,15 @@ export class BequestDetailsComponent
      */
     ngAfterViewInit(): void {
         // Listen for matDrawer opened change
-        this._bequestManagementComponent.matDrawer.openedChange
-            .pipe(
-                takeUntil(this._unsubscribeAll),
-                filter((opened) => opened)
-            )
-            .subscribe(() => {
-                // Focus on the title element
-                this._titleField.nativeElement.focus();
-            });
+        // this._bequestManagementComponent.matDrawer.openedChange
+        //     .pipe(
+        //         takeUntil(this._unsubscribeAll),
+        //         filter((opened) => opened)
+        //     )
+        //     .subscribe(() => {
+        //         // Focus on the title element
+        //         this._titleField.nativeElement.focus();
+        //     });
     }
 
     /**

@@ -1,0 +1,201 @@
+<div class="main-page-wrapper overflow-hidden">
+    <!-- header start -->
+    <app-header></app-header>
+    <!-- header end -->
+
+    <!-- fancy hero start -->
+    <div class="fancy-hero-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 m-auto">
+                    <h2 class="font-rubik">Our Services</h2>
+                </div>
+                <div class="col-xl-9 m-auto">
+                    <p class="font-rubik">
+                        We are a creative company that focuses on establishing
+                        long-term relationships with customers.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="bubble-one"></div>
+        <div class="bubble-two"></div>
+        <div class="bubble-three"></div>
+        <div class="bubble-four"></div>
+        <div class="bubble-five"></div>
+        <div class="bubble-six"></div>
+    </div>
+    <!-- fancy hero end -->
+
+    <!-- video box start -->
+    <div>
+        <div class="container">
+            <div class="fancy-video-box-two">
+                <img
+                    src="assets/images/deski/media/img_107.png"
+                    alt=""
+                    class="main-img"
+                />
+                <button
+                    data-bs-toggle="modal"
+                    data-bs-target="#videoModal"
+                    class="fancybox video-button d-flex align-items-center justify-content-center"
+                >
+                    <img src="assets/images/deski/icon/170.svg" alt="" />
+                </button>
+            </div>
+        </div>
+
+        <!-- VideoModal start -->
+        <app-video-modal
+            videoUrl="https://www.youtube.com/embed/-BvfSmswLrE"
+        ></app-video-modal>
+        <!-- VideoModal end -->
+    </div>
+    <!-- video box end -->
+
+    <!-- counter info start -->
+    <app-about-counter-three [ser_page]="true"></app-about-counter-three>
+    <!-- counter info end -->
+
+    <!-- services start -->
+    <div class="fancy-feature-thirtyOne pt-120 pb-160 md-pt-80 md-pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <div class="title-style-four text-center pb-50 md-pb-20">
+                        <h2>Our Services</h2>
+                        <p class="sub-text pt-20">
+                            Duis aute irure dolor in reprehenderit in voluptate
+                            velit io cillum dolore eu fugiat nulla pariatur non
+                            labrum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div
+                    *ngFor="let item of servicesItems"
+                    class="col-md-6"
+                    data-aos="fade-up"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-style-thirtyTwo d-flex">
+                        <div
+                            class="icon d-flex align-items-center justify-content-center"
+                            [style]="{ background: item.bg_color }"
+                        >
+                            <img [src]="item.img" alt="" />
+                        </div>
+                        <div class="text">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.subtitle }}</p>
+                            <a
+                                [routerLink]="['/service-details/' + item.id]"
+                                class="tran3s"
+                            >
+                                <img
+                                    src="assets/images/deski/icon/182.svg"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.block-style-thirtyTwo -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- services end -->
+
+    <!-- fancy text block start -->
+    <div class="fancy-text-block-ten mt-170 md-mt-100 mb-50">
+        <div class="container">
+            <div class="row align-items-end">
+                <div
+                    class="col-xl-5 col-lg-6 ms-auto order-lg-last"
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
+                >
+                    <img
+                        src="assets/images/deski/icon/34.svg"
+                        alt=""
+                        class="icon"
+                    />
+                    <p class="font-rubik">
+                        Deski combines excellent live chat, ticketing and
+                        automation that allow us to provide quality.
+                    </p>
+                    <div class="name sm-mb-40">
+                        Mike Lucas. <span>CEO & Founder <br />deksi</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="row align-items-end">
+                        <div
+                            class="col-6"
+                            data-aos="fade-right"
+                            data-aos-duration="1200"
+                            data-aos-delay="100"
+                        >
+                            <img
+                                src="assets/images/deski/media/img_25.png"
+                                alt=""
+                                class="img-meta"
+                            />
+                        </div>
+                        <div
+                            class="col-6"
+                            data-aos="fade-right"
+                            data-aos-duration="1200"
+                        >
+                            <img
+                                src="assets/images/deski/media/img_26.png"
+                                alt=""
+                                class="img-meta"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-10 ms-auto">
+                    <div class="img-gallery mt-60 md-mt-20">
+                        <div class="row">
+                            <div
+                                class="col-sm-5 sm-mb-20"
+                                data-aos="fade-up"
+                                data-aos-duration="1200"
+                            >
+                                <img
+                                    src="assets/images/deski/media/img_27.png"
+                                    alt=""
+                                    class="img-meta"
+                                />
+                            </div>
+                            <div
+                                class="col-sm-7"
+                                data-aos="fade-up"
+                                data-aos-duration="1200"
+                                data-aos-delay="100"
+                            >
+                                <img
+                                    src="assets/images/deski/media/img_28.png"
+                                    alt=""
+                                    class="img-meta"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.img-gallery -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy text block end -->
+
+    <!-- footer start -->
+    <app-footer></app-footer>
+    <!-- footer end -->
+</div>

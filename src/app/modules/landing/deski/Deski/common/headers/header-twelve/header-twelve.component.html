@@ -1,0 +1,51 @@
+
+<div class="theme-main-menu sticky-menu theme-menu-seven bg-none" [ngClass]="headerSticky ? 'fixed' : ''">
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="w-12 order-lg-1">
+            <a [routerLink]="['/']">
+                <img src="assets/images/logo/logo-text.svg" alt="" />
+            </a>
+        </div>
+
+        <div class="right-widget order-lg-3">
+            <ul class="d-flex align-items-center">
+                <li>
+                    <a [routerLink]="['./landing-page']" class="signIn-action d-flex align-items-center">
+                        <!-- <img src="assets/images/deski/icon/120.svg" alt="" /> -->
+                        <span>Join Waitlist</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+      <nav id="mega-menu-holder" class="navbar navbar-expand-lg ps-xl-5 ms-xl-5 order-lg-2">
+        <div class="nav-container">
+          <button class="navbar-toggler"
+            [ngClass]="menuActive ? 'navbar-toggler open' : 'navbar-toggler'" (click)="handleNavToggle()">
+            <span></span>
+          </button>
+          <div class="navbar-collapse " >
+            <div class="d-lg-flex justify-content-between align-items-center">
+              <ul class="navbar-nav main-side-nav font-gordita" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavbar" id="one-page-nav">
+                <li class="nav-item dropdown position-static">
+                  <a class="nav-link " [routerLink]="['./']" >Home</a>
+
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['./']" fragment="feature" class="nav-link" (click)="handleNavToggle()">Feature</a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['./']" fragment="p-tour" class="nav-link" (click)="handleNavToggle()">Product Tour</a>
+                </li>
+                <li class="nav-item">
+                  <a [routerLink]="['./']" fragment="feedback" class="nav-link" (click)="handleNavToggle()">Feedback</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>

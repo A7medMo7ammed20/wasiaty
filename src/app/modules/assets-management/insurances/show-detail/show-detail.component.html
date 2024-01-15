@@ -1,0 +1,178 @@
+<div class="flex flex-col w-full">
+
+      <!-- Header -->
+      <div class="flex items-center justify-end  -ml-4">
+        <!-- create -->
+
+        <div class="flex items-end">
+            <!-- More menu -->
+            <button mat-icon-button [matMenuTriggerFor]="moreMenu">
+                <mat-icon
+                [svgIcon]="'heroicons_outline:ellipsis-vertical'"
+
+                >
+
+                </mat-icon>
+            </button>
+            <mat-menu #moreMenu="matMenu" >
+                <button mat-menu-item  >
+                    <mat-icon
+                    [svgIcon]="'heroicons_outline:trash'"
+                    ></mat-icon>
+                    <span>Delete</span>
+
+                </button>
+            </mat-menu>
+
+            <!-- Close button -->
+            <a mat-icon-button [routerLink]="['../']">
+                <mat-icon [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+            </a>
+        </div>
+    </div>
+
+    <!-- Individual form -->
+    <div class="relative flex flex-col flex-auto items-center px-6 sm:px-12">
+        <div class="w-full max-w-3xl">
+            <form [formGroup]="insurancesForm">
+                <!-- Name -->
+
+                <div class="mt-8">
+                    <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                        <mat-label> Company Name</mat-label>
+                        <mat-icon matPrefix class="hidden sm:flex icon-size-5"
+                            [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                        <input matInput [formControlName]="'companyName'" [placeholder]="'Name'" [spellcheck]="false" />
+                    </mat-form-field>
+                </div>
+
+                <!-- insurance Type -->
+
+                <div class="mt-8">
+                    <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                        <mat-label> Insurance Type</mat-label>
+                        <mat-icon matPrefix class="hidden sm:flex icon-size-5"
+                            [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                        <input matInput [formControlName]="'insuranceType'" [placeholder]="'Insurance Type'"
+                            [spellcheck]="false" />
+                    </mat-form-field>
+                </div>
+
+                <!-- Premium Amount -->
+                <div class="mt-8">
+                    <mat-form-field class="w-full" [subscriptSizing]="'dynamic'">
+                        <mat-label> Premium Amount</mat-label>
+                        <mat-icon matPrefix class="hidden sm:flex icon-size-5"
+                            [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
+                        <input matInput [formControlName]="'premiumAmount'" [placeholder]="'Premium Amount'"
+                            [spellcheck]="false" />
+                    </mat-form-field>
+                </div>
+
+<div class=" flex justify-between mt-4">
+
+                <!-- Policy Start Date -->
+                <div class="">
+                    <div class="font-medium"> Policy Start Date</div>
+                    <div class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                        [ngClass]="{
+                            'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700':
+                                !insuranceData?.policyStartDate,
+                            'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500':
+                                insuranceData?.policyStartDate && !checkDate(),
+                            'text-red-800 bg-red-200 dark:text-red-100 dark:bg-red-500':
+                                insuranceData?.policyStartDate && checkDate()
+                        }"
+                        (click)="dueDatePicker.open()"
+                        >
+                        <mat-icon class="icon-size-5 text-current"
+                            [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
+                        <span class="ml-2 text-md font-medium">
+                            <ng-container *ngIf="insuranceData?.policyStartDate">{{
+                                insuranceData.policyStartDate | date : "longDate"
+                                }}</ng-container>
+                            <ng-container *ngIf="!insuranceData?.policyStartDate">Not set</ng-container>
+                        </span>
+                        <mat-form-field
+                            class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                            [subscriptSizing]="'dynamic'">
+                            <input matInput [formControlName]="'policyStartDate'" [matDatepicker]="dueDatePicker" />
+                            <mat-datepicker #dueDatePicker>
+                                <mat-datepicker-actions>
+                                    <button mat-button (click)="
+                                        insurancesForm.get('dueDate').setValue(null)
+                                        " matDatepickerCancel>
+                                        Clear
+                                    </button>
+                                    <button class="" mat-flat-button [color]="'primary'" matDatepickerApply>
+                                        Select
+                                    </button>
+                                </mat-datepicker-actions>
+                            </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <!-- policy End Date -->
+                <div class="">
+                    <div class="font-medium"> policy End Date</div>
+                    <div class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
+                        [ngClass]="{
+                            'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700':
+                                !insuranceData?.policyEndDate,
+                            'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500':
+                                insuranceData?.policyEndDate && !checkDate(),
+                            'text-red-800 bg-red-200 dark:text-red-100 dark:bg-red-500':
+                                insuranceData?.policyEndDate && checkDate()
+                        }"
+                        (click)="dueDatePicker.open()"
+                        >
+                        <mat-icon class="icon-size-5 text-current"
+                            [svgIcon]="'heroicons_solid:calendar'"></mat-icon>
+                        <span class="ml-2 text-md font-medium">
+                            <ng-container *ngIf="insuranceData?.policyEndDate">{{
+                                insuranceData.policyEndDate | date : "longDate"
+                                }}</ng-container>
+                            <ng-container *ngIf="!insuranceData?.policyEndDate">Not set</ng-container>
+                        </span>
+                        <mat-form-field
+                            class="fuse-mat-dense invisible absolute inset-0 -mt-2.5 opacity-0 pointer-events-none"
+                            [subscriptSizing]="'dynamic'">
+                            <input matInput [formControlName]="'policyEndDate'" [matDatepicker]="dueDatePicker" />
+                            <mat-datepicker #dueDatePicker>
+                                <mat-datepicker-actions>
+                                    <button mat-button (click)="
+                                        insurancesForm.get('dueDate').setValue(null)
+                                        " matDatepickerCancel>
+                                        Clear
+                                    </button>
+                                    <button class="" mat-flat-button [color]="'primary'" matDatepickerApply>
+                                        Select
+                                    </button>
+                                </mat-datepicker-actions>
+                            </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+</div>
+
+                <!-- Actions -->
+                <div
+                    class="flex items-center mt-10 -mx-6 sm:-mx-12 py-4 pr-4 pl-1 sm:pr-12 sm:pl-7 border-t bg-gray-50 dark:bg-transparent">
+                    <!-- Delete -->
+                    <button mat-button [color]="'warn'" [matTooltip]="'Delete'">
+                        Delete
+                    </button>
+                    <!-- Cancel -->
+                    <button class="ml-auto" mat-button [matTooltip]="'Cancel'">
+                        Cancel
+                    </button>
+                    <!-- Save -->
+                    <button class="ml-2" mat-flat-button [color]="'primary'" [disabled]="insurancesForm.invalid"
+                        [matTooltip]="'Save'">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

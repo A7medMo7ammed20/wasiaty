@@ -1,0 +1,195 @@
+<div class="main-page-wrapper p0 overflow-hidden">
+    <!-- header start -->
+    <app-header-four></app-header-four>
+    <!-- header end -->
+
+    <!-- fancy hero start -->
+    <div class="fancy-hero-three bg-transparent">
+        <div class="shapes shape-one"></div>
+        <div class="shapes shape-two"></div>
+        <div class="shapes shape-three"></div>
+        <div class="shapes shape-four"></div>
+        <div class="shapes shape-five"></div>
+        <div class="shapes shape-six"></div>
+        <div class="bg-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-10 col-md-10 m-auto">
+                        <h1 class="heading">Check our product in details</h1>
+                        <p class="sub-heading">
+                            deski helps teams of all sizes get better at
+                            delivering effortless customer
+                        </p>
+                        <a
+                            [routerLink]="['./']"
+                            class="theme-btn-two trial-button mt-50 md-mt-30"
+                            >Start Trial</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.bg-wrapper -->
+    </div>
+    <!-- fancy hero end -->
+
+    <!-- fancy feature start -->
+    <div class="fancy-feature-seven">
+        <div class="container">
+            <div class="title-style-two text-center mb-150 md-mb-70">
+                <p>Our Product</p>
+                <h2>
+                    First-timer? Or old-hand? provide support with
+                    <span
+                        >deski is
+                        <img
+                            src="assets/images/deski/shape/line-shape-8.svg"
+                            alt=""
+                    /></span>
+                    simple.
+                </h2>
+            </div>
+            <!-- /.title-style-two -->
+
+            <div class="block-wrapper">
+                <div *ngFor="let item of feature_data" class="block-style-nine">
+                    <div class="row align-items-center">
+                        <div
+                            class="col-lg-7 col-md-9 m-auto"
+                            [ngClass]="item.order_1 ? item.order_1 : ''"
+                            [attr.data-aos]="item.fade_1"
+                            data-aos-duration="1200"
+                        >
+                            <div class="illustration-holder">
+                                <img [src]="item.img" alt="" />
+                            </div>
+                            <!-- /.illustration-holder -->
+                        </div>
+                        <div
+                            class="col-lg-5"
+                            [ngClass]="item.order_2 ? item.order_2 : ''"
+                            [attr.data-aos]="item.fade_2"
+                            data-aos-duration="1200"
+                        >
+                            <div class="text-wrapper">
+                                <h6>{{ item.sm_title }}</h6>
+                                <h3 class="title font-gilroy-bold">
+                                    {{ item.title }}
+                                </h3>
+                                <p class="font-rubik">{{ item.subtitle }}</p>
+                            </div>
+                            <!-- /.text-wrapper -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.block-style-nine -->
+            </div>
+        </div>
+    </div>
+    <!-- fancy feature end -->
+
+    <!-- fancy text block start -->
+    <div class="fancy-text-block-thirteen pt-140 md-pt-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div
+                    class="col-lg-6 order-lg-last"
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
+                >
+                    <div class="text-wrapper">
+                        <div class="title-style-two">
+                            <h2>Security you can trust easily.</h2>
+                        </div>
+                        <!-- /.title-style-two -->
+                        <p>
+                            Our dashboard is served over SSL which means you can
+                            be sure that all data transferred is secure. Payment
+                            processing uses the very latest PCI DSS
+                            card-security standards
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="col-lg-6 col-md-8 m-auto order-lg-first"
+                    data-aos="fade-right"
+                    data-aos-duration="1200"
+                >
+                    <img
+                        src="assets/images/deski/assets/feature-img-11.png"
+                        alt=""
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy text block end -->
+
+    <!-- use able tools start -->
+    <app-useable-tools-six [feature]="true"></app-useable-tools-six>
+    <!-- use able tools end -->
+
+    <!-- about area start -->
+    <div class="fancy-text-block-fourteen pt-30">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-lg-6"
+                    data-aos="fade-right"
+                    data-aos-duration="1200"
+                >
+                    <div class="text-wrapper">
+                        <div class="title-style-two">
+                            <p>About us</p>
+                            <h2>Best event & online ticket platform.</h2>
+                        </div>
+                        <!-- /.title-style-two -->
+                        <p class="sub-text">
+                            Things go wrong. You’ll have questions. We
+                            understand. So we have real people, not bots, on
+                            hand to help, 7 days a week.
+                        </p>
+                        <p class="sub-text">
+                            We aim to answer any query in less than 10 minutes.
+                            Try now
+                        </p>
+                        <div class="name">
+                            Mr Rashed Kabir, <span>CEO</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="col-lg-6"
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
+                >
+                    <div class="img-holder md-mt-80">
+                        <img
+                            src="assets/images/deski/media/img_39.png"
+                            alt=""
+                        />
+                        <img
+                            src="assets/images/deski/shape/60.svg"
+                            alt=""
+                            class="shapes shape-one"
+                        />
+                        <img
+                            src="assets/images/deski/shape/61.svg"
+                            alt=""
+                            class="shapes shape-two"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about area end -->
+
+    <!-- short banner start -->
+    <app-short-banner-three [about]="true"></app-short-banner-three>
+    <!-- short banner end -->
+
+    <!-- footer start -->
+    <app-footer-four></app-footer-four>
+    <!-- footer end -->
+</div>

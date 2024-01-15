@@ -1,0 +1,69 @@
+<div class="client-feedback-slider-five mt-200 md-mt-80" id="feedback">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-10 col-md-9 m-auto">
+                <img
+                    src="assets/images/deski/icon/84.svg"
+                    alt=""
+                    class="icon m-auto"
+                />
+                <div class="title-style-six text-center mt-25">
+                    <h2>Check what’s <span>Customer </span>say about us.</h2>
+                </div>
+                <!-- /.title-style-six -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-7 col-lg-10 m-auto">
+                <div class="clientSliderFive mt-80 md-mt-50">
+                    <swiper
+                        class="clientSliderOne"
+                        [slidesPerView]="1"
+                        [navigation]="{ nextEl: '.next_f', prevEl: '.prev_f' }"
+                    >
+                        <ng-template
+                            swiperSlide
+                            *ngFor="let item of testimonialData"
+                        >
+                            <div class="item">
+                                <p>
+                                    {{ item.desc }}
+                                </p>
+                                <h6 class="name">{{ item.name }}</h6>
+                                <span class="desig">{{ item.title }}</span>
+                            </div>
+                        </ng-template>
+                    </swiper>
+                </div>
+                <!-- /.clientSliderFive -->
+                <ul class="d-flex justify-content-center slider-arrow mt-40">
+                    <li class="prev_f slick-arrow">
+                        <i class="flaticon-right-arrow"></i>
+                    </li>
+                    <li class="next_f slick-arrow">
+                        <i class="flaticon-right-arrow"></i>
+                    </li>
+                </ul>
+                <img
+                    src="assets/images/deski/shape/156.svg"
+                    alt=""
+                    class="shapes shape-one"
+                />
+                <img
+                    src="assets/images/deski/shape/157.svg"
+                    alt=""
+                    class="shapes shape-two"
+                />
+                <img
+                    src="assets/images/deski/shape/158.svg"
+                    alt=""
+                    class="shapes shape-three"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="circle-area">
+        <img src="assets/images/deski/shape/155.svg" alt="" class="main-img" />
+    </div>
+</div>

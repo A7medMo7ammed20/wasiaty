@@ -1,0 +1,62 @@
+<div
+    [ngClass]="
+        headerSticky
+            ? 'theme-main-menu sticky-menu theme-menu-one fixed'
+            : 'theme-main-menu sticky-menu theme-menu-one'
+    "
+>
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="logo">
+            <a [routerLink]="['/']">
+                <img
+                    *ngIf="!portfolio; else second"
+                    src="assets/images/deski/logo/deski_01.svg"
+                    alt=""
+                />
+                <ng-template #second>
+                    <img src="assets/images/deski/logo/deski_06.svg" alt="" />
+                </ng-template>
+            </a>
+        </div>
+        <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
+            <div class="nav-container">
+                <button
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar"
+                    [ngClass]="
+                        menuActive ? 'navbar-toggler open' : 'navbar-toggler'
+                    "
+                    (click)="handleNavToggle()"
+                >
+                    <span></span>
+                </button>
+                <div class="navbar-collapse collapse" id="collapsibleNavbar">
+                    <div class="d-lg-flex align-items-center">
+                        <!-- nav menu start -->
+                        <app-nav-menu></app-nav-menu>
+                        <!-- nav menu end -->
+                        <ul
+                            class="right-button-group d-flex align-items-center justify-content-center"
+                        >
+                            <li>
+                                <a
+                                    [routerLink]="['/login']"
+                                    class="signIn-action"
+                                    >Login</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    [routerLink]="['/register']"
+                                    class="signUp-action"
+                                    >Get Started</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

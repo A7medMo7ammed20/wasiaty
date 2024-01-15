@@ -1,0 +1,42 @@
+<div class="fancy-feature-seventeen lg-container pt-150 md-pt-90" id="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="title-style-thirteen text-center mb-130 md-mb-90">
+                    <div class="upper-title">Features</div>
+                    <h2>
+                        Unlock a myriad of features to provide you with
+                        <span
+                            >the ultimate eWasia experience<img
+                                src="assets/images/deski/shape/line-shape-14.svg"
+                                alt=""
+                        /></span>
+                    </h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bottom-border pb-20">
+            <div class="row">
+                <div
+                    *ngFor="let item of featureData"
+                    class="col-lg-4 col-sm-6"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-meta">
+                        <div class="icon d-flex align-items-end w-7 h-9 m-auto">
+                            <img [src]="item.icon" alt="" />
+                        </div>
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.subtitle }}</p>
+                    </div>
+                    <!-- /.block-meta -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

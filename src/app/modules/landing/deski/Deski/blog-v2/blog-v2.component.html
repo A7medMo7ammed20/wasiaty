@@ -1,0 +1,58 @@
+<div class="main-page-wrapper overflow-hidden">
+  <!-- header start -->
+  <app-header></app-header>
+  <!-- header end -->
+
+  <!-- blog hero start -->
+  <app-blog-hero></app-blog-hero>
+  <!-- blog hero end -->
+
+  <!-- feature blog start -->
+  <div class="blog-page-bg">
+    <div class="shapes shape-one"></div>
+    <div class="shapes shape-two"></div>
+    <div class="shapes shape-three"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 feature-blog-one width-lg">
+
+          <div *ngFor="let blog of blogItems" class="post-meta">
+            <img *ngIf="blog.id !== 24" [src]="blog.img" alt="" class="image-meta">
+            <div class="tag">{{blog.date}}</div>
+            <h3>
+              <a [routerLink]="['/blog-details/'+blog.id]" class="title">{{blog.title}}.</a>
+            </h3>
+            <p>{{blog.desc}}</p>
+            <a [routerLink]="['/blog-details/'+blog.id]"
+            class="read-more d-flex justify-content-between align-items-center">
+              <span>Read More</span>
+              <i class="flaticon-right-arrow"></i>
+            </a>
+          </div> <!-- /.post-meta -->
+
+          <div class="page-pagination-one pt-15">
+            <ul class="d-flex align-items-center">
+              <li><a [routerLink]="['./']"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+              <li><a [routerLink]="['./']" class="active">1</a></li>
+              <li><a [routerLink]="['./']">2</a></li>
+              <li><a [routerLink]="['./']">3</a></li>
+              <li> &nbsp; ... &nbsp;</li>
+              <li><a [routerLink]="['./']">13</a></li>
+              <li><a [routerLink]="['./']"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+            </ul>
+          </div> <!-- /.page-pagination-one -->
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <!-- BlogSidebar start -->
+          <app-blog-sidebar></app-blog-sidebar>
+          <!-- BlogSidebar end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- feature blog end -->
+
+  <!-- footer start -->
+  <app-footer></app-footer>
+  <!-- footer end -->
+</div>

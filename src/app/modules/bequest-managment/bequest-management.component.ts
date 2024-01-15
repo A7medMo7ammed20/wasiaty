@@ -1,14 +1,23 @@
-import { ChangeDetectorRef, Component, Inject, ViewChild } from '@angular/core';
+// import { ChangeDetectorRef, Component, Inject, ViewChild } from '@angular/core';
 import {
-    CommonModule,
-    CurrencyPipe,
-    DOCUMENT,
-    DatePipe,
-    DecimalPipe,
-    NgClass,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Inject,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
+import {
+    TitleCasePipe,
     NgFor,
     NgIf,
-    TitleCasePipe,
+    I18nPluralPipe,
+    DOCUMENT,
+    CommonModule,
+    CurrencyPipe,
+    NgClass,
+    DecimalPipe,
+    DatePipe,
 } from '@angular/common';
 import {
     ActivatedRoute,
@@ -37,6 +46,10 @@ import { BequestManagementService } from './bequest-management.service';
 @Component({
     selector: 'app-bequest-management',
     standalone: true,
+
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './bequest-management.component.html',
     imports: [
         CommonModule,
         RouterOutlet,
@@ -62,7 +75,6 @@ import { BequestManagementService } from './bequest-management.service';
         TitleCasePipe,
         DatePipe,
     ],
-    templateUrl: './bequest-management.component.html',
 })
 export class BequestManagementComponent {
     @ViewChild('matDrawer', { static: true }) matDrawer: MatDrawer;
@@ -125,18 +137,16 @@ export class BequestManagementComponent {
      * @param type
      */
     createBequest(type: 'bequest'): void {
-        console.log('bequest');
+        console.log('bequest ||||||||||||||||||||||||||');
 
         // Create the task
-        this._bequestService.createBequest(type).subscribe((newBequest) => {
-            // Go to the new task
-            this._router.navigate(['./', newBequest.id], {
-                relativeTo: this._activatedRoute,
-            });
+        this._router.navigate(['./', 'create-bequest'], {
+                    relativeTo: this._activatedRoute,
+                    //  });
 
-            // Mark for check
-            this._changeDetectorRef.markForCheck();
-        });
+                    // // Mark for check
+                    // this._changeDetectorRef.markForCheck();
+                });
     }
     /**
      * Track by function for ngFor loops

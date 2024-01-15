@@ -1,0 +1,46 @@
+<div class="fancy-portfolio-five lg-container top-border bottom-border pb-90 pt-90">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-md-6 col-sm-8">
+        <div class="title-style-one white-vr text-center text-sm-start">
+          <h2>Portfolio</h2>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-4 d-flex justify-content-center justify-content-sm-end">
+        <ul class="slider-arrows d-flex style-none">
+          <li class="prev_case1 ripple-btn slick-arrow"><i class="flaticon-right-arrow"></i></li>
+          <li class="next_case1 ripple-btn slick-arrow"><i class="flaticon-right-arrow"></i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slider-wrapper pt-80 md-pt-50">
+    <div class="portfolio_slider_one">
+
+      <swiper [slidesPerView]="1" [loop]="true"
+      [navigation]="{nextEl: '.next_case1', prevEl: '.prev_case1'}"
+      [centeredSlides]="true"
+      [breakpoints]="{'0': {slidesPerView: 1},'768': {slidesPerView: 2 },'992': { slidesPerView: 3} }"
+      >
+
+        <ng-template swiperSlide *ngFor="let item of p_items">
+          <div class="item">
+            <div class="portfolio-block-three">
+              <a [routerLink]="['/portfolio-details/'+item.id]" class="img-holder">
+                <img [src]="item.img" alt="" class="w-100 tran5s">
+              </a>
+              <div class="text">
+                <div class="tag">{{item.title}}</div>
+                <h4>
+                  <a [routerLink]="['/portfolio-details/'+item.id]">{{item.subtitle}}</a>
+                </h4>
+              </div>
+            </div> <!-- /.portfolio-block-three -->
+          </div>
+        </ng-template>
+      </swiper>
+>
+
+    </div> <!-- /.portfolio_slider_one -->
+  </div> <!-- /.slider-wrapper -->
+</div>

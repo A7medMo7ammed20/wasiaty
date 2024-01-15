@@ -1,0 +1,68 @@
+<div class="client-feedback-slider-six pt-250 md-pt-120" id="feedback">
+    <div class="inner-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 ">
+                    <img
+                        src="assets/images/deski/icon/100.svg"
+                        alt=""
+                        class="m-auto w-10 h-10"
+                    />
+                    <div class="title-style-seven text-center mt-20">
+                        <h2><span>Client</span> love us & we love them</h2>
+                        <p>Kind words from our deski Clients.</p>
+                    </div>
+                    <!-- /.title-style-six -->
+                </div>
+            </div>
+        </div>
+        <div class="clientSliderSix row">
+            <swiper
+                [slidesPerView]="1"
+                [spaceBetween]="0"
+                [loop]="true"
+                [autoplay]="{ delay: 5000, disableOnInteraction: false }"
+                [pagination]="{ clickable: true, el: '.swiper-pagination-2' }"
+                [breakpoints]="{
+                    '0': {
+                        slidesPerView: 1
+                    },
+                    '768': {
+                        slidesPerView: 2
+                    },
+                    '992': {
+                        slidesPerView: 3
+                    }
+                }"
+            >
+                <ng-template
+                    *ngFor="let testimonial of testimonialData"
+                    swiperSlide
+                >
+                    <div class="item">
+                        <div class="feedback-wrapper">
+                            <p class="text-start">{{ testimonial.desc }}</p>
+                            <div class="d-flex align-items-center">
+                                <img
+                                    [src]="testimonial.user"
+                                    alt=""
+                                    class="avatar"
+                                />
+                                <h6 class="name">
+                                    {{ testimonial.name }}
+                                    <span>{{ testimonial.country }}</span>
+                                </h6>
+                            </div>
+                        </div>
+                        <!-- /.feedback-wrapper -->
+                    </div>
+                </ng-template>
+            </swiper>
+            <!-- Add Pagination -->
+            <div
+                class="swiper-pagination-2 d-flex align-items-center justify-content-center"
+            ></div>
+        </div>
+    </div>
+    <!-- /.inner-container -->
+</div>

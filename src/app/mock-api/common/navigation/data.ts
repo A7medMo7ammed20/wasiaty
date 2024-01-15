@@ -38,6 +38,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link: '/assets-management/endowments',
                 exactMatch: true,
             },
+            {
+                id: 'Wealth',
+                title: 'Wealth',
+                type: 'basic',
+                link: '/assets-management/wealth',
+                exactMatch: true,
+            },
 
             {
                 id: 'longtermAssets',
@@ -114,7 +121,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Bequest Management',
         type: 'basic',
         icon: 'heroicons_outline:squares-2x2',
-        link: '/bequest-management',
+        link: '/bequest-management/list',
     },
 
     {

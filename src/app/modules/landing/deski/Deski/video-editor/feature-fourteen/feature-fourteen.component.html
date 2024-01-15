@@ -1,0 +1,91 @@
+<div class="fancy-feature-eighteen mt-130 md-mt-80" id="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 m-auto">
+                <div
+                    class="title-style-eight text-center"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                >
+                    <h2>
+                        Build with <br />
+                        800+ Stunning Effects
+                    </h2>
+                    <p>
+                        Rotate, merge, trim, split, crop and flip videos with a
+                        modern & simple ui
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nav tabs -->
+        <ul
+            class="nav nav-tabs justify-content-center"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+        >
+            <li *ngFor="let item of tabButtons" class="nav-item">
+                <button
+                    class="nav-link d-flex align-items-center justify-content-center"
+                    data-bs-toggle="tab"
+                    [attr.data-bs-target]="item.href"
+                    [ngClass]="item.active ? 'active' : ''"
+                >
+                    <img
+                        [src]="item.icon_1"
+                        alt="icon"
+                        class="current tran3s"
+                    />
+                    <img [src]="item.icon_2" alt="icon" class="hover tran3s" />
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div
+        class="tab-content"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-delay="150"
+    >
+        <div
+            *ngFor="let item of tabItems"
+            class="tab-pane"
+            [id]="item.tab_id"
+            [ngClass]="item.active ? 'active' : 'fade'"
+        >
+            <div class="row g-0 align-items-center">
+                <div class="col-md-6">
+                    <div class="img-holder">
+                        <img [src]="item.img" alt="" />
+                        <div
+                            class="ripple-box d-flex align-items-center justify-content-center"
+                        >
+                            <p>{{ item.ripple_text }}</p>
+                        </div>
+                    </div>
+                    <!-- /.img-holder -->
+                </div>
+                <div class="col-md-6">
+                    <div class="text-wrapper">
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.desc }}</p>
+                    </div>
+                    <!-- /.text-wrapper -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <img
+        src="assets/images/deski/shape/175.svg"
+        alt=""
+        class="shapes shape-right"
+    />
+    <img
+        src="assets/images/deski/shape/176.svg"
+        alt=""
+        class="shapes shape-left"
+    />
+</div>

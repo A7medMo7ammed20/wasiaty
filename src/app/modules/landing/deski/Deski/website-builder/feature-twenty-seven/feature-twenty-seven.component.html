@@ -1,0 +1,135 @@
+<div
+    class="fancy-feature-twentyNine lg-container pt-150 mt-0 md-pt-70"
+    id="p-tour"
+>
+    <div class="container">
+        <div
+            class="block-style-thirty bottom-border pb-20 mb-20 md-pb-40 md-mb-90"
+        >
+            <div class="row">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="text-block md-pb-20">
+                        <!-- <div class="feature">DRAG & DROP</div> -->
+                        <div class="title-style-nine mb-10 md-mb-40">
+                            <h2>Privacy and Confidentiality.</h2>
+                        </div>
+                        <!-- <p>
+                            At eWasya, we understand the sensitivity of your estate information and the utmost importance of protecting your privacy. That's why we go beyond industry standards to implement extreme measures for securing your legacy:
+
+                        </p> -->
+                        <ul class="feature-list-one">
+                            <li *ngFor="let list of feature_list_one" >
+                                <img  [src]="list.icon" alt="" class="icon w-10 h-10" />
+                                <strong>{{ list.title }}</strong>
+                                <span>{{ list.subtitle }}</span>
+                            </li>
+                            <li>
+                                <a
+                                    [routerLink]="['./']"
+                                    class="theme-btn-thirteen mt-20"
+                                    >Learn More</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.text-block -->
+                </div>
+                <div class="col-xl-7 col-lg-6">
+                    <img
+                        src="assets/images/deski/screenshot/screenshot-3.png"
+                        alt=""
+                    />
+                    <img
+                        src="assets/images/deski/screenshot/screenshot-4.png"
+                        alt=""
+                    />
+                    <img
+                        src="assets/images/deski/screenshot/screenshot-5.png"
+                        alt=""
+                    />
+                    <!-- <img
+                        src="assets/images/deski/screenshot/screenshot-3.png"
+                        alt=""
+                    />
+                    <img
+                        src="assets/images/deski/screenshot/screenshot-3.png"
+                        alt=""
+                    /> -->
+                </div>
+
+            </div>
+        </div>
+        <!-- /.block-style-thirty -->
+
+        <div class="block-style-thirty">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6 order-lg-last">
+                    <div class="text-block md-pb-60">
+                        <!-- <div class="feature">EMAIL & SMS BROADCAST</div> -->
+                        <div class="title-style-nine mb-45 md-mb-30">
+                            <h2>Beyond technology, we prioritize ethical practices:
+                            </h2>
+                        </div>
+                        <p>
+                            We never share your data with third parties without your explicit consent, ensuring your information remains confidential and under your control.
+
+                        </p>
+                        <ul class="feature-list-two">
+                            <li>
+                                Assurance that your estate is in good hands
+                            </li>
+                            <li>
+                                Ethical data practices.
+                            </li>
+                            <li>Freedom in Legacy Planning.</li>
+                            <li>Preservation of your story for future generations.</li>
+                        </ul>
+                        <a
+                            [routerLink]="['./']"
+                            class="theme-btn-thirteen mt-30"
+                            >Learn More</a
+                        >
+                    </div>
+                    <!-- /.text-block -->
+                </div>
+                <div class="col-xl-7 col-lg-6 order-lg-first">
+                    <img
+                        src="assets/images/deski/screenshot/screenshot-6.png"
+                        alt=""
+                    />
+                    <img
+                        src="assets/images/deski/screenshot/screenshot-7.png"
+                        alt=""
+                    />
+                </div>
+            </div>
+        </div>
+        <!-- /.block-style-thirty -->
+
+        <div class="mt-0 pb-20 md-pb-10 bottom-border">
+            <div class="row justify-content-between">
+                <div
+                    *ngFor="let item of block_styles"
+                    class="col-xl-3 col-md-4"
+                    data-aos="fade-up"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-style-twentyEight text-center mt-40">
+                        <div
+                            class="icon d-flex justify-content-center align-items-end m-auto w-10 h-10"
+                        >
+                            <img [src]="item.icon" alt="" />
+                        </div>
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.subtitle }}</p>
+                    </div>
+                    <!-- /.block-style-twentyEight -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

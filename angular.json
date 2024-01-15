@@ -17,12 +17,11 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/fuse",
+                        "outputPath": "dist/Wasyaty",
                         "index": "src/index.html",
                         "main": "src/main.ts",
-                        "polyfills": [
-                            "zone.js"
-                        ],
+                        "baseHref": "/",
+                        "polyfills": ["zone.js"],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "allowedCommonJsDependencies": [
@@ -38,6 +37,8 @@
                             "src/favicon-16x16.png",
                             "src/favicon-32x32.png",
                             "src/assets",
+                            "src/web.config",
+
                             {
                                 "glob": "_redirects",
                                 "input": "src",
@@ -45,9 +46,7 @@
                             }
                         ],
                         "stylePreprocessorOptions": {
-                            "includePaths": [
-                                "src/@fuse/styles"
-                            ]
+                            "includePaths": ["src/@fuse/styles"]
                         },
                         "styles": [
                             "src/@fuse/styles/tailwind.scss",
@@ -55,17 +54,21 @@
                             "src/styles/vendors.scss",
                             "src/@fuse/styles/main.scss",
                             "src/styles/styles.scss",
-                            "src/styles/tailwind.scss"
+                            "src/styles/tailwind.scss",
+                            "./node_modules/aos/dist/aos.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+                            "./node_modules/aos/dist/aos.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
                             "budgets": [
                                 {
                                     "type": "initial",
-                                    "maximumWarning": "3mb",
-                                    "maximumError": "5mb"
+                                    "maximumWarning": "10mb",
+                                    "maximumError": "15mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -107,10 +110,7 @@
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "polyfills": [
-                            "zone.js",
-                            "zone.js/testing"
-                        ],
+                        "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -118,19 +118,14 @@
                             "src/favicon-32x32.png",
                             "src/assets"
                         ],
-                        "styles": [
-                            "src/styles/styles.scss"
-                        ],
+                        "styles": ["src/styles/styles.scss"],
                         "scripts": []
                     }
-                },
-                "deploy": {
-                  "builder": "angular-cli-ghpages:deploy"
                 }
             }
         }
     },
     "cli": {
-      "analytics": "1f499436-eb30-4b1a-a47f-738f40995e6c"
+        "analytics": "1f499436-eb30-4b1a-a47f-738f40995e6c"
     }
 }

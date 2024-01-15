@@ -1,0 +1,63 @@
+<div
+    class="fancy-text-block-twentyThree lg-container pt-200 mt-30 md-pt-90"
+    id="feature"
+>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 order-lg-last" data-aos="fade-left">
+                <div class="text-wrapper ps-xl-5">
+                    <div class="cl-text">Over <span>150,000+</span> client</div>
+                    <div class="title-style-twelve">
+                        <h2>Signture that work Smoothly.</h2>
+                        <p class="mt-35 mb-60 md-mb-40">
+                            Commonly used in the graphic, prit quis due &
+                            publishing indust for previewing lightly visual
+                            mockups.
+                        </p>
+                    </div>
+                    <a [routerLink]="['./']" class="theme-btn-eight"
+                        >Start Free Trial</a
+                    >
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="img-container position-relative md-mt-60">
+                    <img
+                        src="assets/images/deski/assets/screen_30.png"
+                        alt=""
+                        class="main-screen"
+                    />
+                    <img
+                        src="assets/images/deski/assets/screen_31.png"
+                        alt=""
+                        class="screen-one"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-90 md-mt-50">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div
+                    *ngFor="let item of textBlockData"
+                    class="col-xl-3 col-md-4"
+                    data-aos="fade-up"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-style-twentyEight text-center mt-40">
+                        <div
+                            class="icon d-flex justify-content-center align-items-end"
+                        >
+                            <img [src]="item.icon" alt="" />
+                        </div>
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.subtitle }}</p>
+                    </div>
+                    <!-- /.block-style-twentyEight -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

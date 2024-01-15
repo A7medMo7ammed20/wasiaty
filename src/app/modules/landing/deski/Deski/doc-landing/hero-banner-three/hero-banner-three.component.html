@@ -1,0 +1,94 @@
+<div class="hero-banner-three">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 col-lg-11 col-md-8 m-auto">
+                <h1 class="font-rubik">Doc software you looking for.</h1>
+            </div>
+            <div class="col-xl-8 col-lg-9 m-auto">
+                <p class="sub-text font-rubik">
+                    With deski Docs, you can write, edit, and collaborate
+                    wherever you are with 7 day trial
+                </p>
+            </div>
+        </div>
+        <div class="search-filter-form">
+            <form #subForm="ngForm" (submit)="getFormData(subForm.value)">
+                <input
+                    ngModel
+                    type="text"
+                    name="search"
+                    placeholder="Search Somthing.."
+                />
+                <button>
+                    <img src="assets/images/deski/icon/54.svg" alt="" />
+                </button>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>All</option>
+                    <option>Layout</option>
+                    <option>API</option>
+                    <option>Doc</option>
+                </select>
+            </form>
+        </div>
+        <p class="sing-in-call">
+            Already using deski?
+            <a [routerLink]="['/login']" class="font-rubik">Sign in</a>.
+        </p>
+        <img
+            src="assets/images/deski/assets/ils_09.svg"
+            alt=""
+            class="illustration"
+        />
+    </div>
+    <!-- /.container -->
+    <img
+        src="assets/images/deski/shape/68.svg"
+        alt=""
+        class="shapes shape-one"
+    />
+    <img
+        src="assets/images/deski/shape/69.svg"
+        alt=""
+        class="shapes shape-two"
+    />
+    <img
+        src="assets/images/deski/shape/70.svg"
+        alt=""
+        class="shapes shape-three"
+    />
+    <img
+        src="assets/images/deski/shape/71.svg"
+        alt=""
+        class="shapes shape-four"
+    />
+    <img
+        src="assets/images/deski/shape/72.svg"
+        alt=""
+        class="shapes shape-five"
+    />
+    <img
+        src="assets/images/deski/shape/73.svg"
+        alt=""
+        class="shapes shape-six"
+    />
+    <img
+        src="assets/images/deski/shape/74.svg"
+        alt=""
+        class="shapes shape-seven"
+    />
+    <img
+        src="assets/images/deski/shape/75.svg"
+        alt=""
+        class="shapes shape-eight"
+    />
+    <img
+        src="assets/images/deski/shape/76.svg"
+        alt=""
+        class="shapes shape-nine"
+    />
+    <img
+        src="assets/images/deski/shape/77.svg"
+        alt=""
+        class="shapes shape-ten"
+    />
+</div>

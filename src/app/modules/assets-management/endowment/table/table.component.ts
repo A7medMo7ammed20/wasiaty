@@ -145,7 +145,7 @@ tangibleTypes: WealthType[];
                     // Store the data
 
                     this.data = data ;
-                    // debugger;
+                    //  ;
                     this.beneficiaries.forEach(beneficiary=>{
                         this.data.filter((data)=>{
 

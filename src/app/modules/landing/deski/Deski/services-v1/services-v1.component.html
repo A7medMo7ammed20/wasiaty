@@ -1,0 +1,234 @@
+<div class="main-page-wrapper p0 overflow-hidden">
+    <!-- header start -->
+    <app-header-four></app-header-four>
+    <!-- header end -->
+
+    <!-- fancy hero start -->
+    <div class="fancy-hero-three">
+        <div class="shapes shape-one"></div>
+        <div class="shapes shape-two"></div>
+        <div class="shapes shape-three"></div>
+        <div class="shapes shape-four"></div>
+        <div class="shapes shape-five"></div>
+        <div class="shapes shape-six"></div>
+        <div class="bg-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-10 m-auto">
+                        <h1 class="heading">Our Services</h1>
+                        <p class="sub-heading">
+                            deski helps teams of all sizes get better at
+                            delivering effortless customer
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.bg-wrapper -->
+    </div>
+    <!-- fancy hero end -->
+
+    <!-- fancy text block start -->
+    <div>
+        <div class="fancy-text-block-eleven mt-200 md-mt-100">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-last">
+                        <div class="text-wrapper pt-0">
+                            <div class="title-style-two mb-35 md-mb-20">
+                                <h2>
+                                    <span
+                                        >Service we offer is
+                                        <img
+                                            src="assets/images/deski/shape/line-shape-5.svg"
+                                            alt=""
+                                    /></span>
+                                    specifically designed to meet your needs.
+                                </h2>
+                            </div>
+                            <!-- /.title-style-two -->
+                            <p>
+                                With Benefits from deski Pro, Earn rewards &
+                                Score discounts on purchases* Foryourself and
+                                your customers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="video-box">
+                            <img
+                                src="assets/images/deski/media/img_106.png"
+                                alt=""
+                            />
+                            <button
+                                data-bs-toggle="modal"
+                                data-bs-target="#videoModal"
+                                class="fancybox video-button d-flex align-items-center justify-content-center"
+                            >
+                                <img
+                                    src="assets/images/deski/icon/170.svg"
+                                    alt=""
+                                />
+                            </button>
+                        </div>
+                        <!-- /.video-box -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-70">
+                <div class="container">
+                    <div class="row">
+                        <div *ngFor="let item of block_data" class="col-lg-4">
+                            <div class="block-style-thirtyThree pe-lg-5 mt-40">
+                                <div class="icon">
+                                    <img [src]="item.icon" alt="" />
+                                </div>
+                                <h3 class="title">
+                                    <span>{{ item.title }}</span>
+                                </h3>
+                                <p>{{ item.subtitle }}</p>
+                            </div>
+                            <!-- /.block-style-thirtyThree -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- VideoModal start -->
+        <app-video-modal
+            videoUrl="https://www.youtube.com/embed/c238xxeDdFI"
+        ></app-video-modal>
+        <!-- VideoModal end -->
+    </div>
+    <!-- fancy text block end -->
+
+    <!-- fancy features start -->
+    <div class="fancy-feature-six mt-140 md-mt-90">
+        <div class="bg-wrapper">
+            <div class="shapes shape-one"></div>
+            <div class="shapes shape-two"></div>
+            <div class="shapes shape-three"></div>
+            <div class="shapes shape-four"></div>
+            <div class="shapes shape-five"></div>
+            <img
+                src="assets/images/deski/shape/51.svg"
+                alt=""
+                class="shapes shape-six"
+            />
+            <div class="container">
+                <div class="title-style-two text-center mb-85 md-mb-40">
+                    <h2>
+                        <span
+                            >Explore Services<img
+                                src="assets/images/deski/shape/line-shape-2.svg"
+                                alt=""
+                        /></span>
+                    </h2>
+                    <div class="sub-text mt-15">
+                        Get to know all deski features, that are part of the
+                        complex multi-channel
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div
+                        *ngFor="let item of servicesItems"
+                        class="col-lg-4 col-md-6 d-flex"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        [attr.data-aos-delay]="item.delay"
+                    >
+                        <div class="block-style-five">
+                            <a [routerLink]="['/service-details/' + item.id]">
+                                <div class="icon">
+                                    <img [src]="item.img" alt="" />
+                                </div>
+                                <h6 class="title">
+                                    <span>{{ item.title }}</span>
+                                </h6>
+                                <p>{{ item.subtitle }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy features end -->
+
+    <!-- text block two start -->
+    <div class="fancy-text-block-twelve mt-170 md-mt-100">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-lg-6"
+                    data-aos="fade-right"
+                    data-aos-duration="1200"
+                >
+                    <div class="text-wrapper">
+                        <div class="title-style-three">
+                            <h6>Why us?</h6>
+                            <h2>
+                                <span
+                                    >Why your should<img
+                                        src="assets/images/deski/shape/line-shape-6.svg"
+                                        alt=""
+                                /></span>
+                                choose deski.
+                            </h2>
+                        </div>
+                        <p class="sub-text pb-35">
+                            A ticketing system is a tool, primarily for customer
+                            service. It helps customer representativ inquiries
+                            from one interface without any struggles.
+                        </p>
+                        <ul class="list-item-one">
+                            <li>Amazing communication.</li>
+                            <li>Best trendinf designing experience.</li>
+                            <li>Email & Live chat.</li>
+                        </ul>
+                    </div>
+                    <!-- /.text-wrapper -->
+                </div>
+
+                <div
+                    class="col-lg-5 ms-auto"
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
+                >
+                    <div class="img-gallery">
+                        <img
+                            src="assets/images/deski/media/img_37.png"
+                            alt=""
+                        />
+                        <img
+                            src="assets/images/deski/shape/53.svg"
+                            alt=""
+                            class="shapes shape-one"
+                        />
+                        <img
+                            src="assets/images/deski/shape/52.svg"
+                            alt=""
+                            class="shapes shape-two"
+                        />
+                    </div>
+                    <!-- /.img-gallery -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- text block two end -->
+
+    <!-- counter start -->
+    <app-counter-one [ser_page]="true"></app-counter-one>
+    <!-- counter end -->
+
+    <!-- short banner start -->
+    <app-short-banner-three [pricing]="true"></app-short-banner-three>
+    <!-- short banner end -->
+
+    <!-- footer start -->
+    <app-footer-four></app-footer-four>
+    <!-- footer end -->
+</div>

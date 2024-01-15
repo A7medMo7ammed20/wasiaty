@@ -1,0 +1,48 @@
+<div class=" pt-225 md-pt-120" id="product">
+  <div class="fancy-feature-thirtyFive position-relative lg-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="block-style-thirtySix">
+            <div class="title-style-fourteen">
+              <div class="upper-title">TEMPLATE LIBRARY</div>
+              <h2>Ton of Built in Library.</h2>
+            </div>
+            <div class="tag-line">Template library help you to create your won style.</div>
+            <ul class="slider-arrows d-flex justify-content-center justify-content-lg-end pt-25 md-pt-10 md-pb-30">
+              <li class="prev_case2 ripple-btn slick-arrow"><i class="flaticon-right-arrow"></i></li>
+              <li class="next_case2 ripple-btn slick-arrow"><i class="flaticon-right-arrow"></i></li>
+            </ul>
+          </div> <!-- /.block-style-thirtySix -->
+        </div>
+      </div>
+    </div>
+    <div class="slider-wrapper">
+      <div class="portfolio_slider_two">
+
+        <swiper [slidesPerView]="1" [loop]="true" [autoplay]="{ delay: 5000}"
+          [navigation]="{ nextEl: '.next_case2', prevEl: '.prev_case2' }" [breakpoints]="{
+          '0': { slidesPerView: 1},
+          '768': {slidesPerView: 2},
+          '992': {slidesPerView: 3}
+        }">
+
+          <ng-template swiperSlide *ngFor="let item of feature_slider">
+            <div class="item">
+              <div class="card-block">
+                <img [src]="item.img" alt="" class="w-100">
+                <div class="hover tran3s d-flex align-items-center justify-content-center flex-column">
+                  <a [routerLink]="['./']" class="edit tran3s">Edit</a>
+                  <a [routerLink]="['./']" class="view tran3s">View</a>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+        </swiper>
+
+
+      </div> <!-- /.portfolio_slider_two -->
+    </div> <!-- /.slider-wrapper -->
+  </div>
+</div>

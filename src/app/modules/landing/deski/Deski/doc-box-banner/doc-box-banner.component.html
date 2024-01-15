@@ -1,0 +1,51 @@
+<div class="clearfix">
+    <!-- header start -->
+    <app-header-three></app-header-three>
+    <!-- header end -->
+
+    <!-- hero start -->
+    <div class="fancy-hero-five">
+        <div class="bg-wrapper">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="heading">Find docs</h1>
+                    <p class="sub-heading space-xs">
+                        Find articles, help and advice for getting the most our
+                        of docall theme
+                    </p>
+                </div>
+                <div class="search-filter-form mt-30">
+                    <form
+                        #subForm="ngForm"
+                        (submit)="getFormData(subForm.value)"
+                    >
+                        <input
+                            ngModel
+                            name="search"
+                            type="text"
+                            placeholder="Search Somthing.."
+                        />
+                        <button>
+                            <img src="assets/images/deski/icon/54.svg" alt="" />
+                        </button>
+                        <select
+                            class="form-control"
+                            id="exampleFormControlSelect1"
+                        >
+                            <option>All</option>
+                            <option>Layout</option>
+                            <option>API</option>
+                            <option>Doc</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.bg-wrapper -->
+    </div>
+    <!-- hero end -->
+
+    <!-- doc area start -->
+    <app-doc-box-area [doc_banner]="true"></app-doc-box-area>
+    <!-- doc area end -->
+</div>

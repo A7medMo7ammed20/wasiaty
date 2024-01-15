@@ -1,0 +1,107 @@
+<div class="client-feedback-slider-two mt-180 md-mt-100">
+    <img
+        src="assets/images/deski/shape/78.svg"
+        alt=""
+        class="shapes shape-one"
+    />
+    <img
+        src="assets/images/deski/shape/79.svg"
+        alt=""
+        class="shapes shape-two"
+    />
+    <img
+        src="assets/images/deski/shape/80.svg"
+        alt=""
+        class="shapes shape-three"
+    />
+    <img
+        src="assets/images/deski/shape/81.svg"
+        alt=""
+        class="shapes shape-four"
+    />
+    <img
+        src="assets/images/deski/shape/82.svg"
+        alt=""
+        class="shapes shape-five"
+    />
+    <img
+        src="assets/images/deski/shape/83.svg"
+        alt=""
+        class="shapes shape-six"
+    />
+    <img
+        src="assets/images/deski/shape/84.svg"
+        alt=""
+        class="shapes shape-seven"
+    />
+    <img
+        src="assets/images/deski/shape/85.svg"
+        alt=""
+        class="shapes shape-eight"
+    />
+    <div class="container">
+        <div class="title-style-four text-center mb-100 md-mb-60">
+            <div class="row">
+                <div class="col-lg-7 col-md-9 m-auto">
+                    <h6>Feedback</h6>
+                    <h2>
+                        What’s Our Client Say
+                        <span
+                            >About Us
+                            <img
+                                src="assets/images/deski/shape/line-shape-2.svg"
+                                alt=""
+                        /></span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-content">
+        <div class="clientSliderTwo">
+            <swiper
+                [slidesPerView]="1"
+                [spaceBetween]="30"
+                [loop]="true"
+                [autoplay]="{
+                    delay: 2500,
+                    disableOnInteraction: false
+                }"
+                [pagination]="{
+                    clickable: true,
+                    el: '.swiper-pagination'
+                }"
+                [breakpoints]="{
+                    '0': {
+                        slidesPerView: 1,
+                        spaceBetween: 30
+                    },
+                    '768': {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    '992': {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    }
+                }"
+            >
+                <ng-template *ngFor="let item of testimonialData" swiperSlide>
+                    <div class="item">
+                        <div class="bg-wrapper">
+                            <img src="{{ item.img }}" alt="" class="logo" />
+                            <p>{{ item.desc }}</p>
+                            <div class="name font-rubik">{{ item.name }}</div>
+                            <div class="desig">{{ item.title }}</div>
+                        </div>
+                        <!-- /.bg-wrapper -->
+                    </div>
+                </ng-template>
+            </swiper>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- /.slider-content -->
+</div>

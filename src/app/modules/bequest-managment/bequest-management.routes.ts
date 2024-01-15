@@ -10,6 +10,7 @@ import { BequeqstChartComponent } from './buquest-chart/bequest-chart.component'
 import { BequestManagementService } from './bequest-management.service';
 import { BequestDetailsComponent } from './details/details.component';
 import { catchError, throwError } from 'rxjs';
+import { BequestsListComponent } from './bequest-list/bequest-list.component';
 
 /**
  * Bequest resolver
@@ -21,17 +22,20 @@ const bequestResolver = (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
 ) => {
+
     const bequestService = inject(BequestManagementService);
     const router = inject(Router);
 
-    return bequestService.getbequestById(route.paramMap.get('id')).pipe(
-        // Error here means the requested task is not available
-        catchError((error) => {
-            // Log the error
-            console.error(error);
+    return bequestService
+        .getbequestById(route.paramMap.get('id'))
+        .pipe(
+            // Error here means the requested task is not available
+            catchError((error) => {
+                // Log the error
+                console.error(error);
 
+                const parentUrl = state.url.split('/').slice(0, -1).join('/');
             // Get the parent url
-            const parentUrl = state.url.split('/').slice(0, -1).join('/');
 
             // Navigate to there
             router.navigateByUrl(parentUrl);
@@ -80,29 +84,128 @@ const canDeactivateBequestsDetails = (
     // Otherwise, close the drawer first, and then navigate
     return component.closeDrawer().then(() => true);
 };
+
+
+
+
 export default [
     {
         path: '',
         component: BequestManagementComponent,
+        resolve: {
+            steps: () => inject(BequestManagementService).getSteps(),
+            // data: () => inject(BequestManagementService).getData(),
+
+        },
+
 
         children: [
             {
-                path: '',
-                component: BequeqstChartComponent,
-                resolve: {
-                    data: () => inject(BequestManagementService).getData(),
-                },
+                path: 'create-bequest',
+                loadChildren: () =>
+                import(
+                    'app/modules/bequest-managment/create-bequest/create-bequest.routes'
+                ),
             },
             {
-                path: ':id',
-                component: BequestDetailsComponent,
+                path         : '',
+                component    : BequestsListComponent,
+
                 resolve: {
-                    bequest: bequestResolver,
-                },
-                canDeactivate: [canDeactivateBequestsDetails],
+                        data: () => inject(BequestManagementService).getData(),
+                        create: () => inject(BequestManagementService).getSteps(),
+                        // create: () => inject(BequestManagementService).getBequests(),
+
+                    },
+                    children :[
+                        {
+                            path: ':id',
+                            component: BequestDetailsComponent,
+
+                            resolve: {
+                        create: () => inject(BequestManagementService).getData(),
+
+                                bequest: bequestResolver,
+                            },
+                            canDeactivate: [canDeactivateBequestsDetails],
+                        },
+                    ]
+
+                // canDeactivate: [canDeactivateBequestsDetails],
             },
+            // {
+            //     path:'' ,
+            //     component: BequestsListComponent,
+            //     resolve: {
+            //         steps: () => inject(BequestManagementService).getSteps(),
+            //     },
+
+            // }
 
             // {path: 'current-assets', loadChildren: () => import('app/modules/assets-management/current-assets/current-assets.routes')},
         ],
     },
 ] as Routes;
+
+
+
+
+
+
+// export default [
+//     {
+//         path: '',
+//         component: BequestManagementComponent,
+//         resolve: {
+//             data: () => inject(BequestManagementService).getData(),
+//         },
+
+//         children: [
+//             // {
+//             //     path: 'create-bequest',
+//             //     loadChildren:()=>
+//             //     import(
+//             //         'app/modules/bequest-managment/create-bequest/create-bequest.routes'
+//             //         )
+//             // },
+
+//             {
+//                 path         : ':id',
+//                 component    : BequestsListComponent,
+//                 resolve      : {
+//                     bequest: bequestResolver,
+//                 },
+//                 canDeactivate: [canDeactivateBequestsDetails],
+//             },
+//             // {
+//             //     path:'' ,
+//             //     component: BequestsListComponent,
+//             //     resolve: {
+//             //         steps: () => inject(BequestManagementService).getSteps(),
+//             //     },
+//             //     children :[
+//             //         {
+//             //             path: ':id',
+//             //             component: BequestDetailsComponent,
+
+//             //             resolve: {
+//             //                 bequest: bequestResolver,
+//             //             },
+//             //             canDeactivate: [canDeactivateBequestsDetails],
+
+
+//             //         },
+
+
+
+//             //     ]
+
+//             // }
+
+//             // {path: 'current-assets', loadChildren: () => import('app/modules/assets-management/current-assets/current-assets.routes')},
+//         ],
+//     },
+// ] as Routes;
+
+
+

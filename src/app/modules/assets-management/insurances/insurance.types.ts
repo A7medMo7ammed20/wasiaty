@@ -1,18 +1,15 @@
-export interface RouteList {
-    id: string;
-    route: string;
-    progress: number;
-    currentStep: number;
-}
+import { DateTime } from 'luxon';
 
-export interface Step {
-    id: string;
-    title: string;
-    description?: string;
-    icon?: string;
-    haveIcon: boolean;
-    currentStep?: number;
-}
-export interface Steps extends Step {
-    steps: Step[] | null;
-}
+const now = DateTime.now();
+export interface InsuranceData {
+    id: number;
+    policyNumber: string;
+    companyName: string;
+    insuranceType: string;
+    premiumAmount: string;
+    policyStartDate: Date;
+    policyEndDate: Date;
+    coverageAmount: string;
+    statusInsurance: string; // e.g., "Active", "Expired", "Cancelled"
+    // Additional properties as needed
+  }

@@ -1,0 +1,25 @@
+<div class="useable-tools-section bg-color"
+[ngClass]="about_m ? 'mt-50 md-mt-10' : 'mt-140 mb-50 md-mt-80'">
+  <div class="bubble-one"></div>
+  <div class="bubble-two"></div>
+  <div class="bubble-three"></div>
+  <div class="bubble-four"></div>
+  <div class="bubble-five"></div>
+  <div class="container">
+    <h6 class="font-rubik">Integrates with your tools</h6>
+    <h2>Deski ties into your existing tools, services, & workflow. Get notifications or create a Story with others tools.</h2>
+
+    <div class="row justify-content-center">
+
+      <div *ngFor="let item of tools_data" [class]="item.col" data-aos="fade-up"
+      data-aos-duration="1200" [attr.data-aos-delay]="item.delay">
+        <div class="img-box" [class]="item.box">
+          <a [routerLink]="['./']"><img src="{{item.img}}" alt=""></a>
+        </div> <!-- /.img-box -->
+      </div>
+
+    </div>
+  </div> <!-- /.container -->
+</div>
+
+

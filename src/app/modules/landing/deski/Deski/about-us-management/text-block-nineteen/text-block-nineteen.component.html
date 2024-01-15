@@ -1,0 +1,41 @@
+<div class="fancy-text-block-three">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-11 m-auto">
+        <div class="row g-0">
+
+          <div *ngFor="let item of text_block_data" class="col-lg-6">
+            <div class="feature-content" [ngClass]="item.bg">
+              <div class="header" data-aos="fade-up" data-aos-duration="1200">
+                <h3>{{item.title}}</h3>
+                <p class="font-rubik">{{item.subtitle}}</p>
+              </div> <!-- /.header -->
+
+              <div *ngFor="let listItem of item.featureItems" class="feature-list d-flex" data-aos="fade-up" data-aos-duration="1200" [attr.data-aos-delay]="listItem.delay">
+                <div class="icon-box d-flex align-items-center justify-content-center">
+                  <img [src]="listItem.icon" alt=""></div>
+                <div class="text-meta">
+                  <h4>{{listItem.list_title}}</h4>
+                  <p>{{listItem.list_subtitle}}</p>
+                </div> <!-- /.text-meta -->
+              </div>
+               <!-- /.feature-list -->
+            </div> <!-- /.feature-content -->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-10 m-auto" data-aos="fade-up" data-aos-duration="1200">
+        <p class="font-rubik slogan">We break down barriers so teams can focus on what matters working together to create products their customers love.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bubble-one"></div>
+  <div class="bubble-two"></div>
+  <div class="bubble-three"></div>
+  <div class="bubble-four"></div>
+</div>

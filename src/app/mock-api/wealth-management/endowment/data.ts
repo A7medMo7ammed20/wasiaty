@@ -6,8 +6,7 @@ import { Endowment } from "app/modules/assets-management/endowment/endowment.typ
 
 export const Endowments:Endowment[]= [
     {
-        //
-// Real Estate Properties
+
         id: '1',
         endowmentName: "House",
 

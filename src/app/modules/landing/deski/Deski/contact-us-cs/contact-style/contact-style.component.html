@@ -1,0 +1,160 @@
+<div class="contact-style-two">
+    <div class="container">
+        <div class="contact-info-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-sm-6 d-lg-flex">
+                    <div class="address-info">
+                        <div class="icon d-flex align-items-end">
+                            <img src="assets/images/deski/icon/44.svg" alt="" />
+                        </div>
+                        <div class="title">Location</div>
+                        <p class="font-rubik">
+                            Dhaka, Kawran Bazar <br />
+                            1201 Metro
+                        </p>
+                    </div>
+                    <!-- /.address-info -->
+                </div>
+                <div class="col-lg-4 col-sm-6 d-lg-flex">
+                    <div class="address-info">
+                        <div class="icon d-flex align-items-end">
+                            <img src="assets/images/deski/icon/45.svg" alt="" />
+                        </div>
+                        <div class="title">Contact</div>
+                        <p class="font-rubik">
+                            bawejkor@duwvude.gov <br />(779) 564-1593
+                        </p>
+                    </div>
+                    <!-- /.address-info -->
+                </div>
+                <div class="col-lg-4 col-sm-6 d-lg-flex">
+                    <div class="address-info">
+                        <div class="icon d-flex align-items-end">
+                            <img src="assets/images/deski/icon/46.svg" alt="" />
+                        </div>
+                        <div class="title">Social Media</div>
+                        <p class="font-rubik">Find on social media</p>
+                        <ul class="d-flex justify-content-center">
+                            <li *ngFor="let link of social_links">
+                                <a [routerLink]="['./']"
+                                    ><i [class]="link" aria-hidden="true"></i
+                                ></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.address-info -->
+                </div>
+            </div>
+            <img
+                src="assets/images/deski/shape/64.svg"
+                alt=""
+                class="shapes shape-one"
+            />
+            <img
+                src="assets/images/deski/shape/65.svg"
+                alt=""
+                class="shapes shape-two"
+            />
+        </div>
+        <!-- /.contact-info-wrapper -->
+
+        <div class="form-style-classic mt-200 md-mt-80">
+            <form
+                ngNativeValidate
+                #subForm="ngForm"
+                (submit)="getFormData(subForm.value)"
+                id="contact-form"
+                data-bs-toggle="validator"
+            >
+                <div class="messages"></div>
+                <div class="row controls">
+                    <div
+                        class="col-md-6"
+                        data-aos="fade-right"
+                        data-aos-duration="1200"
+                    >
+                        <div class="input-group-meta form-group mb-60">
+                            <label>First Name</label>
+                            <input
+                                ngModel
+                                type="text"
+                                placeholder="Michel"
+                                name="Fname"
+                                required
+                            />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-6"
+                        data-aos="fade-left"
+                        data-aos-duration="1200"
+                    >
+                        <div class="input-group-meta form-group mb-60">
+                            <label>Last Name</label>
+                            <input
+                                ngModel
+                                type="text"
+                                placeholder="Hawkins"
+                                name="Lname"
+                                required
+                            />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                    >
+                        <div class="input-group-meta form-group mb-60">
+                            <label>Email Address</label>
+                            <input
+                                ngModel
+                                type="email"
+                                name="email"
+                                placeholder="saeslal@zouj.co.uk"
+                                required
+                            />
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                    >
+                        <div class="input-group-meta form-group lg mb-40">
+                            <label>Your Message</label>
+                            <textarea
+                                ngModel
+                                placeholder="your message here.."
+                                name="message"
+                                required="required"
+                                data-error="Please,leave us a message."
+                            ></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                    >
+                        <button
+                            type="submit"
+                            [class]="
+                                contact_doc
+                                    ? 'theme-btn-six lg'
+                                    : 'theme-btn-two'
+                            "
+                        >
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.form-style-classic -->
+    </div>
+</div>

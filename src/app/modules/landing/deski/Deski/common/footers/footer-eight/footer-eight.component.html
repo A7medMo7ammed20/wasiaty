@@ -1,0 +1,102 @@
+<footer class="theme-footer-eight mt-100">
+    <div class="top-footer">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-xl-4 col-lg-3 col-12 footer-about-widget">
+                    <div class="logo">
+                        <a href="index">
+                            <img
+                                src="assets/images/deski/logo/deski_06.svg"
+                                alt=""
+                        /></a>
+                    </div>
+                    <ul class="font-rubik mt-10">
+                        <li>
+                            <a href="mailto:deskiinc@gmail.com"
+                                >deskiinc@gmail.com</a
+                            >
+                        </li>
+                        <li>
+                            <a href="tel:+761 412 3224" class="phone"
+                                >+761 412 3224</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.about-widget -->
+                <div class="col-lg-3 col-md-4 footer-list">
+                    <h5 class="footer-title">Links</h5>
+                    <ul>
+                        <li><a [routerLink]="['/']">Home</a></li>
+                        <li><a [routerLink]="['./']">Product</a></li>
+                        <li>
+                            <a [routerLink]="['/pricing-event']">Pricing</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/about-us-event']">About us</a>
+                        </li>
+                        <li><a [routerLink]="['./']">Careers</a></li>
+                        <li><a [routerLink]="['./']">Features</a></li>
+                        <li><a [routerLink]="['./']">Demo the product</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div class="col-lg-3 col-md-4 footer-list">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul>
+                        <li><a [routerLink]="['./']">Terms of use</a></li>
+                        <li>
+                            <a [routerLink]="['./']">Terms &amp; conditions</a>
+                        </li>
+                        <li><a [routerLink]="['./']">Privacy policy</a></li>
+                        <li><a [routerLink]="['./']">Cookie policy</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+                <div class="col-xl-2 col-lg-3 col-md-4 footer-list">
+                    <h5 class="footer-title">Products</h5>
+                    <ul>
+                        <li><a [routerLink]="['./']">Take the tour</a></li>
+                        <li><a [routerLink]="['./']">Live chat</a></li>
+                        <li><a [routerLink]="['./']">Self-service</a></li>
+                        <li><a [routerLink]="['./']">Social</a></li>
+                        <li><a [routerLink]="['./']">Mobile</a></li>
+                        <li><a [routerLink]="['./']">deski Reviews</a></li>
+                    </ul>
+                </div>
+                <!-- /.footer-list -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+
+    <div class="container">
+        <div class="bottom-footer mt-50 md-mt-30">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last mb-20">
+                    <ul
+                        class="d-flex justify-content-center justify-content-lg-end social-icon"
+                    >
+                        <li *ngFor="let link of social_links">
+                            <a [routerLink]="['./']"
+                                ><i [class]="link" aria-hidden="true"></i
+                            ></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 order-lg-first mb-20">
+                    <p class="copyright text-center text-lg-start">
+                        Copyright @{{ date }}
+                        <a
+                            href="https://themeforest.net/user/ib-themes/portfolio"
+                            target="_blank"
+                            >ib-themes</a
+                        >
+                        inc.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

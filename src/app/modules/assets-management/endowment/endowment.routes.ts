@@ -96,7 +96,7 @@ export default [
                 path:'create-endowment',
                 loadChildren: () =>
                 import(
-                    'app/modules/assets-management/endowment/insurances-detail/endowment-details.routes'
+                    'app/modules/assets-management/endowment/create-endowment/create-endowment.routes'
                 ),
             },
             {

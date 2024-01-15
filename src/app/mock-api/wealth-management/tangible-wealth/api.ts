@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
+import { items as itemsData } from 'app/mock-api/apps/file-manager/data';
 
 import { assign, cloneDeep } from 'lodash-es';
 import { from, map } from 'rxjs';
@@ -10,6 +11,7 @@ export class TangibleWealthMockApi
 {
     private _tangables: any[] = tangableData;
     private _tangibleTypes: any[] = tangableWealthType;
+    private _items: any[] = itemsData;
 
 
 
@@ -99,7 +101,26 @@ export class TangibleWealthMockApi
             ];
         });
 
+     // -----------------------------------------------------------------------------------------------------
+        // @ Contact - POST
+        // -----------------------------------------------------------------------------------------------------
+        this._fuseMockApiService
+        .onPost('api/apps/assetBranch/item')
+        .reply(() =>
+        {
+            // Generate a new contact
+            const newContact = {
+                id          : FuseMockApiUtils.guid(),
+                name        : 'New ',
+                description       : 'sjhd sjhcs',
+            };
 
+            // Unshift the new contact
+            this._items.unshift(newContact);
+                debugger
+            // Return the response
+            return [200, newContact];
+        });
 
         // this._fuseMockApiService
         // .onDelete('api/wealth-management/tangible-wealthes')

@@ -1,0 +1,58 @@
+<div>
+  <div class="fancy-portfolio-four lg-container">
+    <div class="container">
+      <div class="top-border bottom-border pb-130 md-pb-90">
+        <div class="controls po-control-one text-center mb-90 md-mb-50 mt-90 md-mt-60">
+          <button type="button" class="control" [ngClass]="isActive === 'all' ? 'active' : ''"
+            (click)="handleItem('all')">All</button>
+          <button type="button" class="control" [ngClass]="isActive === 'dev' ? 'active' : ''"
+            (click)="handleItem('dev')">Development</button>
+          <button type="button" class="control" [ngClass]="isActive === 'plugin' ? 'active' : ''"
+            (click)="handleItem('plugin')">Plugin</button>
+          <button type="button" class="control" [ngClass]="isActive === 'design' ? 'active' : ''"
+            (click)="handleItem('design')">Design</button>
+          <button type="button" class="control" [ngClass]="isActive === 'branding' ? 'active' : ''"
+            (click)="handleItem('branding')">Branding</button>
+        </div>
+
+        <div class="mixitUp-container gutter-space-two d-flex flex-wrap min-h-50vh">
+
+          <div *ngFor="let item of p_items ; let i=index" class="mix">
+            <div class="portfolio-block-two position-relative" data-aos="fade-right">
+              <img [src]="item.img" alt="" class="w-100 h-100 tran4s img-meta">
+              <button *ngIf="!item.video ; else second" data-bs-toggle="modal" [attr.data-bs-target]="'#imageModal'+i"
+                class="fancybox d-flex align-items-center justify-content-center">
+                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+              </button>
+              <ng-template #second>
+                <button data-bs-toggle="modal" data-bs-target="#videoModal"
+                  class="fancybox d-flex align-items-center justify-content-center">
+                  <i class="fa fa-play" aria-hidden="true"></i>
+                </button>
+              </ng-template>
+              <div class="hover-content">
+                <h3>
+                  <a [routerLink]="['/portfolio-details/'+item.id]">{{item.title}}</a>
+                </h3>
+                <div class="tag">{{item.tag}}</div>
+              </div> <!-- /.hover-content -->
+            </div> <!-- /.portfolio-block-two -->
+            <app-image-popup [img]="item.img" [index]="i"></app-image-popup>
+          </div>
+
+        </div> <!-- /.mixitUp-container -->
+
+        <div class="text-center mt-90 md-mt-50">
+          <h2 class="contact-title font-gordita">Do you have any projects? <br>Contact us.</h2>
+          <a [routerLink]="['/contact-us-cs']" class="theme-btn-nine mt-35">Contact Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- VideoModal start  -->
+  <app-video-modal videoUrl="https://www.youtube.com/embed/aXFSJTjVjw0"></app-video-modal>
+  <!-- VideoModal end  -->
+
+</div>

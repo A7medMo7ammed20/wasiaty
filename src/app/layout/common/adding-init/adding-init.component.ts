@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf , TitleCasePipe } from '@angular/common';
 import { FuseScrollbarDirective } from '@fuse/directives/scrollbar';
 
 import {
@@ -13,8 +13,9 @@ import { FuseLoadingBarComponent } from '@fuse/components/loading-bar';
 import { Subject } from 'rxjs';
 import { StepsProgressComponent } from './steps-progress/steps-progress.component';
 import { StepsHeaderComponent } from './steps-header/steps-header.component';
-import { Steps } from 'app/modules/assets-management/insurances/insurance.types';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { Steps } from 'app/shared/types/step.types';
+
 
 @Component({
     selector: 'adding-init',
@@ -29,6 +30,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
         FuseScrollbarDirective,
         StepsProgressComponent,
         StepsHeaderComponent,
+       TitleCasePipe
+
     ],
     animations: [
         trigger('fadeInOut', [
@@ -53,7 +56,6 @@ export class AddingInitComponent implements OnInit, OnDestroy {
      * Constructor
      */
     constructor(private route: ActivatedRoute) {}
-
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
     // -----------------------------------------------------------------------------------------------------

@@ -1,0 +1,92 @@
+<div class="hero-banner-four">
+    <img
+        src="assets/images/deski/shape/100.svg"
+        alt=""
+        class="shapes shape-four"
+    />
+    <img
+        src="assets/images/deski/shape/101.svg"
+        alt=""
+        class="shapes shape-five"
+    />
+    <img
+        src="assets/images/deski/shape/102.svg"
+        alt=""
+        class="shapes shape-six"
+    />
+    <img
+        src="assets/images/deski/shape/103.svg"
+        alt=""
+        class="shapes shape-seven"
+    />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 order-lg-last">
+                <div class="illustration-holder">
+                    <img
+                        src="assets/images/deski/assets/ils_14.svg"
+                        alt=""
+                        class="illustration"
+                    />
+                    <img
+                        src="assets/images/deski/assets/ils_14.1.svg"
+                        alt=""
+                        class="shapes shape-one"
+                    />
+                    <img
+                        src="assets/images/deski/assets/ils_14.2.svg"
+                        alt=""
+                        class="shapes shape-two"
+                    />
+                    <img
+                        src="assets/images/deski/assets/ils_14.3.svg"
+                        alt=""
+                        class="shapes shape-three"
+                    />
+                </div>
+                <p class="review-text">
+                    Over <span>150,000+ client</span> all over the world.
+                </p>
+            </div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="text-wrapper">
+                    <h1><span>Event ticket</span> organiser & seller.</h1>
+                    <p class="sub-text">
+                        For hassale free event, we are here to help you by
+                        creating online ticket.
+                    </p>
+                    <a [routerLink]="['/login']" class="theme-btn-five"
+                        >Let’s get started</a
+                    >
+                </div>
+                <!-- /.text-wrapper -->
+            </div>
+        </div>
+    </div>
+
+    <div class="fancy-feature-eight mt-160 md-mt-100">
+        <div class="container">
+            <div class="bg-wrapper">
+                <div class="row justify-content-center">
+                    <div
+                        *ngFor="let item of fancyFeatureData"
+                        class="col-lg-4 col-md-6"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        [attr.data-aos-delay]="item.delay"
+                    >
+                        <div class="block-style-thirteen">
+                            <div class="icon">
+                                <img src="{{ item.img }}" alt="" />
+                            </div>
+                            <div class="title font-rubik">{{ item.title }}</div>
+                            <p>{{ item.subtitle }}</p>
+                        </div>
+                        <!-- /.block-style-thirteen -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.fancy-feature-eight -->
+</div>

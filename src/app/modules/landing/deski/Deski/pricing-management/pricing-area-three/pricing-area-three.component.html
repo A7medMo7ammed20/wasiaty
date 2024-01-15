@@ -1,0 +1,103 @@
+<div class="pricing-section-one mb-150 md-mb-80">
+    <div class="fancy-hero-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 col-lg-11 m-auto">
+                    <h2 class="font-rubik">Choose package match your budget</h2>
+                </div>
+                <div class="col-12 m-auto">
+                    <p class="font-rubik">
+                        5 minute installation · Try Team plan features for 14
+                        days · No credit card required
+                    </p>
+                </div>
+            </div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs justify-content-center pricing-nav-one">
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        data-bs-toggle="tab"
+                        href="#month"
+                        >Monthly</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#year"
+                        >Yearly</a
+                    >
+                </li>
+            </ul>
+            <div class="offer-text font-rubik">Save 30% on annual plan</div>
+        </div>
+        <div class="bubble-one"></div>
+        <div class="bubble-two"></div>
+        <div class="bubble-three"></div>
+        <div class="bubble-four"></div>
+        <div class="bubble-five"></div>
+        <div class="bubble-six"></div>
+    </div>
+    <!-- /.fancy-hero-one -->
+
+    <div class="pricing-table-area">
+        <img
+            src="assets/images/deski/shape/62.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <img
+            src="assets/images/deski/shape/63.svg"
+            alt=""
+            class="shapes shape-two"
+        />
+        <div class="container">
+            <div class="tab-content">
+                <div
+                    *ngFor="let pricing of pricing_data"
+                    class="tab-pane"
+                    [id]="pricing.id"
+                    [ngClass]="pricing.active ? 'active' : 'fade'"
+                >
+                    <div class="row justify-content-center">
+                        <div
+                            *ngFor="let item of pricing.pricing_items"
+                            class="col-lg-4 col-md-6"
+                        >
+                            <div class="pr-table-wrapper">
+                                <div class="pack-name">{{ item.pac_name }}</div>
+                                <div class="price font-rubik">
+                                    ${{ item.price }}.<sup>99</sup>
+                                </div>
+                                <div class="pack-rec font-rubik">
+                                    Small office / Home office
+                                </div>
+                                <img [src]="item.icon" alt="" class="icon" />
+                                <div class="bill-cycle">
+                                    {{ item.bill_cycle }}
+                                </div>
+                                <ul class="pr-feature">
+                                    <li
+                                        *ngFor="
+                                            let list_item of item.list_items
+                                        "
+                                    >
+                                        {{ list_item.list }}
+                                    </li>
+                                </ul>
+                                <a [routerLink]="['./']" class="theme-btn-four"
+                                    >Choose Plan</a
+                                >
+                                <div class="trial-text font-rubik">
+                                    Get your 30 day free trial
+                                </div>
+                            </div>
+                            <!-- /.pr-table-wrapper -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.pricing-table-area -->
+</div>

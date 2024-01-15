@@ -1,0 +1,308 @@
+<div class="main-page-wrapper p0 overflow-hidden">
+    <!-- header start -->
+    <app-header-four></app-header-four>
+    <!-- header end -->
+
+    <!-- fancy hero start -->
+    <div class="fancy-hero-three">
+        <div class="shapes shape-one"></div>
+        <div class="shapes shape-two"></div>
+        <div class="shapes shape-three"></div>
+        <div class="shapes shape-four"></div>
+        <div class="shapes shape-five"></div>
+        <div class="shapes shape-six"></div>
+        <div class="bg-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-10 m-auto">
+                        <h1 class="heading">
+                            Check our features with details.
+                        </h1>
+                        <p class="sub-heading">
+                            deski helps teams of all sizes get better at
+                            delivering effortless customer
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.bg-wrapper -->
+    </div>
+    <!-- fancy hero end -->
+
+    <!-- fancy text block start -->
+    <div class="fancy-text-block-eleven mt-225 md-mt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 order-lg-last">
+                    <div class="text-wrapper">
+                        <div class="title-style-two mb-35 md-mb-20">
+                            <h2>
+                                <span
+                                    >Exclusive feature
+                                    <img
+                                        src="assets/images/deski/shape/line-shape-5.svg"
+                                        alt=""
+                                /></span>
+                                with great offers everytime.
+                            </h2>
+                        </div>
+                        <!-- /.title-style-two -->
+                        <p>
+                            With Benefits from deski Pro, Earn rewards & Score
+                            discounts on purchases* Foryourself and your
+                            customers.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="img-gallery">
+                        <img
+                            src="assets/images/deski/media/img_35.png"
+                            alt=""
+                        />
+                        <img
+                            src="assets/images/deski/media/img_36.png"
+                            alt=""
+                            class="overlay-img"
+                        />
+                        <img
+                            src="assets/images/deski/shape/49.svg"
+                            alt=""
+                            class="shapes shape-one"
+                        />
+                        <img
+                            src="assets/images/deski/shape/50.svg"
+                            alt=""
+                            class="shapes shape-two"
+                        />
+                    </div>
+                    <!-- /.img-gallery -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy text block end -->
+
+    <!-- counter start -->
+    <app-counter-one [feature_cs]="true"></app-counter-one>
+    <!-- counter end -->
+
+    <!-- fancy feature start -->
+    <div class="fancy-feature-six mt-140 md-mt-70">
+        <div class="bg-wrapper">
+            <div class="shapes shape-one"></div>
+            <div class="shapes shape-two"></div>
+            <div class="shapes shape-three"></div>
+            <div class="shapes shape-four"></div>
+            <div class="shapes shape-five"></div>
+            <img
+                src="assets/images/deski/shape/51.svg"
+                alt=""
+                class="shapes shape-six"
+            />
+            <div class="container">
+                <div class="title-style-two text-center mb-85 md-mb-40">
+                    <h2>
+                        Our
+                        <span
+                            >Features
+                            <img
+                                src="assets/images/deski/shape/line-shape-2.svg"
+                                alt=""
+                        /></span>
+                        list
+                    </h2>
+                    <div class="sub-text mt-15">
+                        Get to know all deski features, that are part of the
+                        complex multi-channel
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div
+                        *ngFor="let item of feature_data"
+                        class="col-md-6 d-flex"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        [attr.data-aos-delay]="item.delay"
+                    >
+                        <div class="block-style-five">
+                            <div class="icon">
+                                <img [src]="item.icon" alt="" />
+                            </div>
+                            <h6 class="title">
+                                <span>{{ item.title }}</span>
+                            </h6>
+                            <p>{{ item.subtitle }}</p>
+                        </div>
+                        <!-- /.block-style-five -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy feature end -->
+
+    <!-- fancy text block two start -->
+    <div class="fancy-text-block-twelve mt-150 md-mt-100">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-lg-6"
+                    data-aos="fade-right"
+                    data-aos-duration="1200"
+                >
+                    <div class="text-wrapper">
+                        <div class="title-style-three">
+                            <h6>Ticket System</h6>
+                            <h2>
+                                <span
+                                    >How doe the ticketing<img
+                                        src="assets/images/deski/shape/line-shape-6.svg"
+                                        alt=""
+                                /></span>
+                                software work?
+                            </h2>
+                        </div>
+                        <p class="sub-text">
+                            A ticketing system is a tool, primarily for customer
+                            service. It helps customer representativ inquiries
+                            from one interface without any struggles.
+                        </p>
+                        <p class="sub-text">
+                            Once a customer agent receives a inquiry from any
+                            channel it will be transformed into a ticket.
+                        </p>
+                    </div>
+                    <!-- /.text-wrapper -->
+                </div>
+
+                <div
+                    class="col-lg-5 ms-auto"
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
+                >
+                    <div class="img-gallery">
+                        <img
+                            src="assets/images/deski/media/img_37.png"
+                            alt=""
+                        />
+                        <img
+                            src="assets/images/deski/shape/53.svg"
+                            alt=""
+                            class="shapes shape-one"
+                        />
+                        <img
+                            src="assets/images/deski/shape/52.svg"
+                            alt=""
+                            class="shapes shape-two"
+                        />
+                    </div>
+                    <!-- /.img-gallery -->
+                </div>
+            </div>
+
+            <div class="mt-70 md-mt-50">
+                <div class="row justify-content-center">
+                    <div
+                        *ngFor="let item of text_block_data"
+                        class="col-lg-4 col-md-6"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        [attr.data-aos-delay]="item.delay"
+                    >
+                        <div class="block-style-eight">
+                            <h6 class="title">{{ item.title }}</h6>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                        <!-- /.block-style-eight -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy text block two  end -->
+
+    <!-- use able tools start -->
+    <app-useable-tools-six [feature]="true"></app-useable-tools-six>
+    <!-- use able tools end -->
+
+    <!-- fancy text block three start -->
+    <div class="fancy-text-block-eleven pt-50">
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-lg-6 order-lg-last"
+                    data-aos="fade-left"
+                    data-aos-duration="1200"
+                >
+                    <div class="text-wrapper ps-3">
+                        <div class="title-style-three mb-35 md-mb-20">
+                            <h6>Certified by trustpilot</h6>
+                            <h2>
+                                <span
+                                    >Certified and trusted
+                                    <img
+                                        src="assets/images/deski/shape/line-shape-7.svg"
+                                        alt=""
+                                    />
+                                </span>
+                                support portal.
+                            </h2>
+                        </div>
+                        <!-- /.title-style-two -->
+                        <p>
+                            Whether you're a theatre, stadium, intimate music
+                            venue, church, gala or concert hall, our seating
+                            chart tooi accurately represent your venue and
+                            seating layout.
+                        </p>
+                        <p class="mt-30">
+                            It's easy to incorporate socialy distanced spaces,
+                            add tables, edit the numbering or have.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="img-gallery">
+                        <img
+                            src="assets/images/deski/media/img_38.png"
+                            alt=""
+                            data-aos="fade-right"
+                            data-aos-duration="1200"
+                        />
+                        <img
+                            src="assets/images/deski/media/img_36.png"
+                            alt=""
+                            class="overlay-img"
+                            data-aos="fade-left"
+                            data-aos-duration="1200"
+                            data-aos-delay="100"
+                        />
+                        <img
+                            src="assets/images/deski/shape/49.svg"
+                            alt=""
+                            class="shapes shape-one"
+                        />
+                        <img
+                            src="assets/images/deski/shape/54.svg"
+                            alt=""
+                            class="shapes shape-three"
+                        />
+                    </div>
+                    <!-- /.img-gallery -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fancy text block three end -->
+
+    <!-- short banner start -->
+    <app-short-banner-three [feature_cs]="true"></app-short-banner-three>
+    <!-- short banner end -->
+
+    <!-- footer start -->
+    <app-footer-four></app-footer-four>
+    <!-- footer end -->
+</div>

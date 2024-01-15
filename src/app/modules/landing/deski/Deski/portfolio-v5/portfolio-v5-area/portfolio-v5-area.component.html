@@ -1,0 +1,133 @@
+<div>
+    <div class="fancy-portfolio-six mt-80 md-mt-40" id="portfolio01">
+        <div class="container">
+            <div class="bottom-border pb-130 md-pb-50">
+                <div class="controls po-control-two text-center mb-90 md-mb-50">
+                    <button
+                        type="button"
+                        class="control"
+                        [ngClass]="isActive === 'all' ? 'active' : ''"
+                        (click)="handleItem('all')"
+                    >
+                        All
+                    </button>
+                    <button
+                        type="button"
+                        class="control"
+                        [ngClass]="isActive === 'dev-4' ? 'active' : ''"
+                        (click)="handleItem('dev-4')"
+                    >
+                        Development
+                    </button>
+                    <button
+                        type="button"
+                        class="control"
+                        [ngClass]="isActive === 'creative-4' ? 'active' : ''"
+                        (click)="handleItem('creative-4')"
+                    >
+                        Creative
+                    </button>
+                    <button
+                        type="button"
+                        class="control"
+                        [ngClass]="isActive === 'plugin-4' ? 'active' : ''"
+                        (click)="handleItem('plugin-4')"
+                    >
+                        Plugin
+                    </button>
+                    <button
+                        type="button"
+                        class="control"
+                        [ngClass]="isActive === 'design-4' ? 'active' : ''"
+                        (click)="handleItem('design-4')"
+                    >
+                        Design
+                    </button>
+                    <button
+                        type="button"
+                        class="control"
+                        [ngClass]="isActive === 'branding-4' ? 'active' : ''"
+                        (click)="handleItem('branding-4')"
+                    >
+                        Branding
+                    </button>
+                </div>
+
+                <div class="mixitUp-container min-h-50vh">
+                    <div
+                        *ngFor="let item of p_items; let i = index"
+                        class="mix"
+                        [ngClass]="item.large_size ? 'mixL' : ''"
+                    >
+                        <div
+                            class="portfolio-block-two position-relative"
+                            data-aos="fade-right"
+                        >
+                            <img
+                                [src]="item.img"
+                                alt=""
+                                class="w-100 h-100 tran4s img-meta"
+                            />
+                            <button
+                                *ngIf="!item.video; else second"
+                                data-bs-toggle="modal"
+                                [attr.data-bs-target]="'#imageModal' + i"
+                                class="fancybox d-flex align-items-center justify-content-center"
+                            >
+                                <i
+                                    class="fa fa-arrows-alt"
+                                    aria-hidden="true"
+                                ></i>
+                            </button>
+                            <ng-template #second>
+                                <button
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#videoModal"
+                                    class="fancybox d-flex align-items-center justify-content-center"
+                                >
+                                    <i
+                                        class="fa fa-play"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
+                            </ng-template>
+                            <div class="hover-content">
+                                <h3>
+                                    <a
+                                        [routerLink]="[
+                                            '/portfolio-details/' + item.id
+                                        ]"
+                                        >{{ item.title }}</a
+                                    >
+                                </h3>
+                                <div class="tag">{{ item.tag }}</div>
+                            </div>
+                            <!-- /.hover-content -->
+                        </div>
+                        <!-- /.portfolio-block-two -->
+                        <app-image-popup
+                            [img]="item.img"
+                            [index]="i"
+                        ></app-image-popup>
+                    </div>
+
+                    <!-- VideoModal start  -->
+                    <app-video-modal
+                        videoUrl="https://www.youtube.com/embed/aXFSJTjVjw0"
+                    ></app-video-modal>
+                    <!-- VideoModal end  -->
+                </div>
+                <!-- /.mixitUp-container -->
+
+                <div class="text-center mt-80 md-mt-60">
+                    <a
+                        href="#"
+                        class="scroll-target d-flex align-items-center justify-content-center"
+                    >
+                        <img src="assets/images/deski/icon/156.png" alt=""
+                    /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

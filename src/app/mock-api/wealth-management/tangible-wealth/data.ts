@@ -1,105 +1,113 @@
-import { TangibleWealthes, WealthType } from "app/modules/assets-management/wealth-management.types"
+import {
+    TangibleWealthes,
+    WealthType,
+} from 'app/modules/assets-management/wealth-management.types';
 
 export const tangableWealth: TangibleWealthes[] = [
     {
         //
         // Real Estate Properties
         id: '1',
+        parentId: '',
         wealthType: 1,
-        name: "Real Estate Properties",
+        name: 'Real Estate Properties',
         acquisitionValue: 1500,
-        method: "Asset Weighting",
-        status: "Process Completed",
+        method: 'Asset Weighting',
+        status: 'Process Completed',
         counter: 13,
-        wealthTypeRoute:'',
+        wealthTypeRoute: '',
         child: [
             {
-                id: '8',
+                id: '823e6166-c0c8-4373-9270-8a0d1748953gh',
+
+                parentId: '1',
                 wealthType: 1,
                 name: 'Commercial Real Estate',
                 acquisitionValue: 98,
                 method: '',
                 status: '',
                 counter: 0,
-                wealthTypeRoute:'',
+                wealthTypeRoute: '',
                 child: [
                     {
-                        id: '8',
+                        id: '823e6166-c0c8-4373-9270-8a0d17489a34',
+                        parentId: '1',
                         wealthType: 1,
                         name: 'Office Buildings',
                         acquisitionValue: 98,
                         method: '',
                         status: '',
                         counter: 0,
-                        wealthTypeRoute:'',
+                        wealthTypeRoute: '',
                         child: [
                             {
-                                id:'823e6166-c0c8-4373-9270-8a0d17489a08' ,
-                                wealthType:1,
-                                name:'Business Center',
-                                acquisitionValue:34,
-                                method:'',
-                                status:'',
-                                counter:0,
-                                child:[],
-                                wealthTypeRoute:''
-
+                                id: '823e6166-c0c8-4373-9270-8a0d17489a08',
+                                parentId: '1',
+                                wealthType: 1,
+                                name: 'Business Center',
+                                acquisitionValue: 34,
+                                method: '',
+                                status: '',
+                                counter: 0,
+                                child: [],
+                                wealthTypeRoute: '',
                             },
                             {
-                                id:'e6166-c0c8-4373-9270-8a0d17489a08823' ,
-                                wealthType:1,
-                                name:'Co-working Space',
-                                acquisitionValue:34,
-                                method:'',
-                                status:'',
-                                counter:0,
-                                child:[],
-                                wealthTypeRoute:''
-
+                                id: 'e6166-c0c8-4373-9270-8a0d17489a08823',
+                                parentId: '1',
+                                wealthType: 1,
+                                name: 'Co-working Space',
+                                acquisitionValue: 34,
+                                method: '',
+                                status: '',
+                                counter: 0,
+                                child: [],
+                                wealthTypeRoute: '',
                             },
                             {
-                                id:'e6166823-c0c8-4373-9270-8a0d17489a08823' ,
-                                wealthType:1,
-                                name:'Executive Office',
-                                acquisitionValue:34,
-                                method:'',
-                                status:'',
-                                counter:0,
-                                child:[],
-                                wealthTypeRoute:''
-
+                                id: 'e6166823-c0c8-4373-9270-8a0d17489a08823',
+                                parentId: '1',
+                                wealthType: 1,
+                                name: 'Executive Office',
+                                acquisitionValue: 34,
+                                method: '',
+                                status: '',
+                                counter: 0,
+                                child: [],
+                                wealthTypeRoute: '',
                             },
-                        ]
+                        ],
                     },
                     {
-                        id: '9',
+                        id: '834je6166-c0c8-4373-9270-8a0d17489a08',
+                        parentId: '1',
                         wealthType: 1,
                         name: 'Industrial Buildings',
                         acquisitionValue: 98,
                         method: '',
                         status: '',
                         counter: 0,
-                        child: [
-                        ],
-                        wealthTypeRoute:''
+                        child: [],
+                        wealthTypeRoute: '',
                     },
                     {
-                        id: '10',
+                        id: '823e6166-c0c8-4373-9270-8a0d17489dfgd9',
+                        parentId: '1',
                         wealthType: 1,
                         name: 'Hotels and Hospitality',
                         acquisitionValue: 98,
                         method: '',
                         status: '',
                         counter: 0,
-                        child: [
-                        ] ,
+                        child: [],
 
-                        wealthTypeRoute:'',
+                        wealthTypeRoute: '',
                     },
-                ]
+                ],
             },
             {
-                id: '8',
+                id: '467567',
+                parentId: '1',
                 wealthType: 1,
                 name: '',
                 acquisitionValue: 98,
@@ -107,11 +115,11 @@ export const tangableWealth: TangibleWealthes[] = [
                 status: '',
                 counter: 0,
                 child: [],
-                wealthTypeRoute:''
-
+                wealthTypeRoute: '',
             },
             {
-                id: '9',
+                id: 'rtur56767',
+                parentId: '1',
                 wealthType: 1,
                 name: '',
                 acquisitionValue: 98,
@@ -119,194 +127,158 @@ export const tangableWealth: TangibleWealthes[] = [
                 status: '',
                 counter: 0,
                 child: [],
-                wealthTypeRoute:''
+                wealthTypeRoute: '',
             },
-        ]
+        ],
     },
 
-    // {
-    //     id: '2',
-    //     wealthType: 1,
-    //     name: "Mixed-Use Properties",
-    //     acquisitionValue: 300,
-    //     method: "From Real Estate",
-    //     status: "Evaluation",
-    //     counter: 5,
-
-    //     child: []
-    // },
-    // {
-    //     id: '3',
-    //     wealthType: 1,
-    //     name: "Commercial Real Estate ",
-    //     acquisitionValue: 800,
-    //     method: "Asset Weighting",
-    //     status: "From last month",
-    //     counter: 9,
-    //     child: []
-
-    // },
     ////////////////////Vehicles
 
     {
-        id: '4',
+        id: '478946i8',
+        parentId: ' ',
         wealthType: 2,
-        name: "Cars",
+        name: 'Cars',
         acquisitionValue: 100,
-        method: "From Vehicles",
-        status: "Process Completed",
+        method: 'From Vehicles',
+        status: 'Process Completed',
         counter: 13,
         child: [],
-        wealthTypeRoute: ""
+        wealthTypeRoute: '',
     },
     {
-        id: '5',
+        id: '34563565',
+        parentId: '',
         wealthType: 2,
-        name: "Motorcycles",
+        name: 'Motorcycles',
         acquisitionValue: 500,
-        method: "Asset Weighting",
-        status: "From last month",
+        method: 'Asset Weighting',
+        status: 'From last month',
         counter: 9,
-        child: []
-        , wealthTypeRoute: ""
+        child: [],
+        wealthTypeRoute: '',
     },
     {
-        id: '6',
+        id: '34655356',
+        parentId: '',
         wealthType: 2,
-        name: "Buses",
+        name: 'Buses',
         acquisitionValue: 900,
-        method: "From Vehicles",
-        status: "Evaluation",
+        method: 'From Vehicles',
+        status: 'Evaluation',
         counter: 5,
         child: [],
 
-        wealthTypeRoute: ""
+        wealthTypeRoute: '',
     },
     {
-        id: '7',
+        id: 'asgs436346',
+        parentId: '',
         wealthType: 2,
-        name: "Trucks",
+        name: 'Trucks',
         acquisitionValue: 400,
-        method: "From Vehicles",
-        status: "Process Completed",
+        method: 'From Vehicles',
+        status: 'Process Completed',
         counter: 9,
         child: [],
-        wealthTypeRoute: ""
+        wealthTypeRoute: '',
     },
     {
-        id: '8',
+        id: '346y54ytgxf4t',
+        parentId: '',
         wealthType: 2,
-        name: "Boats",
+        name: 'Boats',
         acquisitionValue: 1200,
-        method: "From Vehicles",
-        status: "Process Completed",
+        method: 'From Vehicles',
+        status: 'Process Completed',
         counter: 7,
         child: [],
 
-        wealthTypeRoute: ""
+        wealthTypeRoute: '',
     },
 
     //Accounts receivable
     {
         id: '9',
+        parentId: '',
         wealthType: 3,
-        name: "General Accounts Receivable",
+        name: 'General Accounts Receivable',
         acquisitionValue: 100,
-        method: "From Vehicles",
-        status: "Process Completed",
+        method: 'From Vehicles',
+        status: 'Process Completed',
         counter: 7,
         child: [],
 
-        wealthTypeRoute: ""
+        wealthTypeRoute: '',
     },
     {
         id: '10',
+        parentId: '',
         wealthType: 3,
-        name: "Trade Accounts Receivable",
+        name: 'Trade Accounts Receivable',
         acquisitionValue: 100,
-        method: "Asset Weighting",
-        status: " From last month",
+        method: 'Asset Weighting',
+        status: ' From last month',
         counter: 9,
 
-        child: [] ,
-        wealthTypeRoute: ""
+        child: [],
+        wealthTypeRoute: '',
     },
-    // {
-    //     id: '11',
-    //     wealthType: 3,
-    //     name: "Non-Trade Accounts Receivable",
-    //     acquisitionValue: 100,
-    //     method:"From Vehicles",
-    //     status: "Evaluation ",
-    //     counter:5
-    //     counter:5,
-    // wealthTypeRoute:""
-    // },
-    // {
-    //     id: '12',
-    //     wealthType: 3,
-    //     name: "Accrued Accounts Receivable",
-    //     acquisitionValue: 1400,
-    //     method: "Asset Weighting",
-    //     status: " Process Completed",
-    //     counter: 9,
-
-    //     child: [] ,
-    //     counter: 9
-    //     ,
-    //     wealthTypeRoute: ""
-    // },
 
     // Marketable securities
     {
         id: '13',
+        parentId: ' ',
         wealthType: 4,
-        name: "Certificates of Deposit ",
+        name: 'Certificates of Deposit ',
         acquisitionValue: 800,
-        method: "Tasks",
-        status: " From yesterday",
+        method: 'Tasks',
+        status: ' From yesterday',
         counter: 19,
         child: [],
-        wealthTypeRoute:''
+        wealthTypeRoute: '',
     },
     {
         id: '14',
+        parentId: ' ',
         wealthType: 4,
-        name: "Sukuk",
+        name: 'Sukuk',
         acquisitionValue: 200,
-        method: "Open",
-        status: " Completed",
+        method: 'Open',
+        status: ' Completed',
         counter: 19,
         child: [],
-        wealthTypeRoute:''
+        wealthTypeRoute: '',
     },
     {
         id: '15',
+        parentId: ' ',
         wealthType: 4,
-        name: "Exchange-Traded Funds - ETFs",
+        name: 'Exchange-Traded Funds - ETFs',
         acquisitionValue: 700,
-        method: "Tasks",
-        status: " From yesterday",
+        method: 'Tasks',
+        status: ' From yesterday',
         counter: 19,
         child: [],
-        wealthTypeRoute:''
+        wealthTypeRoute: '',
     },
     {
         id: '16',
+        parentId: ' ',
         wealthType: 4,
-        name: "Stocks",
+        name: 'Stocks',
         acquisitionValue: 600,
-        method: "Proposals",
-        status: " Closed today",
+        method: 'Proposals',
+        status: ' Closed today',
         counter: 8,
         child: [],
-        wealthTypeRoute:''
+        wealthTypeRoute: '',
     },
 
     ///////////////
     // {
     //     id: '17',
-    //     wealthType: 1,
+    //     parentId:'1',wealthType: 1,
     //     name: "Special Purpose Real Estate",
     //     acquisitionValue: 400,
     //     method: "From Real Estate",
@@ -318,7 +290,7 @@ export const tangableWealth: TangibleWealthes[] = [
 
     // {
     //     id: '18',
-    //     wealthType: 1,
+    //     parentId:'1',wealthType: 1,
     //     name: "Raw Land",
     //     acquisitionValue: 600,
     //     method: "From Real Estate",
@@ -329,7 +301,7 @@ export const tangableWealth: TangibleWealthes[] = [
     // },
     // {
     //     id: '19',
-    //     wealthType: 4,
+    //     parentId:'1',wealthType: 4,
     //     name: "Bonds",
     //     acquisitionValue: 600,
     //     method: "From Real Estate",
@@ -341,7 +313,7 @@ export const tangableWealth: TangibleWealthes[] = [
 
     // {
     //     id: '14',
-    //     wealthType: 4,
+    //     parentId:'1',wealthType: 4,
     //     name: "Sukuk",
     //     acquisitionValue: 200,
     //     method: "Open",
@@ -352,7 +324,7 @@ export const tangableWealth: TangibleWealthes[] = [
     // },
     // {
     //     id: '15',
-    //     wealthType: 4,
+    //     parentId:'1',wealthType: 4,
     //     name: "Exchange-Traded Funds - ETFs",
     //     acquisitionValue: 700,
     //     method: "Tasks",
@@ -363,7 +335,7 @@ export const tangableWealth: TangibleWealthes[] = [
     // },
     // {
     //     id: '16',
-    //     wealthType: 4,
+    //     parentId:'1',wealthType: 4,
     //     name: "Stocks",
     //     acquisitionValue: 600,
     //     method: "Proposals",
@@ -376,7 +348,7 @@ export const tangableWealth: TangibleWealthes[] = [
     // ///////////////
     // {
     //     id: '17',
-    //     wealthType: 1,
+    //     parentId:'1',wealthType: 1,
     //     name: "Special Purpose Real Estate",
     //     acquisitionValue: 400,
     //     method: "From Real Estate",
@@ -388,7 +360,7 @@ export const tangableWealth: TangibleWealthes[] = [
 
     // {
     //     id: '18',
-    //     wealthType: 1,
+    //     parentId:'1',wealthType: 1,
     //     name: "Raw Land",
     //     acquisitionValue: 600,
     //     method: "From Real Estate",
@@ -399,7 +371,7 @@ export const tangableWealth: TangibleWealthes[] = [
     // },
     // {
     //     id: '19',
-    //     wealthType: 4,
+    //     parentId:'1',wealthType: 4,
     //     name: "Bonds",
     //     acquisitionValue: 600,
     //     method: "From Real Estate",
@@ -408,23 +380,46 @@ export const tangableWealth: TangibleWealthes[] = [
 
     //     wealthTypeRoute: ""
     // },
-
-]
-
+];
 
 export const tangableWealthType: WealthType[] = [
     {
         id: 1,
-        wealthType: "Real Estate",
-        wealthTypeRoute: "commercial-real-estate",
-
+        wealthType: 'Real Estate',
+        wealthTypeRoute: 'commercial-real-estate',
     },
     {
         id: 2,
-        wealthType: "Mixed-Use Properties",
-        wealthTypeRoute: "mixed-use-properties",
-
+        wealthType: 'Mixed-Use Properties',
+        wealthTypeRoute: 'mixed-use-properties',
     },
+    {
+        id: 3,
+        wealthType: 'Vehicles',
+        wealthTypeRoute: 'mixed-use-properties',
+    },
+    {
+        id: 4,
+        wealthType: 'Marketable securities',
+        wealthTypeRoute: 'mixed-use-properties',
+    },
+    {
+        id: 5,
+        wealthType: 'Accounts receivable',
+        wealthTypeRoute: 'mixed-use-properties',
+    },
+    {
+        id: 6,
+        wealthType: 'Other',
+        wealthTypeRoute: 'mixed-use-properties',
+    },
+];
+
+export const items =[
+
+  {
+      id          :'cd6897cb',
+    name        :'build',
+    description :''
+}
 ]
-
-

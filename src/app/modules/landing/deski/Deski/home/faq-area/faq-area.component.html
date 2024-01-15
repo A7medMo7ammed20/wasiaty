@@ -1,0 +1,39 @@
+<div class="faq-classic"
+[ngClass]="pricing ? 'pt-150 pb-130 md-pt-100' :
+sol_m ? 'pt-150 pb-150 md-pt-120 md-pb-120' : 'pt-225 md-pt-120'">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="title-style-one">
+          <h6 class="font-rubik">Find your answers</h6>
+          <h2>Have any thought? Look here.</h2>
+        </div> <!-- /.title-style-one -->
+        <a [routerLink]="['/faq']" class="theme-btn-one mt-50 md-mt-30">Go to Faq</a>
+      </div>
+      <div class="col-lg-6">
+        <!-- ================== FAQ Panel ================ -->
+          <div id="accordionExample" class="md-mt-60">
+
+            <div *ngFor="let item of faqData" class="accordion-item">
+              <div class="accordion-header" [id]="item.headingNum">
+                <h5 class="mb-0">
+                  <button class="btn btn-link accordion-button" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#' + item.collapseNum" [attr.aria-expanded]="item.expanded ? 'true' : 'false'" [attr.aria-controls]="item.collapseNum">
+                    {{item.btnText}}
+                  </button>
+                </h5>
+              </div>
+              <div [id]="item.collapseNum" [class]="item.collapseClass" [attr.aria-labelledby]="item.headingNum" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>
+                    {{item.desc}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div> <!-- /.col- -->
+    </div>
+  </div>
+</div>

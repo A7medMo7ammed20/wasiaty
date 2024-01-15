@@ -1,0 +1,77 @@
+<div
+    class="theme-main-menu sticky-menu theme-menu-two"
+    [ngClass]="headerSticky ? 'fixed' : ''"
+>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="logo">
+            <a [routerLink]="['/']">
+                <img src="assets/images/deski/logo/deski_01.svg" alt=""
+            /></a>
+        </div>
+
+        <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
+            <div class="nav-container">
+                <button
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar"
+                    [ngClass]="
+                        menuActive ? 'navbar-toggler open' : 'navbar-toggler'
+                    "
+                    (click)="handleNavToggle()"
+                >
+                    <span></span>
+                </button>
+                <div class="navbar-collapse collapse" id="collapsibleNavbar">
+                    <div
+                        class="d-lg-flex justify-content-between align-items-center"
+                    >
+                        <!-- nav menu start -->
+                        <app-nav-menu></app-nav-menu>
+                        <!-- nav menu end -->
+
+                        <ul class="right-widget">
+                            <li class="d-sm-flex">
+                                <ul
+                                    class="language-button-group d-flex align-items-center justify-content-center"
+                                >
+                                    <li>
+                                        <a
+                                            [routerLink]="['./']"
+                                            class="eng-lang active"
+                                            >En.
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a [routerLink]="['./']" class="ru-lang"
+                                            >Ru.</a
+                                        >
+                                    </li>
+                                </ul>
+
+                                <ul
+                                    class="user-login-button d-flex align-items-center justify-content-center"
+                                >
+                                    <li>
+                                        <a
+                                            [routerLink]="['/login']"
+                                            class="signIn-action"
+                                            >Login</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            [routerLink]="['/register']"
+                                            class="signUp-action"
+                                            >Sign Up</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

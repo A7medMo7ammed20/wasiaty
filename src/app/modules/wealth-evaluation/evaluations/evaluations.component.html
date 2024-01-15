@@ -42,6 +42,7 @@
                                     All Evaluations
                                 </div>
                             </div>
+                            <!-- plus button -->
                             <button
                                 class="ml-auto"
                                 mat-icon-button
@@ -51,6 +52,8 @@
                                     [svgIcon]="'heroicons_outline:plus-circle'"
                                 ></mat-icon>
                             </button>
+
+                            <!-- Menu Outline button -->
                             <button
                                 class="ml-1 -mr-4"
                                 mat-icon-button
@@ -62,6 +65,7 @@
                                     "
                                 ></mat-icon>
                                 <mat-menu #evaluationsHeaderMenu>
+
                                     <button mat-menu-item>
                                         <mat-icon
                                             [svgIcon]="
@@ -70,7 +74,7 @@
                                         ></mat-icon>
                                         Go to Wealth Management
                                     </button>
-
+                                    
                                     <button mat-menu-item>
                                         <mat-icon
                                             [svgIcon]="
@@ -95,6 +99,7 @@
                                     </button>
                                 </mat-menu>
                             </button>
+
                         </div>
                         <!-- Search -->
                         <div class="mt-4">
@@ -132,12 +137,15 @@
                                 else noevaluations
                             "
                         >
+
+                     
                             <ng-container
                                 *ngFor="
                                     let evaluation of filteredevaluations;
                                     trackBy: trackByFn
                                 "
                             >
+                                <!-- go to conversation if -->
                                 <a
                                     class="z-20 flex items-center py-5 px-8 cursor-pointer border-b"
                                     [ngClass]="{
@@ -150,8 +158,10 @@
                                             selectedevaluation.id ===
                                                 evaluation.id
                                     }"
-                                    [routerLink]="[evaluation.id]"
+                                    [routerLink]="[evaluation.id]" 
+                                    
                                 >
+                               
                                     <div class="min-w-0 ml-4">
                                         <div
                                             class="font-medium leading-5 truncate"
@@ -177,6 +187,7 @@
                                         </div>
                                     </div>
                                 </a>
+                                
                             </ng-container>
                         </ng-container>
                     </div>
@@ -216,6 +227,7 @@
                     <router-outlet></router-outlet>
                 </div>
             </ng-container>
+
         </mat-drawer-content>
     </mat-drawer-container>
 </div>

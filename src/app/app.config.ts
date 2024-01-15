@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withJsonpSupport } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { LuxonDateAdapter } from '@angular/material-luxon-adapter';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
@@ -10,11 +10,12 @@ import { provideAuth } from 'app/core/auth/auth.provider';
 import { provideIcons } from 'app/core/icons/icons.provider';
 import { provideTransloco } from 'app/core/transloco/transloco.provider';
 import { mockApiServices } from 'app/mock-api';
+import { ErrorInterceptorService } from './ErrorInterceptorService';
 
 export const appConfig: ApplicationConfig = {
     providers: [
         provideAnimations(),
-        provideHttpClient(),
+        provideHttpClient(withJsonpSupport()),
         provideRouter(appRoutes,
             withPreloading(PreloadAllModules),
             withInMemoryScrolling({scrollPositionRestoration: 'enabled'}),
@@ -44,7 +45,7 @@ export const appConfig: ApplicationConfig = {
         provideTransloco(),
 
         // Fuse
-        provideAuth(),
+        // provideAuth(),
         provideIcons(),
         provideFuse({
             mockApi: {
@@ -89,5 +90,11 @@ export const appConfig: ApplicationConfig = {
                 ],
             },
         }),
+
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: ErrorInterceptorService,
+            multi: true,
+          },
     ],
 };

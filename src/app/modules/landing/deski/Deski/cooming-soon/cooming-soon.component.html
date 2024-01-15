@@ -1,0 +1,86 @@
+<div class="h-100">
+    <div class="full-height-layout d-flex align-items-center">
+        <div class="coming-soon-content font-gordita">
+            <h6>COMING SOON</h6>
+            <h1>Get notified when we’r ready to launch!</h1>
+            <div class="row">
+                <div class="col-lg-9 m-auto">
+                    <p>
+                        We're under construction. Check back for an update soon.
+                        Stay in touch!
+                    </p>
+                </div>
+            </div>
+            <form #subForm="ngForm" (submit)="getFormData(subForm.value)">
+                <input
+                    ngModel
+                    type="email"
+                    name="email"
+                    placeholder="ihidago@ujufidnan.gov"
+                />
+                <button>Notify Me</button>
+            </form>
+
+            <ul class="social-icon d-flex justify-content-center">
+                <li *ngFor="let link of social_links">
+                    <a [routerLink]="['./']"
+                        ><i [class]="link" aria-hidden="true"></i
+                    ></a>
+                </li>
+            </ul>
+
+            <img
+                src="assets/images/deski/shape/179.svg"
+                alt=""
+                class="shapes shape-one"
+            />
+            <img
+                src="assets/images/deski/shape/180.svg"
+                alt=""
+                class="shapes shape-two"
+            />
+            <img
+                src="assets/images/deski/shape/181.svg"
+                alt=""
+                class="shapes shape-three"
+            />
+            <img
+                src="assets/images/deski/shape/182.svg"
+                alt=""
+                class="shapes shape-four"
+            />
+            <img
+                src="assets/images/deski/shape/183.svg"
+                alt=""
+                class="shapes shape-five"
+            />
+            <img
+                src="assets/images/deski/shape/184.svg"
+                alt=""
+                class="shapes shape-six"
+            />
+            <img
+                src="assets/images/deski/shape/185.svg"
+                alt=""
+                class="shapes shape-seven"
+            />
+            <img
+                src="assets/images/deski/shape/186.svg"
+                alt=""
+                class="shapes shape-eight"
+            />
+            <img
+                src="assets/images/deski/shape/187.svg"
+                alt=""
+                class="shapes shape-nine"
+            />
+            <img
+                src="assets/images/deski/shape/188.svg"
+                alt=""
+                class="shapes shape-ten"
+            />
+        </div>
+        <!-- /.coming-soon-content -->
+    </div>
+    <!-- /.full-height-layout -->
+</div>

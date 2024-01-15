@@ -1,0 +1,47 @@
+<div class="fancy-feature-eight mt-110 md-mt-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 m-auto">
+                <div class="title-style-four text-center mb-80 md-mb-30">
+                    <h2>
+                        Create documentation with technical-free writing,
+                        <span>
+                            & effortless
+                            <img
+                                src="../../assets/images/deski/shape/line-shape-3.svg"
+                                alt=""
+                        /></span>
+                        hosting.
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-11 m-auto">
+                <div class="row">
+                    <div
+                        *ngFor="let item of fancyFeatureData"
+                        class="col-md-6"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        [attr.data-aos-delay]="item.delay"
+                    >
+                        <div class="block-style-ten">
+                            <div class="icon">
+                                <img src="{{ item.img }}" alt="" />
+                            </div>
+                            <h6 class="title">{{ item.category }}</h6>
+                            <p>{{ item.title }}</p>
+                            <a [routerLink]="['./']"
+                                ><img
+                                    src="../../assets/images/deski/icon/56.svg"
+                                    alt=""
+                            /></a>
+                        </div>
+                        <!-- /.block-style-ten -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

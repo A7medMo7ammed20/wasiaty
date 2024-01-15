@@ -1,0 +1,109 @@
+<div class="pricing-section-two">
+    <div class="fancy-hero-four">
+        <div class="shapes shape-one"></div>
+        <div class="shapes shape-two"></div>
+        <div class="shapes shape-three"></div>
+        <div class="shapes shape-four"></div>
+        <div class="shapes shape-five"></div>
+        <div class="shapes shape-six"></div>
+        <div class="bg-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-10 col-lg-11 m-auto">
+                        <h2>Choose package match your budget</h2>
+                    </div>
+                    <div class="col-12 m-auto">
+                        <p class="font-rubik sub-heading">
+                            5 minute installation · Try Team plan features for
+                            14 days · No credit card required
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-center pricing-nav-two">
+                    <li class="nav-item">
+                        <button
+                            class="nav-link active"
+                            data-bs-toggle="tab"
+                            data-bs-target="#month"
+                        >
+                            Monthly
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button
+                            class="nav-link"
+                            data-bs-toggle="tab"
+                            data-bs-target="#year"
+                        >
+                            Yearly
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.bg-wrapper -->
+    </div>
+    <!-- /.fancy-hero-four -->
+
+    <div class="container">
+        <div class="pricing-table-area">
+            <div class="clearfix">
+                <div class="tab-content">
+                    <div
+                        *ngFor="let pricing of pricing_data"
+                        class="tab-pane"
+                        [id]="pricing.id"
+                        [ngClass]="pricing.active ? 'active' : 'fade'"
+                    >
+                        <div class="row g-0">
+                            <div
+                                *ngFor="let item of pricing.pricing_items"
+                                class="col-lg-3 col-sm-6 pr-bg d-flex"
+                            >
+                                <div class="pr-table-wrapper">
+                                    <div class="pack-name">
+                                        {{ item.pac_name }}
+                                    </div>
+                                    <div class="price">
+                                        <sup>$</sup>{{ item.price }}
+                                    </div>
+                                    <div class="bill-cycle">
+                                        {{ item.bill_cycle }}
+                                    </div>
+                                    <a
+                                        [routerLink]="['./']"
+                                        class="theme-btn-three"
+                                        >Sign Up</a
+                                    >
+                                    <ul class="pr-feature">
+                                        <li
+                                            *ngFor="
+                                                let list_item of item.list_items
+                                            "
+                                        >
+                                            {{ list_item.list }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.pr-table-wrapper -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img
+                src="assets/images/deski/shape/64.svg"
+                alt=""
+                class="shapes shape-one"
+            />
+            <img
+                src="assets/images/deski/shape/65.svg"
+                alt=""
+                class="shapes shape-two"
+            />
+        </div>
+        <!-- /.pricing-table-area -->
+    </div>
+</div>

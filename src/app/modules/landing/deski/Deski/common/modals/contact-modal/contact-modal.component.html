@@ -1,0 +1,116 @@
+<div
+    class="modal fade modal-contact-popup-one"
+    id="contactModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="contactModalTitle"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <main class="main-body modal-content clearfix">
+            <button
+                type="button"
+                class="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+            >
+                <img
+                    *ngIf="!dark"
+                    src="assets/images/deski/icon/close.svg"
+                    alt=""
+                />
+                <img
+                    *ngIf="dark"
+                    src="assets/images/deski/icon/close-w.svg"
+                    alt=""
+                />
+            </button>
+            <div class="left-side">
+                <div class="d-flex flex-column justify-content-between h-100">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-8 m-auto">
+                            <blockquote>
+                                “I never dreamed about success. I worked for
+                                it.”
+                            </blockquote>
+                            <span class="bio">—Estée Lauder</span>
+                        </div>
+                    </div>
+                    <img
+                        *ngIf="!dark"
+                        src="assets/images/deski/assets/ils_18.svg"
+                        alt=""
+                        class="illustration mt-auto"
+                    />
+                    <img
+                        *ngIf="dark"
+                        src="assets/images/deski/assets/ils_19.svg"
+                        alt=""
+                        class="illustration mt-auto"
+                    />
+                </div>
+            </div>
+            <!-- /.left-side -->
+            <div class="right-side">
+                <h2 class="form-title">Contact us</h2>
+                <form
+                    ngNativeValidate
+                    #subForm="ngForm"
+                    (submit)="getFormData(subForm.value)"
+                    id="contact-form"
+                    data-bs-toggle="validator"
+                >
+                    <div class="messages"></div>
+                    <div class="row controls">
+                        <div class="col-12">
+                            <div class="input-group-meta form-group mb-15">
+                                <label>Name</label>
+                                <input
+                                    ngModel
+                                    type="text"
+                                    name="name"
+                                    placeholder="Your Name"
+                                    required
+                                />
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group-meta form-group mb-35">
+                                <label>Email*</label>
+                                <input
+                                    ngModel
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email Address"
+                                    name="email"
+                                    required
+                                />
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group-meta form-group mb-25">
+                                <textarea
+                                    ngModel
+                                    type="text"
+                                    name="message"
+                                    placeholder="Your message"
+                                    required
+                                ></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="theme-btn-seven w-100">
+                                Send Message
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.right-side -->
+        </main>
+        <!-- /.main-body -->
+    </div>
+</div>

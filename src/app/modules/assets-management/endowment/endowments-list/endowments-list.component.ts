@@ -115,7 +115,7 @@ export class EndowmentsListeComponent {
     }
     createEndowments(): void {
         // Create the task
-        debugger;
+         ;
 
         this._router.navigate(['./', 'create-endowment'], {
             relativeTo: this._activatedRoute.parent,

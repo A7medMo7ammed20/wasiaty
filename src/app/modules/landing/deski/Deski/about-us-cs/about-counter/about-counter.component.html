@@ -1,0 +1,21 @@
+<div class="counter-with-icon-one border-style pt-120 pb-45 md-pt-70">
+  <div class="container">
+    <div class="border-style">
+      <div class="row justify-content-center">
+
+        <div *ngFor="let item of counterData" class="col-lg-4 col-6" data-aos="fade-up"
+          data-aos-duration="1200" [attr.data-aos-delay]="item.delay">
+          <div class="counter-box-three">
+            <div class="icon">
+              <img [src]="item.icon" alt="">
+            </div>
+            <h2 class="number"><span class="timer">{{item.value}}</span>{{item.text}}</h2>
+            <p class="font-rubik">{{ item.title }}</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

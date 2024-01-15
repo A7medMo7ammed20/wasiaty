@@ -1,0 +1,23 @@
+<div class="fancy-short-banner-four" [ngClass]="spacing ? 'm0 pt-150 md-pt-100' : ''">
+  <div class="container">
+    <div class="bg-wrapper">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="title">
+            <h6>Subscribe Now</h6>
+            <h2>Subscriber to our Newsletter</h2>
+          </div> <!-- /.title-style-one -->
+        </div>
+        <div class="col-lg-6">
+          <div class="form-wrapper">
+            <form #subForm="ngForm" (submit)="getFormData(subForm.value)">
+              <input required ngModel type="email" name="email" placeholder="Email address">
+              <button>Subscribe</button>
+            </form>
+            <p class="font-rubik">Already a member? <a [routerLink]="['/login']">Sign in.</a></p>
+          </div> <!-- /.form-wrapper -->
+        </div>
+      </div>
+    </div> <!-- /.bg-wrapper -->
+  </div> <!-- /.container -->
+</div>

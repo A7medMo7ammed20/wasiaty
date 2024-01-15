@@ -1,0 +1,84 @@
+<div class="blog-sidebar-one">
+    <div class="sidebar-search-form mb-85 sm-mb-60">
+        <form #subForm="ngForm" (submit)="getFormData(subForm.value)">
+            <input type="text" placeholder="Search" />
+            <button>
+                <img
+                    *ngIf="!blog_v3"
+                    src="assets/images/deski/icon/50.svg"
+                    alt=""
+                />
+                <img
+                    *ngIf="blog_v3"
+                    src="assets/images/deski/icon/51.svg"
+                    alt=""
+                />
+            </button>
+        </form>
+    </div>
+    <!-- /.sidebar-search-form -->
+    <div class="sidebar-categories mb-85 sm-mb-60">
+        <h4 class="sidebar-title">Categories</h4>
+        <ul>
+            <li>
+                <a [routerLink]="['./']">Web Design <span>(09)</span></a>
+            </li>
+            <li>
+                <a [routerLink]="['./']">Graphics <span>(13)</span></a>
+            </li>
+            <li>
+                <a [routerLink]="['./']">Web Development <span>(05)</span></a>
+            </li>
+            <li>
+                <a [routerLink]="['./']"
+                    >IOS/Android Development <span>(24)</span></a
+                >
+            </li>
+            <li>
+                <a [routerLink]="['./']">Others <span>(08)</span></a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-categories -->
+    <div class="sidebar-recent-news mb-85 sm-mb-60">
+        <h4 class="sidebar-title">Recent News</h4>
+        <ul>
+            <li>
+                <a [routerLink]="['/blog-details']">
+                    <span class="title"
+                        >10 days quick challange for boost visitors.</span
+                    >
+                    <span class="date">23 July, 2018</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/blog-details']">
+                    <span class="title"
+                        >10 days quick challange for boost visitors.</span
+                    >
+                    <span class="date">23 July, 2018</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/blog-details']">
+                    <span class="title"
+                        >10 days quick challange for boost visitors.</span
+                    >
+                    <span class="date">23 July, 2018</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-recent-news -->
+    <div class="sidebar-keyword">
+        <h4 class="sidebar-title">Keywords</h4>
+        <ul class="cleafix">
+            <li><a [routerLink]="['./']">Ideas</a></li>
+            <li><a [routerLink]="['./']">Education</a></li>
+            <li><a [routerLink]="['./']">Design</a></li>
+            <li><a [routerLink]="['./']">Development</a></li>
+            <li><a [routerLink]="['./']">Branding</a></li>
+        </ul>
+    </div>
+    <!-- /.sidebar-keyword -->
+</div>

@@ -1,0 +1,28 @@
+<div class="feature-blog-one pt-170 pb-120 md-pt-100 md-pb-60">
+  <div class="container">
+    <div class="header d-md-flex align-items-center justify-content-between mb-90 md-mb-40">
+      <div class="title-style-one">
+        <h6 class="font-rubik">Our News</h6>
+        <h2>Have any thought? Look here.</h2>
+      </div> <!-- /.title-style-one -->
+      <a [routerLink]="['/blog-v1']" class="theme-btn-one sm-mt-30">Go to Blog</a>
+    </div>
+
+    <div class="row justify-content-center">
+      <div *ngFor="let blog of blogItems" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" [attr.data-aos-delay]="blog.delay">
+        <div class="post-meta">
+          <img [src]="blog.img" alt="" class="image-meta">
+          <div class="tag">{{blog.tag}}</div>
+          <h3>
+            <a [routerLink]="['/blog-details/'+blog.id]" class="title">{{blog.title}}</a>
+          </h3>
+          <a [routerLink]="['/blog-details/'+blog.id]" class="read-more d-flex justify-content-between align-items-center">
+            <span>Read More</span>
+            <i class="flaticon-right-arrow"></i>
+          </a>
+        </div> <!-- /.post-meta -->
+      </div>
+
+    </div>
+  </div>
+</div>

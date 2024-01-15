@@ -1,0 +1,50 @@
+<div class="fancy-feature-eight pt-150 md-pt-100">
+    <div class="container">
+        <div class="title-style-four text-center mb-60 md-mb-40">
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <h6>How it works</h6>
+                    <h2>
+                        Awesome place to start creating your
+                        <span
+                            >first doc with
+                            <img
+                                src="assets/images/deski/shape/line-shape-2.svg"
+                                alt="" /></span
+                        >deski
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div *ngFor="let item of block_style_data" class="block-style-twelve">
+            <div class="row">
+                <div
+                    class="col-lg-6 col-md-8"
+                    [attr.data-aos]="item.fade_first"
+                    data-aos-duration="1200"
+                    [ngClass]="item.order_first ? item.order_first : ''"
+                    [class]="item.m"
+                >
+                    <div class="illustration-holder">
+                        <img src="{{ item.img }}" alt="" />
+                    </div>
+                </div>
+                <div
+                    class="col-lg-5"
+                    [attr.data-aos]="item.fade_last"
+                    data-aos-duration="1200"
+                    [ngClass]="item.order_last ? item.order_last : ''"
+                >
+                    <div class="text-wrapper">
+                        <h6>{{ item.sm_text }}</h6>
+                        <h2 class="font-rubik title">{{ item.title }}</h2>
+                        <p>{{ item.subtitle }}</p>
+                    </div>
+                    <!-- /.text-wrapper -->
+                </div>
+            </div>
+        </div>
+        <!-- /.block-style-twelve -->
+    </div>
+</div>

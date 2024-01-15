@@ -1,0 +1,21 @@
+<div class="team-section-five">
+  <div class="container">
+    <div class="row">
+
+      <div *ngFor="let team of teamMembers" class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200" [attr.data-aos-delay]="team.delay">
+        <div class="team-member team-block-one mb-50">
+          <a [routerLink]="['/team-details/'+team.id]">
+            <div class="info">
+              <div class="desig">{{ team.title }}</div>
+              <div class="name">{{ team.name }}</div>
+            </div>
+            <div class="img-meta">
+              <img [src]="team.img" alt="">
+            </div>
+          </a>
+        </div> <!-- /.team-member -->
+      </div>
+
+    </div>
+  </div>
+</div>

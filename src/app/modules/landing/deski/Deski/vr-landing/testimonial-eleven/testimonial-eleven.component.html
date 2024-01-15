@@ -1,0 +1,102 @@
+<div class="pt-250 md-pt-150" id="testimonials">
+    <div class="client-feedback-slider-nine lg-container position-relative">
+        <img
+            src="assets/images/shape/245.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <div class="container">
+            <div class="title-style-sixteen text-center">
+                <div class="upper-title">Testimonials</div>
+                <h2 class="text-white">Client Feedback</h2>
+            </div>
+            <div class="main-content position-relative mt-60">
+                <div class="clientSliderEight row">
+                    <swiper
+                        [slidesPerView]="1"
+                        [spaceBetween]="0"
+                        class="pb-80"
+                        [loop]="true"
+                        [autoplay]="{
+                            delay: 8000,
+                            disableOnInteraction: false
+                        }"
+                        [pagination]="{
+                            clickable: true,
+                            el: '.swiper-pagination'
+                        }"
+                        [breakpoints]="{
+                            '0': {
+                                slidesPerView: 1
+                            },
+                            '768': {
+                                slidesPerView: 2
+                            },
+                            '992': {
+                                slidesPerView: 3
+                            }
+                        }"
+                    >
+                        <ng-template
+                            *ngFor="let testimonial of testimonialData"
+                            swiperSlide
+                        >
+                            <div class="item">
+                                <div class="bg-wrapper">
+                                    <div class="d-flex align-items-center">
+                                        <img
+                                            [src]="testimonial.user"
+                                            alt=""
+                                            class="avatar rounded-circle"
+                                        />
+                                        <div class="ps-4">
+                                            <h6 class="name text-start">
+                                                {{ testimonial.name }}
+                                            </h6>
+                                            <span
+                                                class="region text-start d-block"
+                                                >{{ testimonial.country }}</span
+                                            >
+                                        </div>
+                                    </div>
+                                    <p class="pt-25 pb-30 text-start">
+                                        {{ testimonial.desc }}
+                                    </p>
+                                    <div
+                                        class="d-flex align-items-center justify-content-between"
+                                    >
+                                        <ul
+                                            class="d-flex justify-content-center rating"
+                                        >
+                                            <li
+                                                *ngFor="
+                                                    let rating;
+                                                    in: testimonial.ratings
+                                                "
+                                            >
+                                                <i
+                                                    class="fa fa-star"
+                                                    aria-hidden="true"
+                                                ></i>
+                                            </li>
+                                        </ul>
+                                        <img
+                                            src="assets/images/icon/198.svg"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <!-- /.bg-wrapper -->
+                            </div>
+                        </ng-template>
+                    </swiper>
+                    <!-- Add Pagination -->
+                    <div
+                        class="swiper-pagination d-flex align-items-center justify-content-center"
+                    ></div>
+                </div>
+            </div>
+            <!-- /.main-content -->
+        </div>
+    </div>
+</div>

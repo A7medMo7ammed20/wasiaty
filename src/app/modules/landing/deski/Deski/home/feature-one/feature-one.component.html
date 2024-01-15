@@ -1,0 +1,75 @@
+<div class="fancy-feature-one pb-150 md-pb-80">
+    <div class="text-center">
+        <div class="feature-img-area">
+            <img src="assets/images/deski/assets/feature-img-01.png" alt="" />
+            <img
+                src="assets/images/deski/assets/feature-img-01-01.png"
+                alt=""
+                class="cs-screen screen-one"
+            />
+            <img
+                src="assets/images/deski/assets/feature-img-01-02.png"
+                alt=""
+                class="cs-screen screen-two"
+                data-aos="fade-left"
+                data-aos-duration="1200"
+            />
+            <img
+                src="assets/images/deski/assets/feature-img-01-03.png"
+                alt=""
+                class="cs-screen screen-three"
+                data-aos="fade-right"
+                data-aos-duration="1200"
+                data-aos-delay="100"
+            />
+            <img
+                src="assets/images/deski/assets/feature-img-01-04.png"
+                alt=""
+                class="cs-screen screen-four"
+                data-aos="fade-right"
+                data-aos-duration="1200"
+                data-aos-delay="150"
+            />
+            <img
+                src="assets/images/deski/assets/feature-img-01-05.png"
+                alt=""
+                class="cs-screen screen-five"
+                data-aos="fade-left"
+                data-aos-duration="1200"
+                data-aos-delay="200"
+            />
+        </div>
+        <!-- /.feature-img-area -->
+    </div>
+    <!-- /.text-center -->
+
+    <div class="block-style-one">
+        <div class="container">
+            <div
+                class="d-lg-flex align-items-center justify-content-between inner-container"
+            >
+                <div
+                    *ngFor="let item of featureData"
+                    class="block-meta-data text-center"
+                >
+                    <div class="line-dot-container">
+                        <div class="icon-box">
+                            <img src="{{ item.icon }}" alt="" />
+                        </div>
+                        <!-- /.icon-box -->
+                        <p>{{ item.title }}</p>
+                    </div>
+                    <div
+                        [class]="
+                            item.textAlign ? item.textAlign : 'hover-content'
+                        "
+                    >
+                        <span>{{ item.desc }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.block-style-one -->
+</div>

@@ -1,0 +1,51 @@
+<footer class="theme-footer-six">
+    <div class="inner-container">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-4">
+                    <div class="logo">
+                        <a [routerLink]="['/']">
+                            <img
+                                src="assets/images/deski/logo/deski_07.svg"
+                                alt=""
+                        /></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="title">Find us on Social Media</div>
+                    <ul class="d-flex justify-content-center social-icon">
+                        <li *ngFor="let link of social_links">
+                            <a [routerLink]="['./']"
+                                ><i [class]="link" aria-hidden="true"></i
+                            ></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="title">We’r always happy to help.</div>
+                    <div class="text-center">
+                        <a [routerLink]="['./']" class="email"
+                            >ask@jdeski.com</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">
+                Copyright @{{ date }}
+                <a
+                    href="https://themeforest.net/user/ib-themes/portfolio"
+                    target="_blank"
+                    >ib-themes</a
+                >
+                inc.
+            </p>
+        </div>
+        <img
+            src="assets/images/deski/shape/167.png"
+            alt=""
+            class="shapes shape-one"
+        />
+    </div>
+    <!-- /.inner-container -->
+</footer>
+<!-- /.theme-footer-six -->

@@ -1,0 +1,65 @@
+<div class="fancy-feature-thirty pt-20 md-pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 col-lg-9 m-auto">
+                <div class="title-style-thirteen text-center mb-80 md-mb-60">
+                    <div class="upper-title">Others Features</div>
+                    <h2>
+                        Deski for every
+                        <span
+                            >business
+                            <img
+                                src="assets/images/deski/shape/line-shape-14.svg"
+                                alt=""
+                        /></span>
+                        You need.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div
+                    *ngFor="let item of featureData"
+                    class="col-md-6"
+                    data-aos="fade-up"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-style-thirtyTwo d-flex">
+                        <div
+                            class="icon d-flex align-items-center justify-content-center"
+                            [style]="{ background: item.bg_color }"
+                        >
+                            <img [src]="item.icon" alt="" />
+                        </div>
+                        <div class="text">
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.subtitle }}</p>
+                            <a [routerLink]="['./']" class="theme-btn-ten"
+                                >Learn more
+                                <i
+                                    class="fa fa-chevron-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.block-style-thirtyTwo -->
+                </div>
+            </div>
+        </div>
+        <img
+            src="assets/images/deski/shape/237.svg"
+            alt=""
+            class="shapes shape-one w-40 h-40"
+        />
+        <img
+            src="assets/images/deski/shape/238.svg"
+            alt=""
+            class="shapes shape-two w-40 h-40"
+        />
+    </div>
+    <!-- /.wrapper -->
+</div>

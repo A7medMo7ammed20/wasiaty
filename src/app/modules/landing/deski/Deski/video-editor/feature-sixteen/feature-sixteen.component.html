@@ -1,0 +1,31 @@
+<div class="fancy-feature-twenty mt-225 md-mt-150">
+  <div class="container">
+
+    <div *ngFor="let item of featureData;let i=index" class="block-style-twenty"
+    [ngClass]="item.item_2 ? item.item_2 : ''">
+      <div class="row align-items-center">
+        <div class="col-lg-6" [ngClass]="item.order_first ? item.order_first : ''"
+        [attr.data-aos]="item.fade_first" data-aos-duration="1200">
+          <div class="text-wrapper" [ngClass]="item.padd">
+            <h6>{{item.sm_text}}</h6>
+            <h3 class="title">{{item.title}}</h3>
+            <p>{{item.subtitle}}</p>
+            <button class="d-flex align-items-center video-button fancybox order-sm-last" data-bs-toggle="modal" data-bs-target="#videoModal">
+              <i class="fa fa-caret-right" aria-hidden="true"></i>
+              <span>WATCH VIDEO</span>
+            </button>
+          </div> <!-- /.text-wrapper -->
+        </div>
+        <div class="col-lg-6 col-md-8 m-auto"
+        [ngClass]="item.order_last ? item.order_last : ''"
+        [attr.data-aos]="item.fade_last" data-aos-duration="1200">
+          <img [src]="item.img" alt="" class="m-auto">
+        </div>
+      </div>
+
+    </div> <!-- /.block-style-twenty -->
+    <!-- VideoModal start  -->
+    <app-video-modal videoUrl="https://www.youtube.com/embed/yJg-Y5byMMw"></app-video-modal>
+    <!-- VideoModal end  -->
+  </div>
+</div>

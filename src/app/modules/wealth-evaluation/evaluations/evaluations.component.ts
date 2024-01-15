@@ -101,6 +101,8 @@ export class EvaluationsComponent implements OnInit, OnDestroy {
             // Mark for check
             this._changeDetectorRef.markForCheck();
         });
+
+       
     }
 
     /**
@@ -129,7 +131,7 @@ export class EvaluationsComponent implements OnInit, OnDestroy {
         }
 
         this.filteredevaluations = this.evaluations.filter((evaluation) =>
-            evaluation.contact.name.toLowerCase().includes(query.toLowerCase())
+            evaluation.contact.name.toLowerCase().startsWith(query.toLowerCase())
         );
     }
 

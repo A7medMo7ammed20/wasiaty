@@ -30,16 +30,37 @@
             <ng-container
                 *ngFor="let _ of [].constructor(loopCount); let i = index"
             >
-                <ng-container *ngIf="componentProgress === i; else noProgress">
+                <ng-container *ngIf="componentProgress >= i; else noProgress">
+
+                      <ng-container *ngIf="componentProgress === i; else greater">
+
                     <div
                         class="w-full bg-gray-200 h-1 mb-4 dark:bg-primary-500"
                     >
+                    <!-- تعبئه البروقرس حسب النسبه  -->
                         <div
                             class="bg-primary-300 h-1 dark:bg-primary-500"
                             [style.width.%]="progress"
                         ></div>
                     </div>
+
                 </ng-container>
+                <ng-template #greater>
+
+                    <div
+                    class="w-full bg-gray-200 h-1 mb-4 dark:bg-primary-500"
+                    >
+                    <!-- تعبئه البروقرس حسب النسبه  -->
+                    <div
+                            class="bg-primary-300 h-1 dark:bg-primary-500"
+                            [style.width.%]="100"
+                            ></div>
+                        </div>
+                    </ng-template>
+
+                </ng-container>
+
+
                 <ng-template #noProgress>
                     <div
                         class="w-full bg-gray-200 h-1 mb-4 dark:bg-primary-500"
@@ -63,6 +84,7 @@
             <button
                 class="mb-1 text-base bg-gray-800 px-4 py-2 mx-9 rounded-md w-fit ms-auto me-9 font-medium text-white"
                 (click)="getNext()"
+                [disabled]="!isFormItemSelected"
             >
                 Next
             </button>

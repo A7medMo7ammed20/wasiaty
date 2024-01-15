@@ -73,9 +73,9 @@
                     class="relative flex items-center mt-1.5 px-4 leading-9 rounded-full cursor-pointer"
                     [ngClass]="{
                         'text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-gray-700':
-                            !bequest.dueDate,
+                            !bequest?.dueDate,
                         'text-green-800 bg-green-200 dark:text-green-100 dark:bg-green-500':
-                            bequest.dueDate && !isOverdue(),
+                            bequest?.dueDate && !isOverdue(),
                         'text-red-800 bg-red-200 dark:text-red-100 dark:bg-red-500':
                             bequest?.dueDate && isOverdue()
                     }"

@@ -96,6 +96,7 @@ export class FileManagerListComponent implements OnInit, OnDestroy
     {
         this._fileManagerService.addFolder().subscribe((newContact) =>
         {
+
             // Go to the new Item
             this._router.navigate(['./', newContact.id], {relativeTo: this._activatedRoute});
 
@@ -120,7 +121,7 @@ export class FileManagerListComponent implements OnInit, OnDestroy
         this._changeDetectorRef.markForCheck();
     }
 
-    
+
     /**
      * Track by function for ngFor loops
      *

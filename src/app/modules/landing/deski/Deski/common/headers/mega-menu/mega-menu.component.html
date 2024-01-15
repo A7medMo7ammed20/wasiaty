@@ -1,0 +1,18 @@
+<ul class="mega-menu d-flex">
+    <li *ngFor="let item of homes_data">
+        <a [routerLink]="[item.url]" class="dropdown-item img-box">
+            <img [src]="item.img" alt="" />
+            <span class="font-rubik">{{ item.title }}</span>
+        </a>
+    </li>
+
+    <li>
+        <div class="img-box">
+            <img src="assets/images/deski/menu/home15.png" alt="" />
+            <div class="hover d-flex align-items-center justify-content-center">
+                <div class="font-rubik">Coming Soon</div>
+            </div>
+        </div>
+        <span class="font-rubik">E-commerce</span>
+    </li>
+</ul>

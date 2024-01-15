@@ -1,0 +1,29 @@
+<div class="feature-blog-five lg-container mt-160 md-mt-120">
+  <div class="container">
+    <div class="title-style-eleven text-center mb-40 md-mb-20" data-aos="fade-up">
+      <h2>Inside Story</h2>
+      <p class="mt-25 md-mt-10">Automatically send people to the next stage of the journey </p>
+    </div>
+
+    <div class="row">
+
+      <div *ngFor="let item of blogs.slice(36,40)" class="col-lg-4 col-sm-6 d-flex" data-aos="fade-up"
+      [attr.data-aos-delay]="item.delay" [ngClass]="item.d_none ? item.d_none : ''">
+        <article class="post-meta mt-30">
+          <figure class="post-img m0">
+            <a [routerLink]="['/blog-details/'+item.id]" class="w-100 d-block">
+              <img [src]="item.img" alt="" class="w-100 tran4s">
+            </a>
+            </figure>
+          <div class="post-data">
+            <a [routerLink]="['/blog-details/'+item.id]" class="blog-title">
+              <h5>{{item.title}}</h5>
+            </a>
+            <a [routerLink]="['/blog-details/'+item.id]" class="read-btn tran3s">Continue Reading</a>
+          </div> <!-- /.post-data -->
+        </article>
+      </div>
+
+    </div>
+  </div>
+</div>

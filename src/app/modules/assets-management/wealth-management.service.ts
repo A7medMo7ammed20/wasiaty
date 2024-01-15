@@ -14,7 +14,7 @@ import {
     tap,
     throwError,
 } from 'rxjs';
-import { TangibleWealthes, WealthType } from './wealth-management.types';
+import { AssetBranch, TangibleWealthes, WealthType } from './wealth-management.types';
 
 @Injectable({ providedIn: 'root' })
 export class WealthManagementService {
@@ -26,6 +26,8 @@ export class WealthManagementService {
     private _tangibleTypes: BehaviorSubject<WealthType[] | null> =
         new BehaviorSubject(null);
 
+
+
     /**
      * Constructor
      */
@@ -34,7 +36,7 @@ export class WealthManagementService {
         return this._tangibleWealthes.asObservable();
     }
 
-    getTangableWealth(): Observable<any> {
+    getTangableWealth(): Observable<TangibleWealthes[]> {
         return this._httpClient
             .get<TangibleWealthes[]>('api/wealth-managements/all')
             .pipe(
@@ -53,6 +55,8 @@ export class WealthManagementService {
         return this._tangibleTypes.asObservable();
     }
 
+
+
     getTangibleTypes(): Observable<any> {
         return this._httpClient
             .get<WealthType[]>('api/wealth-managements/tangible-types')
@@ -65,6 +69,7 @@ export class WealthManagementService {
                 })
             );
     }
+
 
 
     // Add Vehicles
@@ -87,4 +92,5 @@ export class WealthManagementService {
             )),
         )
     }
+
 }

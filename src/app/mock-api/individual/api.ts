@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
+import { APIUrlEndpoint } from 'app/configs/api-url.interface';
+import { MockAPIConfig } from 'app/configs/mock-endpoints.config';
 import {
     individuals as individualsData,
     countries as countriesData,
@@ -13,6 +15,18 @@ export class IndividualsMockApi {
     private _individuals: any[] = individualsData;
     private _countries: any[] = countriesData;
     private _tags: any[] = tagsData;
+
+    private endpoint: APIUrlEndpoint = {
+        endpoint: '',
+        mockEndpoint: MockAPIConfig.endpoints.v1.ar.region,
+    };
+
+    _endpoint: string = '';
+
+    /** Get Regions from API or Mock data based on environment variable (env) and endpoint variable (endpoint) values
+     * @Params env: 'base' | 'mock' = 'mock'
+     * @Params endpoint: APIUrlEndpoint
+     */
 
     /**
      * Constructor

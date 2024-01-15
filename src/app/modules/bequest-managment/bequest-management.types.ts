@@ -13,5 +13,7 @@ export interface Bequest
     description: string;
     Beneficiaries:number;
     dueDate: string | null;
-  
+
 }
+
+

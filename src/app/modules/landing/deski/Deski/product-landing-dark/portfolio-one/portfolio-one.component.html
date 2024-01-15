@@ -1,0 +1,38 @@
+<div class="fancy-portfolio-one pt-180 md-pt-100" id="product">
+    <div class="container">
+        <div class="title-style-six">
+            <h2>Our <span>Portfolio</span></h2>
+        </div>
+        <!-- /.title-style-six -->
+    </div>
+
+    <div class="portfolio_slider_three pt-120 md-pt-70">
+        <swiper
+            class="clientSliderOne"
+            [slidesPerView]="1"
+            [loop]="true"
+            [navigation]="{ nextEl: '.next_c', prevEl: '.prev_c' }"
+            [breakpoints]="{
+                '0': { slidesPerView: 1 },
+                '576': { slidesPerView: 2 },
+                '768': { slidesPerView: 3 },
+                '992': { slidesPerView: 4 }
+            }"
+        >
+            <ng-template swiperSlide *ngFor="let item of portfolioData">
+                <div class="item">
+                    <div class="img-meta"><img [src]="item.img" alt="" /></div>
+                </div>
+            </ng-template>
+        </swiper>
+    </div>
+
+    <div class="slider-arrows d-flex justify-content-center">
+        <div class="prev_c d-flex align-items-center justify-content-center">
+            <img src="assets/images/deski/icon/82.svg" alt="" />
+        </div>
+        <div class="next_c d-flex align-items-center justify-content-center">
+            <img src="assets/images/deski/icon/83.svg" alt="" />
+        </div>
+    </div>
+</div>

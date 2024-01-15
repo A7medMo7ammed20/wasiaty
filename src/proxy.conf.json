@@ -1,0 +1,9 @@
+{
+    "*/api/*":{
+        "target": "http://alwasiah-001-site1.btempurl.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {"^/api" : ""}
+    }
+}

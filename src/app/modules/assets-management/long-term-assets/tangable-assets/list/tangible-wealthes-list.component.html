@@ -8,501 +8,514 @@
     class="flex-auto h-full dark:bg-transparent"
     (backdropClick)="onBackdropClicked()"
 >
-    <!-- Drawer -->
-    <mat-drawer
-        class="w-full sm:w-128 dark:bg-gray-900"
-        [mode]="drawerMode"
-        [opened]="false"
-        [position]="'end'"
-        [disableClose]="true"
-        #matDrawer
-    >
-        <router-outlet></router-outlet>
-    </mat-drawer>
-    <mat-drawer-content class="flex flex-col">
-    <div class="flex flex-col flex-auto min-w-0">
-        <!-- Header -->
-        <div class="bg-card">
-            <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
-                <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
-                    <!-- Avatar and name -->
-                    <div class="flex flex-auto items-center min-w-0">
-                        <div class="flex flex-col min-w-0 ml-4">
-                            <ng-container *transloco="let t">
-                                <div
-                                    class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">
-                                    Long Term Assets - Tangable
-                                </div>
-                            </ng-container>
-                            <div class="flex items-center">
-                                <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
-                                <div class="ml-1.5 leading-6 truncate text-secondary">
-                                    You have 7 new messages and 15 new activities
+        <!-- Drawer -->
+        <mat-drawer
+            class="w-full sm:w-128 dark:bg-gray-900"
+            [mode]="drawerMode"
+            [opened]="false"
+            [position]="'end'"
+            [disableClose]="true"
+            #matDrawer
+        >
+            <router-outlet></router-outlet>
+        </mat-drawer>
+
+        <mat-drawer-content class="flex flex-col">
+        <div class="flex flex-col flex-auto min-w-0">
+            <!-- Header -->
+            <div class="bg-card">
+                <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
+                    <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
+                        <!-- Avatar and name -->
+                        <div class="flex flex-auto items-center min-w-0">
+                            <div class="flex flex-col min-w-0 ml-4">
+                                <ng-container *transloco="let t">
+                                    <div
+                                        class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">
+                                        Long Term Assets - Tangable
+                                    </div>
+                                </ng-container>
+                                <div class="flex items-center">
+                                    <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:bell'"></mat-icon>
+                                    <div class="ml-1.5 leading-6 truncate text-secondary">
+                                        You have 7 new messages and 15 new activities
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Actions -->
-                    <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
-                        <button mat-flat-button [color]="'primary'">
-                            <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:cog-8-tooth'"></mat-icon>
-                            <span class="ml-2">Settings</span>
-                        </button>
+                        <!-- Actions -->
+                        <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
+                            <button
+                                mat-flat-button
+                                [color]="'primary'"
+                                (click)="addTangableWealth()"
+                            >
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_outline:plus'"
+                            ></mat-icon>
+                            <span class="ml-2">Add Tangable Wealth</span>
+                                </button>
+                            <button mat-flat-button [color]="'primary'">
+                                <mat-icon class="icon-size-5" [svgIcon]="'heroicons_solid:cog-8-tooth'"></mat-icon>
+                                <span class="ml-2">Settings</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Main -->
-        <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
-            <div class="w-full max-w-screen-xl mx-auto">
-                <!-- Tabs -->
-                <mat-tab-group class="sm:px-2" mat-stretch-tabs="false"  [selectedIndex]="2">
-                    <!-- Home -->
-                    <mat-tab >
-                        <ng-template mat-tab-label>
-                            <ng-container *ngIf="average?.length" >
-                            <span class="inline-flex items-center space-x-2">
-                                <span class="">All</span>
-                                <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">{{average.length}}</span>
-                            </span>
-                        </ng-container>
-                        </ng-template>
-                        <ng-template matTabContent>
-                            <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                                <ng-container *ngFor="let tangable of average">
-                                    <ng-container>
-                                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
-                                            <div class="flex items-start justify-between">
-                                                <div class="text-lg font-medium tracking-tight leading-6 truncate group">
+            <!-- Main -->
+            <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
+                <div class="w-full max-w-screen-xl mx-auto">
+                    <!-- Tabs -->
+                    <mat-tab-group class="sm:px-2" mat-stretch-tabs="false"  [selectedIndex]="2">
+                        <!-- Home -->
+                        <mat-tab >
+                            <ng-template mat-tab-label>
+                                <ng-container *ngIf="average?.length" >
+                                <span class="inline-flex items-center space-x-2">
+                                    <span class="">All</span>
+                                    <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">{{average.length}}</span>
+                                </span>
+                            </ng-container>
+                            </ng-template>
+                            <ng-template matTabContent>
+                                <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                                    <ng-container *ngFor="let tangable of average">
+                                        <ng-container>
+                                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
+                                                <div class="flex items-start justify-between">
+                                                    <div class="text-lg font-medium tracking-tight leading-6 truncate group">
 
-                                                    {{tangable.name}}
-                                                    <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
                                                         {{tangable.name}}
-                                                    </span>
+                                                        <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
+                                                            {{tangable.name}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="ml-2 -mt-2 -mr-3">
+                                                        <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
+                                                            <mat-icon class="icon-size-5" [svgIcon]="
+                                                            'heroicons_mini:ellipsis-vertical'
+                                                        "></mat-icon>
+                                                        </button>
+                                                        <mat-menu #summaryMenu="matMenu">
+                                                            <button mat-menu-item
+                                                                routerLink="/assets-management/current-detail">
+                                                                View Details
+                                                            </button>
+                                                            <button mat-menu-item>
+                                                                Manage
+                                                            </button>
+                                                            <button mat-menu-item>other</button>
+                                                        </mat-menu>
+                                                    </div>
                                                 </div>
-                                                <div class="ml-2 -mt-2 -mr-3">
-                                                    <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
-                                                        <mat-icon class="icon-size-5" [svgIcon]="
-                                                        'heroicons_mini:ellipsis-vertical'
-                                                    "></mat-icon>
-                                                    </button>
-                                                    <mat-menu #summaryMenu="matMenu">
-                                                        <button mat-menu-item
-                                                            routerLink="/assets-management/current-detail">
-                                                            View Details
-                                                        </button>
-                                                        <button mat-menu-item>
-                                                            Manage
-                                                        </button>
-                                                        <button mat-menu-item>other</button>
-                                                    </mat-menu>
+                                                <div class="flex flex-col items-center mt-2" >
+                                                    <div
+                                                        class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
+                                                        [ngClass]="{
+                                                            ' text-red-600': tangable.avg>66 ,
+                                                            ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                            ' text-blue-600':  tangable.avg <33,
+
+                                                        }"
+                                                        >
+                                                        {{tangable.avg |number :'1.0-0'}}%                                            </div>
+                                                        <div class="text-lg font-medium  dark:text-blue-500"
+                                                        [ngClass]="{
+                                                        ' text-red-600': tangable.avg>66 ,
+                                                        ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                        ' text-blue-600':  tangable.avg <33,
+
+                                                    }">
+                                                        {{tangable.method}}
+                                                    </div>
+                                                    <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
+                                                        <div class="text-md font-medium truncate">
+                                                            {{tangable.status}}
+                                                        </div>
+                                                        <div class="ml-1.5 text-lg font-semibold">
+                                                            {{tangable.counter}}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="flex flex-col items-center mt-2" >
-                                                <div
-                                                    class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
+                                            <!-- Overdue -->
+                                        </ng-container>
+
+                                    </ng-container>
+                                    <div
+                                        class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
+                                        <mat-icon class="icon-size-12 text-hint"
+                                            [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </mat-tab>
+
+                        <!--   Real Estate Properties  1 -->
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <ng-container *ngIf="realstate?.length">
+                                    <span class="inline-flex items-center space-x-2">
+                                        <span class=""> Real Estate Properties </span>
+                                        <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
+                                            {{realstate?.length}}
+                                        </span>
+                                    </span>
+                                </ng-container>
+                            </ng-template>
+                            <ng-template matTabContent>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                                    <ng-container *ngFor="let tangable of realstate">
+                                        <ng-container *ngIf="tangable.wealthType ==1">
+
+
+                                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
+                                                <div class="flex items-start justify-between">
+                                                    <div class="text-lg font-medium tracking-tight leading-6 truncate group" >
+                                                        {{tangable.name}}
+                                                        <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
+                                                            {{tangable.name}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="ml-2 -mt-1 -mr-3">
+                                                        <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
+                                                            <mat-icon class="icon-size-5" [svgIcon]="
+                                                            'heroicons_mini:ellipsis-vertical'
+                                                        "></mat-icon>
+                                                    </button>
+                                                    <mat-menu #summaryMenu="matMenu">
+                                                            <button mat-menu-item
+                                                                routerLink="/assets-management/current-detail">
+                                                                View Details
+                                                            </button>
+                                                            <button mat-menu-item>
+                                                                Manage
+                                                            </button>
+                                                            <button mat-menu-item>other</button>
+                                                        </mat-menu>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center mt-2" (click)="routeToType(tangable.wealthTypeRoute)">
+                                                    <div
+                                                        class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
+                                                        [ngClass]="{
+                                                            ' text-red-600': tangable.avg>66 ,
+                                                            ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                            ' text-blue-600':  tangable.avg <33,
+
+                                                        }">
+                                                        {{tangable.avg |number :'1.0-0' }}%
+                                                    </div>
+                                                    <div class="text-lg font-medium tracking-tight leading-6 truncate  dark:text-blue-500  "
                                                     [ngClass]="{
                                                         ' text-red-600': tangable.avg>66 ,
                                                         ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
                                                         ' text-blue-600':  tangable.avg <33,
 
-                                                    }"
-                                                    >
-                                                    {{tangable.avg |number :'1.0-0'}}%                                            </div>
+                                                    }">
+                                                        {{tangable.method}}
+                                                    </div>
+
+
+
+                                                    <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
+                                                        <div class="text-md font-medium  truncate">
+                                                            {{tangable.status}}
+                                                        </div>
+                                                        <div class="ml-1.5 text-lg font-semibold">
+                                                            {{tangable.counter}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </ng-container>
+
+                                    </ng-container>
+                                    <div
+                                    class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
+                                    <mat-icon class="icon-size-12 text-hint"
+                                        [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                                </div>
+                                </div>
+                            </ng-template>
+                        </mat-tab>
+                        <!-- Vehicles -->
+                        <mat-tab label="Tab 1">
+                            <ng-template mat-tab-label>
+                                <ng-container *ngIf="vehicles?.length">
+                                    <span class="inline-flex items-center space-x-2">
+                                        <span class=""> Vehicles</span>
+                                        <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
+
+                                            {{vehicles?.length}}
+                                        </span>
+                                    </span>
+                                </ng-container>
+
+                            </ng-template>
+                            <ng-template matTabContent>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+
+                                    <ng-container *ngFor="let tangable of vehicles">
+                                        <ng-container *ngIf="tangable.wealthType ==2">
+
+
+                                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
+                                                <div class="flex items-start justify-between">
+                                                    <div class="text-lg font-medium tracking-tight leading-6 truncate group">
+
+                                                        {{tangable.name}}
+                                                        <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
+                                                            {{tangable.name}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="ml-2 -mt-2 -mr-3">
+                                                        <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
+                                                            <mat-icon class="icon-size-5" [svgIcon]="
+                                                            'heroicons_mini:ellipsis-vertical'
+                                                        "></mat-icon>
+                                                        </button>
+                                                        <mat-menu #summaryMenu="matMenu">
+                                                            <button mat-menu-item
+                                                                routerLink="/assets-management/current-detail">
+                                                                View Details
+                                                            </button>
+                                                            <button mat-menu-item>
+                                                                Manage
+                                                            </button>
+                                                            <button mat-menu-item>other</button>
+                                                        </mat-menu>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center mt-2"  (click)="routeToType(tangable.typeRoute)">
+                                                    <div
+                                                        class="text-6xl sm:text-7xl font-bold tracking-tight leading-none"
+                                                        [ngClass]="{
+                                                            ' text-red-600': tangable.avg>66 ,
+                                                            ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                            ' text-blue-600':  tangable.avg <33,
+
+                                                        }">
+                                                        {{tangable.avg |number :'1.0-0' }}%
+                                                    </div>
                                                     <div class="text-lg font-medium  dark:text-blue-500"
                                                     [ngClass]="{
-                                                    ' text-red-600': tangable.avg>66 ,
-                                                    ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                    ' text-blue-600':  tangable.avg <33,
+                                                        ' text-red-600': tangable.avg>66 ,
+                                                        ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                        ' text-blue-600':  tangable.avg <33,
 
-                                                }">
-                                                    {{tangable.method}}
-                                                </div>
-                                                <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
-                                                    <div class="text-md font-medium truncate">
-                                                        {{tangable.status}}
+                                                    }">
+                                                        {{tangable.method}}
                                                     </div>
-                                                    <div class="ml-1.5 text-lg font-semibold">
-                                                        {{tangable.counter}}
+                                                    <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
+                                                        <div class="text-md font-medium truncate">
+                                                            {{tangable.status}}
+                                                        </div>
+                                                        <div class="ml-1.5 text-lg font-semibold">
+                                                            {{tangable.counter}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- Overdue -->
-                                    </ng-container>
 
+                                        </ng-container>
+
+                                    </ng-container>
+                                    <div (click)="addVehicles()"
+                                        class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
+                                        <mat-icon class="icon-size-12 text-hint"
+                                            [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </mat-tab>
+                        <!--  Accounts receivable  -->
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <ng-container *ngIf="accountsReceivable?.length">
+                                    <span class="inline-flex items-center space-x-2">
+                                        <span class="">   Accounts Receivable</span>
+                                        <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
+
+                                            {{accountsReceivable?.length}}
+                                        </span>
+                                    </span>
                                 </ng-container>
-                                <div
-                                    class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
+                            </ng-template>
+                            <ng-template matTabContent>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                                    <ng-container *ngFor="let tangable of accountsReceivable">
+                                        <ng-container *ngIf="tangable.wealthType ==3">
+
+                                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
+                                                <div class="flex items-start justify-between">
+                                                    <div class="text-lg font-medium tracking-tight leading-6 truncate group">
+
+                                                        {{tangable.name}}
+                                                        <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
+                                                            {{tangable.name}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="ml-2 -mt-2 -mr-3">
+                                                        <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
+                                                            <mat-icon class="icon-size-5" [svgIcon]="
+                                                            'heroicons_mini:ellipsis-vertical'
+                                                        "></mat-icon>
+                                                        </button>
+                                                        <mat-menu #summaryMenu="matMenu">
+                                                            <button mat-menu-item
+                                                                routerLink="/assets-management/current-detail">
+                                                                View Details
+                                                            </button>
+                                                            <button mat-menu-item>
+                                                                Manage
+                                                            </button>
+                                                            <button mat-menu-item>other</button>
+                                                        </mat-menu>
+                                                    </div>
+                                                </div>
+                                                <div class="flex flex-col items-center mt-2">
+                                                    <div
+                                                        class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
+                                                        [ngClass]="{
+                                                            ' text-red-600': tangable.avg>66 ,
+                                                            ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                            ' text-blue-600':  tangable.avg <33,
+                                                        }">
+
+                                                        {{tangable.avg |number :'1.0-0'}}%
+                                                    </div>
+                                                    <div class="text-lg font-medium  dark:text-blue-500"
+                                                    [ngClass]="{
+                                                        ' text-red-600': tangable.avg>66 ,
+                                                        ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                        ' text-blue-600':  tangable.avg <33,
+
+                                                    }">
+                                                        {{tangable.method}}
+                                                    </div>
+                                                    <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
+                                                        <div class="text-md font-medium truncate">
+                                                            {{tangable.status}}
+                                                        </div>
+                                                        <div class="ml-1.5 text-lg font-semibold">
+                                                            {{tangable.counter}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </ng-container>
+
+                                    </ng-container>
+                                    <div
+                                    class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden
+                                cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
                                     <mat-icon class="icon-size-12 text-hint"
                                         [svgIcon]="'heroicons_outline:plus'"></mat-icon>
                                 </div>
-                            </div>
-                        </ng-template>
-                    </mat-tab>
+                                </div>
+                            </ng-template>
+                        </mat-tab>
 
-                    <!--   Real Estate Properties  1 -->
-                    <mat-tab>
-                        <ng-template mat-tab-label>
-                            <ng-container *ngIf="realstate?.length">
-                                <span class="inline-flex items-center space-x-2">
-                                    <span class=""> Real Estate Properties </span>
-                                    <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
-                                        {{realstate?.length}}
+                        <!-- Team -->
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <ng-container *ngIf="marketableSecurities?.length">
+                                    <span class="inline-flex items-center space-x-2">
+                                        <span class="">  Marketable Securities </span>
+                                        <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
+
+                                            {{marketableSecurities?.length}}
+                                        </span>
                                     </span>
-                                </span>
-                            </ng-container>
-                        </ng-template>
-                        <ng-template matTabContent>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                                <ng-container *ngFor="let tangable of realstate">
-                                    <ng-container *ngIf="tangable.wealthType ==1">
+                                </ng-container>
+
+                            </ng-template>
+                            <ng-template matTabContent>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
+                                    <ng-container *ngFor="let tangable of marketableSecurities">
+                                        <ng-container *ngIf="tangable.wealthType ==4">
 
 
-                                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
-                                            <div class="flex items-start justify-between">
-                                                <div class="text-lg font-medium tracking-tight leading-6 truncate group" >
-                                                    {{tangable.name}}
-                                                    <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
+                                            <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
+                                                <div class="flex items-start justify-between">
+                                                    <div class="text-lg font-medium tracking-tight leading-6 truncate group">
                                                         {{tangable.name}}
-                                                    </span>
-                                                </div>
-                                                <div class="ml-2 -mt-1 -mr-3">
-                                                    <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
-                                                        <mat-icon class="icon-size-5" [svgIcon]="
-                                                        'heroicons_mini:ellipsis-vertical'
-                                                    "></mat-icon>
-                                                </button>
-                                                <mat-menu #summaryMenu="matMenu">
-                                                        <button mat-menu-item
-                                                            routerLink="/assets-management/current-detail">
-                                                            View Details
+                                                        <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
+                                                            {{tangable.name}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="ml-2 -mt-2 -mr-3">
+                                                        <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
+                                                            <mat-icon class="icon-size-5" [svgIcon]="
+                                                            'heroicons_mini:ellipsis-vertical'
+                                                        "></mat-icon>
                                                         </button>
-                                                        <button mat-menu-item>
-                                                            Manage
-                                                        </button>
-                                                        <button mat-menu-item>other</button>
-                                                    </mat-menu>
+                                                        <mat-menu #summaryMenu="matMenu">
+                                                            <button mat-menu-item
+                                                                routerLink="/assets-management/current-detail">
+                                                                View Details
+                                                            </button>
+                                                            <button mat-menu-item>
+                                                                Manage
+                                                            </button>
+                                                            <button mat-menu-item>other</button>
+                                                        </mat-menu>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="flex flex-col items-center mt-2" (click)="routeToType(tangable.wealthTypeRoute)">
-                                                <div
-                                                    class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
+                                                <div class="flex flex-col items-center mt-2">
+                                                    <div
+                                                        class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
+                                                        [ngClass]="{
+                                                            ' text-red-600': tangable.avg>66 ,
+                                                            ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
+                                                            ' text-blue-600':  tangable.avg <33,
+
+                                                        }">
+                                                        {{tangable.avg |number :'1.0-0'}}%
+                                                    </div>
+                                                    <div class="text-lg font-medium  dark:text-blue-500"
                                                     [ngClass]="{
                                                         ' text-red-600': tangable.avg>66 ,
                                                         ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
                                                         ' text-blue-600':  tangable.avg <33,
 
                                                     }">
-                                                    {{tangable.avg |number :'1.0-0' }}%
-                                                </div>
-                                                <div class="text-lg font-medium tracking-tight leading-6 truncate  dark:text-blue-500  "
-                                                [ngClass]="{
-                                                    ' text-red-600': tangable.avg>66 ,
-                                                    ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                    ' text-blue-600':  tangable.avg <33,
-
-                                                }">
-                                                    {{tangable.method}}
-                                                </div>
-
-
-
-                                                <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
-                                                    <div class="text-md font-medium  truncate">
-                                                        {{tangable.status}}
+                                                        {{tangable.method}}
                                                     </div>
-                                                    <div class="ml-1.5 text-lg font-semibold">
-                                                        {{tangable.counter}}
+                                                    <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
+                                                        <div class="text-md font-medium truncate">
+                                                            {{tangable.status}}
+                                                        </div>
+                                                        <div class="ml-1.5 text-lg font-semibold">
+                                                            {{tangable.counter}}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                        </ng-container>
 
                                     </ng-container>
-
-                                </ng-container>
-                                <div
-                                class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
-                                <mat-icon class="icon-size-12 text-hint"
-                                    [svgIcon]="'heroicons_outline:plus'"></mat-icon>
-                            </div>
-                            </div>
-                        </ng-template>
-                    </mat-tab>
-                    <!-- Vehicles -->
-                    <mat-tab label="Tab 1">
-                        <ng-template mat-tab-label>
-                            <ng-container *ngIf="vehicles?.length">
-                                <span class="inline-flex items-center space-x-2">
-                                    <span class=""> Vehicles</span>
-                                    <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
-
-                                        {{vehicles?.length}}
-                                    </span>
-                                </span>
-                            </ng-container>
-
-                        </ng-template>
-                        <ng-template matTabContent>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-
-                                <ng-container *ngFor="let tangable of vehicles">
-                                    <ng-container *ngIf="tangable.wealthType ==2">
-
-
-                                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
-                                            <div class="flex items-start justify-between">
-                                                <div class="text-lg font-medium tracking-tight leading-6 truncate group">
-
-                                                    {{tangable.name}}
-                                                    <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
-                                                        {{tangable.name}}
-                                                    </span>
-                                                </div>
-                                                <div class="ml-2 -mt-2 -mr-3">
-                                                    <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
-                                                        <mat-icon class="icon-size-5" [svgIcon]="
-                                                        'heroicons_mini:ellipsis-vertical'
-                                                    "></mat-icon>
-                                                    </button>
-                                                    <mat-menu #summaryMenu="matMenu">
-                                                        <button mat-menu-item
-                                                            routerLink="/assets-management/current-detail">
-                                                            View Details
-                                                        </button>
-                                                        <button mat-menu-item>
-                                                            Manage
-                                                        </button>
-                                                        <button mat-menu-item>other</button>
-                                                    </mat-menu>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col items-center mt-2"  (click)="routeToType(tangable.typeRoute)">
-                                                <div
-                                                    class="text-6xl sm:text-7xl font-bold tracking-tight leading-none"
-                                                    [ngClass]="{
-                                                        ' text-red-600': tangable.avg>66 ,
-                                                        ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                        ' text-blue-600':  tangable.avg <33,
-
-                                                    }">
-                                                    {{tangable.avg |number :'1.0-0' }}%
-                                                </div>
-                                                <div class="text-lg font-medium  dark:text-blue-500"
-                                                [ngClass]="{
-                                                    ' text-red-600': tangable.avg>66 ,
-                                                    ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                    ' text-blue-600':  tangable.avg <33,
-
-                                                }">
-                                                    {{tangable.method}}
-                                                </div>
-                                                <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
-                                                    <div class="text-md font-medium truncate">
-                                                        {{tangable.status}}
-                                                    </div>
-                                                    <div class="ml-1.5 text-lg font-semibold">
-                                                        {{tangable.counter}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </ng-container>
-
-                                </ng-container>
-                                <div (click)="addVehicles()"
-                                    class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden  cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
+                                    <div
+                                    class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
                                     <mat-icon class="icon-size-12 text-hint"
                                         [svgIcon]="'heroicons_outline:plus'"></mat-icon>
                                 </div>
-                            </div>
-                        </ng-template>
-                    </mat-tab>
-                    <!--  Accounts receivable  -->
-                    <mat-tab>
-                        <ng-template mat-tab-label>
-                            <ng-container *ngIf="accountsReceivable?.length">
-                                <span class="inline-flex items-center space-x-2">
-                                    <span class="">   Accounts Receivable</span>
-                                    <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
-
-                                        {{accountsReceivable?.length}}
-                                    </span>
-                                </span>
-                            </ng-container>
-                        </ng-template>
-                        <ng-template matTabContent>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                                <ng-container *ngFor="let tangable of accountsReceivable">
-                                    <ng-container *ngIf="tangable.wealthType ==3">
-
-                                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
-                                            <div class="flex items-start justify-between">
-                                                <div class="text-lg font-medium tracking-tight leading-6 truncate group">
-
-                                                    {{tangable.name}}
-                                                    <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
-                                                        {{tangable.name}}
-                                                    </span>
-                                                </div>
-                                                <div class="ml-2 -mt-2 -mr-3">
-                                                    <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
-                                                        <mat-icon class="icon-size-5" [svgIcon]="
-                                                        'heroicons_mini:ellipsis-vertical'
-                                                    "></mat-icon>
-                                                    </button>
-                                                    <mat-menu #summaryMenu="matMenu">
-                                                        <button mat-menu-item
-                                                            routerLink="/assets-management/current-detail">
-                                                            View Details
-                                                        </button>
-                                                        <button mat-menu-item>
-                                                            Manage
-                                                        </button>
-                                                        <button mat-menu-item>other</button>
-                                                    </mat-menu>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col items-center mt-2">
-                                                <div
-                                                    class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
-                                                    [ngClass]="{
-                                                        ' text-red-600': tangable.avg>66 ,
-                                                        ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                        ' text-blue-600':  tangable.avg <33,
-                                                    }">
-
-                                                    {{tangable.avg |number :'1.0-0'}}%
-                                                </div>
-                                                <div class="text-lg font-medium  dark:text-blue-500"
-                                                [ngClass]="{
-                                                    ' text-red-600': tangable.avg>66 ,
-                                                    ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                    ' text-blue-600':  tangable.avg <33,
-
-                                                }">
-                                                    {{tangable.method}}
-                                                </div>
-                                                <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
-                                                    <div class="text-md font-medium truncate">
-                                                        {{tangable.status}}
-                                                    </div>
-                                                    <div class="ml-1.5 text-lg font-semibold">
-                                                        {{tangable.counter}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </ng-container>
-
-                                </ng-container>
-                                <div
-                                class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden
-                             cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
-                                <mat-icon class="icon-size-12 text-hint"
-                                    [svgIcon]="'heroicons_outline:plus'"></mat-icon>
-                            </div>
-                            </div>
-                        </ng-template>
-                    </mat-tab>
-
-                    <!-- Team -->
-                    <mat-tab>
-                        <ng-template mat-tab-label>
-                            <ng-container *ngIf="marketableSecurities?.length">
-                                <span class="inline-flex items-center space-x-2">
-                                    <span class="">  Marketable Securities </span>
-                                    <span class="px-2 py-1 text-sm rounded-full bg-primary-100 text-on-primary-100">
-
-                                        {{marketableSecurities?.length}}
-                                    </span>
-                                </span>
-                            </ng-container>
-
-                        </ng-template>
-                        <ng-template matTabContent>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                                <ng-container *ngFor="let tangable of marketableSecurities">
-                                    <ng-container *ngIf="tangable.wealthType ==4">
-
-
-                                        <div class="flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden cursor-pointer hover:bg-hover">
-                                            <div class="flex items-start justify-between">
-                                                <div class="text-lg font-medium tracking-tight leading-6 truncate group">
-                                                    {{tangable.name}}
-                                                    <span class="tooltip-text bg-blue-50 p-3 -mt-16 -ml-6 rounded hidden group-hover:block absolute text-center py-2 px-6 z-50&quot;">
-                                                        {{tangable.name}}
-                                                    </span>
-                                                </div>
-                                                <div class="ml-2 -mt-2 -mr-3">
-                                                    <button mat-icon-button [matMenuTriggerFor]="summaryMenu">
-                                                        <mat-icon class="icon-size-5" [svgIcon]="
-                                                        'heroicons_mini:ellipsis-vertical'
-                                                    "></mat-icon>
-                                                    </button>
-                                                    <mat-menu #summaryMenu="matMenu">
-                                                        <button mat-menu-item
-                                                            routerLink="/assets-management/current-detail">
-                                                            View Details
-                                                        </button>
-                                                        <button mat-menu-item>
-                                                            Manage
-                                                        </button>
-                                                        <button mat-menu-item>other</button>
-                                                    </mat-menu>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col items-center mt-2">
-                                                <div
-                                                    class="text-6xl sm:text-7xl font-bold tracking-tight leading-none "
-                                                    [ngClass]="{
-                                                        ' text-red-600': tangable.avg>66 ,
-                                                        ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                        ' text-blue-600':  tangable.avg <33,
-
-                                                    }">
-                                                    {{tangable.avg |number :'1.0-0'}}%
-                                                 </div>
-                                                <div class="text-lg font-medium  dark:text-blue-500"
-                                                [ngClass]="{
-                                                    ' text-red-600': tangable.avg>66 ,
-                                                    ' text-amber-600 ': tangable.avg >=33 && tangable.avg <=66,
-                                                    ' text-blue-600':  tangable.avg <33,
-
-                                                }">
-                                                    {{tangable.method}}
-                                                </div>
-                                                <div class="flex items-baseline justify-center w-full mt-5 text-secondary">
-                                                    <div class="text-md font-medium truncate">
-                                                        {{tangable.status}}
-                                                    </div>
-                                                    <div class="ml-1.5 text-lg font-semibold">
-                                                        {{tangable.counter}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </ng-container>
-
-                                </ng-container>
-                                <div
-                                class="flex flex-col flex-auto justify-center items-center p-6 shadow rounded-2xl overflow-hidden cursor-pointer border-2 border-gray-300 border-dashed hover:bg-hover transition-colors duration-150 ease-in-out">
-                                <mat-icon class="icon-size-12 text-hint"
-                                    [svgIcon]="'heroicons_outline:plus'"></mat-icon>
-                            </div>
-                            </div>
-                        </ng-template>
-                    </mat-tab>
-                </mat-tab-group>
+                                </div>
+                            </ng-template>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
             </div>
         </div>
-    </div>
-    </mat-drawer-content>
+        </mat-drawer-content>
+
     </mat-drawer-container>
 </ng-template>
 

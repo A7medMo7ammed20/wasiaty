@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FuseMockApiService, FuseMockApiUtils } from '@fuse/lib/mock-api';
 import {
+    choosePlace,
     steps as stepsData,
     typeInfo,
+    reviewEndowment,
 } from 'app/mock-api/wealth-management/endowment/addEndowment/data';
-import { Steps } from 'app/modules/assets-management/endowment/insurance.types';
+import { Steps } from 'app/shared/types/step.types';
 import { assign, cloneDeep } from 'lodash-es';
 import { from, map } from 'rxjs';
 
@@ -13,6 +15,8 @@ export class AddEndowmentsMockApi {
     // private _steps: Steps[] = stepsData;
     private _step: Steps = stepsData;
     private _typeInfo: Steps = typeInfo;
+    private _choosePlace: Steps = choosePlace;
+    private _reviewEndowment: Steps = reviewEndowment;
 
     /**
      * Constructor
@@ -44,11 +48,11 @@ export class AddEndowmentsMockApi {
             return [200, steps];
         });
 
-        this._fuseMockApiService.onGet('api/step-endowment/getType').reply(() => {
-            // Clone the steps
-            const typeInfo = cloneDeep(this._typeInfo);
-
-
+        this._fuseMockApiService
+            .onGet('api/step-endowment/getType')
+            .reply(() => {
+                // Clone the steps
+                const typeInfo = cloneDeep(this._typeInfo);
 
                 // Sort the typeInfo by the name field by default
                 // typeInfo.sort((a, b) => a.title.localeCompare(b.title));
@@ -80,30 +84,31 @@ export class AddEndowmentsMockApi {
         // @ Contact - POST
         // -----------------------------------------------------------------------------------------------------
 
-        this._fuseMockApiService.onPost('api/steps-endowment/step').reply(() => {
-            // // Generate a new step
-            // const newContact: = {
-            //     id: FuseMockApiUtils.guid(),
-            //     avatar: null,
-            //     name: 'New Contact',
-            //     emails: [],
-            //     phoneNumbers: [],
-            //     job: {
-            //         title: '',
-            //         company: '',
-            //     },
-            //     birthday: null,
-            //     address: null,
-            //     notes: null,
-            //     tags: [],
-            // };
-            // // Unshift the new step
-            // this._steps.unshift(newContact);
-            // Return the response
-            // return [200, newContact];
-            return null;
-        });
-
+        this._fuseMockApiService
+            .onPost('api/steps-endowment/step')
+            .reply(() => {
+                // // Generate a new step
+                // const newContact: = {
+                //     id: FuseMockApiUtils.guid(),
+                //     avatar: null,
+                //     name: 'New Contact',
+                //     emails: [],
+                //     phoneNumbers: [],
+                //     job: {
+                //         title: '',
+                //         company: '',
+                //     },
+                //     birthday: null,
+                //     address: null,
+                //     notes: null,
+                //     tags: [],
+                // };
+                // // Unshift the new step
+                // this._steps.unshift(newContact);
+                // Return the response
+                // return [200, newContact];
+                return null;
+            });
 
         // -----------------------------------------------------------------------------------------------------
         // @ Contact - PATCH
@@ -214,6 +219,36 @@ export class AddEndowmentsMockApi {
                         return [200, updatedContact];
                     })
                 );
+            });
+
+        // choosePlace
+
+        this._fuseMockApiService
+            .onGet('api/stepTwo-endowment/getType')
+            .reply(() => {
+                // Clone the steps
+                const typeInfo = cloneDeep(this._choosePlace);
+
+                // Sort the typeInfo by the name field by default
+                // typeInfo.sort((a, b) => a.title.localeCompare(b.title));
+
+                // Return the response
+                return [200, typeInfo];
+            });
+
+        // Review and Confirm
+
+        this._fuseMockApiService
+            .onGet('api/stepThree-endowment/getType')
+            .reply(() => {
+                // Clone the steps
+                const typeInfo = cloneDeep(this._reviewEndowment);
+
+                // Sort the typeInfo by the name field by default
+                // typeInfo.sort((a, b) => a.title.localeCompare(b.title));
+
+                // Return the response
+                return [200, typeInfo];
             });
     }
 }

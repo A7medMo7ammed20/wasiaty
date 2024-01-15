@@ -1,0 +1,35 @@
+<!-- HTML code -->
+<div
+    [@fadeInOut]
+    class="max-w-screen-xl mx-auto px-6 sm:px-8 flex justify-center items-center"
+>
+    <div class="flex flex-col gap-4 max-w-2/3">
+        <h1 class="text-4xl font-semibold">
+            Which of these best describes your Endowment?
+        </h1>
+
+        <ul class="w-full">
+            <form class="grid w-full gap-6 md:grid-cols-3" [formGroup]="endowmentForm" (ngSubmit)="submitForm()">
+            <li *ngFor="let endowment of endowmentTypes">
+                    <input type="checkbox" id="{{ endowment.title.trim() | lowercase }}" value="{{ endowment.title }}"
+                        class="hidden peer" name="endowmentType" (change)="logSelectedEndowment($event.target.value)" />
+                    <label for="{{ endowment.title.trim() | lowercase }}"
+                        [ngClass]="{ 'border-blue-600':
+                         endowment.title === selectedEndowment }"
+                        class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <div class="flex flex-col">
+                            <div
+                                class="w-8 h-8"
+                                [innerHTML]="getSanitizedIcon(endowment.icon)"
+                            ></div>
+
+                            <div class="w-full font-semibold text-sm mt-2">
+                                {{ endowment.title }}
+                            </div>
+                        </div>
+                    </label>
+                </li>
+            </form>
+        </ul>
+    </div>
+</div>

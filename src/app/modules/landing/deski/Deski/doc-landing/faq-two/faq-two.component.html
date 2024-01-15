@@ -1,0 +1,126 @@
+<div class="faq-classic with-bg">
+    <img
+        src="assets/images/deski/shape/86.svg"
+        alt=""
+        class="shapes shape-one"
+    />
+    <img
+        src="assets/images/deski/shape/87.svg"
+        alt=""
+        class="shapes shape-two"
+    />
+    <img
+        src="assets/images/deski/shape/88.svg"
+        alt=""
+        class="shapes shape-three"
+    />
+    <img
+        src="assets/images/deski/shape/89.svg"
+        alt=""
+        class="shapes shape-four"
+    />
+    <img
+        src="assets/images/deski/shape/90.svg"
+        alt=""
+        class="shapes shape-five"
+    />
+    <img
+        src="assets/images/deski/shape/91.svg"
+        alt=""
+        class="shapes shape-six"
+    />
+    <div class="container">
+        <div class="title-style-four text-center mb-100 md-mb-70">
+            <div class="row">
+                <div class="col-lg-7 m-auto">
+                    <h6>FAQ’s</h6>
+                    <h2>
+                        <span
+                            >Questions & Answers<img
+                                src="assets/images/deski/shape/line-shape-2.svg"
+                                alt=""
+                        /></span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- ================== FAQ Panel ================ -->
+                <div id="accordionExample">
+                    <div
+                        *ngFor="let item of faqData.slice(0, 4)"
+                        class="accordion-item"
+                    >
+                        <div class="accordion-header" [id]="item.headingNum">
+                            <h5 class="mb-0">
+                                <button
+                                    class="btn btn-link"
+                                    data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="
+                                        '#' + item.collapseNum
+                                    "
+                                    [attr.aria-expanded]="
+                                        item.expanded ? 'true' : 'false'
+                                    "
+                                    [attr.aria-controls]="item.collapseNum"
+                                >
+                                    {{ item.btnText }}
+                                </button>
+                            </h5>
+                        </div>
+                        <div
+                            [id]="item.collapseNum"
+                            [class]="item.collapseClass"
+                            [attr.aria-labelledby]="item.headingNum"
+                            data-bs-parent="#accordionExample"
+                        >
+                            <div class="accordion-body">
+                                <p>{{ item.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- ================== FAQ Panel ================ -->
+                <div id="accordionExampleTwo">
+                    <div
+                        *ngFor="let item of faqData.slice(4, 8)"
+                        class="accordion-item"
+                    >
+                        <div class="accordion-header" [id]="item.headingNum">
+                            <h5 class="mb-0">
+                                <button
+                                    class="btn btn-link"
+                                    data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="
+                                        '#' + item.collapseNum
+                                    "
+                                    [attr.aria-expanded]="
+                                        item.expanded ? 'true' : 'false'
+                                    "
+                                    [attr.aria-controls]="item.collapseNum"
+                                >
+                                    {{ item.btnText }}
+                                </button>
+                            </h5>
+                        </div>
+                        <div
+                            [id]="item.collapseNum"
+                            [class]="item.collapseClass"
+                            [attr.aria-labelledby]="item.headingNum"
+                            data-bs-parent="#accordionExampleTwo"
+                        >
+                            <div class="accordion-body">
+                                <p>{{ item.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

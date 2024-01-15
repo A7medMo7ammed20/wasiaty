@@ -3,16 +3,36 @@
 /*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
 /* ----------------------------------------------------------------------------------------------------- */
 
-.mat-mdc-form-field.OTP-Completed  .mat-mdc-text-field-wrapper{
+/* You can add global styles to this file, and also import other style files */
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import 'aos/dist/aos.css';
+@import "swiper/swiper-bundle.css";
+@import "../assets/css/menu.css";
+/* @import 'vue3-carousel/dist/carousel.css'; */
+@import "../assets/css/style.css";
+@import "../assets/css/responsive.css";
+
+.mat-mdc-form-field.OTP-Completed .mat-mdc-text-field-wrapper {
     border-width: 0 !important;
     box-shadow: none !important;
 }
-.relaionships-border-none-mate-select .mat-mdc-text-field-wrapper{
-
+.relaionships-border-none-mate-select .mat-mdc-text-field-wrapper {
     border-width: 0 !important;
     background-color: whitesmoke !important;
     border: none !important;
 }
-.mat-mdc-table .mdc-data-table__row:not(.mdc-data-table__row--selected):hover{
+.mat-mdc-table .mdc-data-table__row:not(.mdc-data-table__row--selected):hover {
     background-color: inherit;
+}
+
+webcam video,
+.take-photo .preview img {
+    width: 250px !important;
+    height: 250px !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+webcam {
+    display: grid !important;
+    // margin: 0 auto !important;
 }

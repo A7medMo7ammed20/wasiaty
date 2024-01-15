@@ -1,0 +1,67 @@
+<div class="team-section-three">
+    <div class="container">
+        <div
+            class="d-sm-flex align-items-center justify-content-between mb-50 sm-mb-10"
+        >
+            <div class="title-style-four">
+                <h2>
+                    <span
+                        >Our Members<img
+                            src="assets/images/deski/shape/line-shape-2.svg"
+                            alt=""
+                    /></span>
+                </h2>
+            </div>
+            <ul class="slider-arrows d-flex">
+                <li class="prev_c">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </li>
+                <li class="next_c">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="teamSliderOne">
+            <swiper
+                [slidesPerView]="1"
+                [loop]="true"
+                [autoplay]="{ delay: 15000 }"
+                [navigation]="{ nextEl: '.next_c', prevEl: '.prev_c' }"
+                [breakpoints]="{
+                    '0': {
+                        slidesPerView: 1
+                    },
+                    '576': {
+                        slidesPerView: 2
+                    },
+                    '768': {
+                        slidesPerView: 3
+                    },
+                    '992': {
+                        slidesPerView: 4
+                    }
+                }"
+            >
+                <ng-template swiperSlide *ngFor="let team of teamMembers">
+                    <div class="item">
+                        <div class="team-member team-block-one">
+                            <a [routerLink]="['/team-details/' + team.id]">
+                                <div class="info">
+                                    <div class="desig">{{ team.title }}</div>
+                                    <div class="name">{{ team.name }}</div>
+                                </div>
+                                <div class="img-meta">
+                                    <img [src]="team.img" alt="" />
+                                </div>
+                            </a>
+                        </div>
+                        <!-- /.team-member -->
+                    </div>
+                </ng-template>
+            </swiper>
+        </div>
+        <!-- /.teamSliderOne -->
+    </div>
+</div>

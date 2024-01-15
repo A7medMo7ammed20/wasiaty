@@ -1,13 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-    Individual,
-    Country,
-    Tag,
-} from 'app/modules/stakeholders/stakeholders.types';
+import { Country, Tag } from 'app/modules/stakeholders/stakeholders.types';
 import {
     BehaviorSubject,
-    filter,
     map,
     Observable,
     of,
@@ -17,7 +12,10 @@ import {
     throwError,
 } from 'rxjs';
 import { Endowment, VMEndowment } from './endowment.types';
-import { Steps } from '../insurances/insurance.types';
+
+import { CheckboxItem } from 'app/shared/types/checkboxes/checkboxes.types';
+import { Steps, Step } from 'app/shared/types/step.types';
+
 
 @Injectable({ providedIn: 'root' })
 export class EndowmentsService {
@@ -37,6 +35,13 @@ export class EndowmentsService {
         new BehaviorSubject(null);
     private _vmendowments: BehaviorSubject<VMEndowment[] | null> =
         new BehaviorSubject(null);
+
+        // get Chekbox
+        private _checkbox: BehaviorSubject<CheckboxItem | null> = new BehaviorSubject(
+            null
+        );
+        private _checkboxes: BehaviorSubject<CheckboxItem [] | null> =
+            new BehaviorSubject(null);
     /**
      * Constructor
      */
@@ -122,7 +127,7 @@ export class EndowmentsService {
         return this._endowments.pipe(
             take(1),
             map((endowments) => {
-                // debugger;
+                //  ;
                 // Find the individual
                 const endowment =
                     endowments.find((item) => item.id === id) || null;
@@ -181,16 +186,21 @@ export class EndowmentsService {
 
     private _step: BehaviorSubject<Steps | null> = new BehaviorSubject(null);
 
+    /**
+     * Get step
+     */
     getSteps(): Observable<Steps> {
         return this._httpClient.get<Steps>('api/step-endowment/all').pipe(
             tap((step) => {
-                debugger;
                 this._step.next(step);
             })
         );
     }
 
-    getGetTypeInfo(): Observable<Steps> {
+    /**
+     * Get step
+     */
+    GetTypeInfo(): Observable<Steps> {
         return this._httpClient.get<Steps>('api/step-endowment/getType').pipe(
             tap((step) => {
                 this._step.next(step);
@@ -207,4 +217,85 @@ export class EndowmentsService {
             })
         );
     }
+
+    /**
+     * Get step by id
+     */
+    getStepById(id: string): Observable<Step> {
+        return this._step.pipe(
+            take(1),
+            map((step) => {
+                // Find the step
+                // const steps = step.find((item) => item.id === id) || null;
+
+                // Update the step
+                this._step.next(step);
+
+                // Return the step
+                return step;
+            }),
+            switchMap((step) => {
+                if (!step) {
+                    return throwError(
+                        'Could not found step with id of ' + id + '!'
+                    );
+                }
+
+                return of(step);
+            })
+        );
+    }
+
+    // Get Choose Place
+
+    getChoosePlace(): Observable<Steps> {
+        return this._httpClient
+            .get<Steps>('api/stepTwo-endowment/getType')
+            .pipe(
+                tap((step) => {
+                    this._step.next(step);
+                })
+            );
+    }
+    getreviewEndowment(): Observable<Steps> {
+        return this._httpClient
+            .get<Steps>('api/stepThree-endowment/getType')
+            .pipe(
+                tap((step) => {
+                    this._step.next(step);
+                })
+            );
+    }
+
+
+
+    get checkbox$(): Observable<CheckboxItem> {
+        return this._checkbox.asObservable();
+    }
+
+    /**
+     * Getter for individuals
+     */
+    get checkboxes$(): Observable<CheckboxItem[]> {
+        return this._checkboxes.asObservable();
+    }
+
+
+    // -----------------------------------------------------------------------------------------------------
+// @ Public methods
+// -----------------------------------------------------------------------------------------------------
+
+/**
+ * Get checkboxes
+ */
+getCheckboxes(): Observable<CheckboxItem[]> {
+    return this._httpClient.get<CheckboxItem[]>('api/endowment/create-type/checkboxes/all').pipe(
+        tap((checkboxes: any) => {
+            this._checkboxes.next(checkboxes);
+            console.log('checkboxes in seveice ', checkboxes);
+        })
+    );
+}
+
+
 }

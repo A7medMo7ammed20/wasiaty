@@ -1,0 +1,116 @@
+<div class="main-page-wrapper overflow-hidden">
+    <!-- header start -->
+    <app-header></app-header>
+    <!-- header end -->
+
+    <!-- hero area start -->
+    <app-faq-hero-area></app-faq-hero-area>
+    <!-- hero area end -->
+
+    <!-- faq area start -->
+    <div class="faqs-inner-page">
+        <img
+            src="assets/images/deski/shape/66.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <div class="shapes shape-two"></div>
+        <div class="shapes shape-three"></div>
+        <div class="shapes shape-four"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-11 m-auto">
+                    <div class="faqs-header pb-60 md-pb-50">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex">
+                                    <img
+                                        src="assets/images/deski/icon/48.svg"
+                                        alt=""
+                                        class="icon"
+                                    />
+                                    <div class="md-mb-30">
+                                        <h3>FAQs</h3>
+                                        <p class="collection-preview">
+                                            Selling tickets for a raffle,
+                                            lottery or sweepstake is prohibited
+                                            on Eventsmatic.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="avatar d-flex align-items-center">
+                                    <img
+                                        src="assets/images/deski/media/img_41.png"
+                                        alt=""
+                                    />
+                                    <img
+                                        src="assets/images/deski/media/img_42.png"
+                                        alt=""
+                                    />
+                                    <span
+                                        class="avatar_image avatar_fallback font-rubik"
+                                        >+1</span
+                                    >
+                                </div>
+                                <p class="collection-info">
+                                    <span>63 articles</span> in this collection
+                                    <br />
+                                    Written by Jonny White, Emily Coddington and
+                                    <span>1</span> other
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.faqs-header -->
+
+                    <div class="all-faqs">
+                        <div class="faqs-all-qus">
+                            <div
+                                *ngFor="let faq of faqItems"
+                                class="article-preview d-flex"
+                            >
+                                <a [routerLink]="['/faq-details/' + faq.id]">
+                                    <img
+                                        [src]="faq.img"
+                                        alt=""
+                                        class="avatar-img"
+                                    />
+                                    <div>
+                                        <h3 class="font-rubik">
+                                            {{ faq.title }}
+                                        </h3>
+                                        <div
+                                            class="avatar-info"
+                                            [innerHTML]="faq.info"
+                                        ></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- /.article-preview -->
+                        </div>
+                        <!-- /.faqs-all-qus -->
+                    </div>
+                    <!-- /.all-faqs -->
+
+                    <div class="text-center more-faq-ask">
+                        <h3 class="mb-35 font-rubik">
+                            Don’t find your answer?
+                        </h3>
+                        <a
+                            [routerLink]="['/contact-us-cs']"
+                            class="theme-btn-one"
+                            >Contact us</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- faq area end -->
+
+    <!-- footer start -->
+    <app-footer></app-footer>
+    <!-- footer end -->
+</div>

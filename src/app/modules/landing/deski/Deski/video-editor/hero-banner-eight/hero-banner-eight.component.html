@@ -1,0 +1,80 @@
+<div class="hero-banner-eight">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <h1 class="hero-heading">Edit video & create great content</h1>
+                <p class="hero-sub-heading">
+                    Make stunning videos with animation, stock footage, and
+                    photos.
+                </p>
+                <a [routerLink]="['./']" class="theme-btn-nine"
+                    >Download - It’s free</a
+                >
+            </div>
+        </div>
+
+        <div class="video-wrapper">
+            <video preload="" muted="muted" playsinline="" autoplay="" loop="">
+                <source
+                    src="https://creativegigs.net/video/demo_01.mp4"
+                    type="video/mp4"
+                />
+            </video>
+        </div>
+        <!-- /.video-wrapper -->
+    </div>
+
+    <div class="partner-slider-two mt-130 md-mt-80">
+        <div class="container">
+            <div class="partnerSliderTwo">
+                <swiper
+                    [slidesPerView]="1"
+                    [spaceBetween]="20"
+                    [loop]="true"
+                    [autoplay]="{
+                        delay: 2500,
+                        disableOnInteraction: false
+                    }"
+                    [breakpoints]="{
+                        '0': {
+                            slidesPerView: 2
+                        },
+                        '576': {
+                            slidesPerView: 3
+                        },
+                        '768': {
+                            slidesPerView: 4
+                        },
+                        '992': {
+                            slidesPerView: 5
+                        }
+                    }"
+                >
+                    <ng-template
+                        *ngFor="let logo of logoSliderData"
+                        swiperSlide
+                    >
+                        <div class="item">
+                            <div
+                                class="img-meta d-flex align-items-center justify-content-center"
+                            >
+                                <img [src]="logo.img" alt="" />
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+    </div>
+    <!-- /.partner-slider-two -->
+    <img
+        src="assets/images/deski/shape/173.svg"
+        alt=""
+        class="shapes shape-right"
+    />
+    <img
+        src="assets/images/deski/shape/174.svg"
+        alt=""
+        class="shapes shape-left"
+    />
+</div>

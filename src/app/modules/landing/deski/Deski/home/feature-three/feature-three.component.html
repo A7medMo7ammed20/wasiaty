@@ -1,0 +1,74 @@
+<div class="fancy-feature-three pt-200 md-pt-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="title-style-one">
+                    <h6 class="font-rubik">You’re in good company</h6>
+                    <h2>
+                        Join the community by using our apps to grow faster.
+                    </h2>
+                </div>
+                <!-- /.title-style-one -->
+
+                <div class="counter-info-classic">
+                    <div class="counter-box-one color-one">
+                        <h2 class="number font-rubik">
+                            <span class="timer">15</span>k
+                        </h2>
+                        <p class="font-rubik">Projects</p>
+                    </div>
+                    <!-- /.counter-box-one -->
+                    <div class="counter-box-one color-two">
+                        <h2 class="number font-rubik">
+                            <span class="timer">3</span>k
+                        </h2>
+                        <p class="font-rubik">Workers</p>
+                    </div>
+                    <!-- /.counter-box-one -->
+                    <div class="counter-box-one color-three">
+                        <h2 class="number font-rubik">
+                            <span class="timer">123</span>
+                        </h2>
+                        <p class="font-rubik">Offices</p>
+                    </div>
+                    <!-- /.counter-box-one -->
+                    <div class="bubble-one"></div>
+                    <div class="bubble-two"></div>
+                    <div class="bubble-three"></div>
+                    <div class="bubble-four"></div>
+                    <div class="bubble-five"></div>
+                    <div class="bubble-six"></div>
+                    <div class="bubble-seven"></div>
+                    <img
+                        src="assets/images/deski/shape/8.svg"
+                        alt=""
+                        class="cs-screen dot-shape"
+                    />
+                </div>
+                <!-- /.counter-info-classic -->
+            </div>
+
+            <div class="col-lg-6">
+                <div class="clients-feedback-classic md-mt-80">
+                    <div
+                        *ngFor="let item of featureData"
+                        class="feedback-wrapper"
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                    >
+                        <img src="{{ item.img }}" alt="" class="media-meta" />
+                        <p>
+                            {{ item.desc }}
+                        </p>
+                        <h6 class="name">{{ item.title }}</h6>
+                        <span class="font-rubik disg-info">{{
+                            item.subtitle
+                        }}</span>
+                    </div>
+                    <!-- /.feedback-wrapper -->
+                </div>
+                <!-- /.clients-feedback-classic -->
+            </div>
+        </div>
+    </div>
+</div>

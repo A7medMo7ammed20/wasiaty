@@ -1,0 +1,62 @@
+<div class="fancy-feature-twentyOne mt-200 md-mt-100" id="template">
+    <div class="container">
+        <div
+            class="title-style-eight text-center mb-80 md-mb-30"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+        >
+            <h2>Ready Stunning Templates</h2>
+            <p>Quick and easy to customize. No experience required.</p>
+        </div>
+    </div>
+
+    <div class="lg-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div
+                    *ngFor="let item of featureData; let i = index"
+                    class="col-xl-3 col-lg-4 col-sm-6"
+                    data-aos="fade-up"
+                    data-aos-duration="1200"
+                    [attr.data-aos-delay]="item.delay"
+                >
+                    <div class="block-style-twentyOne">
+                        <img [src]="item.img" alt="" class="w-100" />
+                        <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#videoModal"
+                            class="d-flex align-items-center justify-content-center flex-column video-button"
+                        >
+                            <span [innerHTML]="item.title"></span>
+                            <span
+                                class="icon d-flex align-items-center justify-content-center"
+                            >
+                                <img
+                                    src="assets/images/deski/icon/118.svg"
+                                    alt=""
+                            /></span>
+                        </button>
+                    </div>
+                    <!-- /.block-style-twentyOne -->
+                </div>
+                <!-- VideoModal start  -->
+                <app-video-modal
+                    videoUrl="https://www.youtube.com/embed/aXFSJTjVjw0"
+                ></app-video-modal>
+                <!-- VideoModal end  -->
+            </div>
+            <!-- /.row -->
+
+            <div
+                class="text-center mt-70"
+                data-aos="fade-up"
+                data-aos-duration="1200"
+            >
+                <a [routerLink]="['./']" class="theme-btn-nine"
+                    >Start Building</a
+                >
+            </div>
+        </div>
+    </div>
+    <!-- /.lg-container -->
+</div>

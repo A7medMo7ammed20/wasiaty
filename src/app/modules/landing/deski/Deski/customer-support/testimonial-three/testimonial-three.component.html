@@ -1,0 +1,85 @@
+<div class="client-feedback-slider-one pt-50 pb-170 md-pb-80">
+    <div class="shapes-holder">
+        <img src="assets/images/deski/shape/39.svg" alt="" />
+        <img
+            src="assets/images/deski/shape/42.svg"
+            alt=""
+            class="shapes shape-one"
+        />
+        <img
+            src="assets/images/deski/media/img_21.png"
+            alt=""
+            class="cp-img-one"
+        />
+        <img
+            src="assets/images/deski/media/img_22.png"
+            alt=""
+            class="cp-img-two"
+        />
+        <img
+            src="assets/images/deski/media/img_23.png"
+            alt=""
+            class="cp-img-three"
+        />
+        <img
+            src="assets/images/deski/media/img_24.png"
+            alt=""
+            class="cp-img-four"
+        />
+        <div class="title-style-two">
+            <h2>What’s <br />Our Client Say <br />About Us.</h2>
+        </div>
+    </div>
+    <!-- /.shapes-holder -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 ms-auto">
+                <div class="feedback-meta">
+                    <div class="watermark font-gilroy-bold">Feedback</div>
+                    <img
+                        src="assets/images/deski/icon/30.svg"
+                        alt=""
+                        class="icon"
+                    />
+
+                    <swiper
+                        class="clientSliderOne"
+                        [slidesPerView]="1"
+                        [navigation]="{ nextEl: '.next_c', prevEl: '.prev_c' }"
+                    >
+                        <ng-template
+                            swiperSlide
+                            *ngFor="let testimonial of testimonialData"
+                        >
+                            <div class="item">
+                                <p class="font-rubik">{{ testimonial.desc }}</p>
+                                <div class="d-lg-flex align-items-center">
+                                    <img
+                                        [src]="testimonial.img"
+                                        alt=""
+                                        class="c_img"
+                                    />
+                                    <div class="info">
+                                        <strong>{{ testimonial.name }}</strong>
+                                        <span>{{ testimonial.title }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </swiper>
+
+                    <ul class="d-flex slider-arrow mt-40">
+                        <li class="prev_c">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                        <li class="next_c">
+                            <i class="flaticon-right-arrow"></i>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.feedback-meta -->
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</div>
